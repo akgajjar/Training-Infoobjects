@@ -2,6 +2,7 @@ package com.infoobjects.Tuition_Management_System.Utils;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 import com.infoobjects.Tuition_Management_System.DTO.StudentDTO;
 import com.infoobjects.Tuition_Management_System.Service.StudentService;
@@ -10,7 +11,8 @@ import com.infoobjects.Tuition_Management_System.ServiceImpl.StudentServiceImpl;
 public class Projectutils {
 	private static StudentService stuservice =null;; 
 	private static Scanner sc= null;
-	
+	private static String emailrejex="[a-zA_Z0-9]+[@]{1}[a-zA_Z0-9]{2,3}[.]{1}[a-zA_Z0-9]{2,3}";
+	private static String mobilerejex="[789]{1}[0-9]{9}";
 	public Projectutils() {
 		sc=new Scanner(System.in);
 		stuservice= new StudentServiceImpl(); 
@@ -22,11 +24,11 @@ public class Projectutils {
 		System.out.println("\n\nEnter Student id : ");
 		student.setStudent_id(sc.nextInt());
 		System.out.println("Enter Student Name : ");
-		student.setStudent_name(sc.next());
+		student.setStudent_name(sc.nextLine());
 		System.out.println("Enter Student Address : ");
-		student.setStudent_address(sc.next());
+		student.setStudent_address(sc.nextLine());
 		System.out.println("Enter Student Email Id : ");
-		student.setStudent_email_id(sc.next());
+		student.setStudent_email_id(sc.nextLine());
 		while(true) {	
 			System.out.println("Select Student Gender : \n1. Male\n2.Female\n");
 			int c1= sc.nextInt();
@@ -42,16 +44,24 @@ public class Projectutils {
 				System.out.println("Invalid choice!!!!!\nChoose again!!!!!!!!!!");
 			}
 		}
-		System.out.println("Enter Student Mobile : ");
-		student.setStudent_mobile(sc.next());
+		while(true) {
+			System.out.println("Enter Student Mobile : ");
+			student.setStudent_mobile(sc.nextLine());
+			if(Pattern.matches(mobilerejex, student.getStudent_mobile())) {
+				break;
+			}
+			else {
+				System.out.println("Unvalid Mobile Number");
+			}
+		}
 		System.out.println("Enter Student Parent Name : ");
-		student.setStudent_parent_name(sc.next());
+		student.setStudent_parent_name(sc.nextLine());
 		System.out.println("Enter Student Parent Mobile : ");
-		student.setStudent_parent_mobile(sc.next());
+		student.setStudent_parent_mobile(sc.nextLine());
 		System.out.println("Enter Student Parent Email Id : ");
-		student.setStudent_parent_email_id(sc.next());
+		student.setStudent_parent_email_id(sc.nextLine());
 		System.out.println("Enter Reference Name : ");
-		student.setStudent_refname(sc.next());
+		student.setStudent_refname(sc.nextLine());
 		stuservice.insert(student);
 	}
 	
@@ -71,11 +81,11 @@ public class Projectutils {
 		StudentDTO student=new StudentDTO();
 		student.setStudent_id(id);
 		System.out.println("Enter Student Name : ");
-		student.setStudent_name(sc.next());
+		student.setStudent_name(sc.nextLine());
 		System.out.println("Enter Student Address : ");
-		student.setStudent_address(sc.next());
+		student.setStudent_address(sc.nextLine());
 		System.out.println("Enter Student Email Id : ");
-		student.setStudent_email_id(sc.next());
+		student.setStudent_email_id(sc.nextLine());
 		while(true) {	
 			System.out.println("Select Student Gender : \n1. Male\n2.Female\n");
 			int c1= sc.nextInt();
@@ -92,15 +102,15 @@ public class Projectutils {
 			}
 		}
 		System.out.println("Enter Student Mobile : ");
-		student.setStudent_mobile(sc.next());
+		student.setStudent_mobile(sc.nextLine());
 		System.out.println("Enter Student Parent Name : ");
-		student.setStudent_parent_name(sc.next());
+		student.setStudent_parent_name(sc.nextLine());
 		System.out.println("Enter Student Parent Mobile : ");
-		student.setStudent_parent_mobile(sc.next());
+		student.setStudent_parent_mobile(sc.nextLine());
 		System.out.println("Enter Student Parent Email Id : ");
-		student.setStudent_parent_email_id(sc.next());
+		student.setStudent_parent_email_id(sc.nextLine());
 		System.out.println("Enter Reference Name : ");
-		student.setStudent_refname(sc.next());
+		student.setStudent_refname(sc.nextLine());
 		stuservice.update(student);
 	}
 	
