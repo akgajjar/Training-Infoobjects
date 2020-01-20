@@ -11,57 +11,82 @@ import com.infoobjects.Tuition_Management_System.ServiceImpl.StudentServiceImpl;
 public class Projectutils {
 	private static StudentService stuservice =null;; 
 	private static Scanner sc= null;
-	private static String emailrejex="[a-zA_Z0-9]+[@]{1}[a-zA_Z0-9]{2,3}[.]{1}[a-zA_Z0-9]{2,3}";
+	private static String emailrejex="[a-zA_Z0-9]+[@]{1}[a-zA_Z0-9]+[.]{1}[a-zA_Z0-9]{2,3}";
 	private static String mobilerejex="[789]{1}[0-9]{9}";
 	public Projectutils() {
 		sc=new Scanner(System.in);
 		stuservice= new StudentServiceImpl(); 
 	}
-	
-	public void insertStudent() {
-	
-		StudentDTO student=new StudentDTO();
-		System.out.println("\n\nEnter Student id : ");
-		student.setStudent_id(sc.nextInt());
-		System.out.println("Enter Student Name : ");
-		student.setStudent_name(sc.nextLine());
-		System.out.println("Enter Student Address : ");
-		student.setStudent_address(sc.nextLine());
-		System.out.println("Enter Student Email Id : ");
-		student.setStudent_email_id(sc.nextLine());
+	public static boolean patternmatch(String pattern , String value) {
+		return Pattern.matches(pattern,value);
+	}
+	public static String ScanEmailid() {
+		String email=new String();
 		while(true) {	
-			System.out.println("Select Student Gender : \n1. Male\n2.Female\n");
+			System.out.println("Enter Email Id : ");
+			email=sc.next();
+			if(patternmatch(emailrejex,email))
+				break;
+			else
+			{
+				System.out.println("\nInvalid Email id !!!!!!!\n\n");
+			}
+		}
+		return email;
+	}
+	public static String Scanmobile() {
+		String mobile=new String();
+		while(true) {
+			System.out.println("Enter  Mobile : ");
+			mobile=sc.next();
+			if(patternmatch(mobilerejex, mobile)) {
+				break;
+			}
+			else {
+				System.out.println("Unvalid Mobile Number!!!!!!!!!!!");
+			}
+		}
+		return mobile;
+	}
+	public static String Scangender() {
+		String gender=new String();
+		while(true) {	
+			System.out.println("\nSelect Student Gender : \n1. Male\n2.Female\n");
 			int c1= sc.nextInt();
 			if(c1==1) {
-				student.setStudent_gen("Male");
+				gender="Male";
 				break;
 			}
 			else if(c1==2) {
-				student.setStudent_gen("Female");
+				gender="Female";
 				break;
 			}
 			else {
 				System.out.println("Invalid choice!!!!!\nChoose again!!!!!!!!!!");
 			}
 		}
-		while(true) {
-			System.out.println("Enter Student Mobile : ");
-			student.setStudent_mobile(sc.nextLine());
-			if(Pattern.matches(mobilerejex, student.getStudent_mobile())) {
-				break;
-			}
-			else {
-				System.out.println("Unvalid Mobile Number");
-			}
-		}
+		return gender;
+	}
+	public void insertStudent() {
+	
+		StudentDTO student=new StudentDTO();
+		System.out.println("Student Details : ");
+		System.out.println("\n\nEnter Student id : ");
+		student.setStudent_id(sc.nextInt());
+		System.out.println("Enter Name : ");
+		student.setStudent_name(sc.next());
+		System.out.println("Enter Address : ");
+		student.setStudent_address(sc.next());
+		student.setStudent_email_id(ScanEmailid());
+		student.setStudent_gen(Scangender());
+		student.setStudent_mobile(Scanmobile());
+		System.out.println("Parent Details : \n");
 		System.out.println("Enter Student Parent Name : ");
-		student.setStudent_parent_name(sc.nextLine());
-		System.out.println("Enter Student Parent Mobile : ");
-		student.setStudent_parent_mobile(sc.nextLine());
-		System.out.println("Enter Student Parent Email Id : ");
-		student.setStudent_parent_email_id(sc.nextLine());
+		student.setStudent_parent_name(sc.next());
+		student.setStudent_parent_mobile(Scanmobile());
+		student.setStudent_parent_email_id(ScanEmailid());
 		System.out.println("Enter Reference Name : ");
-		student.setStudent_refname(sc.nextLine());
+		student.setStudent_refname(sc.next());
 		stuservice.insert(student);
 	}
 	
@@ -81,11 +106,19 @@ public class Projectutils {
 		StudentDTO student=new StudentDTO();
 		student.setStudent_id(id);
 		System.out.println("Enter Student Name : ");
-		student.setStudent_name(sc.nextLine());
+		student.setStudent_name(sc.next());
 		System.out.println("Enter Student Address : ");
-		student.setStudent_address(sc.nextLine());
-		System.out.println("Enter Student Email Id : ");
-		student.setStudent_email_id(sc.nextLine());
+		student.setStudent_address(sc.next());
+		while(true) {	
+			System.out.println("Enter Student Email Id : ");
+			student.setStudent_email_id(sc.next());
+			if(Pattern.matches(emailrejex,student.getStudent_email_id()))
+				break;
+			else
+			{
+				System.out.println("\nInvalid Email id !!!!!!!\n\n");
+			}
+		}
 		while(true) {	
 			System.out.println("Select Student Gender : \n1. Male\n2.Female\n");
 			int c1= sc.nextInt();
@@ -101,16 +134,40 @@ public class Projectutils {
 				System.out.println("Invalid choice!!!!!\nChoose again!!!!!!!!!!");
 			}
 		}
-		System.out.println("Enter Student Mobile : ");
-		student.setStudent_mobile(sc.nextLine());
+		while(true) {
+			System.out.println("Enter Student Mobile : ");
+			student.setStudent_mobile(sc.next());
+			if(Pattern.matches(mobilerejex, student.getStudent_mobile())) {
+				break;
+			}
+			else {
+				System.out.println("Unvalid Mobile Number!!!!!!!!!!!");
+			}
+		}
 		System.out.println("Enter Student Parent Name : ");
-		student.setStudent_parent_name(sc.nextLine());
-		System.out.println("Enter Student Parent Mobile : ");
-		student.setStudent_parent_mobile(sc.nextLine());
-		System.out.println("Enter Student Parent Email Id : ");
-		student.setStudent_parent_email_id(sc.nextLine());
+		student.setStudent_parent_name(sc.next());
+		while(true) {
+			System.out.println("Enter Student Parent Mobile : ");
+			student.setStudent_parent_mobile(sc.next());
+			if(Pattern.matches(mobilerejex, student.getStudent_parent_mobile())) {
+				break;
+			}
+			else {
+				System.out.println("Unvalid Mobile Number!!!!!!!!!!!");
+			}
+		}
+		while(true) {	
+			System.out.println("Enter Student Parent Email Id : ");
+			student.setStudent_parent_email_id(sc.next());
+			if(Pattern.matches(emailrejex,student.getStudent_parent_email_id()))
+				break;
+			else
+			{
+				System.out.println("\nInvalid Email id !!!!!!!\n\n");
+			}
+		}
 		System.out.println("Enter Reference Name : ");
-		student.setStudent_refname(sc.nextLine());
+		student.setStudent_refname(sc.next());
 		stuservice.update(student);
 	}
 	
