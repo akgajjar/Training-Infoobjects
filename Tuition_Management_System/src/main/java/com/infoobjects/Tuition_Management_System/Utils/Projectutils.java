@@ -1,5 +1,8 @@
 package com.infoobjects.Tuition_Management_System.Utils;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -9,22 +12,22 @@ import com.infoobjects.Tuition_Management_System.Service.StudentService;
 import com.infoobjects.Tuition_Management_System.ServiceImpl.StudentServiceImpl;
 
 public class Projectutils {
-	private static StudentService stuservice =null;; 
-	private static Scanner sc= null;
+	private static StudentService stuservice =null;
+	private static BufferedReader br = null;
 	private static String emailrejex="[a-zA_Z0-9]+[@]{1}[a-zA_Z0-9]+[.]{1}[a-zA_Z0-9]{2,3}";
 	private static String mobilerejex="[789]{1}[0-9]{9}";
 	public Projectutils() {
-		sc=new Scanner(System.in);
 		stuservice= new StudentServiceImpl(); 
+		br = new BufferedReader(new InputStreamReader(System.in));
 	}
 	public static boolean patternmatch(String pattern , String value) {
 		return Pattern.matches(pattern,value);
 	}
-	public static String ScanEmailid() {
+	public static String ScanEmailid() throws IOException {
 		String email=new String();
 		while(true) {	
 			System.out.println("Enter Email Id : ");
-			email=sc.next();
+			email=br.readLine();
 			if(patternmatch(emailrejex,email))
 				break;
 			else
@@ -34,11 +37,11 @@ public class Projectutils {
 		}
 		return email;
 	}
-	public static String Scanmobile() {
+	public static String Scanmobile() throws IOException {
 		String mobile=new String();
 		while(true) {
 			System.out.println("Enter  Mobile : ");
-			mobile=sc.next();
+			mobile=br.readLine();
 			if(patternmatch(mobilerejex, mobile)) {
 				break;
 			}
@@ -48,11 +51,11 @@ public class Projectutils {
 		}
 		return mobile;
 	}
-	public static String Scangender() {
+	public static String Scangender() throws NumberFormatException, IOException {
 		String gender=new String();
 		while(true) {	
 			System.out.println("\nSelect Student Gender : \n1. Male\n2.Female\n");
-			int c1= sc.nextInt();
+			int c1= Integer.parseInt(br.readLine());
 			if(c1==1) {
 				gender="Male";
 				break;
@@ -67,107 +70,57 @@ public class Projectutils {
 		}
 		return gender;
 	}
-	public void insertStudent() {
+	public void insertStudent() throws IOException {
 	
 		StudentDTO student=new StudentDTO();
 		System.out.println("Student Details : ");
 		System.out.println("\n\nEnter Student id : ");
-		student.setStudent_id(sc.nextInt());
+		student.setStudent_id( Integer.parseInt(br.readLine()));
 		System.out.println("Enter Name : ");
-		student.setStudent_name(sc.next());
+		student.setStudent_name(br.readLine());
 		System.out.println("Enter Address : ");
-		student.setStudent_address(sc.next());
+		student.setStudent_address(br.readLine());
 		student.setStudent_email_id(ScanEmailid());
 		student.setStudent_gen(Scangender());
 		student.setStudent_mobile(Scanmobile());
 		System.out.println("Parent Details : \n");
 		System.out.println("Enter Student Parent Name : ");
-		student.setStudent_parent_name(sc.next());
+		student.setStudent_parent_name(br.readLine());
 		student.setStudent_parent_mobile(Scanmobile());
 		student.setStudent_parent_email_id(ScanEmailid());
 		System.out.println("Enter Reference Name : ");
-		student.setStudent_refname(sc.next());
+		student.setStudent_refname(br.readLine());
 		stuservice.insert(student);
 	}
 	
-	public void deleteStudent() {
+	public void deleteStudent() throws NumberFormatException, IOException {
 		
 		System.out.println("\nEnter a Student Id : ");
-		int id = sc.nextInt();
+		int id = Integer.parseInt(br.readLine());
 		stuservice.delete(id);
 	}
 	
-	public void updateStudent() {
-		
+	public void updateStudent() throws IOException {
 		System.out.println("\nEnter a Student Id : ");
-		int id = sc.nextInt();
+		int id = Integer.parseInt(br.readLine());
 		findStudent(id);
 		System.out.println("\n");
 		StudentDTO student=new StudentDTO();
 		student.setStudent_id(id);
-		System.out.println("Enter Student Name : ");
-		student.setStudent_name(sc.next());
-		System.out.println("Enter Student Address : ");
-		student.setStudent_address(sc.next());
-		while(true) {	
-			System.out.println("Enter Student Email Id : ");
-			student.setStudent_email_id(sc.next());
-			if(Pattern.matches(emailrejex,student.getStudent_email_id()))
-				break;
-			else
-			{
-				System.out.println("\nInvalid Email id !!!!!!!\n\n");
-			}
-		}
-		while(true) {	
-			System.out.println("Select Student Gender : \n1. Male\n2.Female\n");
-			int c1= sc.nextInt();
-			if(c1==1) {
-				student.setStudent_gen("Male");
-				break;
-			}
-			else if(c1==2) {
-				student.setStudent_gen("Female");
-				break;
-			}
-			else {
-				System.out.println("Invalid choice!!!!!\nChoose again!!!!!!!!!!");
-			}
-		}
-		while(true) {
-			System.out.println("Enter Student Mobile : ");
-			student.setStudent_mobile(sc.next());
-			if(Pattern.matches(mobilerejex, student.getStudent_mobile())) {
-				break;
-			}
-			else {
-				System.out.println("Unvalid Mobile Number!!!!!!!!!!!");
-			}
-		}
+		System.out.println("Enter Name : ");
+		student.setStudent_name(br.readLine());
+		System.out.println("Enter Address : ");
+		student.setStudent_address(br.readLine());
+		student.setStudent_email_id(ScanEmailid());
+		student.setStudent_gen(Scangender());
+		student.setStudent_mobile(Scanmobile());
+		System.out.println("Parent Details : \n");
 		System.out.println("Enter Student Parent Name : ");
-		student.setStudent_parent_name(sc.next());
-		while(true) {
-			System.out.println("Enter Student Parent Mobile : ");
-			student.setStudent_parent_mobile(sc.next());
-			if(Pattern.matches(mobilerejex, student.getStudent_parent_mobile())) {
-				break;
-			}
-			else {
-				System.out.println("Unvalid Mobile Number!!!!!!!!!!!");
-			}
-		}
-		while(true) {	
-			System.out.println("Enter Student Parent Email Id : ");
-			student.setStudent_parent_email_id(sc.next());
-			if(Pattern.matches(emailrejex,student.getStudent_parent_email_id()))
-				break;
-			else
-			{
-				System.out.println("\nInvalid Email id !!!!!!!\n\n");
-			}
-		}
+		student.setStudent_parent_name(br.readLine());
+		student.setStudent_parent_mobile(Scanmobile());
+		student.setStudent_parent_email_id(ScanEmailid());
 		System.out.println("Enter Reference Name : ");
-		student.setStudent_refname(sc.next());
+		student.setStudent_refname(br.readLine());
 		stuservice.update(student);
 	}
 	

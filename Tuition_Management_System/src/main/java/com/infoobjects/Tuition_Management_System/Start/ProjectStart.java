@@ -1,5 +1,8 @@
 package com.infoobjects.Tuition_Management_System.Start;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 import com.infoobjects.Tuition_Management_System.DTO.StudentDTO;
@@ -9,13 +12,13 @@ import com.infoobjects.Tuition_Management_System.Utils.Projectutils;
 
 public class ProjectStart {
 
-	private static Scanner sc = null;
 	private static Projectutils utils = null;
+	private static BufferedReader br = null;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		int c, flag = 0;
-		sc = new Scanner(System.in);
+		br = new BufferedReader(new InputStreamReader(System.in));
 		utils = new Projectutils();
 		System.out.println("--------------------------------------------------------------------\n");
 		System.out.println("                   Tuition Management System                        \n");
@@ -28,7 +31,7 @@ public class ProjectStart {
 			System.out.println("4) Find Student");
 			System.out.println("5) Find All Student");
 			System.out.println("6) Exit");
-			c = sc.nextInt();
+			c = Integer.parseInt(br.readLine());
 			switch (c) {
 			case 1:
 				utils.insertStudent();
@@ -41,7 +44,7 @@ public class ProjectStart {
 				break;
 			case 4:
 				System.out.println("Enter a Student Id : ");
-				int id = sc.nextInt();
+				int id = Integer.parseInt(br.readLine());
 				utils.findStudent(id);
 				break;
 			case 5:
