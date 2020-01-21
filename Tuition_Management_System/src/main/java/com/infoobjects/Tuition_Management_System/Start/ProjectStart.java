@@ -9,19 +9,20 @@ import com.infoobjects.Tuition_Management_System.DTO.StudentDTO;
 import com.infoobjects.Tuition_Management_System.Service.StudentService;
 import com.infoobjects.Tuition_Management_System.ServiceImpl.StudentServiceImpl;
 import com.infoobjects.Tuition_Management_System.Utils.Projectutils;
+import com.infoobjects.Tuition_Management_System.view.ProjectMainView;
 
 public class ProjectStart {
 
-	private static Projectutils utils = null;
+	private static ProjectMainView view = null;
 	private static BufferedReader br = null;
 
 	public static void main(String[] args) throws IOException {
 
 		int c, flag = 0;
 		br = new BufferedReader(new InputStreamReader(System.in));
-		utils = new Projectutils();
+		view = new ProjectMainView();
 		String pretty="--------------------------------------------------------------------\n";
-		System.out.println(pretty+"\t\t\tTuition Management System\t\t\t\n"+pretty);
+		System.out.printf("%s\t\t\tTuition Management System\t\t\t\n%s%n", pretty, pretty);
 		while (true) {
 			System.out.println("\n\n\nChoose your Choice:");
 			System.out.println("1) Insert Student");
@@ -33,21 +34,21 @@ public class ProjectStart {
 			c = Integer.parseInt(br.readLine());
 			switch (c) {
 			case 1:
-				utils.insertStudent();
+				view.insertStudent();
 				break;
 			case 2:
-				utils.updateStudent();
+				view.updateStudent();
 				break;
 			case 3:
-				utils.deleteStudent();
+				view.deleteStudent();
 				break;
 			case 4:
 				System.out.println("Enter a Student Id : ");
 				int id = Integer.parseInt(br.readLine());
-				utils.findStudent(id);
+				view.findStudent(id);
 				break;
 			case 5:
-				utils.findAllStudent();
+				view.findAllStudent();
 				break;
 			case 6:
 				flag = 1;

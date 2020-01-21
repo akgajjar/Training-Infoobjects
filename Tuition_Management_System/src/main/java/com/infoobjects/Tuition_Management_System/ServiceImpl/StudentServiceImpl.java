@@ -15,7 +15,7 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	public void insert(StudentDTO t) {
-		projectdao.insert(t, t.getStudent_id());
+		projectdao.insert(t, t.getStudentId());
 	}
 
 	public void delete(int id) {
@@ -27,7 +27,7 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	public void update(StudentDTO t) {
-		projectdao.update(t,t.getStudent_id());
+		projectdao.update(t,t.getStudentId());
 	}
 
 	public List<StudentDTO> findAll() {

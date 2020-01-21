@@ -4,16 +4,16 @@ import java.lang.reflect.Field;
 
 public class StudentDTO {
 
-	private int Student_id;
-	private String Student_name;
-	private String Student_address;
-	private String Student_email_id;
-	private String Student_gen;
-	private String Student_mobile;
-	private String Student_parent_name;
-	private String Student_parent_mobile;
-	private String Student_parent_email_id;
-	private String Student_refname;
+	private int studentId;
+	private String studentName;
+	private String studentAddress;
+	private String studentEmailId;
+	private String studentGender;
+	private String studentMobile;
+	private String studentParentName;
+	private String studentParentMobile;
+	private String studentParentEmailId;
+	private String studentReferenceName;
 
 	@Override
 	public String toString() {
@@ -30,83 +30,83 @@ public class StudentDTO {
 		return ret;
 	}
 
-	public int getStudent_id() {
-		return Student_id;
+	public int getStudentId() {
+		return studentId;
 	}
 
-	public void setStudent_id(int student_id) {
-		Student_id = student_id;
+	public void setStudentId(int studentId) {
+		this.studentId = studentId;
 	}
 
-	public String getStudent_name() {
-		return Student_name;
+	public String getStudentName() {
+		return studentName;
 	}
 
-	public void setStudent_name(String student_name) {
-		Student_name = student_name;
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
 	}
 
-	public String getStudent_address() {
-		return Student_address;
+	public String getStudentAddress() {
+		return studentAddress;
 	}
 
-	public void setStudent_address(String student_address) {
-		Student_address = student_address;
+	public void setStudentAddress(String studentAddress) {
+		this.studentAddress = studentAddress;
 	}
 
-	public String getStudent_email_id() {
-		return Student_email_id;
+	public String getStudentEmailId() {
+		return studentEmailId;
 	}
 
-	public void setStudent_email_id(String student_email_id) {
-		Student_email_id = student_email_id;
+	public void setStudentEmailId(String studentEmailId) {
+		this.studentEmailId = studentEmailId;
 	}
 
-	public String getStudent_gen() {
-		return Student_gen;
+	public String getStudentGender() {
+		return studentGender;
 	}
 
-	public void setStudent_gen(String student_gen) {
-		Student_gen = student_gen;
+	public void setStudentGender(String studentGender) {
+		this.studentGender = studentGender;
 	}
 
-	public String getStudent_mobile() {
-		return Student_mobile;
+	public String getStudentMobile() {
+		return studentMobile;
 	}
 
-	public void setStudent_mobile(String student_mobile) {
-		Student_mobile = student_mobile;
+	public void setStudentMobile(String studentMobile) {
+		this.studentMobile = studentMobile;
 	}
 
-	public String getStudent_parent_name() {
-		return Student_parent_name;
+	public String getStudentParentName() {
+		return studentParentName;
 	}
 
-	public void setStudent_parent_name(String student_parent_name) {
-		Student_parent_name = student_parent_name;
+	public void setStudentParentName(String studentParentName) {
+		this.studentParentName = studentParentName;
 	}
 
-	public String getStudent_parent_mobile() {
-		return Student_parent_mobile;
+	public String getStudentParentMobile() {
+		return studentParentMobile;
 	}
 
-	public void setStudent_parent_mobile(String student_parent_mobile) {
-		Student_parent_mobile = student_parent_mobile;
+	public void setStudentParentMobile(String studentParentMobile) {
+		this.studentParentMobile = studentParentMobile;
 	}
 
-	public String getStudent_parent_email_id() {
-		return Student_parent_email_id;
+	public String getStudentParentEmailId() {
+		return studentParentEmailId;
 	}
 
-	public void setStudent_parent_email_id(String student_parent_email_id) {
-		Student_parent_email_id = student_parent_email_id;
+	public void setStudentParentEmailId(String studentParentEmailId) {
+		this.studentParentEmailId = studentParentEmailId;
 	}
 
-	public String getStudent_refname() {
-		return Student_refname;
+	public String getStudentReferenceName() {
+		return studentReferenceName;
 	}
 
-	public void setStudent_refname(String student_refname) {
-		Student_refname = student_refname;
+	public void setStudentReferenceName(String studentReferenceName) {
+		this.studentReferenceName = studentReferenceName;
 	}
 }
