@@ -1,6 +1,6 @@
-com\infoobjects\Tuition_Management_System\DTO\StudentDTO.class
-com\infoobjects\Tuition_Management_System\Start\ProjectStart.class
-com\infoobjects\Tuition_Management_System\DAO\ProjectDAO.class
-com\infoobjects\Tuition_Management_System\ServiceImpl\StudentServiceImpl.class
-com\infoobjects\Tuition_Management_System\Service\StudentService.class
-com\infoobjects\Tuition_Management_System\Utils\Projectutils.class
+com/infoobjects/Tuition_Management_System/DAO/ProjectDAO.class
+com/infoobjects/Tuition_Management_System/Service/StudentService.class
+com/infoobjects/Tuition_Management_System/Utils/Projectutils.class
+com/infoobjects/Tuition_Management_System/Start/ProjectStart.class
+com/infoobjects/Tuition_Management_System/ServiceImpl/StudentServiceImpl.class
+com/infoobjects/Tuition_Management_System/DTO/StudentDTO.class

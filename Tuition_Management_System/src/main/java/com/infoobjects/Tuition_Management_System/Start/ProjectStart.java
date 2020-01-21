@@ -20,9 +20,8 @@ public class ProjectStart {
 		int c, flag = 0;
 		br = new BufferedReader(new InputStreamReader(System.in));
 		utils = new Projectutils();
-		System.out.println("--------------------------------------------------------------------\n");
-		System.out.println("                   Tuition Management System                        \n");
-		System.out.println("--------------------------------------------------------------------");
+		String pretty="--------------------------------------------------------------------\n";
+		System.out.println(pretty+"\t\t\tTuition Management System\t\t\t\n"+pretty);
 		while (true) {
 			System.out.println("\n\n\nChoose your Choice:");
 			System.out.println("1) Insert Student");

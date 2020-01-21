@@ -53,7 +53,7 @@ public class Projectutils {
 			if (patternmatch(mobilerejex, mobile)) {
 				break;
 			} else {
-				System.out.println("Unvalid Mobile Number!!!!!!!!!!!");
+				System.out.println("Invalid Mobile Number!!!!!!!!!!!");
 			}
 		}
 		return mobile;
