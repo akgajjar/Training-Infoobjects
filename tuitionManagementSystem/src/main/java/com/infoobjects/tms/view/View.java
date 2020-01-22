@@ -2,7 +2,7 @@ package com.infoobjects.tms.view;
 
 import java.io.IOException;
 
-public interface View {
+public interface View<T,Object> {
 
         public void insert() throws IOException;
 
@@ -10,7 +10,7 @@ public interface View {
 
         public  void update() throws IOException;
 
-        public void find(int studentId);
+        public void find(Object id);
 
         public void findAll();
 

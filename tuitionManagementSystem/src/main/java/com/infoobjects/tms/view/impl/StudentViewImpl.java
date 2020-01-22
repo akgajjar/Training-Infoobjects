@@ -1,6 +1,6 @@
 package com.infoobjects.tms.view.impl;
 
-import com.infoobjects.tms.service.StudentService;
+import com.infoobjects.tms.service.Service;
 import com.infoobjects.tms.service.impl.StudentServiceImpl;
 import com.infoobjects.tms.dto.StudentDTO;
 import com.infoobjects.tms.utils.Projectutils;
@@ -9,10 +9,11 @@ import com.infoobjects.tms.view.View;
 import java.io.IOException;
 import java.util.List;
 
-public class StudentViewImpl implements View {
+public class StudentViewImpl implements View<StudentDTO,Integer> {
 
-    private static StudentService studentService = null;
+    private static Service<StudentDTO, Integer> studentService = null;
     private Projectutils projectUtils = null;
+
     public StudentViewImpl() {
         studentService = new StudentServiceImpl();
         projectUtils = new Projectutils();
@@ -63,7 +64,7 @@ public class StudentViewImpl implements View {
     }
 
     @Override
-    public void find(int id) {
+    public void find(Integer id) {
         StudentDTO student = studentService.find(id);
         if (student == null) {
             System.out.println(Projectutils.findErrorMsg);
