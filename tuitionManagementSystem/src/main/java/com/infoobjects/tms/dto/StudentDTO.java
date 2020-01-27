@@ -1,5 +1,7 @@
 package com.infoobjects.tms.dto;
 
+import com.infoobjects.tms.enums.Gender;
+
 import java.lang.reflect.Field;
 
 public class StudentDTO {
@@ -8,7 +10,7 @@ public class StudentDTO {
 	private String studentName;
 	private String studentAddress;
 	private String studentEmailId;
-	private String studentGender;
+	private Gender studentGender;
 	private String studentMobile;
 	private String studentParentName;
 	private String studentParentMobile;
@@ -18,11 +20,11 @@ public class StudentDTO {
 	@Override
 	public String toString() {
 		String returnValue = "\nStudent : \n\n";
-		Class classRef = this.getClass();
-		Field[] fields = classRef.getDeclaredFields();
-		for (int i = 0; i < fields.length; i++) {
+		Class classReference = this.getClass();
+		Field[] fields = classReference.getDeclaredFields();
+		for (int loopCounter = 0; loopCounter < fields.length; loopCounter++) {
 			try {
-				returnValue += fields[i].getName() + " : " + String.valueOf(fields[i].get(this)) + "\n";
+				returnValue += fields[loopCounter].getName() + " : " + String.valueOf(fields[loopCounter].get(this)) + "\n";
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -62,11 +64,11 @@ public class StudentDTO {
 		this.studentEmailId = studentEmailId;
 	}
 
-	public String getStudentGender() {
+	public Gender getStudentGender() {
 		return studentGender;
 	}
 
-	public void setStudentGender(String studentGender) {
+	public void setStudentGender(Gender studentGender) {
 		this.studentGender = studentGender;
 	}
 
@@ -109,4 +111,5 @@ public class StudentDTO {
 	public void setStudentReferenceName(String studentReferenceName) {
 		this.studentReferenceName = studentReferenceName;
 	}
+
 }

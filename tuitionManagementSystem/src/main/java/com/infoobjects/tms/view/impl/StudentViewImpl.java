@@ -1,9 +1,9 @@
 package com.infoobjects.tms.view.impl;
 
+import com.infoobjects.tms.dto.StudentDTO;
 import com.infoobjects.tms.service.Service;
 import com.infoobjects.tms.service.impl.StudentServiceImpl;
-import com.infoobjects.tms.dto.StudentDTO;
-import com.infoobjects.tms.utils.Projectutils;
+import static  com.infoobjects.tms.utils.Projectutils.*;
 import com.infoobjects.tms.view.View;
 
 import java.io.IOException;
@@ -12,54 +12,66 @@ import java.util.List;
 public class StudentViewImpl implements View<StudentDTO,Integer> {
 
     private static Service<StudentDTO, Integer> studentService = null;
-    private Projectutils projectUtils = null;
 
     public StudentViewImpl() {
         studentService = new StudentServiceImpl();
-        projectUtils = new Projectutils();
     }
 
     @Override
     public void insert() throws IOException {
         StudentDTO student = new StudentDTO();
         System.out.println("Student Details : ");
-        student.setStudentId(Integer.parseInt(projectUtils.scan("Student Id")));
-        student.setStudentName(projectUtils.scan("Student Name"));
-        student.setStudentAddress(projectUtils.scan("Student Address"));
-        student.setStudentEmailId(projectUtils.scan("Email Id",Projectutils.emailRejex));
-        student.setStudentGender(projectUtils.scanGender());
-        student.setStudentMobile(projectUtils.scan("Mobile No",Projectutils.mobileRejex));
+        student.setStudentId(scanInteger("Student Id"));
+        if(studentService.find(student.getStudentId()) != null){
+            System.out.println(duplicatePrimaryKeyErrorMsg);
+            return ;
+        }
+        student.setStudentName(scan("Student Name"));
+        student.setStudentAddress(scan("Student Address"));
+        student.setStudentEmailId(scan("Email Id", emailRegex));
+        student.setStudentGender(scanGender());
+        student.setStudentMobile(scan("Mobile No", mobileRegex));
         System.out.println("Parent Details : \n");
-        student.setStudentParentName(projectUtils.scan("Student Parent Name"));
-        student.setStudentParentMobile(projectUtils.scan("Mobile No",Projectutils.mobileRejex));
-        student.setStudentParentEmailId(projectUtils.scan("Email Id",Projectutils.emailRejex));
-        student.setStudentReferenceName(projectUtils.scan("Reference Name"));
+        student.setStudentParentName(scan("Student Parent Name"));
+        student.setStudentParentMobile(scan("Mobile No", mobileRegex));
+        student.setStudentParentEmailId(scan("Email Id", emailRegex));
+        student.setStudentReferenceName(scan("Reference Name"));
         studentService.insert(student);
     }
 
     @Override
     public void delete() throws NumberFormatException, IOException {
-        int studentId = Integer.parseInt(projectUtils.scan("Student Id"));
+        int studentId = scanInteger("Student Id");
+        if(studentService.find(studentId) == null)
+        {
+            System.out.println(findErrorMsg);
+            return;
+        }
         studentService.delete(studentId);
     }
 
     @Override
     public void update() throws IOException {
-        int studentId = Integer.parseInt(projectUtils.scan("Student Id"));
+        int studentId = scanInteger("Student Id");
+        if(studentService.find(studentId) == null)
+        {
+            System.out.println(findErrorMsg);
+            return;
+        }
         find(studentId);
         StudentDTO student = new StudentDTO();
         student.setStudentId(studentId);
         System.out.println("\nStudent Details : ");
-        student.setStudentName(projectUtils.scan("Name"));
-        student.setStudentAddress(projectUtils.scan("Address"));
-        student.setStudentEmailId(projectUtils.scan("Email Id",Projectutils.emailRejex));
-        student.setStudentGender(projectUtils.scanGender());
-        student.setStudentMobile(projectUtils.scan("Mobile no ",Projectutils.mobileRejex));
+        student.setStudentName(scan("Name"));
+        student.setStudentAddress(scan("Address"));
+        student.setStudentEmailId(scan("Email Id", emailRegex));
+        student.setStudentGender(scanGender());
+        student.setStudentMobile(scan("Mobile no ", mobileRegex));
         System.out.println("Parent Details : \n");
-        student.setStudentParentName(projectUtils.scan("Parent Name"));
-        student.setStudentParentMobile(projectUtils.scan("Mobile no ",Projectutils.mobileRejex));
-        student.setStudentParentEmailId(projectUtils.scan("Email Id",Projectutils.emailRejex));
-        student.setStudentReferenceName(projectUtils.scan(("Reference Name")));
+        student.setStudentParentName(scan("Parent Name"));
+        student.setStudentParentMobile(scan("Mobile no ", mobileRegex));
+        student.setStudentParentEmailId(scan("Email Id", emailRegex));
+        student.setStudentReferenceName(scan(("Reference Name")));
         studentService.update(student);
     }
 
@@ -67,22 +79,22 @@ public class StudentViewImpl implements View<StudentDTO,Integer> {
     public void find(Integer id) {
         StudentDTO student = studentService.find(id);
         if (student == null) {
-            System.out.println(Projectutils.findErrorMsg);
+            System.out.println(findErrorMsg);
             return;
         }
-        System.out.println("\n" + student);
+        System.out.println(student + "\n" );
     }
 
     @Override
     public void findAll() {
         List<StudentDTO> students = studentService.findAll();
         if (students.size() == 0) {
-            System.out.println(Projectutils.findErrorMsg);
+            System.out.println(findErrorMsg);
             return;
         }
         System.out.println("Students : \n\n");
-        for (int i = 0; i < students.size(); i++) {
-            StudentDTO student = students.get(i);
+        for (int loopCounter = 0; loopCounter < students.size(); loopCounter++) {
+            StudentDTO student = students.get(loopCounter);
             System.out.println(student + "\n");
         }
     }
@@ -98,10 +110,10 @@ public class StudentViewImpl implements View<StudentDTO,Integer> {
         String pretty = "--------------------------------------------------------------------\n";
         String systemName = "\t\t\tTuition Management System\t\t\t";
 
-        System.out.printf("%s %s %n %s %n", pretty,systemName, pretty);
+        System.out.printf("%s %s %n %s %n", pretty, systemName, pretty);
         while (true) {
             System.out.println(functionalityOptions);
-            choice = Integer.parseInt(projectUtils.scan("Choice"));
+            choice = Integer.parseInt(scan("Choice"));
             switch (choice) {
                 case 1:
                     insert();
@@ -113,7 +125,7 @@ public class StudentViewImpl implements View<StudentDTO,Integer> {
                     delete();
                     break;
                 case 4:
-                    int studentId = Integer.parseInt(projectUtils.scan("Student Id"));
+                    int studentId = Integer.parseInt(scan("Student Id"));
                     find(studentId);
                     break;
                 case 5:
@@ -123,7 +135,7 @@ public class StudentViewImpl implements View<StudentDTO,Integer> {
                     loopBreak = 1;
                     break;
                 default:
-                    System.out.println(Projectutils.scanningErrorMsg);
+                    System.out.printf(scanningErrorMsg,"Choice");
                     break;
             }
             if (loopBreak == 1)

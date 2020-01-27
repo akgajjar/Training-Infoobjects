@@ -1,15 +1,17 @@
-package com.infoobjects.tms.dao;
+package com.infoobjects.tms.dao.impl;
+
+import com.infoobjects.tms.dao.DAO;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ProjectDAO<T>{
+public class ProjectDAOImpl<T,Object> implements DAO<T,Object> {
 
 		private Map<Object, T> map=null;	
 	
-		public ProjectDAO() {
+		public ProjectDAOImpl() {
 			map=new HashMap<Object, T>();
 		}
 	
@@ -32,4 +34,5 @@ public class ProjectDAO<T>{
 		public List<T> findAll() {
 			return  new ArrayList<T>(map.values());
 		}
+
 	}

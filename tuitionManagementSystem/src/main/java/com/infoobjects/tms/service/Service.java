@@ -2,12 +2,7 @@ package com.infoobjects.tms.service;
 
 import java.util.List;
 
-import com.infoobjects.tms.dao.ProjectDAO;
-import com.infoobjects.tms.dto.StudentDTO;
-
 public interface Service<T,Object> {
-
-    public static ProjectDAO<StudentDTO> projectDao = new ProjectDAO<StudentDTO>();;
 
 	public void insert(T t);
     
