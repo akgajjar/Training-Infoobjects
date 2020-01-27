@@ -9,7 +9,7 @@ import com.infoobjects.tms.view.View;
 import java.io.IOException;
 import java.util.List;
 
-public class StudentViewImpl implements View<StudentDTO,Integer> {
+public class StudentViewImpl implements View<StudentDTO, Integer> {
 
     private static Service<StudentDTO, Integer> studentService = null;
 
@@ -20,22 +20,22 @@ public class StudentViewImpl implements View<StudentDTO,Integer> {
     @Override
     public void insert() throws IOException {
         StudentDTO student = new StudentDTO();
-        System.out.println("Student Details : ");
+        System.out.println("\nEnter Student Details : ");
         student.setStudentId(scanInteger("Student Id"));
         if(studentService.find(student.getStudentId()) != null){
             System.out.println(duplicatePrimaryKeyErrorMsg);
             return ;
         }
-        student.setStudentName(scan("Student Name"));
+        student.setStudentName(scanString("Student Name"));
         student.setStudentAddress(scan("Student Address"));
         student.setStudentEmailId(scan("Email Id", emailRegex));
         student.setStudentGender(scanGender());
         student.setStudentMobile(scan("Mobile No", mobileRegex));
-        System.out.println("Parent Details : \n");
-        student.setStudentParentName(scan("Student Parent Name"));
+        System.out.println("\nEnter Parent Details : \n");
+        student.setStudentParentName(scanString("Student Parent Name"));
         student.setStudentParentMobile(scan("Mobile No", mobileRegex));
         student.setStudentParentEmailId(scan("Email Id", emailRegex));
-        student.setStudentReferenceName(scan("Reference Name"));
+        student.setStudentReferenceName(scanString("Reference Name"));
         studentService.insert(student);
     }
 
@@ -61,17 +61,17 @@ public class StudentViewImpl implements View<StudentDTO,Integer> {
         find(studentId);
         StudentDTO student = new StudentDTO();
         student.setStudentId(studentId);
-        System.out.println("\nStudent Details : ");
-        student.setStudentName(scan("Name"));
+        System.out.println("\nEnter Student Details : ");
+        student.setStudentName(scanString("Name"));
         student.setStudentAddress(scan("Address"));
         student.setStudentEmailId(scan("Email Id", emailRegex));
         student.setStudentGender(scanGender());
         student.setStudentMobile(scan("Mobile no ", mobileRegex));
-        System.out.println("Parent Details : \n");
-        student.setStudentParentName(scan("Parent Name"));
+        System.out.println("\nEnter Parent Details : \n");
+        student.setStudentParentName(scanString("Parent Name"));
         student.setStudentParentMobile(scan("Mobile no ", mobileRegex));
         student.setStudentParentEmailId(scan("Email Id", emailRegex));
-        student.setStudentReferenceName(scan(("Reference Name")));
+        student.setStudentReferenceName(scanString(("Reference Name")));
         studentService.update(student);
     }
 
@@ -113,7 +113,7 @@ public class StudentViewImpl implements View<StudentDTO,Integer> {
         System.out.printf("%s %s %n %s %n", pretty, systemName, pretty);
         while (true) {
             System.out.println(functionalityOptions);
-            choice = Integer.parseInt(scan("Choice"));
+            choice = scanInteger("Choice");
             switch (choice) {
                 case 1:
                     insert();
@@ -125,21 +125,18 @@ public class StudentViewImpl implements View<StudentDTO,Integer> {
                     delete();
                     break;
                 case 4:
-                    int studentId = Integer.parseInt(scan("Student Id"));
+                    int studentId = scanInteger("Student Id");
                     find(studentId);
                     break;
                 case 5:
                     findAll();
                     break;
                 case 6:
-                    loopBreak = 1;
-                    break;
+                    return;
                 default:
                     System.out.printf(scanningErrorMsg,"Choice");
                     break;
             }
-            if (loopBreak == 1)
-                break;
         }
     }
 

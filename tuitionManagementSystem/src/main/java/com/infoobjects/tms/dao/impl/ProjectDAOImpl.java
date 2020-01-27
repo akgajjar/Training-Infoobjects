@@ -9,10 +9,10 @@ import java.util.Map;
 
 public class ProjectDAOImpl<T,Object> implements DAO<T,Object> {
 
-		private Map<Object, T> map=null;	
-	
+		private Map<T, Object> map=null;
+
 		public ProjectDAOImpl() {
-			map=new HashMap<Object, T>();
+			map=new HashMap<T, Object>();
 		}
 	
 		public void insert(T t, Object id) {

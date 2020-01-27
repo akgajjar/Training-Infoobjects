@@ -2,7 +2,7 @@ package com.infoobjects.tms.view;
 
 import java.io.IOException;
 
-public interface View<T,Object> {
+public interface View<T, Object> {
 
         public void insert() throws IOException;
 

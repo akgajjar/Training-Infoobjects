@@ -9,23 +9,26 @@ import java.util.regex.Pattern;
 
 public class Projectutils {
 
-	private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));;
 	public static String emailRegex = "[a-zA_Z0-9]+[@]{1}[a-zA_Z0-9]+[.]{1}[a-zA_Z0-9]{2,3}";
-	public static String mobileRegex = "[789]{1}[0-9]{9}";
+	public static String mobileRegex = "(0/91)?[7-9][0-9]{9}";
 	public static String digitRegex = "\\d";
+	public static String stringRegex = "[a-zA-Z]+";
 	public static String exclamationMark = "!!!!!!!!!!";
 	public static String scanningErrorMsg = "\nInvalid %s " + exclamationMark + "\n\n";
-	public static String findErrorMsg = "\nNot Found " + exclamationMark + "\n\n";
+	public static String findErrorMsg = "\nNo Student Found " + exclamationMark + "\n\n";
 	public static String nullErrorMsg = "\nNull Value Found Please Enter Correct Value" + exclamationMark + "\n\n";
 	public static String duplicatePrimaryKeyErrorMsg = "\nDuplicate Value for Primary Key" + exclamationMark + "\n\n";
-	public static String selectErrormsg = "\nEnter Single Digit as Input " + exclamationMark + "\n\n";
-	public static String integerErrormsg = "\nplease Enter integer Value only" + exclamationMark +"\n\n";
+	public static String selectErrorMsg = "\nEnter Single Digit as Input " + exclamationMark + "\n\n";
+	public static String integerOnlyErrorMsg = "\nplease Enter integer Value only" + exclamationMark +"\n\n";
+	public static String stringOnlyErrorMsg = "\nplease Enter Chanracter only" + exclamationMark +"\n\n";
 
 	public  static boolean patternMatch(String pattern, String value) {
-		return Pattern.matches(pattern, value);
+		Pattern patternRef = Pattern.compile(pattern);
+		return patternRef.matcher(value).matches();
 	}
 
 	public static String scan(String msg) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String returnValue = null;
 		while (true){
 			System.out.println("\nEnter " + msg + " : ");
@@ -36,13 +39,13 @@ public class Projectutils {
 			}
 			else
 			{
-				break;
+				return returnValue;
 			}
 		}
-		return returnValue;
 	}
 
-	public static int scanInteger(String msg) throws IOException {
+	public static String scanString(String msg) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String returnValue = null;
 		while (true){
 			System.out.println("\nEnter " + msg + " : ");
@@ -51,9 +54,32 @@ public class Projectutils {
 				System.out.println(nullErrorMsg);
 				continue;
 			}
-			else if(patternMatch(returnValue,digitRegex + "+"))
+			else if(!patternMatch(stringRegex, returnValue))
 			{
-				System.out.println(integerErrormsg);
+				System.out.println(stringOnlyErrorMsg);
+				continue;
+			}
+			else
+			{
+				return returnValue;
+			}
+		}
+	}
+
+	public static int scanInteger(String msg) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String returnValue = null;
+		while (true){
+			System.out.println("\nEnter " + msg + " : ");
+			returnValue = br.readLine();
+			if(returnValue == null) {
+				System.out.println(nullErrorMsg);
+				continue;
+			}
+			else if(!patternMatch(digitRegex + "+" , returnValue))
+			{
+				System.out.println(integerOnlyErrorMsg);
+				continue;
 			}
 			else{
 				break;
@@ -63,6 +89,7 @@ public class Projectutils {
 	}
 
 	public  static String scan(String msg, String regex) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String returnValue = null;
 		while (true) {
 			System.out.println("\nEnter " + msg + " : ");
@@ -82,6 +109,7 @@ public class Projectutils {
 
 
 	public static Gender scanGender() throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		Gender gender = null;
 		int loopBreak = 0;
 		String inputValue = null;
@@ -92,7 +120,7 @@ public class Projectutils {
 				System.out.println(nullErrorMsg);
 				continue;
 			}
-			else if(patternMatch(inputValue,digitRegex))
+			else if(patternMatch(digitRegex, inputValue))
 			{
 				int choice = Integer.parseInt(inputValue);
 				switch (choice) {
@@ -109,7 +137,7 @@ public class Projectutils {
 				}
 			}
 			else {
-				System.out.println(selectErrormsg);
+				System.out.println(selectErrorMsg);
 			}
 			if(loopBreak == 1)
 				break;
