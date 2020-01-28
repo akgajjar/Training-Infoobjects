@@ -1,17 +1,17 @@
-package com.infoobjects.tms.view.impl;
+package com.infoobjects.tms.view;
 
 import com.infoobjects.tms.dto.StudentDTO;
-import com.infoobjects.tms.service.Service;
-import com.infoobjects.tms.service.impl.StudentServiceImpl;
-import static  com.infoobjects.tms.utils.Projectutils.*;
-import com.infoobjects.tms.view.View;
+import com.infoobjects.tms.service.interfaces.Service;
+import com.infoobjects.tms.service.StudentServiceImpl;
+import static com.infoobjects.tms.utils.ProjectUtils.*;
+import com.infoobjects.tms.view.interfaces.View;
 
 import java.io.IOException;
 import java.util.List;
 
-public class StudentViewImpl implements View<StudentDTO, Integer> {
+public class StudentViewImpl implements View<Integer, StudentDTO> {
 
-    private static Service<StudentDTO, Integer> studentService = null;
+    private static Service<Integer, StudentDTO> studentService = null;
 
     public StudentViewImpl() {
         studentService = new StudentServiceImpl();

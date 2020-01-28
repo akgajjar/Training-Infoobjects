@@ -1,8 +1,8 @@
-package com.infoobjects.tms.view;
+package com.infoobjects.tms.view.interfaces;
 
 import java.io.IOException;
 
-public interface View<T, Object> {
+public interface View<Integer, T> {
 
         public void insert() throws IOException;
 
@@ -10,7 +10,7 @@ public interface View<T, Object> {
 
         public  void update() throws IOException;
 
-        public void find(Object id);
+        public void find(Integer id);
 
         public void findAll();
 

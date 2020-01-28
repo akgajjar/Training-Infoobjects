@@ -1,10 +1,11 @@
 package com.infoobjects.tms.dto;
 
+import com.infoobjects.tms.dto.interfaces.DTO;
 import com.infoobjects.tms.enums.Gender;
 
 import java.lang.reflect.Field;
 
-public class StudentDTO {
+public class StudentDTO implements DTO {
 
 	private int studentId;
 	private String studentName;

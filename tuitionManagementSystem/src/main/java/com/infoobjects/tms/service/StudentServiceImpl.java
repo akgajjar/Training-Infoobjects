@@ -1,15 +1,15 @@
-package com.infoobjects.tms.service.impl;
+package com.infoobjects.tms.service;
 
-import com.infoobjects.tms.dao.DAO;
-import com.infoobjects.tms.dao.impl.ProjectDAOImpl;
-import com.infoobjects.tms.service.Service;
+import com.infoobjects.tms.dao.interfaces.DAO;
+import com.infoobjects.tms.dao.StudentDAOImpl;
+import com.infoobjects.tms.service.interfaces.Service;
 import com.infoobjects.tms.dto.StudentDTO;
 
 import java.util.List;
 
-public class StudentServiceImpl implements Service<StudentDTO,Integer> {
+public class StudentServiceImpl implements Service<Integer,StudentDTO> {
 
-    public DAO<StudentDTO,Integer> projectDao = new ProjectDAOImpl();
+    public DAO<Integer,StudentDTO> projectDao = new StudentDAOImpl();
 
 	public void insert(StudentDTO t) {
 		projectDao.insert(t, t.getStudentId());

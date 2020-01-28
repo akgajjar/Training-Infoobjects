@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.regex.Pattern;
 
-public class Projectutils {
+public class ProjectUtils {
 
 	public static String emailRegex = "[a-zA_Z0-9]+[@]{1}[a-zA_Z0-9]+[.]{1}[a-zA_Z0-9]{2,3}";
 	public static String mobileRegex = "(0/91)?[7-9][0-9]{9}";

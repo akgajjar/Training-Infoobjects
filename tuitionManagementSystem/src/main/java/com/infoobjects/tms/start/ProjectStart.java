@@ -1,6 +1,6 @@
 package com.infoobjects.tms.start;
 
-import com.infoobjects.tms.view.impl.StudentViewImpl;
+import com.infoobjects.tms.view.StudentViewImpl;
 
 public class ProjectStart {
 
