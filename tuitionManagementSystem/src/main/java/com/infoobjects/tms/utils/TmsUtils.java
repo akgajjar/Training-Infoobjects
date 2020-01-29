@@ -1,10 +1,12 @@
 package com.infoobjects.tms.utils;
 
+import com.infoobjects.tms.dto.interfaces.DTO;
 import com.infoobjects.tms.enums.Gender;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Field;
 import java.util.regex.Pattern;
 
 public class ProjectUtils {
@@ -144,5 +146,19 @@ public class ProjectUtils {
 		 }
 		return gender;
 	}
+
+	public static String genericToString(DTO reference){
+        String returnValue = "\n" + reference.getClass().getName() + " : \n\n";
+        Class classReference = reference.getClass();
+        Field[] fields = classReference.getDeclaredFields();
+        for (int loopCounter = 0; loopCounter < fields.length; loopCounter++) {
+            try {
+                returnValue += fields[loopCounter].getName() + " : " + String.valueOf(fields[loopCounter].get(reference)) + "\n";
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return returnValue;
+    }
 
 }
