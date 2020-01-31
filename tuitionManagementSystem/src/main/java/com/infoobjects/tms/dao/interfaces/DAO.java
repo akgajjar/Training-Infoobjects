@@ -2,16 +2,16 @@ package com.infoobjects.tms.dao.interfaces;
 
 import java.util.List;
 
-public interface DAO<Integer, T> {
+public interface DAO<Integer, DTO> {
 
-    public void insert(T t, Integer id);
+    public void insert(DTO dto);
 
     public void delete(Integer id);
 
-    public T find(Integer id);
+    public DTO find(Integer id);
 
-    public void update(T t, Integer id);
+    public void update(DTO dto);
 
-    public List<T> findAll();
+    public List<DTO> findAll();
 
 }

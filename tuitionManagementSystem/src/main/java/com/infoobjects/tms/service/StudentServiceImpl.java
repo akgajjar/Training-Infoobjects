@@ -11,22 +11,27 @@ public class StudentServiceImpl implements Service<Integer,StudentDTO> {
 
     public DAO<Integer,StudentDTO> projectDao = new StudentDAOImpl();
 
-	public void insert(StudentDTO t) {
-		projectDao.insert(t, t.getStudentId());
+	@Override
+	public void insert(StudentDTO studentDTO) {
+		projectDao.insert(studentDTO);
 	}
 
+	@Override
 	public void delete(Integer id) {
 		projectDao.delete(id);
 	}
 
+	@Override
 	public StudentDTO find(Integer id) {
 		return projectDao.find(id);
 	}
 
-	public void update(StudentDTO t) {
-		projectDao.update(t, t.getStudentId());
+	@Override
+	public void update(StudentDTO  studentDTO) {
+		projectDao.update(studentDTO);
 	}
 
+	@Override
 	public List<StudentDTO> findAll() {
 		return projectDao.findAll();
 	}

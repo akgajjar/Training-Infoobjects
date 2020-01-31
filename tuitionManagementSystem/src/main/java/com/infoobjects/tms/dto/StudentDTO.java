@@ -2,6 +2,9 @@ package com.infoobjects.tms.dto;
 
 import com.infoobjects.tms.dto.interfaces.DTO;
 import com.infoobjects.tms.enums.Gender;
+import com.infoobjects.tms.enums.OperationType;
+
+import static  com.infoobjects.tms.utils.TmsUtils.*;
 
 import java.lang.reflect.Field;
 
@@ -20,17 +23,21 @@ public class StudentDTO implements DTO {
 
 	@Override
 	public String toString() {
-		String returnValue = "\nStudent : \n\n";
+		System.out.println("\n Student : \n\n");
+		StringBuffer returnValue = new StringBuffer();
 		Class classReference = this.getClass();
 		Field[] fields = classReference.getDeclaredFields();
 		for (int loopCounter = 0; loopCounter < fields.length; loopCounter++) {
 			try {
-				returnValue += fields[loopCounter].getName() + " : " + String.valueOf(fields[loopCounter].get(this)) + "\n";
+				returnValue.append(fields[loopCounter].getName());
+				returnValue.append(" : ");
+				returnValue.append(String.valueOf(fields[loopCounter].get(this)));
+				returnValue.append("\n");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
-		return returnValue;
+		return returnValue.toString();
 	}
 
 	public int getStudentId() {
@@ -111,6 +118,28 @@ public class StudentDTO implements DTO {
 
 	public void setStudentReferenceName(String studentReferenceName) {
 		this.studentReferenceName = studentReferenceName;
+	}
+
+	public void updateDTOCheck(StudentDTO source){
+
+		if(checkNull(this.getStudentAddress(), OperationType.PRINT))
+			this.setStudentAddress(source.getStudentAddress());
+		if(checkNull(this.getStudentEmailId(), OperationType.PRINT))
+			this.setStudentEmailId(source.getStudentEmailId());
+		if(checkNull(this.getStudentMobile(), OperationType.PRINT ))
+			this.setStudentMobile(source.getStudentMobile());
+		if(checkNull(this.getStudentName(),OperationType.PRINT ))
+			this.setStudentName(source.getStudentName());
+		if(checkNull(this.getStudentParentEmailId(), OperationType.PRINT))
+			this.setStudentParentEmailId(source.getStudentParentEmailId());
+		if(checkNull(this.getStudentParentMobile(),OperationType.PRINT))
+			this.setStudentParentMobile(source.getStudentParentMobile());
+		if(checkNull(this.getStudentParentName(), OperationType.PRINT))
+			this.setStudentParentName(source.getStudentParentName());
+		if(checkNull(this.getStudentReferenceName(), OperationType.PRINT))
+			this.setStudentReferenceName(source.getStudentReferenceName());
+		if(this.getStudentGender() == Gender.NONE)
+			this.setStudentGender(source.getStudentGender());
 	}
 
 }

@@ -2,6 +2,7 @@ package com.infoobjects.tms.dao;
 
 import com.infoobjects.tms.dao.interfaces.DAO;
 import com.infoobjects.tms.dto.StudentDTO;
+import com.infoobjects.tms.utils.TmsUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,22 +17,30 @@ public class StudentDAOImpl implements DAO<Integer, StudentDTO> {
         map = new HashMap<Integer, StudentDTO>();
     }
 
-    public void insert(StudentDTO t, Integer id) {
-        map.put(id, t);
+    @Override
+    public void insert(StudentDTO studentDTO) {
+        map.put(studentDTO.getStudentId(), studentDTO);
+        System.out.print(TmsUtils.insertSuccessmsg);
     }
 
+    @Override
     public void delete(Integer id) {
         map.remove(id);
+        System.out.print(TmsUtils.updateSuccessmsg);
     }
 
+    @Override
     public StudentDTO find(Integer id) {
         return map.get(id);
     }
 
-    public void update(StudentDTO t, Integer id) {
-        map.put(id, t);
+    @Override
+    public void update(StudentDTO studentDTO) {
+        map.put(studentDTO.getStudentId(), studentDTO);
+        System.out.print(TmsUtils.updateSuccessmsg);
     }
 
+    @Override
     public List<StudentDTO> findAll() {
         return new ArrayList<StudentDTO>(map.values());
     }
