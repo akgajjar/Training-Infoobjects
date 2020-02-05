@@ -9,17 +9,20 @@ import com.infoobjects.tms.enums.OperationType;
 import com.infoobjects.tms.service.StudentServiceImpl;
 import com.infoobjects.tms.service.TeacherServiceImpl;
 import com.infoobjects.tms.view.interfaces.TeacherViewIncrement;
-import static com.infoobjects.tms.utils.TmsUtils.*;
+
 import java.io.IOException;
 import java.util.List;
 
-public class TeacherViewImpl implements  TeacherViewIncrement<Integer, TeacherDTO> {
+import static com.infoobjects.tms.utils.TmsUtils.*;
+
+public class TeacherViewImpl implements TeacherViewIncrement<Integer, TeacherDTO> {
 
     private TeacherServiceImpl teacherService;
     private StudentServiceImpl studentService;
-    public TeacherViewImpl(TeacherServiceImpl teacherService, StudentServiceImpl studentService){
-            this.teacherService = teacherService;
-            this.studentService = studentService;
+
+    public TeacherViewImpl(TeacherServiceImpl teacherService, StudentServiceImpl studentService) {
+        this.teacherService = teacherService;
+        this.studentService = studentService;
     }
 
     @Override
@@ -37,7 +40,7 @@ public class TeacherViewImpl implements  TeacherViewIncrement<Integer, TeacherDT
         teacher.setTeacherMobile(scan("Mobile No", mobileRegex, String.format(scanningErrorMsg, "Mobile No"), OperationType.INSERT));
         teacher.setTeacherEmailId(scan("Email Id", emailRegex, String.format(scanningErrorMsg, "Email Id"), OperationType.INSERT));
         teacher.setTeacherDesignation(scanDesignation(OperationType.INSERT));
-        teacher.setTeacherAddress(scan("Teacher Address",null,null, OperationType.INSERT));
+        teacher.setTeacherAddress(scan("Teacher Address", null, null, OperationType.INSERT));
         teacherService.insert(teacher);
     }
 
@@ -45,7 +48,7 @@ public class TeacherViewImpl implements  TeacherViewIncrement<Integer, TeacherDT
     public void delete() throws NumberFormatException, IOException {
         int teacherId = Integer.parseInt(scan("Teacher Id", digitRegex + "+", integerOnlyErrorMsg, OperationType.DELETE));
         if (teacherService.find(teacherId) == null) {
-            printErrors(String.format(findErrorMsg,"Teacher"));
+            printErrors(String.format(findErrorMsg, "Teacher"));
             return;
         }
         teacherService.delete(teacherId);
@@ -63,29 +66,29 @@ public class TeacherViewImpl implements  TeacherViewIncrement<Integer, TeacherDT
             return;
         }
         tempScanning = scan("Salary", doubleRegex, doubleOnlyErrorMsg, OperationType.UPDATE);
-        if(checkNull(tempScanning))
-                teacher.setTeacherSalary(0.0);
+        if (checkNull(tempScanning))
+            teacher.setTeacherSalary(0.0);
         else
-                teacher.setTeacherSalary(Double.parseDouble(tempScanning));
+            teacher.setTeacherSalary(Double.parseDouble(tempScanning));
         tempScanning = scan("Teacher Name", stringRegex, stringOnlyErrorMsg, OperationType.UPDATE);
-        if(checkNull(tempScanning))
+        if (checkNull(tempScanning))
             teacher.setTeacherName(teacherDTO.getTeacherName());
         else
             teacher.setTeacherName(tempScanning);
         tempScanning = scan("Mobile No", mobileRegex, String.format(scanningErrorMsg, "Mobile No"), OperationType.UPDATE);
-        if(checkNull(tempScanning))
+        if (checkNull(tempScanning))
             teacher.setTeacherMobile(teacherDTO.getTeacherMobile());
         else
             teacher.setTeacherMobile(tempScanning);
         tempScanning = scan("Email Id", emailRegex, String.format(scanningErrorMsg, "Email Id"), OperationType.UPDATE);
-        if(checkNull(tempScanning))
+        if (checkNull(tempScanning))
             teacher.setTeacherEmailId(teacherDTO.getTeacherEmailId());
         else
             teacher.setTeacherEmailId(tempScanning);
         teacher.setTeacherDesignation(scanDesignation(OperationType.UPDATE));
-        if(teacher.getTeacherDesignation() == Designation.NONE)
+        if (teacher.getTeacherDesignation() == Designation.NONE)
             teacher.setTeacherDesignation(teacherDTO.getTeacherDesignation());
-        tempScanning = scan("Teacher Address",null,null, OperationType.UPDATE);
+        tempScanning = scan("Teacher Address", null, null, OperationType.UPDATE);
         if (!checkNull(tempScanning)) teacher.setTeacherAddress(tempScanning);
         else teacher.setTeacherAddress(teacherDTO.getTeacherAddress());
         teacherService.update(teacher);
@@ -95,7 +98,7 @@ public class TeacherViewImpl implements  TeacherViewIncrement<Integer, TeacherDT
     public TeacherDTO find(Integer id) {
         TeacherDTO teacherDTO = teacherService.find(id);
         if (teacherDTO == null) {
-            printErrors(String.format(findErrorMsg,"Teacher"));
+            printErrors(String.format(findErrorMsg, "Teacher"));
             return null;
         }
         System.out.println(teacherDTO + "\n");
@@ -106,7 +109,7 @@ public class TeacherViewImpl implements  TeacherViewIncrement<Integer, TeacherDT
     public void findAll() {
         List<TeacherDTO> teachers = teacherService.findAll();
         if (teachers.size() == 0) {
-            printErrors(String.format(findErrorMsg,"Teacher"));
+            printErrors(String.format(findErrorMsg, "Teacher"));
             return;
         }
         System.out.println("Teachers : \n\n");
@@ -119,11 +122,11 @@ public class TeacherViewImpl implements  TeacherViewIncrement<Integer, TeacherDT
     public void insertStudent() throws Exception {
         int teacherId = Integer.parseInt(scan("Teacher Id", digitRegex + "+", integerOnlyErrorMsg, OperationType.INSERT));
         int studentId = Integer.parseInt(scan("Student Id", digitRegex + "+", integerOnlyErrorMsg, OperationType.INSERT));
-        if(studentService.find(studentId) == null){
+        if (studentService.find(studentId) == null) {
             printErrors(String.format(findErrorMsg, "Student"));
             return;
         }
-        if(teacherService.find(teacherId) == null){
+        if (teacherService.find(teacherId) == null) {
             printErrors(String.format(findErrorMsg, "Teacher"));
             return;
         }
@@ -133,13 +136,13 @@ public class TeacherViewImpl implements  TeacherViewIncrement<Integer, TeacherDT
     @Override
     public void showAllStudent() throws IOException {
         int teacherId = Integer.parseInt(scan("Teacher Id", digitRegex + "+", integerOnlyErrorMsg, OperationType.INSERT));
-        if(teacherService.find(teacherId) == null){
+        if (teacherService.find(teacherId) == null) {
             printErrors(String.format(findErrorMsg, "Teacher"));
             return;
         }
         List<StudentDTO> students = teacherService.showAllStudent(teacherId, (StudentDAOImpl) studentService.getStudentDao());
         if (students.size() == 0) {
-            printErrors(String.format(findErrorMsg,"Student"));
+            printErrors(String.format(findErrorMsg, "Student"));
             return;
         }
         System.out.println("\n\nStudents : ");
@@ -191,7 +194,7 @@ public class TeacherViewImpl implements  TeacherViewIncrement<Integer, TeacherDT
                 case 8:
                     return;
                 default:
-                    printErrors(String.format(scanningErrorMsg,"Choice"));
+                    printErrors(String.format(scanningErrorMsg, "Choice"));
                     break;
             }
         }
