@@ -6,8 +6,8 @@ import java.io.IOException;
 
 public interface TeacherViewIncrement<Integer, DTO> extends View<Integer, TeacherDTO>{
 
-    public void insertStudent() throws Exception;
+    void insertStudent() throws Exception;
 
-    public void showAllStudent() throws IOException;
+    void showAllStudent() throws IOException;
 
 }

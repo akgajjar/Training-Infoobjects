@@ -9,7 +9,7 @@ public class SingltonConnection {
 
     }
 
-    private Connection getConnection(){
+    private static Connection getConnection(){
             Connection con = null;
             try
             {
@@ -24,7 +24,7 @@ public class SingltonConnection {
 
     public static Connection getInstance(){
         if(connection == null){
-            connection = getInstance();
+            connection = getConnection();
         }
         return connection;
     }

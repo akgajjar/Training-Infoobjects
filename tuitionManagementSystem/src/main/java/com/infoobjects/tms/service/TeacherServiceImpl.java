@@ -1,22 +1,20 @@
 package com.infoobjects.tms.service;
 
+import com.infoobjects.tms.dao.StudentDAOImpl;
 import com.infoobjects.tms.dao.TeacherDAOImpl;
-import com.infoobjects.tms.dao.interfaces.DAO;
 import com.infoobjects.tms.dao.interfaces.TeacheDAOIncrement;
 import com.infoobjects.tms.dto.StudentDTO;
 import com.infoobjects.tms.dto.TeacherDTO;
-import com.infoobjects.tms.dto.interfaces.DTO;
-import com.infoobjects.tms.service.interfaces.Service;
 import com.infoobjects.tms.service.interfaces.TeacherServiceIncrement;
 
 import java.util.List;
 
 public class TeacherServiceImpl implements  TeacherServiceIncrement<Integer, TeacherDTO> {
 
-    private TeacheDAOIncrement<Integer, TeacherDTO> teacherDAO = null;
+    private TeacheDAOIncrement<Integer, TeacherDTO> teacherDAO = new TeacherDAOImpl();
 
-    public TeacherServiceImpl() {
-        teacherDAO = new TeacherDAOImpl();
+    public TeacheDAOIncrement<Integer, TeacherDTO> getTeacherDAO() {
+        return teacherDAO;
     }
 
     @Override
@@ -51,8 +49,8 @@ public class TeacherServiceImpl implements  TeacherServiceIncrement<Integer, Tea
     }
 
     @Override
-    public List<StudentDTO> showAllStudent(int teacherId) {
-        return teacherDAO.showAllStudent(teacherId);
+    public List<StudentDTO> showAllStudent(int teacherId, StudentDAOImpl studentDAO) {
+        return teacherDAO.showAllStudent(teacherId, studentDAO);
     }
 
     @Override

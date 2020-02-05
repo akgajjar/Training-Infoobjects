@@ -1,15 +1,16 @@
 package com.infoobjects.tms.service.interfaces;
 
+import com.infoobjects.tms.dao.StudentDAOImpl;
 import com.infoobjects.tms.dto.StudentDTO;
 
 import java.util.List;
 
 public interface TeacherServiceIncrement<Integer, TeacherDTO>  extends Service<Integer, TeacherDTO>{
 
-    public void insertStudent(int studentId, int teacherId) throws Exception;
+    void insertStudent(int studentId, int teacherId) throws Exception;
 
-    public List<StudentDTO> showAllStudent(int teacherId);
+    List<StudentDTO> showAllStudent(int teacherId, StudentDAOImpl studentDAO);
 
-    public void deleteStudents() throws Exception;
+    void deleteStudents() throws Exception;
 
 }

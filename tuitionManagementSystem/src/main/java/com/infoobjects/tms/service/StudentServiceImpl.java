@@ -1,39 +1,43 @@
 package com.infoobjects.tms.service;
 
-import com.infoobjects.tms.dao.interfaces.DAO;
 import com.infoobjects.tms.dao.StudentDAOImpl;
-import com.infoobjects.tms.service.interfaces.Service;
+import com.infoobjects.tms.dao.interfaces.DAO;
 import com.infoobjects.tms.dto.StudentDTO;
+import com.infoobjects.tms.service.interfaces.Service;
 
 import java.util.List;
 
-public class StudentServiceImpl implements Service<Integer,StudentDTO> {
+public class StudentServiceImpl implements Service<Integer, StudentDTO> {
 
-    public DAO<Integer,StudentDTO> projectDao = new StudentDAOImpl();
+    private DAO<Integer, StudentDTO> studentDao = new StudentDAOImpl();
 
-	@Override
-	public void insert(StudentDTO studentDTO) {
-		projectDao.insert(studentDTO);
-	}
+    public DAO<Integer, StudentDTO> getStudentDao() {
+        return studentDao;
+    }
 
-	@Override
-	public void delete(Integer id) {
-		projectDao.delete(id);
-	}
+    @Override
+    public void insert(StudentDTO studentDTO) {
+        studentDao.insert(studentDTO);
+    }
 
-	@Override
-	public StudentDTO find(Integer id) {
-		return projectDao.find(id);
-	}
+    @Override
+    public void delete(Integer id) {
+        studentDao.delete(id);
+    }
 
-	@Override
-	public void update(StudentDTO  studentDTO) {
-		projectDao.update(studentDTO);
-	}
+    @Override
+    public StudentDTO find(Integer id) {
+        return studentDao.find(id);
+    }
 
-	@Override
-	public List<StudentDTO> findAll() {
-		return projectDao.findAll();
-	}
+    @Override
+    public void update(StudentDTO studentDTO) {
+        studentDao.update(studentDTO);
+    }
+
+    @Override
+    public List<StudentDTO> findAll() {
+        return studentDao.findAll();
+    }
 
 }

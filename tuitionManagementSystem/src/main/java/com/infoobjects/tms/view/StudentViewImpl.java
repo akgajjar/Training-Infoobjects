@@ -2,6 +2,7 @@ package com.infoobjects.tms.view;
 
 import com.infoobjects.tms.dto.StudentDTO;
 import com.infoobjects.tms.dto.interfaces.DTO;
+import com.infoobjects.tms.enums.Gender;
 import com.infoobjects.tms.enums.OperationType;
 import com.infoobjects.tms.service.StudentServiceImpl;
 import com.infoobjects.tms.service.interfaces.Service;
@@ -16,8 +17,8 @@ public class StudentViewImpl implements View<Integer, StudentDTO> {
 
     private static Service<Integer, StudentDTO> studentService = null;
 
-    public StudentViewImpl() {
-        studentService = new StudentServiceImpl();
+    public StudentViewImpl(StudentServiceImpl serviceImpl) {
+        studentService = serviceImpl;
     }
 
     @Override
@@ -30,13 +31,13 @@ public class StudentViewImpl implements View<Integer, StudentDTO> {
             return;
         }
         student.setStudentName(scan("Student Name", stringRegex, stringOnlyErrorMsg, OperationType.INSERT));
-        student.setStudentAddress(scan("Student Address",null,null, OperationType.INSERT));
+        student.setStudentAddress(scan("Student Address", null, null, OperationType.INSERT));
         student.setStudentEmailId(scan("Email Id", emailRegex, String.format(scanningErrorMsg, "Email Id"), OperationType.INSERT));
         student.setStudentGender(scanGender(OperationType.INSERT));
         student.setStudentMobile(scan("Mobile No", mobileRegex, String.format(scanningErrorMsg, "Mobile No"), OperationType.INSERT));
-        System.out.println("\nEnter Parent Details : \n");
+        System.out.println("\nEnter Parent Details : ");
         student.setStudentParentName(scan("Student Parent Name", stringRegex, stringOnlyErrorMsg, OperationType.INSERT));
-        student.setStudentParentMobile(scan("Mobile No", mobileRegex,String.format(scanningErrorMsg, "Mobile No"), OperationType.INSERT));
+        student.setStudentParentMobile(scan("Mobile No", mobileRegex, String.format(scanningErrorMsg, "Mobile No"), OperationType.INSERT));
         student.setStudentParentEmailId(scan("Email Id", emailRegex, String.format(scanningErrorMsg, "Email Id"), OperationType.INSERT));
         student.setStudentReferenceName(scan("Reference Name", stringRegex, stringOnlyErrorMsg, OperationType.INSERT));
         studentService.insert(student);
@@ -44,7 +45,7 @@ public class StudentViewImpl implements View<Integer, StudentDTO> {
 
     @Override
     public void delete() throws NumberFormatException, IOException {
-        int studentId = Integer.parseInt(scan("Student Id", digitRegex + "+", integerOnlyErrorMsg, OperationType.DELETE));;
+        int studentId = Integer.parseInt(scan("Student Id", digitRegex + "+", integerOnlyErrorMsg, OperationType.DELETE));
         if (studentService.find(studentId) == null) {
             printErrors(String.format(findErrorMsg, "Student"));
             return;
@@ -54,27 +55,60 @@ public class StudentViewImpl implements View<Integer, StudentDTO> {
 
     @Override
     public void update() throws IOException {
-        int studentId = Integer.parseInt(scan("Student Id", digitRegex + "+", integerOnlyErrorMsg, OperationType.UPDATE));;
-        StudentDTO studentDTO = studentService.find(studentId);
-        if ( studentDTO == null) {
+        int studentId = Integer.parseInt(scan("Student Id", digitRegex + "+", integerOnlyErrorMsg, OperationType.FIND));
+        StudentDTO studentDTO = find(studentId);
+        if (studentDTO == null) {
             printErrors(String.format(findErrorMsg, "Student"));
             return;
         }
-        find(studentId);
+        String tempScanning;
         StudentDTO student = new StudentDTO();
         student.setStudentId(studentId);
         System.out.println("\nEnter Student Details : ");
-        student.setStudentName(scan("Student Name", stringRegex, stringOnlyErrorMsg, OperationType.UPDATE));
-        student.setStudentAddress(scan("Student Address",null,null, OperationType.UPDATE));
-        student.setStudentEmailId(scan("Email Id", emailRegex, String.format(scanningErrorMsg, "Email Id"), OperationType.UPDATE));
+        tempScanning = scan("Student Name", stringRegex, stringOnlyErrorMsg, OperationType.UPDATE);
+        if(tempScanning == null)
+            student.setStudentName(studentDTO.getStudentName());
+        else
+            student.setStudentName(tempScanning);
+        tempScanning = scan("Student Address", null, null, OperationType.UPDATE);
+        if(tempScanning == null)
+            student.setStudentAddress(studentDTO.getStudentAddress());
+        else
+            student.setStudentAddress(tempScanning);
+        tempScanning = scan("Email Id", emailRegex, String.format(scanningErrorMsg, "Email Id"), OperationType.UPDATE);
+        if(tempScanning == null)
+            student.setStudentEmailId(studentDTO.getStudentEmailId());
+        else
+            student.setStudentEmailId(tempScanning);
         student.setStudentGender(scanGender(OperationType.UPDATE));
-        student.setStudentMobile(scan("Mobile No", mobileRegex, String.format(scanningErrorMsg, "Mobile No"), OperationType.UPDATE));
+        if(student.getStudentGender() == Gender.NONE)
+            student.setStudentGender(studentDTO.getStudentGender());
+        tempScanning = scan("Mobile No", mobileRegex, String.format(scanningErrorMsg, "Mobile No"), OperationType.UPDATE);
+        if(tempScanning == null)
+            student.setStudentMobile(studentDTO.getStudentMobile());
+        else
+            student.setStudentMobile(tempScanning);
         System.out.println("\nEnter Parent Details : \n");
-        student.setStudentParentName(scan("Student Parent Name", stringRegex, stringOnlyErrorMsg, OperationType.UPDATE));
-        student.setStudentParentMobile(scan("Mobile No", mobileRegex,String.format(scanningErrorMsg, "Mobile No"), OperationType.UPDATE));
-        student.setStudentParentEmailId(scan("Email Id", emailRegex, String.format(scanningErrorMsg, "Email Id"), OperationType.UPDATE));
-        student.setStudentReferenceName(scan("Reference Name", stringRegex, stringOnlyErrorMsg, OperationType.UPDATE));
-
+        tempScanning = scan("Student Parent Name", stringRegex, stringOnlyErrorMsg, OperationType.UPDATE);
+        if(tempScanning == null)
+            student.setStudentParentName(studentDTO.getStudentParentName());
+        else
+            student.setStudentParentName(tempScanning);
+        tempScanning = scan("Mobile No", mobileRegex, String.format(scanningErrorMsg, "Mobile No"), OperationType.UPDATE);
+        if(tempScanning == null)
+            student.setStudentParentMobile(studentDTO.getStudentParentMobile());
+        else
+            student.setStudentParentMobile(tempScanning);
+        tempScanning = scan("Email Id", emailRegex, String.format(scanningErrorMsg, "Email Id"), OperationType.UPDATE);
+        if(tempScanning == null)
+            student.setStudentParentEmailId(studentDTO.getStudentParentEmailId());
+        else
+            student.setStudentParentEmailId(tempScanning);
+        tempScanning = scan("Reference Name", stringRegex, stringOnlyErrorMsg, OperationType.UPDATE);
+        if(tempScanning == null)
+            student.setStudentReferenceName(studentDTO.getStudentReferenceName());
+        else
+            student.setStudentReferenceName(tempScanning);
         student.updateDTOCheck(studentDTO);
         studentService.update(student);
     }
@@ -83,7 +117,7 @@ public class StudentViewImpl implements View<Integer, StudentDTO> {
     public StudentDTO find(Integer id) {
         StudentDTO student = studentService.find(id);
         if (student == null) {
-            printErrors(String.format(findErrorMsg,"Student"));
+            printErrors(String.format(findErrorMsg, "Student"));
             return null;
         }
         System.out.println(student + "\n");
@@ -94,12 +128,11 @@ public class StudentViewImpl implements View<Integer, StudentDTO> {
     public void findAll() {
         List<StudentDTO> students = studentService.findAll();
         if (students.size() == 0) {
-            printErrors(String.format(findErrorMsg,"Student"));
+            printErrors(String.format(findErrorMsg, "Student"));
             return;
         }
         System.out.println("Students : \n\n");
-        for (int loopCounter = 0; loopCounter < students.size(); loopCounter++) {
-            DTO studentDTO = students.get(loopCounter);
+        for (DTO studentDTO : students) {
             System.out.println(studentDTO + "\n");
         }
     }
@@ -108,7 +141,7 @@ public class StudentViewImpl implements View<Integer, StudentDTO> {
         int choice;
         StringBuilder functionalityOptions = new StringBuilder();
 
-        functionalityOptions.append("1) Insert Student %n");
+        functionalityOptions.append("%n %n1) Insert Student %n");
         functionalityOptions.append("2) Update Student %n");
         functionalityOptions.append("3) Delete Student %n");
         functionalityOptions.append("4) Find Student %n");

@@ -16,25 +16,25 @@ public class TmsUtils {
     public static String emailRegex = "[a-zA_Z0-9]+[@]{1}[a-zA_Z0-9]+[.]{1}[a-zA_Z0-9]{2,3}";
     public static String mobileRegex = "(0/91)?[7-9][0-9]{9}";
     public static String digitRegex = "\\d";
-    public static String doubleRegex ="[0-9]{1,13}(\\\\.[0-9]+)?";
+    public static String doubleRegex = "[0-9]{1,13}(\\\\.[0-9]+)?";
     public static String stringRegex = "[a-zA-Z ]+";
-    public static String exclamationMark = "!!!!!!!!!!";
+    private static String exclamationMark = "!!!!!!!!!!";
     public static String scanningErrorMsg = "\nInvalid %s " + exclamationMark + "\n\n";
     public static String findErrorMsg = "\nNo %s Found " + exclamationMark + "\n\n";
-    public static String nullErrorMsg = "\nNull Value Found Please Enter Correct Value" + exclamationMark + "\n\n";
+    private static String nullErrorMsg = "\nNull Value Found Please Enter Correct Value" + exclamationMark + "\n\n";
     public static String duplicatePrimaryKeyErrorMsg = "\nDuplicate Value for Primary Key" + exclamationMark + "\n\n";
-    public static String selectErrorMsg = "\nEnter Single Digit as Input " + exclamationMark + "\n\n";
+    private static String selectErrorMsg = "\nEnter Single Digit as Input " + exclamationMark + "\n\n";
     public static String integerOnlyErrorMsg = "\nplease Enter integer Value only" + exclamationMark + "\n\n";
     public static String doubleOnlyErrorMsg = "\nplease Enter double Value only" + exclamationMark + "\n\n";
     public static String stringOnlyErrorMsg = "\nplease Enter Character only" + exclamationMark + "\n\n";
-    public static String insertSuccessmsg = "\nInserted SuccessFully" + exclamationMark+ "\n\n";
-    public static String deleteSuccessmsg = "\nDeleted SuccessFully" + exclamationMark+ "\n\n";
-    public static String updateSuccessmsg = "\nUpdated SuccessFully" + exclamationMark+ "\n\n";
+    public static String insertSuccessmsg = "\nInserted SuccessFully" + exclamationMark + "\n\n";
+    public static String deleteSuccessmsg = "\nDeleted SuccessFully" + exclamationMark + "\n\n";
+    public static String updateSuccessmsg = "\nUpdated SuccessFully" + exclamationMark + "\n\n";
 
-    public static boolean patternMatch(String pattern, String value, String errorMsg) {
+    private static boolean patternMatch(String pattern, String value, String errorMsg) {
         Pattern patternRef = Pattern.compile(pattern);
         boolean checkResult = patternRef.matcher(value).matches();
-        if (checkResult == false) {
+        if (!checkResult) {
             printErrors(errorMsg);
             return false;
         }
@@ -45,11 +45,8 @@ public class TmsUtils {
         System.out.println(errorMsg);
     }
 
-    public static boolean checkNull(String value, OperationType operationType) {
-        if(operationType == OperationType.UPDATE)
-            return false;
-        if (value == null) {
-            printErrors(nullErrorMsg);
+    public static boolean checkNull(String value) {
+        if ((value == null) || (value.length() == 0)) {
             return true;
         } else {
             return false;
@@ -58,20 +55,21 @@ public class TmsUtils {
 
     public static String scan(String msg, String regex, String errorMsg, OperationType operationType) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String returnValue = null;
+        String returnValue;
         while (true) {
             System.out.println("\nEnter " + msg + " : ");
             returnValue = br.readLine();
-            if (checkNull(returnValue, operationType)) {
-                continue;
-            }
-            else if (regex != null) {
-                if (patternMatch(regex, returnValue, errorMsg)) {
+            if (!checkNull(returnValue)) {
+                if (regex != null) {
+                    if (patternMatch(regex, returnValue, errorMsg))
+                        break;
+                } else
                     break;
-                }
-            }
-            else{
-                break;
+
+            } else {
+                if(operationType == OperationType.UPDATE)
+                    return null;
+                printErrors(nullErrorMsg);
             }
         }
         return returnValue;
@@ -81,17 +79,16 @@ public class TmsUtils {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         Gender gender = null;
         int loopBreak = 0;
-        String inputValue = null;
+        String inputValue;
         while (true) {
             System.out.println("\nSelect Student Gender : \n1. Male\n2. Female\n");
             inputValue = br.readLine();
-            if (checkNull(inputValue,operationType)) {
+            if (checkNull(inputValue)) {
+                if (operationType == OperationType.UPDATE)
+                    return Gender.NONE;
+                System.out.println(nullErrorMsg);
                 continue;
             } else if (patternMatch(digitRegex, inputValue, selectErrorMsg)) {
-                if(inputValue == null){
-                    gender = Gender.NONE;
-                    break;
-                }
                 int choice = Integer.parseInt(inputValue);
                 switch (choice) {
                     case 1:
@@ -102,11 +99,11 @@ public class TmsUtils {
                         gender = Gender.FEMALE;
                         loopBreak = 1;
                         break;
-
                     default:
                         printErrors(String.format(scanningErrorMsg, "Gender"));
                 }
-            }
+            } else
+                break;
             if (loopBreak == 1)
                 break;
         }
@@ -117,34 +114,35 @@ public class TmsUtils {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         Designation designation = null;
         int loopBreak = 0;
-        String inputValue = null;
+        String inputValue;
         while (true) {
             System.out.println("\nSelect Teacher Designation: \n1. Professor\n2. Teaching Assistance\n3. Lab Staff");
             inputValue = br.readLine();
-            if (checkNull(inputValue,operationType)) {
+            if (!checkNull(inputValue)) {
+                if (patternMatch(digitRegex, inputValue, selectErrorMsg)) {
+                    int choice = Integer.parseInt(inputValue);
+                    switch (choice) {
+                        case 1:
+                            designation = Designation.PROFESSOR;
+                            loopBreak = 1;
+                            break;
+                        case 2:
+                            designation = Designation.TEACHINGASSISTANCE;
+                            loopBreak = 1;
+                            break;
+                        case 3:
+                            designation = Designation.LABSTAFF;
+                            loopBreak = 1;
+                            break;
+                        default:
+                            printErrors(String.format(scanningErrorMsg, "Designation"));
+                    }
+                }
+            } else {
+                if (operationType == OperationType.UPDATE)
+                    return Designation.NONE;
+                System.out.println(nullErrorMsg);
                 continue;
-            } else if (patternMatch(digitRegex, inputValue, selectErrorMsg)) {
-                if(inputValue == null){
-                    designation = Designation.NONE;
-                    break;
-                }
-                int choice = Integer.parseInt(inputValue);
-                switch (choice) {
-                    case 1:
-                        designation = Designation.PROFESSOR;
-                        loopBreak = 1;
-                        break;
-                    case 2:
-                        designation = Designation.TEACHINGASSISTANCE;
-                        loopBreak = 1;
-                        break;
-                    case 3:
-                        designation = Designation.LABSTAFF;
-                        loopBreak = 1;
-                        break;
-                    default:
-                        printErrors(String.format(scanningErrorMsg, "Designation"));
-                }
             }
             if (loopBreak == 1)
                 break;
@@ -153,14 +151,15 @@ public class TmsUtils {
     }
 
     public static String genericToString(DTO reference) {
-        StringBuffer returnValue = new StringBuffer();
+        StringBuilder returnValue = new StringBuilder();
         Class classReference = reference.getClass();
         Field[] fields = classReference.getDeclaredFields();
-        for (int loopCounter = 0; loopCounter < fields.length; loopCounter++) {
+        for (Field field : fields) {
             try {
-                returnValue.append(fields[loopCounter].getName());
+                field.setAccessible(true);
+                returnValue.append(field.getName());
                 returnValue.append(" : ");
-                returnValue.append(String.valueOf(fields[loopCounter].get(reference)));
+                returnValue.append(field.get(reference));
                 returnValue.append("\n");
             } catch (Exception e) {
                 e.printStackTrace();

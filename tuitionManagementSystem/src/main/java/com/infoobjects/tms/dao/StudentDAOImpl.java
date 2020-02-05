@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class StudentDAOImpl implements DAO<Integer, StudentDTO> {
 
-    private Map<Integer, StudentDTO> map = null;
+    private Map<Integer, StudentDTO> map;
 
     public StudentDAOImpl() {
         map = new HashMap<Integer, StudentDTO>();

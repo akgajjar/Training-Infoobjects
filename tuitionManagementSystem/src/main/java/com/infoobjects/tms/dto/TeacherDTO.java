@@ -2,9 +2,9 @@ package com.infoobjects.tms.dto;
 
 import com.infoobjects.tms.dto.interfaces.DTO;
 import com.infoobjects.tms.enums.Designation;
-import com.infoobjects.tms.utils.TmsUtils;
 
-import java.lang.reflect.Field;
+import static com.infoobjects.tms.utils.TmsUtils.checkNull;
+import static com.infoobjects.tms.utils.TmsUtils.genericToString;
 
 public class TeacherDTO implements DTO {
 
@@ -19,20 +19,7 @@ public class TeacherDTO implements DTO {
     @Override
     public String toString() {
         System.out.println("\n Teacher : \n\n");
-        StringBuffer returnValue = new StringBuffer();
-        Class classReference = this.getClass();
-        Field[] fields = classReference.getDeclaredFields();
-        for (int loopCounter = 0; loopCounter < fields.length; loopCounter++) {
-            try {
-                returnValue.append(fields[loopCounter].getName());
-                returnValue.append(" : ");
-                returnValue.append(String.valueOf(fields[loopCounter].get(this)));
-                returnValue.append("\n");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return returnValue.toString();
+        return genericToString(this);
     }
 
     public int getTeacherId() {
@@ -91,7 +78,17 @@ public class TeacherDTO implements DTO {
         this.teacherSalary = teacherSalary;
     }
 
-    public void updateDTOCheck(TeacherDTO source){
+    public void updateDTOCheck(TeacherDTO source) {
+        if (checkNull(this.getTeacherAddress()))
+            this.setTeacherAddress(source.getTeacherAddress());
+        if (checkNull(this.getTeacherEmailId()))
+            this.setTeacherEmailId(source.getTeacherEmailId());
+        if (checkNull(this.getTeacherMobile()))
+            this.setTeacherMobile(source.getTeacherMobile());
+        if (checkNull(this.getTeacherName()))
+            this.setTeacherName(this.getTeacherName());
+        if (this.getTeacherSalary() == 0.0)
+            this.setTeacherSalary(source.getTeacherSalary());
 
     }
 
