@@ -14,48 +14,43 @@ import static com.infoobjects.tms.utils.TmsUtils.*;
 
 public class TmsStart {
 
-	public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
 
-		String pretty = "\n--------------------------------------------------------------------\n";
-		String systemName = "\t\t\tTuition Management System\t\t\t";
-		StringBuilder functionalityOptions = new StringBuilder();
+        String pretty = "\n--------------------------------------------------------------------\n";
+        String systemName = "\t\t\tTuition Management System\t\t\t";
+        StringBuilder functionalityOptions = new StringBuilder();
         StudentServiceImpl studentService = new StudentServiceImpl();
         TeacherServiceImpl teacherService = new TeacherServiceImpl();
-		int choice, loopBreak = 0;
+        int choice, loopBreak = 0;
 
+		teacherService.deleteStudents();
 
 		System.out.printf(" %s %n %s %n %s %n", pretty, systemName, pretty);
-		functionalityOptions.append("%n %n1) Student %n");
-		functionalityOptions.append("2) Teacher %n");
-		functionalityOptions.append("3) Exit %n");
-		try {
-			do {
-				System.out.print(String.format(functionalityOptions.toString()));
-				choice = Integer.parseInt(scan("Choice", digitRegex + "+", integerOnlyErrorMsg, OperationType.CHOICE));
-				switch (choice) {
-					case 1:
-						View<Integer, StudentDTO> studentView = new StudentViewImpl(studentService);
-						studentView.mainView();
-						break;
-					case 2:
-						TeacherViewIncrement<Integer, TeacherDTO> teacherView = new TeacherViewImpl(teacherService, studentService);
-						teacherView.mainView();
-						break;
-					case 3:
-						loopBreak = 1;
-						break;
-					default:
-						printErrors(String.format(scanningErrorMsg, "Choice"));
-						break;
-				}
+        functionalityOptions.append("%n %n1) Student %n");
+        functionalityOptions.append("2) Teacher %n");
+        functionalityOptions.append("3) Exit %n");
+        do {
+            System.out.print(String.format(functionalityOptions.toString()));
+            choice = Integer.parseInt(scan("Choice", digitRegex + "+", integerOnlyErrorMsg, OperationType.CHOICE));
+            switch (choice) {
+                case 1:
+                    View<Integer, StudentDTO> studentView = new StudentViewImpl(studentService);
+                    studentView.mainView();
+                    break;
+                case 2:
+                    TeacherViewIncrement<Integer, TeacherDTO> teacherView = new TeacherViewImpl(teacherService, studentService);
+                    teacherView.mainView();
+                    break;
+                case 3:
+                    loopBreak = 1;
+                    break;
+                default:
+                    printErrors(String.format(scanningErrorMsg, "Choice"));
+                    break;
+            }
 
-			} while (loopBreak != 1);
-		} catch (Exception e){
+        } while (loopBreak != 1);
 
-		}
-		finally {
-			teacherService.deleteStudents();
-		}
-	}
+    }
 
 }
