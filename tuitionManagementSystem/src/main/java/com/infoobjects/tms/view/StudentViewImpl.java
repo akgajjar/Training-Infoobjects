@@ -61,55 +61,21 @@ public class StudentViewImpl implements View<Integer, StudentDTO> {
             printErrors(String.format(findErrorMsg, "Student"));
             return;
         }
-        String tempScanning;
         StudentDTO student = new StudentDTO();
         student.setStudentId(studentId);
         System.out.println("\nEnter Student Details : ");
-        tempScanning = scan("Student Name", stringRegex, stringOnlyErrorMsg, OperationType.UPDATE);
-        if(tempScanning == null)
-            student.setStudentName(studentDTO.getStudentName());
-        else
-            student.setStudentName(tempScanning);
-        tempScanning = scan("Student Address", null, null, OperationType.UPDATE);
-        if(tempScanning == null)
-            student.setStudentAddress(studentDTO.getStudentAddress());
-        else
-            student.setStudentAddress(tempScanning);
-        tempScanning = scan("Email Id", emailRegex, String.format(scanningErrorMsg, "Email Id"), OperationType.UPDATE);
-        if(tempScanning == null)
-            student.setStudentEmailId(studentDTO.getStudentEmailId());
-        else
-            student.setStudentEmailId(tempScanning);
+        student.setStudentName(updateCheck(studentDTO, "studentName", scan("Student Name", stringRegex, stringOnlyErrorMsg, OperationType.UPDATE)));
+        student.setStudentAddress(updateCheck(studentDTO, "studentAddress", scan("Student Address", null, null, OperationType.UPDATE)));
+        student.setStudentEmailId(updateCheck(studentDTO, "studentEmailId", scan("Email Id", emailRegex, String.format(scanningErrorMsg, "Email Id"), OperationType.UPDATE)));
         student.setStudentGender(scanGender(OperationType.UPDATE));
-        if(student.getStudentGender() == Gender.NONE)
+        if (student.getStudentGender() == Gender.NONE)
             student.setStudentGender(studentDTO.getStudentGender());
-        tempScanning = scan("Mobile No", mobileRegex, String.format(scanningErrorMsg, "Mobile No"), OperationType.UPDATE);
-        if(tempScanning == null)
-            student.setStudentMobile(studentDTO.getStudentMobile());
-        else
-            student.setStudentMobile(tempScanning);
+        student.setStudentMobile(updateCheck(studentDTO, "studentMobile", scan("Mobile No", mobileRegex, String.format(scanningErrorMsg, "Mobile No"), OperationType.UPDATE)));
         System.out.println("\nEnter Parent Details : \n");
-        tempScanning = scan("Student Parent Name", stringRegex, stringOnlyErrorMsg, OperationType.UPDATE);
-        if(tempScanning == null)
-            student.setStudentParentName(studentDTO.getStudentParentName());
-        else
-            student.setStudentParentName(tempScanning);
-        tempScanning = scan("Mobile No", mobileRegex, String.format(scanningErrorMsg, "Mobile No"), OperationType.UPDATE);
-        if(tempScanning == null)
-            student.setStudentParentMobile(studentDTO.getStudentParentMobile());
-        else
-            student.setStudentParentMobile(tempScanning);
-        tempScanning = scan("Email Id", emailRegex, String.format(scanningErrorMsg, "Email Id"), OperationType.UPDATE);
-        if(tempScanning == null)
-            student.setStudentParentEmailId(studentDTO.getStudentParentEmailId());
-        else
-            student.setStudentParentEmailId(tempScanning);
-        tempScanning = scan("Reference Name", stringRegex, stringOnlyErrorMsg, OperationType.UPDATE);
-        if(tempScanning == null)
-            student.setStudentReferenceName(studentDTO.getStudentReferenceName());
-        else
-            student.setStudentReferenceName(tempScanning);
-        student.updateDTOCheck(studentDTO);
+        student.setStudentParentName(updateCheck(studentDTO, "studentParentName", scan("Student Parent Name", stringRegex, stringOnlyErrorMsg, OperationType.UPDATE)));
+        student.setStudentParentMobile(updateCheck(studentDTO, "studentParentMobile", scan("Mobile No", mobileRegex, String.format(scanningErrorMsg, "Mobile No"), OperationType.UPDATE)));
+        student.setStudentParentEmailId(updateCheck(studentDTO, "studentParentEmailId", scan("Email Id", emailRegex, String.format(scanningErrorMsg, "Email Id"), OperationType.UPDATE)));
+        student.setStudentReferenceName(updateCheck(studentDTO, "studentReferenceName", scan("Reference Name", stringRegex, stringOnlyErrorMsg, OperationType.UPDATE)));
         studentService.update(student);
     }
 

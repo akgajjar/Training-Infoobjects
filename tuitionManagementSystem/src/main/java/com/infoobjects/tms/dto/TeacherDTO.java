@@ -78,18 +78,4 @@ public class TeacherDTO implements DTO {
         this.teacherSalary = teacherSalary;
     }
 
-    public void updateDTOCheck(TeacherDTO source) {
-        if (checkNull(this.getTeacherAddress()))
-            this.setTeacherAddress(source.getTeacherAddress());
-        if (checkNull(this.getTeacherEmailId()))
-            this.setTeacherEmailId(source.getTeacherEmailId());
-        if (checkNull(this.getTeacherMobile()))
-            this.setTeacherMobile(source.getTeacherMobile());
-        if (checkNull(this.getTeacherName()))
-            this.setTeacherName(this.getTeacherName());
-        if (this.getTeacherSalary() == 0.0)
-            this.setTeacherSalary(source.getTeacherSalary());
-
-    }
-
 }

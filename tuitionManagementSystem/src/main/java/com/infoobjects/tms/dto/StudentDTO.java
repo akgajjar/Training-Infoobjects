@@ -105,26 +105,4 @@ public class StudentDTO implements DTO {
 		this.studentReferenceName = studentReferenceName;
 	}
 
-	public void updateDTOCheck(StudentDTO source){
-
-		if(checkNull(this.getStudentAddress()))
-			this.setStudentAddress(source.getStudentAddress());
-		if(checkNull(this.getStudentEmailId()))
-			this.setStudentEmailId(source.getStudentEmailId());
-		if(checkNull(this.getStudentMobile()))
-			this.setStudentMobile(source.getStudentMobile());
-		if(checkNull(this.getStudentName()))
-			this.setStudentName(source.getStudentName());
-		if(checkNull(this.getStudentParentEmailId()))
-			this.setStudentParentEmailId(source.getStudentParentEmailId());
-		if(checkNull(this.getStudentParentMobile()))
-			this.setStudentParentMobile(source.getStudentParentMobile());
-		if(checkNull(this.getStudentParentName()))
-			this.setStudentParentName(source.getStudentParentName());
-		if(checkNull(this.getStudentReferenceName()))
-			this.setStudentReferenceName(source.getStudentReferenceName());
-		if(this.getStudentGender() == Gender.NONE)
-			this.setStudentGender(source.getStudentGender());
-	}
-
 }

@@ -67,7 +67,7 @@ public class TmsUtils {
                     break;
 
             } else {
-                if(operationType == OperationType.UPDATE)
+                if (operationType == OperationType.UPDATE)
                     return null;
                 printErrors(nullErrorMsg);
             }
@@ -166,6 +166,20 @@ public class TmsUtils {
             }
         }
         return returnValue.toString();
+    }
+
+    public static String updateCheck(DTO reference, String field, String scannedValue) {
+        Class classReference = reference.getClass();
+        try {
+            if (checkNull(scannedValue)) {
+                Field declaredField = classReference.getDeclaredField(field);
+                declaredField.setAccessible(true);
+                return String.valueOf(declaredField.get(reference));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return scannedValue;
     }
 
 }

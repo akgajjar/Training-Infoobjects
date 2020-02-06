@@ -56,7 +56,6 @@ public class TeacherViewImpl implements TeacherViewIncrement<Integer, TeacherDTO
 
     @Override
     public void update() throws IOException {
-        String tempScanning;
         TeacherDTO teacher = new TeacherDTO();
         System.out.println("\nEnter Teacher Details : ");
         teacher.setTeacherId(Integer.parseInt(scan("Teacher Id", digitRegex + "+", integerOnlyErrorMsg, OperationType.UPDATE)));
@@ -65,32 +64,14 @@ public class TeacherViewImpl implements TeacherViewIncrement<Integer, TeacherDTO
             printErrors(String.format(findErrorMsg, "Teacher"));
             return;
         }
-        tempScanning = scan("Salary", doubleRegex, doubleOnlyErrorMsg, OperationType.UPDATE);
-        if (checkNull(tempScanning))
-            teacher.setTeacherSalary(0.0);
-        else
-            teacher.setTeacherSalary(Double.parseDouble(tempScanning));
-        tempScanning = scan("Teacher Name", stringRegex, stringOnlyErrorMsg, OperationType.UPDATE);
-        if (checkNull(tempScanning))
-            teacher.setTeacherName(teacherDTO.getTeacherName());
-        else
-            teacher.setTeacherName(tempScanning);
-        tempScanning = scan("Mobile No", mobileRegex, String.format(scanningErrorMsg, "Mobile No"), OperationType.UPDATE);
-        if (checkNull(tempScanning))
-            teacher.setTeacherMobile(teacherDTO.getTeacherMobile());
-        else
-            teacher.setTeacherMobile(tempScanning);
-        tempScanning = scan("Email Id", emailRegex, String.format(scanningErrorMsg, "Email Id"), OperationType.UPDATE);
-        if (checkNull(tempScanning))
-            teacher.setTeacherEmailId(teacherDTO.getTeacherEmailId());
-        else
-            teacher.setTeacherEmailId(tempScanning);
+        teacher.setTeacherSalary(Double.parseDouble(updateCheck(teacherDTO, "teacherSalary", scan("Salary", doubleRegex, doubleOnlyErrorMsg, OperationType.UPDATE))));
+        teacher.setTeacherName(updateCheck(teacherDTO, "teacherName", scan("Teacher Name", stringRegex, stringOnlyErrorMsg, OperationType.UPDATE)));
+        teacher.setTeacherMobile(updateCheck(teacherDTO, "teacherMobile", scan("Mobile No", mobileRegex, String.format(scanningErrorMsg, "Mobile No"), OperationType.UPDATE)));
+        teacher.setTeacherEmailId(updateCheck(teacherDTO, "teacherEmailId", scan("Email Id", emailRegex, String.format(scanningErrorMsg, "Email Id"), OperationType.UPDATE)));
         teacher.setTeacherDesignation(scanDesignation(OperationType.UPDATE));
         if (teacher.getTeacherDesignation() == Designation.NONE)
             teacher.setTeacherDesignation(teacherDTO.getTeacherDesignation());
-        tempScanning = scan("Teacher Address", null, null, OperationType.UPDATE);
-        if (!checkNull(tempScanning)) teacher.setTeacherAddress(tempScanning);
-        else teacher.setTeacherAddress(teacherDTO.getTeacherAddress());
+        teacher.setTeacherAddress(updateCheck(teacherDTO, "teacherAddress", scan("Teacher Address", null, null, OperationType.UPDATE)));
         teacherService.update(teacher);
     }
 
