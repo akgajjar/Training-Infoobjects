@@ -2,21 +2,21 @@ package com.infoobjects.tms.service;
 
 import com.infoobjects.tms.dao.StudentDAOImpl;
 import com.infoobjects.tms.dao.interfaces.DAO;
-import com.infoobjects.tms.dto.StudentDTO;
+import com.infoobjects.tms.dto.Student;
 import com.infoobjects.tms.service.interfaces.Service;
 
 import java.util.List;
 
-public class StudentServiceImpl implements Service<Integer, StudentDTO> {
+public class StudentServiceImpl implements Service<Integer, Student> {
 
-    private DAO<Integer, StudentDTO> studentDao = new StudentDAOImpl();
+    private DAO<Integer, Student> studentDao = new StudentDAOImpl();
 
-    public DAO<Integer, StudentDTO> getStudentDao() {
+    public DAO<Integer, Student> getStudentDao() {
         return studentDao;
     }
 
     @Override
-    public void insert(StudentDTO studentDTO) {
+    public void insert(Student studentDTO) {
         studentDao.insert(studentDTO);
     }
 
@@ -26,17 +26,17 @@ public class StudentServiceImpl implements Service<Integer, StudentDTO> {
     }
 
     @Override
-    public StudentDTO find(Integer id) {
+    public Student find(Integer id) {
         return studentDao.find(id);
     }
 
     @Override
-    public void update(StudentDTO studentDTO) {
+    public void update(Student studentDTO) {
         studentDao.update(studentDTO);
     }
 
     @Override
-    public List<StudentDTO> findAll() {
+    public List<Student> findAll() {
         return studentDao.findAll();
     }
 

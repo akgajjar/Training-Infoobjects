@@ -3,22 +3,22 @@ package com.infoobjects.tms.service;
 import com.infoobjects.tms.dao.StudentDAOImpl;
 import com.infoobjects.tms.dao.TeacherDAOImpl;
 import com.infoobjects.tms.dao.interfaces.TeacheDAOIncrement;
-import com.infoobjects.tms.dto.StudentDTO;
-import com.infoobjects.tms.dto.TeacherDTO;
+import com.infoobjects.tms.dto.Student;
+import com.infoobjects.tms.dto.Teacher;
 import com.infoobjects.tms.service.interfaces.TeacherServiceIncrement;
 
 import java.util.List;
 
-public class TeacherServiceImpl implements  TeacherServiceIncrement<Integer, TeacherDTO> {
+public class TeacherServiceImpl implements  TeacherServiceIncrement<Integer, Teacher> {
 
-    private TeacheDAOIncrement<Integer, TeacherDTO> teacherDAO = new TeacherDAOImpl();
+    private TeacheDAOIncrement<Integer, Teacher> teacherDAO = new TeacherDAOImpl();
 
-    public TeacheDAOIncrement<Integer, TeacherDTO> getTeacherDAO() {
+    public TeacheDAOIncrement<Integer, Teacher> getTeacherDAO() {
         return teacherDAO;
     }
 
     @Override
-    public void insert(TeacherDTO teacherDTO) {
+    public void insert(Teacher teacherDTO) {
         teacherDAO.insert(teacherDTO);
     }
 
@@ -28,17 +28,17 @@ public class TeacherServiceImpl implements  TeacherServiceIncrement<Integer, Tea
     }
 
     @Override
-    public TeacherDTO find(Integer id) {
+    public Teacher find(Integer id) {
         return teacherDAO.find(id);
     }
 
     @Override
-    public void update(TeacherDTO teacherDTO) {
+    public void update(Teacher teacherDTO) {
         teacherDAO.update(teacherDTO);
     }
 
     @Override
-    public List<TeacherDTO> findAll() {
+    public List<Teacher> findAll() {
         return teacherDAO.findAll();
     }
 
@@ -49,7 +49,7 @@ public class TeacherServiceImpl implements  TeacherServiceIncrement<Integer, Tea
     }
 
     @Override
-    public List<StudentDTO> showAllStudent(int teacherId, StudentDAOImpl studentDAO) {
+    public List<Student> showAllStudent(int teacherId, StudentDAOImpl studentDAO) {
         return teacherDAO.showAllStudent(teacherId, studentDAO);
     }
 
@@ -57,4 +57,5 @@ public class TeacherServiceImpl implements  TeacherServiceIncrement<Integer, Tea
     public void deleteStudents() throws Exception {
         teacherDAO.deleteStudents();
     }
+
 }

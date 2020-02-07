@@ -1,10 +1,11 @@
 package com.infoobjects.tms.dao;
 
+import com.infoobjects.tms.TmsMapper;
 import com.infoobjects.tms.dao.interfaces.TeacheDAOIncrement;
-import com.infoobjects.tms.dto.StudentDTO;
-import com.infoobjects.tms.dto.TeacherDTO;
+import com.infoobjects.tms.dto.Student;
+import com.infoobjects.tms.dto.Teacher;
 import com.infoobjects.tms.enums.Designation;
-import com.infoobjects.tms.utils.SingltonConnection;
+import com.infoobjects.tms.utils.SingletonConnection;
 import com.infoobjects.tms.utils.TmsUtils;
 
 import java.sql.Connection;
@@ -13,7 +14,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TeacherDAOImpl implements TeacheDAOIncrement<Integer, TeacherDTO> {
+public class TeacherDAOImpl implements TeacheDAOIncrement<Integer, Teacher> {
 
     private String insertQuery = "INSERT INTO TEACHER(TEACHERID,TEACHERNAME,TEACHERADDRESS,TEACHERMOBILE,TEACHEREMAIL,TEACHERSALARY,TEACHERDESIGNATION)values(?,?,?,?,?,?,?)";
     private String updateQuery = "UPDATE TEACHER SET TEACHERNAME = ?, TEACHERADDRESS = ?, TEACHERMOBILE = ?, TEACHEREMAIL= ?, TEACHERSALARY=?, TEACHERDESIGNATION = ? WHERE TEACHERID = ?";
@@ -25,20 +26,10 @@ public class TeacherDAOImpl implements TeacheDAOIncrement<Integer, TeacherDTO> {
     private String deleteAllStudentsQuery = "DELETE FROM TEACHERSTUDENT ";
 
     @Override
-    public void insert(TeacherDTO teacherDTO) {
+    public void insert(Teacher teacherDTO) {
         try {
-            Connection connection = SingltonConnection.getInstance();
-            PreparedStatement statement = connection.prepareStatement(insertQuery);
-            statement.setInt(1, teacherDTO.getTeacherId());
-            statement.setString(2, teacherDTO.getTeacherName());
-            statement.setString(3, teacherDTO.getTeacherAddress());
-            statement.setString(4, teacherDTO.getTeacherMobile());
-            statement.setString(5, teacherDTO.getTeacherEmailId());
-            statement.setDouble(6, teacherDTO.getTeacherSalary());
-            statement.setString(7, teacherDTO.getTeacherDesignation().toString());
-            statement.executeUpdate();
-            System.out.print(TmsUtils.insertSuccessmsg);
-
+            TmsDAOImpl genericDAO = new TmsDAOImpl();
+            genericDAO.insert(TmsMapper.dtoToMap(teacherDTO),TmsMapper.getTableName(teacherDTO));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -47,7 +38,7 @@ public class TeacherDAOImpl implements TeacheDAOIncrement<Integer, TeacherDTO> {
     @Override
     public void delete(Integer id) {
         try {
-            Connection connection = SingltonConnection.getInstance();
+            Connection connection = SingletonConnection.getInstance();
             PreparedStatement statement = connection.prepareStatement(deleteQuery);
             statement.setInt(1, id);
             statement.executeUpdate();
@@ -58,15 +49,16 @@ public class TeacherDAOImpl implements TeacheDAOIncrement<Integer, TeacherDTO> {
     }
 
     @Override
-    public TeacherDTO find(Integer id) {
-        TeacherDTO teacherDTO = null;
+    public Teacher find(Integer id) {
+        return new Teacher();
+     /*   Teacher teacherDTO = null;
         try {
-            Connection connection = SingltonConnection.getInstance();
+            Connection connection = SingletonConnection.getInstance();
             PreparedStatement statement = connection.prepareStatement(findQuery);
             statement.setInt(1, id);
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
-                teacherDTO = new TeacherDTO();
+                teacherDTO = new Teacher();
                 teacherDTO.setTeacherAddress(rs.getString("TEACHERADDRESS"));
                 teacherDTO.setTeacherEmailId(rs.getString("TEACHEREMAIL"));
                 teacherDTO.setTeacherId(rs.getInt("TEACHERID"));
@@ -92,13 +84,13 @@ public class TeacherDAOImpl implements TeacheDAOIncrement<Integer, TeacherDTO> {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return teacherDTO;
+        return teacherDTO;*/
     }
 
     @Override
-    public void update(TeacherDTO teacherDTO) {
+    public void update(Teacher teacherDTO) {
         try {
-            Connection connection = SingltonConnection.getInstance();
+            Connection connection = SingletonConnection.getInstance();
             PreparedStatement statement = connection.prepareStatement(updateQuery);
             statement.setInt(7, teacherDTO.getTeacherId());
             statement.setString(1, teacherDTO.getTeacherName());
@@ -115,14 +107,14 @@ public class TeacherDAOImpl implements TeacheDAOIncrement<Integer, TeacherDTO> {
     }
 
     @Override
-    public List<TeacherDTO> findAll() {
-        List<TeacherDTO> teacherList = new ArrayList<>();
+    public List<Teacher> findAll() {
+        List<Teacher> teacherList = new ArrayList<>();
         try {
-            Connection connection = SingltonConnection.getInstance();
+            Connection connection = SingletonConnection.getInstance();
             PreparedStatement statement = connection.prepareStatement(findAllQuery);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                TeacherDTO teacherDTO = new TeacherDTO();
+                Teacher teacherDTO = new Teacher();
                 teacherDTO.setTeacherAddress(rs.getString("TEACHERADDRESS"));
                 teacherDTO.setTeacherEmailId(rs.getString("TEACHEREMAIL"));
                 teacherDTO.setTeacherId(rs.getInt("TEACHERID"));
@@ -154,7 +146,7 @@ public class TeacherDAOImpl implements TeacheDAOIncrement<Integer, TeacherDTO> {
     @Override
     public void insertStudent(int studentId, int teacherId) {
         try {
-            Connection connection = SingltonConnection.getInstance();
+            Connection connection = SingletonConnection.getInstance();
             PreparedStatement statement = connection.prepareStatement(insertstudentQuery);
             statement.setInt(1, teacherId);
             statement.setInt(2, studentId);
@@ -167,16 +159,16 @@ public class TeacherDAOImpl implements TeacheDAOIncrement<Integer, TeacherDTO> {
     }
 
     @Override
-    public List<StudentDTO> showAllStudent(int teacherId, StudentDAOImpl studentDAO) {
-        List<StudentDTO> studentList = new ArrayList<StudentDTO>();
+    public List<Student> showAllStudent(int teacherId, StudentDAOImpl studentDAO) {
+        List<Student> studentList = new ArrayList<Student>();
         try {
-            Connection connection = SingltonConnection.getInstance();
+            Connection connection = SingletonConnection.getInstance();
             PreparedStatement statement = connection.prepareStatement(findAllStudentsQuery);
             statement.setInt(1, teacherId);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 int studentId = rs.getInt("STUDENTID");
-                StudentDTO student = studentDAO.find(studentId);
+                Student student = studentDAO.find(studentId);
                 studentList.add(student);
             }
         } catch (Exception e) {
@@ -188,7 +180,7 @@ public class TeacherDAOImpl implements TeacheDAOIncrement<Integer, TeacherDTO> {
     @Override
     public void deleteStudents() {
         try {
-            Connection connection = SingltonConnection.getInstance();
+            Connection connection = SingletonConnection.getInstance();
             PreparedStatement statement = connection.prepareStatement(deleteAllStudentsQuery);
             statement.executeUpdate();
         } catch (Exception e) {

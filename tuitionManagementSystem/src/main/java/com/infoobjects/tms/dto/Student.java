@@ -6,7 +6,7 @@ import com.infoobjects.tms.enums.OperationType;
 
 import static  com.infoobjects.tms.utils.TmsUtils.*;
 
-public class StudentDTO implements DTO {
+public class Student implements DTO {
 
 	private int studentId;
 	private String studentName;

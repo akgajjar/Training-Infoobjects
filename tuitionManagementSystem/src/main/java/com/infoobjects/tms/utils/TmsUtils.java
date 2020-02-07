@@ -46,11 +46,7 @@ public class TmsUtils {
     }
 
     public static boolean checkNull(String value) {
-        if ((value == null) || (value.length() == 0)) {
-            return true;
-        } else {
-            return false;
-        }
+        return (value == null) || (value.length() == 0);
     }
 
     public static String scan(String msg, String regex, String errorMsg, OperationType operationType) throws IOException {
@@ -168,11 +164,11 @@ public class TmsUtils {
         return returnValue.toString();
     }
 
-    public static String updateCheck(DTO reference, String field, String scannedValue) {
+    public static String updateCheck(DTO reference, String fieldName, String scannedValue) {
         Class classReference = reference.getClass();
         try {
             if (checkNull(scannedValue)) {
-                Field declaredField = classReference.getDeclaredField(field);
+                Field declaredField = classReference.getDeclaredField(fieldName);
                 declaredField.setAccessible(true);
                 return String.valueOf(declaredField.get(reference));
             }

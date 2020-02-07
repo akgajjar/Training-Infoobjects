@@ -3,10 +3,9 @@ package com.infoobjects.tms.dto;
 import com.infoobjects.tms.dto.interfaces.DTO;
 import com.infoobjects.tms.enums.Designation;
 
-import static com.infoobjects.tms.utils.TmsUtils.checkNull;
 import static com.infoobjects.tms.utils.TmsUtils.genericToString;
 
-public class TeacherDTO implements DTO {
+public class Teacher implements DTO {
 
     private int teacherId;
     private String teacherName;

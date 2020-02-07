@@ -1,6 +1,6 @@
 package com.infoobjects.tms.view;
 
-import com.infoobjects.tms.dto.StudentDTO;
+import com.infoobjects.tms.dto.Student;
 import com.infoobjects.tms.dto.interfaces.DTO;
 import com.infoobjects.tms.enums.Gender;
 import com.infoobjects.tms.enums.OperationType;
@@ -13,9 +13,9 @@ import java.util.List;
 
 import static com.infoobjects.tms.utils.TmsUtils.*;
 
-public class StudentViewImpl implements View<Integer, StudentDTO> {
+public class StudentViewImpl implements View<Integer, Student> {
 
-    private static Service<Integer, StudentDTO> studentService = null;
+    private static Service<Integer, Student> studentService = null;
 
     public StudentViewImpl(StudentServiceImpl serviceImpl) {
         studentService = serviceImpl;
@@ -23,7 +23,7 @@ public class StudentViewImpl implements View<Integer, StudentDTO> {
 
     @Override
     public void insert() throws IOException {
-        StudentDTO student = new StudentDTO();
+        Student student = new Student();
         System.out.println("\nEnter Student Details : ");
         student.setStudentId(Integer.parseInt(scan("Student Id", digitRegex + "+", integerOnlyErrorMsg, OperationType.INSERT)));
         if (studentService.find(student.getStudentId()) != null) {
@@ -56,12 +56,12 @@ public class StudentViewImpl implements View<Integer, StudentDTO> {
     @Override
     public void update() throws IOException {
         int studentId = Integer.parseInt(scan("Student Id", digitRegex + "+", integerOnlyErrorMsg, OperationType.FIND));
-        StudentDTO studentDTO = find(studentId);
+        Student studentDTO = find(studentId);
         if (studentDTO == null) {
             printErrors(String.format(findErrorMsg, "Student"));
             return;
         }
-        StudentDTO student = new StudentDTO();
+        Student student = new Student();
         student.setStudentId(studentId);
         System.out.println("\nEnter Student Details : ");
         student.setStudentName(updateCheck(studentDTO, "studentName", scan("Student Name", stringRegex, stringOnlyErrorMsg, OperationType.UPDATE)));
@@ -80,8 +80,8 @@ public class StudentViewImpl implements View<Integer, StudentDTO> {
     }
 
     @Override
-    public StudentDTO find(Integer id) {
-        StudentDTO student = studentService.find(id);
+    public Student find(Integer id) {
+        Student student = studentService.find(id);
         if (student == null) {
             printErrors(String.format(findErrorMsg, "Student"));
             return null;
@@ -92,7 +92,7 @@ public class StudentViewImpl implements View<Integer, StudentDTO> {
 
     @Override
     public void findAll() {
-        List<StudentDTO> students = studentService.findAll();
+        List<Student> students = studentService.findAll();
         if (students.size() == 0) {
             printErrors(String.format(findErrorMsg, "Student"));
             return;
