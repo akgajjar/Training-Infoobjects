@@ -1,8 +1,7 @@
 package com.infoobjects.tuitionManagementSystem;
 
-import com.infoobjects.tms.TmsMapper;
+import com.infoobjects.tms.mapper.TmsMapper;
 import com.infoobjects.tms.dto.Teacher;
-import com.infoobjects.tms.dto.interfaces.DTO;
 import com.infoobjects.tms.utils.TmsUtils;
 
 import java.util.Map;

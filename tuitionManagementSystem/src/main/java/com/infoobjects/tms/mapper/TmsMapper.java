@@ -1,4 +1,4 @@
-package com.infoobjects.tms;
+package com.infoobjects.tms.mapper;
 
 import com.infoobjects.tms.dto.interfaces.DTO;
 import com.fasterxml.jackson.databind.ObjectMapper;

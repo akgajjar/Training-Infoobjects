@@ -1,6 +1,6 @@
 package com.infoobjects.tms.dao;
 
-import com.infoobjects.tms.TmsMapper;
+import com.infoobjects.tms.mapper.TmsMapper;
 import com.infoobjects.tms.dao.interfaces.DAO;
 import com.infoobjects.tms.dto.Student;
 import com.infoobjects.tms.utils.TmsUtils;
