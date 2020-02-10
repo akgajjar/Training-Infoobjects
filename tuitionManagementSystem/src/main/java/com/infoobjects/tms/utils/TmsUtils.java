@@ -123,11 +123,11 @@ public class TmsUtils {
                             loopBreak = 1;
                             break;
                         case 2:
-                            designation = Designation.TEACHINGASSISTANCE;
+                            designation = Designation.TEACHING_ASSISTANCE;
                             loopBreak = 1;
                             break;
                         case 3:
-                            designation = Designation.LABSTAFF;
+                            designation = Designation.LAB_STAFF;
                             loopBreak = 1;
                             break;
                         default:

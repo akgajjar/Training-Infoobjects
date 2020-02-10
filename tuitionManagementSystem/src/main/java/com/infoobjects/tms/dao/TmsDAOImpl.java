@@ -1,10 +1,12 @@
 package com.infoobjects.tms.dao;
 
 import com.infoobjects.tms.dto.interfaces.DTO;
+import com.infoobjects.tms.mapper.TmsMapper;
 import com.infoobjects.tms.utils.SingletonConnection;
 import com.infoobjects.tms.utils.TmsUtils;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -39,22 +41,99 @@ public class TmsDAOImpl {
     }
 
 
-    public void delete(Integer id) {
-
+    public void delete(Map dataMap, String tableName) {
+        StringBuilder sql = new StringBuilder("DELETE FROM ").append(tableName).append(" WHERE ");
+        try {
+            for (Iterator<String> iteratorMap = dataMap.keySet().iterator(); iteratorMap.hasNext(); ) {
+                sql.append(iteratorMap.next());
+                sql.append(" = ? ");
+                if (iteratorMap.hasNext()) {
+                    sql.append(",");
+                }
+            }
+            sql.append(";");
+            PreparedStatement preparedStatement;
+            preparedStatement = SingletonConnection.getInstance().prepareStatement(sql.toString());
+            int i = 1;
+            for (Object value : dataMap.values()) {
+                preparedStatement.setObject(i++, value);
+            }
+            preparedStatement.executeUpdate();
+            System.out.print(TmsUtils.deleteSuccessmsg);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
-    public DTO find(Integer id) {
-        return null;
+    public List<Map<String, Object>> find(Map dataMap, String tableName) {
+        ResultSet resultSet = null;
+        StringBuilder sqlQuery = new StringBuilder("SELECT * FROM ").append(tableName).append(" WHERE ");
+        try {
+            for (Iterator<String> iteratorMap = dataMap.keySet().iterator(); iteratorMap.hasNext(); ) {
+                sqlQuery.append(iteratorMap.next());
+                sqlQuery.append(" = ? ");
+                if (iteratorMap.hasNext()) {
+                    sqlQuery.append(" and ");
+                }
+            }
+            sqlQuery.append(";");
+            PreparedStatement preparedStatement =  SingletonConnection.getInstance().prepareStatement(sqlQuery.toString());
+            int counterValue = 1;
+            for (Object value : dataMap.values()) {
+                preparedStatement.setObject(counterValue++, value);
+            }
+            resultSet = preparedStatement.executeQuery();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return TmsMapper.resultSetToMap(resultSet);
     }
 
 
-    public void update(DTO dto) {
 
+    public void update(Map dataMap, String tableName, String idName) {
+        int i = 1;
+        StringBuilder sqlQuery = new StringBuilder("UPDATE ").append(tableName).append(" SET ");
+        try {
+            for (Iterator<String> iteratorMap = dataMap.keySet().iterator(); iteratorMap.hasNext(); ) {
+                String columnName = iteratorMap.next();
+                if(columnName.equalsIgnoreCase(idName))
+                    continue;
+                sqlQuery.append(columnName);
+                sqlQuery.append(" = ? ");
+
+                if (iteratorMap.hasNext()) {
+                    sqlQuery.append(" , ");
+                }
+            }
+            sqlQuery.append(" WHERE ").append(idName).append(" = ? ");
+            PreparedStatement preparedStatement = null;
+            preparedStatement = SingletonConnection.getInstance().prepareStatement(sqlQuery.toString());
+            Object idValue = dataMap.get(idName);
+            dataMap.remove(idName);
+            for (Object value : dataMap.values()) {
+                preparedStatement.setObject(i++, value);
+            }
+            preparedStatement.setObject(i++, idValue);
+            preparedStatement.executeUpdate();
+            System.out.print(TmsUtils.updateSuccessmsg);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
+    public List<Map<String, Object>> findAll(String tableName) {
+        ResultSet resultSet = null;
+        StringBuilder sqlQuery = new StringBuilder("SELECT * FROM ").append(tableName);
+        try {
+            PreparedStatement preparedStatement =  SingletonConnection.getInstance().prepareStatement(sqlQuery.toString());
+            resultSet = preparedStatement.executeQuery();
 
-    public List<DTO> findAll() {
-        return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return TmsMapper.resultSetToMap(resultSet);
     }
 }

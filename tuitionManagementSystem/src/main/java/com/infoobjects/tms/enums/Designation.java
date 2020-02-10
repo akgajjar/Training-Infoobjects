@@ -2,10 +2,10 @@ package com.infoobjects.tms.enums;
 
 public enum Designation {
 
-    PROFESSOR("Professor"),
-    TEACHINGASSISTANCE("Teaching Assistance"),
-    LABSTAFF("Lab Staff"),
-    NONE("None");
+    PROFESSOR("PROFESSOR"),
+    TEACHING_ASSISTANCE("TEACHING_ASSISTANCE"),
+    LAB_STAFF("LAB_STAFF"),
+    NONE("NONE");
 
     private String designationValue;
     Designation(String designationValue) {

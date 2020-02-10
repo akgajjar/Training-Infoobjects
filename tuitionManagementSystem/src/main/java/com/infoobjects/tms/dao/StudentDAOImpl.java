@@ -33,8 +33,14 @@ public class StudentDAOImpl implements DAO<Integer, Student> {
 
     @Override
     public void delete(Integer id) {
-        map.remove(id);
-        System.out.print(TmsUtils.updateSuccessmsg);
+        try {
+            HashMap map = new HashMap();
+            map.put("studentId", id);
+            TmsDAOImpl genericDAO = new TmsDAOImpl();
+            genericDAO.delete(map ,"Student");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

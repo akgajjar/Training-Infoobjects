@@ -88,7 +88,7 @@ public class TeacherViewImpl implements TeacherViewIncrement<Integer, Teacher> {
 
     @Override
     public void findAll() {
-        List<Teacher> teachers = teacherService.findAll();
+        List<DTO> teachers = teacherService.findAll();
         if (teachers.size() == 0) {
             printErrors(String.format(findErrorMsg, "Teacher"));
             return;

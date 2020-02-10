@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class TeacherDAOImpl implements TeacheDAOIncrement<Integer, Teacher> {
@@ -38,11 +39,10 @@ public class TeacherDAOImpl implements TeacheDAOIncrement<Integer, Teacher> {
     @Override
     public void delete(Integer id) {
         try {
-            Connection connection = SingletonConnection.getInstance();
-            PreparedStatement statement = connection.prepareStatement(deleteQuery);
-            statement.setInt(1, id);
-            statement.executeUpdate();
-            System.out.print(TmsUtils.deleteSuccessmsg);
+            HashMap map = new HashMap();
+            map.put("teacherId", id);
+            TmsDAOImpl genericDAO = new TmsDAOImpl();
+            genericDAO.delete(map ,"Teacher");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -126,10 +126,10 @@ public class TeacherDAOImpl implements TeacheDAOIncrement<Integer, Teacher> {
                         teacherDTO.setTeacherDesignation(Designation.PROFESSOR);
                         break;
                     case "Teaching Assistance" :
-                        teacherDTO.setTeacherDesignation(Designation.TEACHINGASSISTANCE);
+                        teacherDTO.setTeacherDesignation(Designation.TEACHING_ASSISTANCE);
                         break;
                     case "Lab Staff" :
-                        teacherDTO.setTeacherDesignation(Designation.LABSTAFF);
+                        teacherDTO.setTeacherDesignation(Designation.LAB_STAFF);
                         break;
                     case "None" :
                         teacherDTO.setTeacherDesignation(Designation.NONE);
