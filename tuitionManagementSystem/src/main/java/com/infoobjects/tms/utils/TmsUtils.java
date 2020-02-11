@@ -1,5 +1,6 @@
 package com.infoobjects.tms.utils;
 
+import com.fasterxml.uuid.Generators;
 import com.infoobjects.tms.dto.interfaces.DTO;
 import com.infoobjects.tms.enums.Designation;
 import com.infoobjects.tms.enums.Gender;
@@ -9,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Field;
+import java.util.UUID;
 import java.util.regex.Pattern;
 
 public class TmsUtils {
@@ -176,6 +178,10 @@ public class TmsUtils {
             e.printStackTrace();
         }
         return scannedValue;
+    }
+
+    public static String uuidGeneration(){
+         return Generators.randomBasedGenerator().generate().toString();
     }
 
 }

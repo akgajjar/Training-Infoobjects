@@ -21,7 +21,7 @@ public class Student implements DTO {
 
 	@Override
 	public String toString() {
-		System.out.println("\n Student : \n\n");
+		System.out.println("Student : \n");
 		return genericToString(this);
 	}
 

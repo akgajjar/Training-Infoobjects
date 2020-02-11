@@ -12,17 +12,17 @@ public class SingletonConnection {
     }
 
     private static Connection getConnection() {
-        Connection con = null;
+        Connection connection = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/TMS", "root", "Infoobjects@123");
-        } catch (Exception e) {
-            e.printStackTrace();
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/TMS", "root", "Infoobjects@123");
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
-        return con;
+        return connection;
     }
 
-    public static Connection getInstance() {
+    public static synchronized Connection getInstance() {
         if (connection == null) {
             connection = getConnection();
         }

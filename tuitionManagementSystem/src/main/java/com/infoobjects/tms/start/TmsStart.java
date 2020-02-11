@@ -2,6 +2,7 @@ package com.infoobjects.tms.start;
 
 import com.infoobjects.tms.dto.Student;
 import com.infoobjects.tms.dto.Teacher;
+import com.infoobjects.tms.dto.interfaces.DTO;
 import com.infoobjects.tms.enums.OperationType;
 import com.infoobjects.tms.service.StudentServiceImpl;
 import com.infoobjects.tms.service.TeacherServiceImpl;
@@ -23,8 +24,6 @@ public class TmsStart {
         TeacherServiceImpl teacherService = new TeacherServiceImpl();
         int choice, loopBreak = 0;
 
-		teacherService.deleteStudents();
-
 		System.out.printf(" %s %n %s %n %s %n", pretty, systemName, pretty);
         functionalityOptions.append("%n %n1) Student %n");
         functionalityOptions.append("2) Teacher %n");
@@ -34,11 +33,11 @@ public class TmsStart {
             choice = Integer.parseInt(scan("Choice", digitRegex + "+", integerOnlyErrorMsg, OperationType.CHOICE));
             switch (choice) {
                 case 1:
-                    View<Integer, Student> studentView = new StudentViewImpl(studentService);
+                    View<Integer, DTO> studentView = new StudentViewImpl(studentService);
                     studentView.mainView();
                     break;
                 case 2:
-                    TeacherViewIncrement<Integer, Teacher> teacherView = new TeacherViewImpl(teacherService, studentService);
+                    TeacherViewIncrement<Integer, DTO> teacherView = new TeacherViewImpl(teacherService, studentService);
                     teacherView.mainView();
                     break;
                 case 3:

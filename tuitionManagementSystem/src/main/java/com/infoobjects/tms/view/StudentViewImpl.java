@@ -13,9 +13,9 @@ import java.util.List;
 
 import static com.infoobjects.tms.utils.TmsUtils.*;
 
-public class StudentViewImpl implements View<Integer, Student> {
+public class StudentViewImpl implements View<Integer, DTO> {
 
-    private static Service<Integer, Student> studentService = null;
+    private static Service<Integer, DTO> studentService = null;
 
     public StudentViewImpl(StudentServiceImpl serviceImpl) {
         studentService = serviceImpl;
@@ -26,6 +26,7 @@ public class StudentViewImpl implements View<Integer, Student> {
         Student student = new Student();
         System.out.println("\nEnter Student Details : ");
         student.setStudentId(Integer.parseInt(scan("Student Id", digitRegex + "+", integerOnlyErrorMsg, OperationType.INSERT)));
+
         if (studentService.find(student.getStudentId()) != null) {
             printErrors(duplicatePrimaryKeyErrorMsg);
             return;
@@ -56,7 +57,7 @@ public class StudentViewImpl implements View<Integer, Student> {
     @Override
     public void update() throws IOException {
         int studentId = Integer.parseInt(scan("Student Id", digitRegex + "+", integerOnlyErrorMsg, OperationType.FIND));
-        Student studentDTO = find(studentId);
+        Student studentDTO = (Student) find(studentId);
         if (studentDTO == null) {
             printErrors(String.format(findErrorMsg, "Student"));
             return;
@@ -80,8 +81,8 @@ public class StudentViewImpl implements View<Integer, Student> {
     }
 
     @Override
-    public Student find(Integer id) {
-        Student student = studentService.find(id);
+    public DTO find(Integer id) {
+        DTO student = studentService.find(id);
         if (student == null) {
             printErrors(String.format(findErrorMsg, "Student"));
             return null;
@@ -92,7 +93,7 @@ public class StudentViewImpl implements View<Integer, Student> {
 
     @Override
     public void findAll() {
-        List<Student> students = studentService.findAll();
+        List<DTO> students = studentService.findAll();
         if (students.size() == 0) {
             printErrors(String.format(findErrorMsg, "Student"));
             return;

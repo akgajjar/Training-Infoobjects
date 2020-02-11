@@ -37,7 +37,6 @@ public class TmsMapper {
                 for (int i = 1; i <= columns; ++i) {
                     row.put(md.getColumnName(i), rs.getObject(i));
                 }
-                System.out.println(row);
                 rows.add(row);
             }
         }

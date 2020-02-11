@@ -1,6 +1,5 @@
 package com.infoobjects.tms.dao;
 
-import com.infoobjects.tms.dto.interfaces.DTO;
 import com.infoobjects.tms.mapper.TmsMapper;
 import com.infoobjects.tms.utils.SingletonConnection;
 import com.infoobjects.tms.utils.TmsUtils;
@@ -33,7 +32,7 @@ public class TmsDAOImpl {
             for (Object value : dataMap.values()) {
                 preparedStatement.setObject(i++, value);
             }
-           preparedStatement.executeUpdate();
+            preparedStatement.executeUpdate();
             System.out.print(TmsUtils.insertSuccessmsg);
         } catch (Exception e) {
             e.printStackTrace();
@@ -42,13 +41,16 @@ public class TmsDAOImpl {
 
 
     public void delete(Map dataMap, String tableName) {
-        StringBuilder sql = new StringBuilder("DELETE FROM ").append(tableName).append(" WHERE ");
+        StringBuilder sql = new StringBuilder("DELETE FROM ").append(tableName);
         try {
-            for (Iterator<String> iteratorMap = dataMap.keySet().iterator(); iteratorMap.hasNext(); ) {
-                sql.append(iteratorMap.next());
-                sql.append(" = ? ");
-                if (iteratorMap.hasNext()) {
-                    sql.append(",");
+            if (dataMap.size() > 0) {
+                sql.append(" WHERE ");
+                for (Iterator<String> iteratorMap = dataMap.keySet().iterator(); iteratorMap.hasNext(); ) {
+                    sql.append(iteratorMap.next());
+                    sql.append(" = ? ");
+                    if (iteratorMap.hasNext()) {
+                        sql.append(" AND ");
+                    }
                 }
             }
             sql.append(";");
@@ -74,11 +76,11 @@ public class TmsDAOImpl {
                 sqlQuery.append(iteratorMap.next());
                 sqlQuery.append(" = ? ");
                 if (iteratorMap.hasNext()) {
-                    sqlQuery.append(" and ");
+                    sqlQuery.append(" AND ");
                 }
             }
             sqlQuery.append(";");
-            PreparedStatement preparedStatement =  SingletonConnection.getInstance().prepareStatement(sqlQuery.toString());
+            PreparedStatement preparedStatement = SingletonConnection.getInstance().prepareStatement(sqlQuery.toString());
             int counterValue = 1;
             for (Object value : dataMap.values()) {
                 preparedStatement.setObject(counterValue++, value);
@@ -92,14 +94,13 @@ public class TmsDAOImpl {
     }
 
 
-
     public void update(Map dataMap, String tableName, String idName) {
         int i = 1;
         StringBuilder sqlQuery = new StringBuilder("UPDATE ").append(tableName).append(" SET ");
         try {
             for (Iterator<String> iteratorMap = dataMap.keySet().iterator(); iteratorMap.hasNext(); ) {
                 String columnName = iteratorMap.next();
-                if(columnName.equalsIgnoreCase(idName))
+                if (columnName.equalsIgnoreCase(idName))
                     continue;
                 sqlQuery.append(columnName);
                 sqlQuery.append(" = ? ");
@@ -124,13 +125,30 @@ public class TmsDAOImpl {
         }
     }
 
-    public List<Map<String, Object>> findAll(String tableName) {
+    public List<Map<String, Object>> findAll(Map dataMap, String tableName) {
         ResultSet resultSet = null;
         StringBuilder sqlQuery = new StringBuilder("SELECT * FROM ").append(tableName);
-        try {
-            PreparedStatement preparedStatement =  SingletonConnection.getInstance().prepareStatement(sqlQuery.toString());
-            resultSet = preparedStatement.executeQuery();
+        if (dataMap.size() > 0) {
+            sqlQuery.append(" WHERE ");
 
+            for (Iterator<String> iteratorMap = dataMap.keySet().iterator(); iteratorMap.hasNext(); ) {
+                sqlQuery.append(iteratorMap.next());
+                sqlQuery.append(" = ? ");
+
+                if (iteratorMap.hasNext()) {
+                    sqlQuery.append(" AND ");
+                }
+            }
+        }
+        try {
+            PreparedStatement preparedStatement = SingletonConnection.getInstance().prepareStatement(sqlQuery.toString());
+            if (dataMap.size() > 0) {
+                int i = 1;
+                for (Object value : dataMap.values()) {
+                    preparedStatement.setObject(i++, value);
+                }
+            }
+            resultSet = preparedStatement.executeQuery();
         } catch (Exception e) {
             e.printStackTrace();
         }

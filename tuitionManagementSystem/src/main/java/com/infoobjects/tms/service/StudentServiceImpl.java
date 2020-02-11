@@ -1,26 +1,20 @@
 package com.infoobjects.tms.service;
 
-import com.infoobjects.tms.dao.StudentDAOImpl;
 import com.infoobjects.tms.dao.TmsDAOImpl;
-import com.infoobjects.tms.dao.interfaces.DAO;
 import com.infoobjects.tms.dto.Student;
+import com.infoobjects.tms.dto.interfaces.DTO;
 import com.infoobjects.tms.mapper.TmsMapper;
 import com.infoobjects.tms.service.interfaces.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class StudentServiceImpl implements Service<Integer, Student> {
-
-    private DAO<Integer, Student> studentDao = new StudentDAOImpl();
-    private TmsDAOImpl genericDao = new TmsDAOImpl();
-
-    public DAO<Integer, Student> getStudentDao() {
-        return studentDao;
-    }
+public class StudentServiceImpl implements Service<Integer, DTO> {
 
     @Override
-    public void insert(Student studentDTO) {
+    public void insert(DTO studentDTO) {
         try {
             TmsDAOImpl genericDAO = new TmsDAOImpl();
             genericDAO.insert(TmsMapper.dtoToMap(studentDTO),TmsMapper.getTableName(studentDTO));
@@ -42,18 +36,46 @@ public class StudentServiceImpl implements Service<Integer, Student> {
     }
 
     @Override
-    public Student find(Integer id) {
-        return studentDao.find(id);
+    public DTO find(Integer id) {
+        DTO student = null;
+        try {
+            HashMap map = new HashMap();
+            map.put("studentId", id);
+            TmsDAOImpl genericDAO = new TmsDAOImpl();
+            List<Map<String, Object>> resultList = genericDAO.find(map ,"Student");
+            Map<String, Object> mapResult = resultList.get(0);
+            student = TmsMapper.mapToDto(mapResult, new Student());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return student;
     }
 
     @Override
-    public void update(Student studentDTO) {
-        studentDao.update(studentDTO);
+    public void update(DTO studentDTO) {
+        try {
+            TmsDAOImpl genericDAO = new TmsDAOImpl();
+            genericDAO.update(TmsMapper.dtoToMap(studentDTO),TmsMapper.getTableName(studentDTO), "studentId");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public List<Student> findAll() {
-        return studentDao.findAll();
+    public List<DTO> findAll() {
+        List<DTO> students = new ArrayList<>();
+        try {
+            TmsDAOImpl genericDAO = new TmsDAOImpl();
+            List<Map<String, Object>> resultList = genericDAO.findAll(new HashMap(),"Student");
+            for(int loopCounter = 0 ; loopCounter < resultList.size(); loopCounter++) {
+                Map<String, Object> mapResult = resultList.get(loopCounter);
+                DTO student = TmsMapper.mapToDto(mapResult, new Student());
+                students.add(student);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return students;
     }
 
 }

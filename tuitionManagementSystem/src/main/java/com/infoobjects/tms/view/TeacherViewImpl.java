@@ -1,8 +1,8 @@
 package com.infoobjects.tms.view;
 
-import com.infoobjects.tms.dao.StudentDAOImpl;
 import com.infoobjects.tms.dto.Student;
 import com.infoobjects.tms.dto.Teacher;
+import com.infoobjects.tms.dto.TeacherStudent;
 import com.infoobjects.tms.dto.interfaces.DTO;
 import com.infoobjects.tms.enums.Designation;
 import com.infoobjects.tms.enums.OperationType;
@@ -15,7 +15,7 @@ import java.util.List;
 
 import static com.infoobjects.tms.utils.TmsUtils.*;
 
-public class TeacherViewImpl implements TeacherViewIncrement<Integer, Teacher> {
+public class TeacherViewImpl implements TeacherViewIncrement<Integer, DTO> {
 
     private TeacherServiceImpl teacherService;
     private StudentServiceImpl studentService;
@@ -31,10 +31,10 @@ public class TeacherViewImpl implements TeacherViewIncrement<Integer, Teacher> {
         Teacher teacher = new Teacher();
         System.out.println("\nEnter Teacher Details : ");
         teacher.setTeacherId(Integer.parseInt(scan("Teacher Id", digitRegex + "+", integerOnlyErrorMsg, OperationType.INSERT)));
-        /*if (teacherService.find(teacher.getTeacherId()) != null) {
+        if (teacherService.find(teacher.getTeacherId()) != null) {
             printErrors(duplicatePrimaryKeyErrorMsg);
             return;
-        }*/
+        }
         teacher.setTeacherSalary(Double.parseDouble(scan("Salary", doubleRegex, doubleOnlyErrorMsg, OperationType.INSERT)));
         teacher.setTeacherName(scan("Teacher Name", stringRegex, stringOnlyErrorMsg, OperationType.INSERT));
         teacher.setTeacherMobile(scan("Mobile No", mobileRegex, String.format(scanningErrorMsg, "Mobile No"), OperationType.INSERT));
@@ -59,7 +59,7 @@ public class TeacherViewImpl implements TeacherViewIncrement<Integer, Teacher> {
         Teacher teacher = new Teacher();
         System.out.println("\nEnter Teacher Details : ");
         teacher.setTeacherId(Integer.parseInt(scan("Teacher Id", digitRegex + "+", integerOnlyErrorMsg, OperationType.UPDATE)));
-        Teacher teacherDTO = find(teacher.getTeacherId());
+        Teacher teacherDTO = (Teacher) find(teacher.getTeacherId());
         if (teacherDTO == null) {
             printErrors(String.format(findErrorMsg, "Teacher"));
             return;
@@ -76,8 +76,8 @@ public class TeacherViewImpl implements TeacherViewIncrement<Integer, Teacher> {
     }
 
     @Override
-    public Teacher find(Integer id) {
-        Teacher teacherDTO = teacherService.find(id);
+    public DTO find(Integer id) {
+        DTO teacherDTO = teacherService.find(id);
         if (teacherDTO == null) {
             printErrors(String.format(findErrorMsg, "Teacher"));
             return null;
@@ -93,7 +93,7 @@ public class TeacherViewImpl implements TeacherViewIncrement<Integer, Teacher> {
             printErrors(String.format(findErrorMsg, "Teacher"));
             return;
         }
-        System.out.println("Teachers : \n\n");
+        System.out.println("\n\nTeachers : ");
         for (DTO teacherDTO : teachers) {
             System.out.println(teacherDTO + "\n");
         }
@@ -111,7 +111,10 @@ public class TeacherViewImpl implements TeacherViewIncrement<Integer, Teacher> {
             printErrors(String.format(findErrorMsg, "Teacher"));
             return;
         }
-        teacherService.insertStudent(studentId, teacherId);
+        TeacherStudent teacherStudent = new TeacherStudent();
+        teacherStudent.setStudentId(studentId);
+        teacherStudent.setTeacherId(teacherId);
+        teacherService.insertStudent(teacherStudent);
     }
 
     @Override
@@ -121,12 +124,12 @@ public class TeacherViewImpl implements TeacherViewIncrement<Integer, Teacher> {
             printErrors(String.format(findErrorMsg, "Teacher"));
             return;
         }
-        List<Student> students = teacherService.showAllStudent(teacherId, (StudentDAOImpl) studentService.getStudentDao());
+        List<Student> students = teacherService.showAllStudent(teacherId);
         if (students.size() == 0) {
             printErrors(String.format(findErrorMsg, "Student"));
             return;
         }
-        System.out.println("\n\nStudents : ");
+        System.out.println("\nStudents : \n");
         for (DTO studentDTO : students) {
             System.out.println(studentDTO + "\n");
         }
