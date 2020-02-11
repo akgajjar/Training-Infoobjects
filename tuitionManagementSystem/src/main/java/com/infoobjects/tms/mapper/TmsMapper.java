@@ -17,20 +17,15 @@ public class TmsMapper {
     public static Map dtoToMap(DTO instanceVariable) {
         ObjectMapper objectMapper = new ObjectMapper();
         Map dataMap = objectMapper.convertValue(instanceVariable, Map.class);
-     /*   for (Iterator<String> iteratorMap = dataMap.keySet().iterator(); iteratorMap.hasNext(); ) {
+        Map returnMap = new HashMap();
+        for (Iterator<String> iteratorMap = dataMap.keySet().iterator(); iteratorMap.hasNext(); ) {
            String key = iteratorMap.next();
            Object value = dataMap.get(key);
 
-           dataMap.remove(key);
 
-           dataMap.put(camelCaseToSnakeCase(key), value);
+            returnMap.put(camelCaseToSnakeCase(key),value);
         }
-*/
-        dataMap.forEach((key, value) -> {
-            dataMap.remove(key);
-            dataMap.put(camelCaseToSnakeCase(String.valueOf(key)), value);
-        });
-        return dataMap;
+        return returnMap;
     }
 
     public static DTO mapToDto(Map mapVariable, DTO referenceVariable) {
@@ -43,7 +38,7 @@ public class TmsMapper {
     }
 
     public static List<Map<String, Object>> resultSetToMap(ResultSet rs) {
-        List<Map<String, Object>> rows = new ArrayList<>();
+        List<Map<String, Object>> rowList = new ArrayList<>();
 
         try {
             ResultSetMetaData md = rs.getMetaData();
@@ -52,14 +47,16 @@ public class TmsMapper {
             while (rs.next()) {
                 Map<String, Object> row = new HashMap<>(columns);
                 for (int i = 1; i <= columns; ++i) {
-                    row.put(md.getColumnName(i), rs.getObject(i));
+
+                    row.put(snakeCaseToCamelCase(md.getColumnName(i)), rs.getObject(i));
                 }
-                rows.add(row);
+                rowList.add(row);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return rows;
+        System.out.println(rowList);
+        return rowList;
     }
 
     public static String camelCaseToSnakeCase(String value) {
