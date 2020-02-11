@@ -1,7 +1,6 @@
 package com.infoobjects.tms.dao;
 
 import com.infoobjects.tms.mapper.TmsMapper;
-import com.infoobjects.tms.utils.SingletonConnection;
 import com.infoobjects.tms.utils.TmsUtils;
 
 import java.sql.PreparedStatement;
