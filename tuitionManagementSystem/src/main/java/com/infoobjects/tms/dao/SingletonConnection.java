@@ -14,7 +14,7 @@ public class SingletonConnection {
     private static Connection getConnection() {
         Connection connection = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/TMS", "root", "Infoobjects@123");
         } catch (Exception exception) {
             exception.printStackTrace();

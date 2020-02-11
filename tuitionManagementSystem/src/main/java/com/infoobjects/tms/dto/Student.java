@@ -18,7 +18,6 @@ public class Student implements DTO {
 	private String studentParentMobile;
 	private String studentParentEmailId;
 	private String studentReferenceName;
-
 	@Override
 	public String toString() {
 		System.out.println("Student : \n");

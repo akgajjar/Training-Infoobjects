@@ -25,8 +25,7 @@ public class TmsDAOImpl {
                 }
             }
             sql.append(") VALUES (").append(placeholders).append(")");
-            PreparedStatement preparedStatement = null;
-            preparedStatement = SingletonConnection.getInstance().prepareStatement(sql.toString());
+            PreparedStatement preparedStatement = SingletonConnection.getInstance().prepareStatement(sql.toString());
 
             for (Object value : dataMap.values()) {
                 preparedStatement.setObject(i++, value);

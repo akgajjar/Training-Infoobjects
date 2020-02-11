@@ -43,6 +43,9 @@ public class StudentServiceImpl implements Service<Integer, DTO> {
             map.put("studentId", id);
             TmsDAOImpl genericDAO = new TmsDAOImpl();
             List<Map<String, Object>> resultList = genericDAO.find(map ,"Student");
+            if (resultList.size() == 0) {
+                return null;
+            }
             Map<String, Object> mapResult = resultList.get(0);
             student = TmsMapper.mapToDto(mapResult, new Student());
         } catch (Exception e) {

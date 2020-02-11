@@ -45,6 +45,9 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<Integer, DTO>
             map.put("teacherId", id);
             TmsDAOImpl genericDAO = new TmsDAOImpl();
             List<Map<String, Object>> resultList = genericDAO.find(map, "Teacher");
+            if (resultList.size() == 0) {
+                return null;
+            }
             Map<String, Object> mapResult = resultList.get(0);
             teacher = TmsMapper.mapToDto(mapResult, new Teacher());
         } catch (Exception e) {

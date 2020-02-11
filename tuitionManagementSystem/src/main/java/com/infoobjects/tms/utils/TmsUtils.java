@@ -15,6 +15,8 @@ import java.util.regex.Pattern;
 
 public class TmsUtils {
 
+    public static String camelCaseRegex = "([a-z])([A-Z]+)";
+    public static String camelCaseReplacementregex = "$1_$2";
     public static String emailRegex = "[a-zA_Z0-9]+[@]{1}[a-zA_Z0-9]+[.]{1}[a-zA_Z0-9]{2,3}";
     public static String mobileRegex = "(0/91)?[7-9][0-9]{9}";
     public static String digitRegex = "\\d";
