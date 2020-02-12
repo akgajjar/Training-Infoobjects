@@ -23,7 +23,7 @@ public class TmsMapper {
            Object value = dataMap.get(key);
 
 
-            returnMap.put(camelCaseToSnakeCase(key),value);
+            returnMap.put(key,value);
         }
         return returnMap;
     }
@@ -47,7 +47,6 @@ public class TmsMapper {
             while (rs.next()) {
                 Map<String, Object> row = new HashMap<>(columns);
                 for (int i = 1; i <= columns; ++i) {
-
                     row.put(snakeCaseToCamelCase(md.getColumnName(i)), rs.getObject(i));
                 }
                 rowList.add(row);
@@ -55,16 +54,15 @@ public class TmsMapper {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(rowList);
         return rowList;
     }
 
     public static String camelCaseToSnakeCase(String value) {
-        return value.replaceAll(TmsUtils.camelCaseRegex, TmsUtils.camelCaseReplacementregex).toUpperCase();
+        return value.replaceAll(TmsUtils.camelCaseRegex, TmsUtils.camelCaseReplacementRegex).toUpperCase();
     }
 
     public static String snakeCaseToCamelCase(String value){
-        return CaseUtils.toCamelCase("TEACHER_ID",false ,'_');
+        return CaseUtils.toCamelCase(value,false ,'_');
     }
 
 }

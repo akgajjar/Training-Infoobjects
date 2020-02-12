@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 public class TmsUtils {
 
     public static String camelCaseRegex = "([a-z])([A-Z]+)";
-    public static String camelCaseReplacementregex = "$1_$2";
+    public static String camelCaseReplacementRegex = "$1_$2";
     public static String emailRegex = "[a-zA_Z0-9]+[@]{1}[a-zA_Z0-9]+[.]{1}[a-zA_Z0-9]{2,3}";
     public static String mobileRegex = "(0/91)?[7-9][0-9]{9}";
     public static String digitRegex = "\\d";
@@ -31,9 +31,9 @@ public class TmsUtils {
     public static String integerOnlyErrorMsg = "\nplease Enter integer Value only" + exclamationMark + "\n\n";
     public static String doubleOnlyErrorMsg = "\nplease Enter double Value only" + exclamationMark + "\n\n";
     public static String stringOnlyErrorMsg = "\nplease Enter Character only" + exclamationMark + "\n\n";
-    public static String insertSuccessmsg = "\nInserted SuccessFully" + exclamationMark + "\n\n";
-    public static String deleteSuccessmsg = "\nDeleted SuccessFully" + exclamationMark + "\n\n";
-    public static String updateSuccessmsg = "\nUpdated SuccessFully" + exclamationMark + "\n\n";
+    public static String insertSuccessMsg  = "\nInserted SuccessFully" + exclamationMark + "\n\n";
+    public static String deleteSuccessMsg = "\nDeleted SuccessFully" + exclamationMark + "\n\n";
+    public static String updateSuccessMsg = "\nUpdated SuccessFully" + exclamationMark + "\n\n";
 
     private static boolean patternMatch(String pattern, String value, String errorMsg) {
         Pattern patternRef = Pattern.compile(pattern);

@@ -17,7 +17,7 @@ public class TmsDAOImpl {
         StringBuilder sql = new StringBuilder("INSERT INTO ").append(tableName).append(" (");
         try {
             for (Iterator<String> iteratorMap = dataMap.keySet().iterator(); iteratorMap.hasNext(); ) {
-                sql.append(iteratorMap.next());
+                sql.append(TmsMapper.camelCaseToSnakeCase(iteratorMap.next()));
                 placeholders.append("?");
                 if (iteratorMap.hasNext()) {
                     sql.append(",");
@@ -31,7 +31,7 @@ public class TmsDAOImpl {
                 preparedStatement.setObject(i++, value);
             }
             preparedStatement.executeUpdate();
-            System.out.print(TmsUtils.insertSuccessmsg);
+            System.out.print(TmsUtils.insertSuccessMsg);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -44,7 +44,7 @@ public class TmsDAOImpl {
             if (dataMap.size() > 0) {
                 sql.append(" WHERE ");
                 for (Iterator<String> iteratorMap = dataMap.keySet().iterator(); iteratorMap.hasNext(); ) {
-                    sql.append(iteratorMap.next());
+                    sql.append(TmsMapper.camelCaseToSnakeCase(iteratorMap.next()));
                     sql.append(" = ? ");
                     if (iteratorMap.hasNext()) {
                         sql.append(" AND ");
@@ -59,7 +59,7 @@ public class TmsDAOImpl {
                 preparedStatement.setObject(i++, value);
             }
             preparedStatement.executeUpdate();
-            System.out.print(TmsUtils.deleteSuccessmsg);
+            System.out.print(TmsUtils.deleteSuccessMsg);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -71,7 +71,7 @@ public class TmsDAOImpl {
         StringBuilder sqlQuery = new StringBuilder("SELECT * FROM ").append(tableName).append(" WHERE ");
         try {
             for (Iterator<String> iteratorMap = dataMap.keySet().iterator(); iteratorMap.hasNext(); ) {
-                sqlQuery.append(iteratorMap.next());
+                sqlQuery.append(TmsMapper.camelCaseToSnakeCase(iteratorMap.next()));
                 sqlQuery.append(" = ? ");
                 if (iteratorMap.hasNext()) {
                     sqlQuery.append(" AND ");
@@ -100,14 +100,14 @@ public class TmsDAOImpl {
                 String columnName = iteratorMap.next();
                 if (columnName.equalsIgnoreCase(idName))
                     continue;
-                sqlQuery.append(columnName);
+                sqlQuery.append(TmsMapper.camelCaseToSnakeCase(columnName));
                 sqlQuery.append(" = ? ");
 
                 if (iteratorMap.hasNext()) {
                     sqlQuery.append(" , ");
                 }
             }
-            sqlQuery.append(" WHERE ").append(idName).append(" = ? ");
+            sqlQuery.append(" WHERE ").append(TmsMapper.camelCaseToSnakeCase(idName)).append(" = ? ");
             PreparedStatement preparedStatement = null;
             preparedStatement = SingletonConnection.getInstance().prepareStatement(sqlQuery.toString());
             Object idValue = dataMap.get(idName);
@@ -117,7 +117,7 @@ public class TmsDAOImpl {
             }
             preparedStatement.setObject(i++, idValue);
             preparedStatement.executeUpdate();
-            System.out.print(TmsUtils.updateSuccessmsg);
+            System.out.print(TmsUtils.updateSuccessMsg);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -130,7 +130,7 @@ public class TmsDAOImpl {
             sqlQuery.append(" WHERE ");
 
             for (Iterator<String> iteratorMap = dataMap.keySet().iterator(); iteratorMap.hasNext(); ) {
-                sqlQuery.append(iteratorMap.next());
+                sqlQuery.append(TmsMapper.camelCaseToSnakeCase(iteratorMap.next()));
                 sqlQuery.append(" = ? ");
 
                 if (iteratorMap.hasNext()) {
@@ -152,4 +152,5 @@ public class TmsDAOImpl {
         }
         return TmsMapper.resultSetToMap(resultSet);
     }
+
 }
