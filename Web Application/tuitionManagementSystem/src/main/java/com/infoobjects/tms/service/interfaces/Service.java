@@ -2,13 +2,13 @@ package com.infoobjects.tms.service.interfaces;
 
 import java.util.List;
 
-public interface Service<Integer,T> {
+public interface Service<String,T> {
 
 	void insert(T dto);
     
-    void delete(Integer id);
+    void delete(String id);
     
-    T find(Integer id);
+    T find(String id);
     
     void update(T dto);
     

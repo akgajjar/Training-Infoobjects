@@ -2,7 +2,7 @@ package com.infoobjects.tms.view.interfaces;
 
 import java.io.IOException;
 
-public interface View<Integer, DTO> {
+public interface View<String, DTO> {
 
         void insert() throws IOException;
 
@@ -10,7 +10,7 @@ public interface View<Integer, DTO> {
 
         void update() throws IOException;
 
-        DTO find(Integer id);
+        DTO find(String id);
 
         void findAll();
 

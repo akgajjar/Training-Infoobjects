@@ -1,7 +1,5 @@
 package com.infoobjects.tms.start;
 
-import com.infoobjects.tms.dto.Student;
-import com.infoobjects.tms.dto.Teacher;
 import com.infoobjects.tms.dto.interfaces.DTO;
 import com.infoobjects.tms.enums.OperationType;
 import com.infoobjects.tms.service.StudentServiceImpl;
@@ -33,11 +31,11 @@ public class TmsStart {
             choice = Integer.parseInt(scan("Choice", digitRegex + "+", integerOnlyErrorMsg, OperationType.CHOICE));
             switch (choice) {
                 case 1:
-                    View<Integer, DTO> studentView = new StudentViewImpl(studentService);
+                    View<String, DTO> studentView = new StudentViewImpl(studentService);
                     studentView.mainView();
                     break;
                 case 2:
-                    TeacherViewIncrement<Integer, DTO> teacherView = new TeacherViewImpl(teacherService, studentService);
+                    TeacherViewIncrement<String, DTO> teacherView = new TeacherViewImpl(teacherService, studentService);
                     teacherView.mainView();
                     break;
                 case 3:

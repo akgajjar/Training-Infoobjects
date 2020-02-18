@@ -5,8 +5,8 @@ import com.infoobjects.tms.dto.interfaces.DTO;
 import static com.infoobjects.tms.utils.TmsUtils.genericToString;
 
 public class TeacherStudent implements DTO {
-    private int teacherId;
-    private int studentId;
+    private String teacherId;
+    private String studentId;
 
     @Override
     public String toString() {
@@ -14,19 +14,20 @@ public class TeacherStudent implements DTO {
         return genericToString(this);
     }
 
-    public int getTeacherId() {
+    public String getTeacherId() {
         return teacherId;
     }
 
-    public void setTeacherId(int teacherId) {
+    public void setTeacherId(String teacherId) {
         this.teacherId = teacherId;
     }
 
-    public int getStudentId() {
+    public String getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(int studentId) {
+    public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
+
 }

@@ -11,18 +11,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class StudentServiceImpl implements Service<Integer, DTO> {
+public class StudentServiceImpl implements Service<String, DTO> {
 
+    @Override
     public void insert(DTO studentDTO) {
         try {
             TmsDAOImpl genericDAO = new TmsDAOImpl();
-            genericDAO.insert(TmsMapper.dtoToMap(studentDTO),TmsMapper.getTableName(studentDTO));
+            genericDAO.insert(TmsMapper.dtoToMap(studentDTO), TmsMapper.getTableName(studentDTO));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void delete(Integer id) {
+    @Override
+    public void delete(String id) {
         try {
             HashMap map = new HashMap();
             map.put("studentId", id);
@@ -33,7 +35,8 @@ public class StudentServiceImpl implements Service<Integer, DTO> {
         }
     }
 
-    public DTO find(Integer id) {
+    @Override
+    public DTO find(String id) {
         DTO student = null;
         try {
             HashMap map = new HashMap();
@@ -51,17 +54,19 @@ public class StudentServiceImpl implements Service<Integer, DTO> {
         return student;
     }
 
+    @Override
     public void update(DTO studentDTO) {
         try {
             TmsDAOImpl genericDAO = new TmsDAOImpl();
-            genericDAO.update(TmsMapper.dtoToMap(studentDTO),TmsMapper.getTableName(studentDTO), "studentId");
+            genericDAO.update(TmsMapper.dtoToMap(studentDTO), TmsMapper.getTableName(studentDTO), "studentId");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    @Override
     public List<DTO> findAll() {
-        List<DTO> students = new ArrayList();
+        List<DTO> students = new ArrayList<>();
         try {
             TmsDAOImpl genericDAO = new TmsDAOImpl();
             List<Map<String, Object>> resultList = genericDAO.findAll(new HashMap(),"Student");

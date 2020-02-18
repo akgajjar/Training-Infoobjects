@@ -7,7 +7,7 @@ import static com.infoobjects.tms.utils.TmsUtils.genericToString;
 
 public class Teacher implements DTO {
 
-    private int teacherId;
+    private String teacherId;
     private String teacherName;
     private String teacherAddress;
     private String teacherMobile;
@@ -21,11 +21,11 @@ public class Teacher implements DTO {
         return genericToString(this);
     }
 
-    public int getTeacherId() {
+    public String getTeacherId() {
         return teacherId;
     }
 
-    public void setTeacherId(int teacherId) {
+    public void setTeacherId(String teacherId) {
         this.teacherId = teacherId;
     }
 

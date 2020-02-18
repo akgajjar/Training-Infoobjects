@@ -13,8 +13,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class TeacherServiceImpl implements TeacherServiceIncrement<Integer, DTO> {
+public class TeacherServiceImpl implements TeacherServiceIncrement<String, DTO> {
 
+    @Override
     public void insert(DTO teacherDTO) {
         try {
             TmsDAOImpl genericDAO = new TmsDAOImpl();
@@ -24,7 +25,8 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<Integer, DTO>
         }
     }
 
-    public void delete(Integer id) {
+    @Override
+    public void delete(String id) {
         try {
             HashMap map = new HashMap();
             map.put("teacherId", id);
@@ -35,7 +37,8 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<Integer, DTO>
         }
     }
 
-    public DTO find(Integer id) {
+    @Override
+    public DTO find(String id) {
         DTO teacher = null;
         try {
             HashMap map = new HashMap();
@@ -53,6 +56,7 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<Integer, DTO>
         return teacher;
     }
 
+    @Override
     public void update(DTO teacherDTO) {
         try {
             TmsDAOImpl genericDAO = new TmsDAOImpl();
@@ -62,8 +66,9 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<Integer, DTO>
         }
     }
 
+    @Override
     public List<DTO> findAll() {
-        List<DTO> teachers = new ArrayList();
+        List<DTO> teachers = new ArrayList<>();
         try {
             TmsDAOImpl genericDAO = new TmsDAOImpl();
             List<Map<String, Object>> resultList = genericDAO.findAll(new HashMap(), "Teacher");
@@ -79,6 +84,7 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<Integer, DTO>
     }
 
 
+    @Override
     public void insertStudent(DTO teacherStudent) {
         try {
             TmsDAOImpl genericDAO = new TmsDAOImpl();
@@ -88,8 +94,9 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<Integer, DTO>
         }
     }
 
-    public List<Student> showAllStudent(int teacherId) {
-        List<Student> students = new ArrayList();
+    @Override
+    public List<Student> showAllStudent(String teacherId) {
+        List<Student> students = new ArrayList<>();
         try {
             TmsDAOImpl genericDAO = new TmsDAOImpl();
             StudentServiceImpl studentService = new StudentServiceImpl();
@@ -109,6 +116,7 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<Integer, DTO>
         return students;
     }
 
+    @Override
     public void deleteAllStudents() throws Exception {
         try {
             TmsDAOImpl genericDAO = new TmsDAOImpl();

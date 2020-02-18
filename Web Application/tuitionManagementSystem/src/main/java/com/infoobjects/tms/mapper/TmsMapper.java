@@ -35,14 +35,14 @@ public class TmsMapper {
     }
 
     public static List<Map<String, Object>> resultSetToMap(ResultSet rs) {
-        List<Map<String, Object>> rowList = new ArrayList();
+        List<Map<String, Object>> rowList = new ArrayList<>();
 
         try {
             ResultSetMetaData md = rs.getMetaData();
             int columns = md.getColumnCount();
 
             while (rs.next()) {
-                Map<String, Object> row = new HashMap(columns);
+                Map<String, Object> row = new HashMap<>(columns);
                 for (int i = 1; i <= columns; ++i) {
                     row.put(snakeCaseToCamelCase(md.getColumnName(i)), rs.getObject(i));
                 }

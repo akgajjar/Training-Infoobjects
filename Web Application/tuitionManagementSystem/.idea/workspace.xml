@@ -11,6 +11,9 @@
   <component name="FavoritesManager">
     <favorites_list name="tuitionManagementSystem" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -20,7 +23,8 @@
   </component>
   <component name="ProjectId" id="1XhexYflx8ueBKVJdYAs30NEKpz" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/infoobjects/tms" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -49,7 +53,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.testchanges">
+  <component name="RunManager" selected="Application.TmsStart">
     <configuration name="TmsStart" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.infoobjects.tms.start.TmsStart" />
       <module name="tuitionManagementSystem" />
@@ -78,8 +82,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.testchanges" />
         <item itemvalue="Application.TmsStart" />
+        <item itemvalue="Application.testchanges" />
       </list>
     </recent_temporary>
   </component>

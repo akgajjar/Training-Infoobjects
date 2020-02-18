@@ -4,11 +4,11 @@ import com.infoobjects.tms.dto.Student;
 
 import java.util.List;
 
-public interface TeacherServiceIncrement<Integer, DTO>  extends Service<Integer, DTO>{
+public interface TeacherServiceIncrement<String, DTO>  extends Service<String, DTO>{
 
     void insertStudent(DTO teacherStudent);
 
-    List<Student> showAllStudent(int teacherId);
+    List<Student> showAllStudent(String teacherId);
 
     void deleteAllStudents() throws Exception;
 

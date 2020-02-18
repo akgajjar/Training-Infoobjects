@@ -2,13 +2,12 @@ package com.infoobjects.tms.dto;
 
 import com.infoobjects.tms.dto.interfaces.DTO;
 import com.infoobjects.tms.enums.Gender;
-import com.infoobjects.tms.enums.OperationType;
 
-import static  com.infoobjects.tms.utils.TmsUtils.*;
+import static com.infoobjects.tms.utils.TmsUtils.genericToString;
 
 public class Student implements DTO {
 
-	private int studentId;
+	private String studentId;
 	private String studentName;
 	private String studentAddress;
 	private String studentEmailId;
@@ -24,11 +23,11 @@ public class Student implements DTO {
 		return genericToString(this);
 	}
 
-	public int getStudentId() {
+	public String getStudentId() {
 		return studentId;
 	}
 
-	public void setStudentId(int studentId) {
+	public void setStudentId(String studentId) {
 		this.studentId = studentId;
 	}
 

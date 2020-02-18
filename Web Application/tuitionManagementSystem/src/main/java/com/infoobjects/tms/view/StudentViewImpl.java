@@ -13,22 +13,21 @@ import java.util.List;
 
 import static com.infoobjects.tms.utils.TmsUtils.*;
 
-public class StudentViewImpl implements View<Integer, DTO> {
+public class StudentViewImpl implements View<String, DTO> {
 
-    private static Service<Integer, DTO> studentService = null;
+    private static Service<String, DTO> studentService = null;
 
     public StudentViewImpl(StudentServiceImpl serviceImpl) {
         studentService = serviceImpl;
     }
 
+    @Override
     public void insert() throws IOException {
         Student student = new Student();
         System.out.println("\nEnter Student Details : ");
-        student.setStudentId(Integer.parseInt(scan("Student Id", digitRegex + "+", integerOnlyErrorMsg, OperationType.INSERT)));
-
+        student.setStudentId(uuidGeneration());
         if (studentService.find(student.getStudentId()) != null) {
-            printErrors(duplicatePrimaryKeyErrorMsg);
-            return;
+            student.setStudentId(uuidGeneration());
         }
         student.setStudentName(scan("Student Name", stringRegex, stringOnlyErrorMsg, OperationType.INSERT));
         student.setStudentAddress(scan("Student Address", null, null, OperationType.INSERT));
@@ -43,8 +42,9 @@ public class StudentViewImpl implements View<Integer, DTO> {
         studentService.insert(student);
     }
 
+    @Override
     public void delete() throws NumberFormatException, IOException {
-        int studentId = Integer.parseInt(scan("Student Id", digitRegex + "+", integerOnlyErrorMsg, OperationType.DELETE));
+        String studentId = scan("Student Id", null, null, OperationType.DELETE);
         if (studentService.find(studentId) == null) {
             printErrors(String.format(findErrorMsg, "Student"));
             return;
@@ -52,8 +52,9 @@ public class StudentViewImpl implements View<Integer, DTO> {
         studentService.delete(studentId);
     }
 
+    @Override
     public void update() throws IOException {
-        int studentId = Integer.parseInt(scan("Student Id", digitRegex + "+", integerOnlyErrorMsg, OperationType.FIND));
+        String studentId =scan("Student Id", null, null,OperationType.FIND);
         Student studentDTO = (Student) find(studentId);
         if (studentDTO == null) {
             printErrors(String.format(findErrorMsg, "Student"));
@@ -77,7 +78,8 @@ public class StudentViewImpl implements View<Integer, DTO> {
         studentService.update(student);
     }
 
-    public DTO find(Integer id) {
+    @Override
+    public DTO find(String id) {
         DTO student = studentService.find(id);
         if (student == null) {
             printErrors(String.format(findErrorMsg, "Student"));
@@ -87,6 +89,7 @@ public class StudentViewImpl implements View<Integer, DTO> {
         return student;
     }
 
+    @Override
     public void findAll() {
         List<DTO> students = studentService.findAll();
         if (students.size() == 0) {
@@ -124,7 +127,7 @@ public class StudentViewImpl implements View<Integer, DTO> {
                     delete();
                     break;
                 case 4:
-                    int studentId = Integer.parseInt(scan("Student Id", digitRegex + "+", integerOnlyErrorMsg, OperationType.FIND));
+                    String studentId = scan("Student Id", digitRegex + "+", integerOnlyErrorMsg, OperationType.FIND);
                     find(studentId);
                     break;
                 case 5:

@@ -1,10 +1,8 @@
 package com.infoobjects.tms.view.interfaces;
 
-import com.infoobjects.tms.dto.Teacher;
-
 import java.io.IOException;
 
-public interface TeacherViewIncrement<Integer, DTO> extends View<Integer, DTO>{
+public interface TeacherViewIncrement<String, DTO> extends View<String, DTO>{
 
     void insertStudent() throws Exception;
 
