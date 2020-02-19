@@ -13,22 +13,22 @@ public class TmsDAOImpl {
 
     public void insert(Map dataMap, String tableName) {
         StringBuilder placeholders = new StringBuilder();
-        int i = 1;
-        StringBuilder sql = new StringBuilder("INSERT INTO ").append(tableName).append(" (");
+        int counter = 1;
+        StringBuilder sqlQuery = new StringBuilder("INSERT INTO ").append(tableName).append(" (");
         try {
             for (Iterator<String> iteratorMap = dataMap.keySet().iterator(); iteratorMap.hasNext(); ) {
-                sql.append(TmsMapper.camelCaseToSnakeCase(iteratorMap.next()));
+                sqlQuery.append(TmsMapper.camelCaseToSnakeCase(iteratorMap.next()));
                 placeholders.append("?");
                 if (iteratorMap.hasNext()) {
-                    sql.append(",");
+                    sqlQuery.append(",");
                     placeholders.append(",");
                 }
             }
-            sql.append(") VALUES (").append(placeholders).append(")");
-            PreparedStatement preparedStatement = SingletonConnection.getInstance().prepareStatement(sql.toString());
+            sqlQuery.append(") VALUES (").append(placeholders).append(")");
+            PreparedStatement preparedStatement = SingletonConnection.getInstance().prepareStatement(sqlQuery.toString());
 
             for (Object value : dataMap.values()) {
-                preparedStatement.setObject(i++, value);
+                preparedStatement.setObject(counter++, value);
             }
             preparedStatement.executeUpdate();
             System.out.print(TmsUtils.insertSuccessMsg);

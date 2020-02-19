@@ -1,7 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="67e84ce8-fcc6-4a90-9624-157594eebea4" name="Default Changelist" comment="" />
+    <list default="true" id="67e84ce8-fcc6-4a90-9624-157594eebea4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/teacherController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/insertTeacher.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/src/main/java/com/infoobjects/tms/dao/TmsDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/src/main/java/com/infoobjects/tms/dao/TmsDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/classes/com/infoobjects/tms/dao/SingletonConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/classes/com/infoobjects/tms/dao/SingletonConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/classes/com/infoobjects/tms/dao/TmsDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/classes/com/infoobjects/tms/dao/TmsDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/classes/com/infoobjects/tms/mapper/TmsMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/classes/com/infoobjects/tms/mapper/TmsMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/classes/com/infoobjects/tms/service/StudentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/classes/com/infoobjects/tms/service/StudentServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/classes/com/infoobjects/tms/service/TeacherServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/classes/com/infoobjects/tms/service/TeacherServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/classes/com/infoobjects/tms/start/TmsStart.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/classes/com/infoobjects/tms/start/TmsStart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/classes/com/infoobjects/tms/utils/TmsUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/classes/com/infoobjects/tms/utils/TmsUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/classes/com/infoobjects/tms/view/StudentViewImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/classes/com/infoobjects/tms/view/StudentViewImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/classes/com/infoobjects/tms/view/TeacherViewImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/classes/com/infoobjects/tms/view/TeacherViewImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/surefire-reports/TEST-com.infoobjects.tuitionManagementSystem.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/surefire-reports/TEST-com.infoobjects.tuitionManagementSystem.AppTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/surefire-reports/com.infoobjects.tuitionManagementSystem.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/surefire-reports/com.infoobjects.tuitionManagementSystem.AppTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/tms-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/target/tms-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/commons-lang3-3.9.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/commons-lang3-3.9.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/commons-text-1.4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/commons-text-1.4.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/jackson-annotations-2.8.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jackson-annotations-2.8.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/jackson-core-2.8.6.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jackson-core-2.8.6.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/jackson-databind-2.8.6.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jackson-databind-2.8.6.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/java-uuid-generator-3.1.3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/java-uuid-generator-3.1.3.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/javax.servlet-api-3.1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/javax.servlet-api-3.1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/junit-3.8.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/junit-3.8.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mysql-connector-java-8.0.19.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/mysql-connector-java-8.0.19.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/protobuf-java-3.6.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/protobuf-java-3.6.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/uuid-datepath-idmapper-0.5-with-jug-dependency.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/uuid-datepath-idmapper-0.5-with-jug-dependency.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/dao/SingletonConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/dao/SingletonConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/dao/TmsDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/dao/TmsDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/mapper/TmsMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/mapper/TmsMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/service/StudentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/service/StudentServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/service/TeacherServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/service/TeacherServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/start/TmsStart.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/start/TmsStart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/utils/TmsUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/utils/TmsUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/view/StudentViewImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/view/StudentViewImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/view/TeacherViewImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/view/TeacherViewImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/commons-lang3-3.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/commons-text-1.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/jackson-annotations-2.8.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/jackson-core-2.8.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/jackson-databind-2.8.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/java-uuid-generator-3.1.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javax.servlet-api-3.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/junit-3.8.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mysql-connector-java-8.0.19.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/protobuf-java-3.6.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uuid-datepath-idmapper-0.5-with-jug-dependency.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.infoobjects.tms.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.infoobjects.tms.AppTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.infoobjects.tms.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.infoobjects.tms.AppTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/com/infoobjects/tms/dto/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/com/infoobjects/tms/dto/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/com/infoobjects/tms/dto/Teacher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/com/infoobjects/tms/dto/Teacher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/com/infoobjects/tms/dto/TeacherStudent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/com/infoobjects/tms/dto/TeacherStudent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/com/infoobjects/tms/service/StudentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/com/infoobjects/tms/service/StudentServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/com/infoobjects/tms/service/TeacherServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/com/infoobjects/tms/service/TeacherServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/com/infoobjects/tms/service/interfaces/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/com/infoobjects/tms/service/interfaces/Service.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/com/infoobjects/tms/service/interfaces/TeacherServiceIncrement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/com/infoobjects/tms/service/interfaces/TeacherServiceIncrement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/com/infoobjects/tms/start/TmsStart.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/com/infoobjects/tms/start/TmsStart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/com/infoobjects/tms/view/StudentViewImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/com/infoobjects/tms/view/StudentViewImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/com/infoobjects/tms/view/TeacherViewImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/com/infoobjects/tms/view/TeacherViewImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/com/infoobjects/tms/view/interfaces/TeacherViewIncrement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/com/infoobjects/tms/view/interfaces/TeacherViewIncrement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/com/infoobjects/tms/view/interfaces/View.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/com/infoobjects/tms/view/interfaces/View.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/commons-lang3-3.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/commons-text-1.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/jackson-annotations-2.8.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/jackson-core-2.8.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/jackson-databind-2.8.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/java-uuid-generator-3.1.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/javax.servlet-api-3.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/junit-3.8.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/mysql-connector-java-8.0.19.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/protobuf-java-3.6.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/classes/uuid-datepath-idmapper-0.5-with-jug-dependency.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms-0.0.1-SNAPSHOT/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tuitionManagementSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/tuitionManagementSystem.iml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,22 +109,29 @@
     </option>
   </component>
   <component name="ProjectId" id="1XhexYflx8ueBKVJdYAs30NEKpz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/infoobjects/tms" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../jars/apache-tomcat-9.0.8/bin" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.22668241" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="com.poratu.idea.plugins.tomcat.setting.TomcatSettingConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources" />
-      <recent name="$PROJECT_DIR$/src/lib" />
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.infoobjects.tms" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/infoobjects/tms" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/test/java" />
+      <recent name="$PROJECT_DIR$/src/lib" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/lib" />
     </key>
   </component>
@@ -53,7 +147,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TmsStart">
+  <component name="RunManager" selected="Smart Tomcat.tms">
     <configuration name="TmsStart" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.infoobjects.tms.start.TmsStart" />
       <module name="tuitionManagementSystem" />
@@ -80,6 +174,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="tms" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY">
+      <option name="DOC_BASE" value="" />
+      <option name="DOC_MODULE_ROOT" value="" />
+      <option name="CONTEXT_PATH" value="" />
+      <option name="TOMCAT_PORT" value="8080" />
+      <option name="AJP_PORT" value="8009" />
+      <option name="ADMIN_PORT" value="8005" />
+      <option name="VM_OPTIONS" value="" />
+      <option name="PASS_PARENT_ENV_OPTIONS" value="true" />
+      <option name="CLASS_NAME" value="" />
+      <option name="DEBUG" value="" />
+      <option name="DIGEST" value="" />
+      <option name="ROLE_NAME_COL" value="" />
+      <option name="USER_CRED_COL" value="" />
+      <option name="USER_NAME_COL" value="" />
+      <option name="USER_ROLE_TABLE" value="" />
+      <option name="USER_TABLE" value="" />
+      <option name="JNDI_GLOBAL" value="" />
+      <option name="JNDI_NAME" value="" />
+      <option name="JNDI_TYPE" value="" />
+      <option name="DATA_SOURCE_NAME" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.testchanges" />
+      <item itemvalue="Application.TmsStart" />
+      <item itemvalue="Smart Tomcat.tms" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.TmsStart" />
@@ -99,5 +223,18 @@
       <updated>1581503000496</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
