@@ -56,8 +56,9 @@ public class teacherController extends HttpServlet {
             teacher.setTeacherName(httpServletRequest.getParameter("teacherName"));
             teacher.setTeacherSalary(Double.parseDouble(httpServletRequest.getParameter("teacherSalary")));
 
-            teacherService.insert(teacher);
-            printWriter.println("<script>alert('Inserted Successfully!!!!!!')</script>");
+        /*    teacherService.insert(teacher);
+        */
+        printWriter.println("<html><script>alert('Inserted Successfully!!!!!!');</script></html>");
 
             httpServletRequest.getRequestDispatcher("index.html").forward(httpServletRequest,httpServletResponse);
         }

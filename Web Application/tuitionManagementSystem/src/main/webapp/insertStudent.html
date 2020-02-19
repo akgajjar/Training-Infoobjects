@@ -1,0 +1,72 @@
+<html>
+<head>
+    <style type="stylesheet">
+     .heading{
+        align:center;
+     }
+     .container{
+     align="center"
+
+     }
+     body{
+     background-image: url('images/bodyBk.jpg')
+     }
+    </style>
+
+</head>
+<body>
+<h1 class="heading">Insert Student</h1>
+
+<div class="container">
+    <form method="post" action="studentController">
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="studentName"></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><input type="text" name=studentAddress"></td>
+            </tr>
+            <tr>
+                <td>Mobile</td>
+                <td><input type="text" name="studentMobile"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" name="studentEmailId"></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td><select name="studentGender">
+                    <option value="">---Select Gender---</option>
+                    <option value="MALE">Male</option>
+                    <option value="FEMALE">Female</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td> Parent Name</td>
+                <td><input type="text" name="studentParentName"></td>
+            </tr>
+            <tr>
+                <td>Parent Mobile</td>
+                <td><input type="text" name="studentParentMobile"></td>
+            </tr>
+            <tr>
+                <td>Parent Email</td>
+                <td><input type="text" name="studentParentEmailId"></td>
+            </tr>
+            <tr>
+                <td>Reference Name</td>
+                <td><input type="text" name="studentReferenceName"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" name="action" value="Insert Teacher"></td>
+            </tr>
+        </table>
+
+
+    </form>
+</div>
+</body>
+</html>

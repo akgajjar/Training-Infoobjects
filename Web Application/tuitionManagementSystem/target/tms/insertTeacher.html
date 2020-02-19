@@ -1,42 +1,55 @@
 <html>
+<head>
+    <style type="stylesheet">
+     .heading{
+        align:center;
+     }
+     .container{
+     align="center"
+
+     }
+    </style>
+</head>
 <body>
-<h1>Insert Teacher</h1>
-<form method="post" action="teacherController">
-    <table>
-        <tr>
-            <td>Name</td>
-            <td><input type="text" name="teacherName"></td>
-        </tr>
-        <tr>
-            <td>Address</td>
-            <td><input type="text" name="teacherAddress"></td>
-        </tr>
-        <tr>
-            <td>Mobile</td>
-            <td><input type="text" name="teacherMobile"></td>
-        </tr>
-        <tr>
-            <td>Email</td>
-            <td><input type="text" name="teacherEmailId"></td>
-        </tr>
-        <tr>
-            <td>Salary</td>
-            <td><input type="text" name="teacherSalary"></td>
-        </tr>
-        <tr>
-            <td>Designation</td>
-            <td><select name="teacherDesignation">
-                <option value="PROFESSOR">Professor</option>
-                <option value="TEACHING_ASSISTANCE">Teaching Assistance</option>
-                <option value="LAB_STAFF">Lab Staff</option>
-            </select></td>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="submit" name="action" value="Insert Teacher"></td>
-        </tr>
-    </table>
+<h1 class="heading">Insert Teacher</h1>
+<div class="container">
+    <form method="post" action="teacherController">
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="teacherName"></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><input type="text" name="teacherAddress"></td>
+            </tr>
+            <tr>
+                <td>Mobile</td>
+                <td><input type="text" name="teacherMobile"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" name="teacherEmailId"></td>
+            </tr>
+            <tr>
+                <td>Salary</td>
+                <td><input type="text" name="teacherSalary"></td>
+            </tr>
+            <tr>
+                <td>Designation</td>
+                <td><select name="teacherDesignation">
+                    <option value="">---Select Designation---</option>
+                    <option value="PROFESSOR">Professor</option>
+                    <option value="TEACHING_ASSISTANCE">Teaching Assistance</option>
+                    <option value="LAB_STAFF">Lab Staff</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" name="action" value="Insert Teacher"></td>
+            </tr>
+        </table>
 
-
+</div>
 
 </form>
 

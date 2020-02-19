@@ -2,6 +2,7 @@ com/infoobjects/tms/mapper/TmsMapper.class
 com/infoobjects/tms/dao/SingletonConnection.class
 com/infoobjects/tms/dto/TeacherStudent.class
 com/infoobjects/tms/service/TeacherServiceImpl.class
+com/infoobjects/tms/controller/studentController.class
 com/infoobjects/tms/view/interfaces/View.class
 com/infoobjects/tms/start/TmsStart.class
 com/infoobjects/tms/view/StudentViewImpl.class

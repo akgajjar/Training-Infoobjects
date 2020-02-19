@@ -14,6 +14,7 @@
 /home/info-harsh/workspace/Training Project/Web Application/tuitionManagementSystem/src/main/java/com/infoobjects/tms/dao/SingletonConnection.java
 /home/info-harsh/workspace/Training Project/Web Application/tuitionManagementSystem/src/main/java/com/infoobjects/tms/dto/interfaces/DTO.java
 /home/info-harsh/workspace/Training Project/Web Application/tuitionManagementSystem/src/main/java/com/infoobjects/tms/service/StudentServiceImpl.java
+/home/info-harsh/workspace/Training Project/Web Application/tuitionManagementSystem/src/main/java/com/infoobjects/tms/controller/studentController.java
 /home/info-harsh/workspace/Training Project/Web Application/tuitionManagementSystem/src/main/java/com/infoobjects/tms/dto/TeacherStudent.java
 /home/info-harsh/workspace/Training Project/Web Application/tuitionManagementSystem/src/main/java/com/infoobjects/tms/service/TeacherServiceImpl.java
 /home/info-harsh/workspace/Training Project/Web Application/tuitionManagementSystem/src/main/java/com/infoobjects/tms/dao/TmsDAOImpl.java
