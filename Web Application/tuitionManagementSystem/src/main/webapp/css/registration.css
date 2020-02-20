@@ -1,0 +1,166 @@
+
+/*basic reset*/
+* {margin: 0; padding: 0;}
+
+  .clear {
+  	clear:both;
+  }
+  .heading{
+         text-align: center;
+         margin:1em auto;
+         transition:0.5s all;
+         -webkit-transition:0.5s all;
+         -moz-transition:0.5s all;
+         -o-transition:0.5s all;
+         -ms-transition:0.5s all;
+   }
+   .heading h1{
+        font-weight:400;
+   }
+  .container{
+        width:35%;
+	    margin: 0 auto;
+   }
+   .link-container{
+        flex-basis: 300px;
+        padding: 3em;
+        justify-content: center;
+   	    background: rgba(171, 171, 171, 0.34);
+   }
+  .form{
+        flex-basis: 300px;
+        padding: 3em;
+        justify-content: center;
+	    background: rgba(171, 171, 171, 0.34);
+   }
+  body{
+         background-image: url('../images/bodyBk.jpg');
+         background-size: cover;
+         font-family: 'PT Sans', sans-serif;
+         background-attachment: fixed;
+         background-position: center;
+   }
+  label.head {
+        font-size: 17px;
+        font-weight: 600;
+        text-align: left;
+        text-transform: capitalize;
+        letter-spacing: 2px;
+        padding: 2px;
+        margin: 2px;
+        display: block;
+        color: #fff;
+   }
+  .form-text input[type="text"] {
+      font-size: 15px;
+      font-weight: 500;
+      text-align: left;
+      letter-spacing: 1px;
+      box-sizing: border-box;
+      border: none;
+      border-bottom: 2px solid #fff;
+      padding: 10px;
+      width: 100%;
+      outline: none;
+      margin: 0px auto 2px;
+      color: #000000;
+  }
+
+  .form-number input[type="number"] {
+      font-size: 15px;
+      font-weight: 500;
+      text-align: left;
+      letter-spacing: 1px;
+      box-sizing: border-box;
+      border: none;
+      border-bottom: 2px solid #fff;
+      padding: 10px;
+      width: 100%;
+      outline: none;
+      margin: 0px auto 2px;
+      color: #000000;
+  }
+  .form-password input[type="password"] {
+      font-size: 15px;
+      font-weight: 500;
+      text-align: left;
+      letter-spacing: 1px;
+      box-sizing: border-box;
+      border: none;
+      border-bottom: 2px solid #fff;
+      padding: 10px;
+      width: 100%;
+      outline: none;
+      margin: 0px auto 2px;
+      color: #000000;
+  }
+  .form-mail input[type="text"] {
+      font-size: 15px;
+      font-weight: 500;
+      text-align: left;
+      letter-spacing: 1px;
+      box-sizing: border-box;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      outline: none;
+      margin: 0px auto 2px;
+      color:#000000;
+  }
+  .btn input[type="submit"] {
+      font-size: 15px;
+      font-weight: 500;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 10px;
+      width: 40%;
+      margin: 10px auto 0px;
+      box-sizing: border-box;
+      border: 1px solid #fff;
+      outline: none;
+  	  cursor: pointer;
+      display: block;
+  	  color: #fff;
+  	  background:#09a50e;
+
+  }
+  .btn input[type="submit"]:hover{
+  	  background-color: #07e20e;
+
+  }
+  .form-options1 {
+      float : left;
+      width : 100%;
+
+  }
+  .form-options2 {
+      float: right;
+      width : 100%;
+  }
+  .form-options1 .category1 {
+      font-size: 15px;
+      font-weight: 500;
+      text-align: center;
+      text-transform: capitalize;
+      padding: 10px;
+      margin: 0 auto 2px;
+      box-sizing: border-box;
+      border: none;
+      outline: none;
+      width: 60%;
+      background-color: white;
+  }
+  .form-options2 .category2 {
+      font-size: 15px;
+      font-weight: 500;
+      text-align: center;
+      text-transform: capitalize;
+      padding: 10px;
+      margin: 0  auto 2px;
+      box-sizing: border-box;
+      border: none;
+      outline: none;
+      width: 60%;
+      background-color: white;
+  }

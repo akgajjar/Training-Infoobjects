@@ -1,9 +1,6 @@
 package com.infoobjects.tms.controller;
 
-import com.infoobjects.tms.dto.Teacher;
-import com.infoobjects.tms.enums.Designation;
 import com.infoobjects.tms.service.StudentServiceImpl;
-import com.infoobjects.tms.service.TeacherServiceImpl;
 import com.infoobjects.tms.utils.TmsUtils;
 
 import javax.servlet.ServletException;
