@@ -30,7 +30,7 @@ public class TmsUtils {
     public static String integerOnlyErrorMsg = "\nplease Enter integer Value only" + exclamationMark + "\n\n";
     public static String doubleOnlyErrorMsg = "\nplease Enter double Value only" + exclamationMark + "\n\n";
     public static String stringOnlyErrorMsg = "\nplease Enter Character only" + exclamationMark + "\n\n";
-    public static String insertSuccessMsg  = "\nInserted SuccessFully" + exclamationMark + "\n\n";
+    public static String insertSuccessMsg = "\nInserted SuccessFully" + exclamationMark + "\n\n";
     public static String deleteSuccessMsg = "\nDeleted SuccessFully" + exclamationMark + "\n\n";
     public static String updateSuccessMsg = "\nUpdated SuccessFully" + exclamationMark + "\n\n";
 
@@ -181,8 +181,42 @@ public class TmsUtils {
         return scannedValue;
     }
 
-    public static String uuidGeneration(){
-         return Generators.randomBasedGenerator().generate().toString();
+    public static String uuidGeneration() {
+        return Generators.randomBasedGenerator().generate().toString();
+    }
+
+
+    public static String getDataTablesJavascriptString() {
+        String jsLinking = "<script type=\"text/javascript\" src=\"%s\"></script>";
+        String cssLinking = "<link href=\"%s\" rel=\"stylesheet\" type=\"text/css\" media=\"all\" />";
+
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append(String.format(jsLinking,"js/datatable/jquery.dataTables.min.js"));
+        stringBuffer.append(String.format(jsLinking,"js/tablejs/datatables.min.js"));
+        stringBuffer.append(String.format(jsLinking,"js/datatable/dataTables.bootstrap.min.js"));
+        stringBuffer.append(String.format(jsLinking,"js/datatable/dataTables.buttons.min.js"));
+        stringBuffer.append(String.format(jsLinking,"js/datatable/buttons.bootstrap.min.js"));
+        stringBuffer.append(String.format(jsLinking,"js/datatable/jszip.min.js"));
+        stringBuffer.append(String.format(jsLinking,"js/datatable/pdfmake.min.js"));
+        stringBuffer.append(String.format(jsLinking,"js/datatable/vfs_fonts.js"));
+        stringBuffer.append(String.format(jsLinking,"js/datatable/buttons.html5.min.js"));
+        stringBuffer.append(String.format(jsLinking,"js/datatable/buttons.print.min.js"));
+        stringBuffer.append(String.format(jsLinking,"js/datatable/buttons.colVis.min.js"));
+        stringBuffer.append(String.format(cssLinking,"tablecss/css1.css\">"));
+        stringBuffer.append(String.format(cssLinking,"css/bootstrap.css"));
+        stringBuffer.append(String.format(cssLinking,"datatable/dataTables.bootstrap.min.css"));
+        stringBuffer.append(String.format(cssLinking,"datatable/buttons.bootstrap.min.css"));
+
+
+        stringBuffer.append("<script>");
+        stringBuffer.append("$(document).ready(function(){var table = $('#example').DataTable({buttons: [ 'copy', 'excel', 'pdf', 'print', 'colvis' ]});");
+        stringBuffer.append("    table.buttons().container().appendTo( '#example_wrapper .col-sm-6:eq(0)' );});</script>");
+        stringBuffer.append("<script type=\"text/javascript\">");
+        stringBuffer.append("var request=new XMLHttpRequest();");
+        stringBuffer.append("$(document).ready(function(){");
+        stringBuffer.append("$('#ab').DataTable();});</script>");
+
+        return stringBuffer.toString();
     }
 
 }

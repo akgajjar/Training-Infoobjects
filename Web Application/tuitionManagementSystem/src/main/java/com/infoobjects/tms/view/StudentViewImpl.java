@@ -34,6 +34,7 @@ public class StudentViewImpl implements View<String, DTO> {
         student.setStudentEmailId(scan("Email Id", emailRegex, String.format(scanningErrorMsg, "Email Id"), OperationType.INSERT));
         student.setStudentGender(scanGender(OperationType.INSERT));
         student.setStudentMobile(scan("Mobile No", mobileRegex, String.format(scanningErrorMsg, "Mobile No"), OperationType.INSERT));
+        student.setStudentClass(Integer.parseInt(scan("Class", digitRegex+"+", integerOnlyErrorMsg,OperationType.INSERT)));
         System.out.println("\nEnter Parent Details : ");
         student.setStudentParentName(scan("Student Parent Name", stringRegex, stringOnlyErrorMsg, OperationType.INSERT));
         student.setStudentParentMobile(scan("Mobile No", mobileRegex, String.format(scanningErrorMsg, "Mobile No"), OperationType.INSERT));
@@ -67,6 +68,7 @@ public class StudentViewImpl implements View<String, DTO> {
         student.setStudentAddress(updateCheck(studentDTO, "studentAddress", scan("Student Address", null, null, OperationType.UPDATE)));
         student.setStudentEmailId(updateCheck(studentDTO, "studentEmailId", scan("Email Id", emailRegex, String.format(scanningErrorMsg, "Email Id"), OperationType.UPDATE)));
         student.setStudentGender(scanGender(OperationType.UPDATE));
+        student.setStudentClass(Integer.parseInt(updateCheck(student, "studentClass",scan("Class", digitRegex+"+", integerOnlyErrorMsg,OperationType.UPDATE))));
         if (student.getStudentGender() == Gender.NONE)
             student.setStudentGender(studentDTO.getStudentGender());
         student.setStudentMobile(updateCheck(studentDTO, "studentMobile", scan("Mobile No", mobileRegex, String.format(scanningErrorMsg, "Mobile No"), OperationType.UPDATE)));

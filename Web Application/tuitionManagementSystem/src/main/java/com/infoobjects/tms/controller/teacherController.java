@@ -5,7 +5,6 @@ import com.infoobjects.tms.enums.Designation;
 import com.infoobjects.tms.service.TeacherServiceImpl;
 import com.infoobjects.tms.utils.TmsUtils;
 
-import javax.naming.InsufficientResourcesException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,21 +28,21 @@ import static com.infoobjects.tms.utils.TmsUtils.uuidGeneration;
   */
 @WebServlet("/teacherController")
 public class teacherController extends HttpServlet {
-    protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse)throws ServletException, IOException {
+    protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
         httpServletResponse.setContentType("text/html");//setting the content type
-        PrintWriter printWriter=httpServletResponse.getWriter();//get the stream to write the data
+        PrintWriter printWriter = httpServletResponse.getWriter();//get the stream to write the data
 
 
     }
 
 
-    protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse)throws ServletException,IOException  {
+    protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
         httpServletResponse.setContentType("text/html");//setting the content type
-        PrintWriter printWriter=httpServletResponse.getWriter();//get the stream to write the data
+        PrintWriter printWriter = httpServletResponse.getWriter();//get the stream to write the data
         TeacherServiceImpl teacherService = new TeacherServiceImpl();
         String action = httpServletRequest.getParameter("action");
 
-        if(action.equalsIgnoreCase("Insert Teacher")){
+        if (action.equalsIgnoreCase("Insert Teacher")) {
             Teacher teacher = new Teacher();
             teacher.setTeacherId(TmsUtils.uuidGeneration());
             while (teacherService.find(teacher.getTeacherId()) != null) {
@@ -56,21 +55,24 @@ public class teacherController extends HttpServlet {
             teacher.setTeacherName(httpServletRequest.getParameter("teacherName"));
             teacher.setTeacherSalary(Double.parseDouble(httpServletRequest.getParameter("teacherSalary")));
 
-        /*    teacherService.insert(teacher);
-        */
-        printWriter.println("<html><script>alert('Inserted Successfully!!!!!!');</script></html>");
+            teacherService.insert(teacher);
 
-            httpServletRequest.getRequestDispatcher("index.html").forward(httpServletRequest,httpServletResponse);
+            printWriter.println("<script type=\"text/javascript\">");
+            printWriter.println("location='index.html';");
+            printWriter.println("alert('Inserted Successfully!!!!!!')");
+            printWriter.println("</script>");
         }
     }
-    protected void doPut(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse)throws ServletException,IOException  {
+
+    protected void doPut(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
         httpServletResponse.setContentType("text/html");//setting the content type
-        PrintWriter printWriter=httpServletResponse.getWriter();//get the stream to write the data
+        PrintWriter printWriter = httpServletResponse.getWriter();//get the stream to write the data
 
     }
-    protected void doDelete(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse)throws ServletException,IOException  {
+
+    protected void doDelete(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
         httpServletResponse.setContentType("text/html");//setting the content type
-        PrintWriter printWriter=httpServletResponse.getWriter();//get the stream to write the data
+        PrintWriter printWriter = httpServletResponse.getWriter();//get the stream to write the data
 
     }
 }

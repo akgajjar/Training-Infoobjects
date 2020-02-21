@@ -7,100 +7,110 @@ import static com.infoobjects.tms.utils.TmsUtils.genericToString;
 
 public class Student implements DTO {
 
-	private String studentId;
-	private String studentName;
-	private String studentAddress;
-	private String studentEmailId;
-	private Gender studentGender;
-	private String studentMobile;
-	private String studentParentName;
-	private String studentParentMobile;
-	private String studentParentEmailId;
-	private String studentReferenceName;
-	@Override
-	public String toString() {
-		System.out.println("Student : \n");
-		return genericToString(this);
-	}
+    private String studentId;
+    private String studentName;
+    private String studentAddress;
+    private String studentEmailId;
+    private Gender studentGender;
+    private String studentMobile;
+    private String studentParentName;
+    private String studentParentMobile;
+    private String studentParentEmailId;
+    private String studentReferenceName;
+    private int studentClass;
 
-	public String getStudentId() {
-		return studentId;
-	}
+    @Override
+    public String toString() {
+        System.out.println("Student : \n");
+        return genericToString(this);
+    }
 
-	public void setStudentId(String studentId) {
-		this.studentId = studentId;
-	}
+    public String getStudentId() {
+        return studentId;
+    }
 
-	public String getStudentName() {
-		return studentName;
-	}
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
+    }
 
-	public void setStudentName(String studentName) {
-		this.studentName = studentName;
-	}
+    public String getStudentName() {
+        return studentName;
+    }
 
-	public String getStudentAddress() {
-		return studentAddress;
-	}
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
 
-	public void setStudentAddress(String studentAddress) {
-		this.studentAddress = studentAddress;
-	}
+    public String getStudentAddress() {
+        return studentAddress;
+    }
 
-	public String getStudentEmailId() {
-		return studentEmailId;
-	}
+    public void setStudentAddress(String studentAddress) {
+        this.studentAddress = studentAddress;
+    }
 
-	public void setStudentEmailId(String studentEmailId) {
-		this.studentEmailId = studentEmailId;
-	}
+    public String getStudentEmailId() {
+        return studentEmailId;
+    }
 
-	public Gender getStudentGender() {
-		return studentGender;
-	}
+    public void setStudentEmailId(String studentEmailId) {
+        this.studentEmailId = studentEmailId;
+    }
 
-	public void setStudentGender(Gender studentGender) {
-		this.studentGender = studentGender;
-	}
+    public Gender getStudentGender() {
+        return studentGender;
+    }
 
-	public String getStudentMobile() {
-		return studentMobile;
-	}
+    public void setStudentGender(Gender studentGender) {
+        this.studentGender = studentGender;
+    }
 
-	public void setStudentMobile(String studentMobile) {
-		this.studentMobile = studentMobile;
-	}
+    public String getStudentMobile() {
+        return studentMobile;
+    }
 
-	public String getStudentParentName() {
-		return studentParentName;
-	}
+    public void setStudentMobile(String studentMobile) {
+        this.studentMobile = studentMobile;
+    }
 
-	public void setStudentParentName(String studentParentName) {
-		this.studentParentName = studentParentName;
-	}
+    public String getStudentParentName() {
+        return studentParentName;
+    }
 
-	public String getStudentParentMobile() {
-		return studentParentMobile;
-	}
+    public void setStudentParentName(String studentParentName) {
+        this.studentParentName = studentParentName;
+    }
 
-	public void setStudentParentMobile(String studentParentMobile) {
-		this.studentParentMobile = studentParentMobile;
-	}
+    public String getStudentParentMobile() {
+        return studentParentMobile;
+    }
 
-	public String getStudentParentEmailId() {
-		return studentParentEmailId;
-	}
+    public void setStudentParentMobile(String studentParentMobile) {
+        this.studentParentMobile = studentParentMobile;
+    }
 
-	public void setStudentParentEmailId(String studentParentEmailId) {
-		this.studentParentEmailId = studentParentEmailId;
-	}
+    public String getStudentParentEmailId() {
+        return studentParentEmailId;
+    }
 
-	public String getStudentReferenceName() {
-		return studentReferenceName;
-	}
+    public void setStudentParentEmailId(String studentParentEmailId) {
+        this.studentParentEmailId = studentParentEmailId;
+    }
 
-	public void setStudentReferenceName(String studentReferenceName) {
-		this.studentReferenceName = studentReferenceName;
-	}
+    public String getStudentReferenceName() {
+        return studentReferenceName;
+    }
+
+    public void setStudentReferenceName(String studentReferenceName) {
+        this.studentReferenceName = studentReferenceName;
+    }
+
+    public int getStudentClass() {
+        return studentClass;
+    }
+
+    public void setStudentClass(int studentClass) {
+        this.studentClass = studentClass;
+    }
 
 }
