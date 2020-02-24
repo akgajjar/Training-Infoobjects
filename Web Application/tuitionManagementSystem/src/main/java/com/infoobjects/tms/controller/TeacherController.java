@@ -5,6 +5,7 @@ import com.infoobjects.tms.enums.Designation;
 import com.infoobjects.tms.service.TeacherServiceImpl;
 import com.infoobjects.tms.utils.TmsUtils;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -55,12 +56,16 @@ public class teacherController extends HttpServlet {
             teacher.setTeacherName(httpServletRequest.getParameter("teacherName"));
             teacher.setTeacherSalary(Double.parseDouble(httpServletRequest.getParameter("teacherSalary")));
 
-            teacherService.insert(teacher);
-
-            printWriter.println("<script type=\"text/javascript\">");
-            printWriter.println("location='index.html';");
+           /* teacherService.insert(teacher);
+*/
+           printWriter.println("<script type=\"text/javascript\">");
+            printWriter.println("");
             printWriter.println("alert('Inserted Successfully!!!!!!')");
-            printWriter.println("</script>");
+            printWriter.println("</script>" +
+                    "" +
+                    "" +
+                    "<p>hiii</p>");
+
         }
     }
 

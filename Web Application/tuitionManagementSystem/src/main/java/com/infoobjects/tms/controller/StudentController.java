@@ -24,8 +24,7 @@ public class studentController extends HttpServlet {
         if (action.equalsIgnoreCase("showallstudents")) {
             StringBuffer outputString = new StringBuffer();
             outputString.append(TmsUtils.getDataTablesJavascriptString());
-            outputString.append("<script type=\"text/javascript\"> location='showalldata.html';alert('Inserted Successfully!!!!!!');</script>");
-
+            outputString.append("<center><b><font color=\"blue\" size=\"5\">").append("").append("</font></b></center>");
             outputString.append("<table cellpadding=\"10\"  id=\"example\" class=\"display\">");
             outputString.append("<thead><tr><th>Student Id</th>");
             outputString.append("<th>Student Name</th>");
