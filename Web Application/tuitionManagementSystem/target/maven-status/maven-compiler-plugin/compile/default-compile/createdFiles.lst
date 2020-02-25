@@ -2,7 +2,6 @@ com/infoobjects/tms/mapper/TmsMapper.class
 com/infoobjects/tms/dao/SingletonConnection.class
 com/infoobjects/tms/dto/TeacherStudent.class
 com/infoobjects/tms/service/TeacherServiceImpl.class
-com/infoobjects/tms/controller/studentController.class
 com/infoobjects/tms/view/interfaces/View.class
 com/infoobjects/tms/start/TmsStart.class
 com/infoobjects/tms/view/StudentViewImpl.class
@@ -13,10 +12,12 @@ com/infoobjects/tms/utils/TmsUtils.class
 com/infoobjects/tms/enums/Gender.class
 com/infoobjects/tms/enums/Designation.class
 com/infoobjects/tms/service/interfaces/Service.class
-com/infoobjects/tms/controller/teacherController.class
 com/infoobjects/tms/enums/OperationType.class
+com/infoobjects/tms/controller/ShowAllData.class
+com/infoobjects/tms/controller/StudentController.class
 com/infoobjects/tms/service/StudentServiceImpl.class
 com/infoobjects/tms/dao/TmsDAOImpl.class
 com/infoobjects/tms/view/TeacherViewImpl.class
+com/infoobjects/tms/controller/TeacherController.class
 com/infoobjects/tms/dto/Student.class
 com/infoobjects/tms/dto/interfaces/DTO.class

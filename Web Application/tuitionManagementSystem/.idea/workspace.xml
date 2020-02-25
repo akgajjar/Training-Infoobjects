@@ -2,57 +2,45 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67e84ce8-fcc6-4a90-9624-157594eebea4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/tablecss/css1.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/datatable/buttons.bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/datatable/buttons.bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/datatable/buttons.colVis.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/datatable/buttons.html5.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/datatable/buttons.print.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/datatable/dataTables.bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/datatable/dataTables.bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/datatable/dataTables.buttons.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/datatable/datatables.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/datatable/datatables.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/datatable/datatables.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/datatable/datatables.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/datatable/jquery.dataTables.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/datatable/jquery.dataTables.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/datatable/jszip.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/datatable/pdfmake.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/datatable/vfs_fonts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/tablejs/datatables.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/tablejs/datatables.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/showalldata.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/font-awasome.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/studentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/studentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/teacherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/teacherController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/dto/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/dto/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/ShowAllData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/ShowAllData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/TeacherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/TeacherController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/utils/TmsUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/utils/TmsUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/view/StudentViewImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/view/StudentViewImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/registration.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/registration.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/insertStudent.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/insertStudent.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/insertTeacher.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/insertTeacher.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/studentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/studentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/teacherController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/teacherController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/dto/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/dto/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/datatable/dataTables.bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/datatable/dataTables.bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/infoobjects/tms/testchanges.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/infoobjects/tms/testchanges.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/studentController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/teacherController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/utils/TmsUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/utils/TmsUtils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/view/StudentViewImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/view/StudentViewImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.infoobjects.tms.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.infoobjects.tms.AppTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.infoobjects.tms.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.infoobjects.tms.AppTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/infoobjects/tms/testchanges.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/infoobjects/tms/testchanges.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tms.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/controller/studentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/controller/studentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/controller/teacherController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/controller/teacherController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/dto/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/dto/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/controller/studentController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/controller/teacherController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/utils/TmsUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/utils/TmsUtils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/view/StudentViewImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/view/StudentViewImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tms/css/registration.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/css/registration.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms/css/registration.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tms/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tms/insertStudent.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/insertStudent.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tms/insertTeacher.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/insertTeacher.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms/js/datatable/dataTables.bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/js/datatable/dataTables.bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../runwebproject.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../../runwebproject.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,28 +72,28 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../jars/apache-tomcat-9.0.8/bin/catalina.bat" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.22668241" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.externalTools" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.infoobjects.tms" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/webapp/css" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/js" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/css/datatables" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/images" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/infoobjects/tms" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp/js" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/lib" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.infoobjects.tms" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/images" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/css" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/js" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/css/datatables" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/infoobjects/tms" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -120,7 +108,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TmsStart">
+  <component name="RunManager">
     <configuration name="TmsStart" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.infoobjects.tms.start.TmsStart" />
       <module name="tuitionManagementSystem" />
@@ -134,53 +122,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testchanges" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.infoobjects.tms.testchanges" />
-      <module name="tuitionManagementSystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.infoobjects.tms.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="tms" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY">
-      <option name="DOC_BASE" value="" />
-      <option name="DOC_MODULE_ROOT" value="" />
-      <option name="CONTEXT_PATH" value="" />
-      <option name="TOMCAT_PORT" value="8080" />
-      <option name="AJP_PORT" value="8009" />
-      <option name="ADMIN_PORT" value="8005" />
-      <option name="VM_OPTIONS" value="" />
-      <option name="PASS_PARENT_ENV_OPTIONS" value="true" />
-      <option name="CLASS_NAME" value="" />
-      <option name="DEBUG" value="" />
-      <option name="DIGEST" value="" />
-      <option name="ROLE_NAME_COL" value="" />
-      <option name="USER_CRED_COL" value="" />
-      <option name="USER_NAME_COL" value="" />
-      <option name="USER_ROLE_TABLE" value="" />
-      <option name="USER_TABLE" value="" />
-      <option name="JNDI_GLOBAL" value="" />
-      <option name="JNDI_NAME" value="" />
-      <option name="JNDI_TYPE" value="" />
-      <option name="DATA_SOURCE_NAME" value="" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Application.testchanges" />
-      <item itemvalue="Application.TmsStart" />
-      <item itemvalue="Smart Tomcat.tms" />
-    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.TmsStart" />
-        <item itemvalue="Application.testchanges" />
       </list>
     </recent_temporary>
   </component>
@@ -209,5 +153,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/infoobjects/tms/utils/TmsUtils.java</url>
+          <line>147</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

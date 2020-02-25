@@ -5,6 +5,9 @@ tomcatpath="/home/info-harsh/workspace/jars/apache-tomcat-9.0.8"
 
 warname="tms.war"
 foldername="tms"
+
+cd Web\ Application/tuitionManagementSystem/
+mvn clean install
 rm "$tomcatpath/webapps/$warname"
 rm -r "$tomcatpath/webapps/$foldername"
 

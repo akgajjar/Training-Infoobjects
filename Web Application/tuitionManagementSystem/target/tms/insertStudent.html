@@ -1,12 +1,13 @@
 <html>
 <head>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/style.js"></script>
+    <link href="css/style.css" rel='stylesheet' type='text/css' media="all" />
 
-    <link href="css/registration.css" rel='stylesheet' type='text/css' media="all" />
-  <!--
-  <script src="js/formvalidation/jquery.min.js"></script>
-    -->
 </head>
 <body>
+<div data-include="header"></div>
+
 <div class="heading">
     <h1>Insert Student</h1>
 </div>
@@ -29,7 +30,7 @@
         <div class="clear"></div>
             <div class="form-text">
                 <label class="head">Address</label>
-                <input type="text" name=studentAddress" placeholder="Enter Student Address">
+                <input type="text" name="studentAddress" placeholder="Enter Student Address">
             </div>
 
         <div class="clear"></div>
@@ -80,16 +81,16 @@
             </div>
 
         <div class="clear"></div>
-            <div class="btn">
+            <div class="butn">
                 <input type="submit" name="action" value="Insert Student">
             </div>
         <div class="clear"></div>
-        <div class="btn">
+        <div class="butn">
             <input type="reset" name="action" value="Reset">
         </div>
 
         <div class="clear"></div>
-        <div class="btn">
+        <div class="butn">
             <input type="button" name="action" value="Back" onclick="document.location = 'index.html'">
         </div>
     </form>

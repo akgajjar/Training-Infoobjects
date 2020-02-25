@@ -129,7 +129,7 @@ public class StudentViewImpl implements View<String, DTO> {
                     delete();
                     break;
                 case 4:
-                    String studentId = scan("Student Id", digitRegex + "+", integerOnlyErrorMsg, OperationType.FIND);
+                    String studentId = scan("Student Id", null, null, OperationType.FIND);
                     find(studentId);
                     break;
                 case 5:

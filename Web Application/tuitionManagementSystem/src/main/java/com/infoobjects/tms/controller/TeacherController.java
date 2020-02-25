@@ -1,11 +1,11 @@
 package com.infoobjects.tms.controller;
 
 import com.infoobjects.tms.dto.Teacher;
+import com.infoobjects.tms.dto.interfaces.DTO;
 import com.infoobjects.tms.enums.Designation;
 import com.infoobjects.tms.service.TeacherServiceImpl;
 import com.infoobjects.tms.utils.TmsUtils;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,33 +13,60 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import static com.infoobjects.tms.utils.TmsUtils.uuidGeneration;
 
-/*
-  <servlet>
-  <servlet-name>teacherController</servlet-name>
-  <servlet-class>teacherController</servlet-class>
-</servlet>
-
-<servlet-mapping>
-  <servlet-name>teacherController</servlet-name>
-  <url-pattern>/teacherController</url-pattern>
-</servlet-mapping>
-  */
 @WebServlet("/teacherController")
-public class teacherController extends HttpServlet {
+public class TeacherController extends HttpServlet {
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        httpServletResponse.setContentType("text/html");//setting the content type
-        PrintWriter printWriter = httpServletResponse.getWriter();//get the stream to write the data
+        httpServletResponse.setContentType("text/html");
+        TeacherServiceImpl teacherService = new TeacherServiceImpl();
+        PrintWriter printWriter = httpServletResponse.getWriter();
+        String action = httpServletRequest.getParameter("action");
 
+        if (action.equalsIgnoreCase("showallteachers")) {
+            StringBuffer outputString = new StringBuffer();
+            outputString.append(TmsUtils.getDataTablesCssJavascriptString());
+            outputString.append(TmsUtils.getCommonCssJavascriptString());
+            outputString.append("<div data-include=\"header\"></div><br/><br/><h1 align=\"center\";color: #141414;margin =\"1 em\";\"><b>Show All Teachers</b></h1><br/><br/><center><b><font color=\"blue\" size=\"5\">").append("").append("</font></b></center>");
+            outputString.append("<div style = \"margin: 5;\"><table cellpadding=\"10\"  id=\"example\" class=\"display\">");
+            outputString.append("<thead><tr><th>Teacher Id</th>");
+            outputString.append("<th>Teacher Name</th>");
+            outputString.append("<th>Designation</th>");
+            outputString.append("<th>View Full Details</th>");
+            outputString.append("<th>Update</th>");
+            outputString.append("<th>Delete</th></thead><tbody>");
+
+            List<DTO> teachers = teacherService.findAll();
+            for (DTO teacher : teachers) {
+                Teacher teacherReference = (Teacher) teacher;
+                outputString.append("<tr><td>").append(teacherReference.getTeacherId());
+                outputString.append("</td><td>").append(teacherReference.getTeacherName());
+                outputString.append("</td><td>").append(teacherReference.getTeacherDesignation());
+                outputString.append("</td><td>").append("<form method=\"get\" action=\"teacherController\"><input type = \"hidden\" name=\"id\" value =\"").append(teacherReference.getTeacherId()).append("\"><input type=\"submit\" name=\"action\" class=\"btn btn-success\" value=\"Show Full Details\">").append("</form>");
+                outputString.append("</td><td>").append("<form method=\"put\" action=\"teacherController\"><input type = \"hidden\" name=\"id\" value =\"").append(teacherReference.getTeacherId()).append("\"><input type=\"submit\" name=\"action\" class=\"btn btn-success\" value=\"Update\">").append("</form>");
+                outputString.append("</td><td>").append("<form method=\"delete\" action=\"teacherController\"><input type = \"hidden\" name=\"id\" value =\"").append(teacherReference.getTeacherId()).append("\"><input type=\"submit\" name=\"action\" class=\"btn btn-success\" value=\"Delete\">").append("</form>");
+                outputString.append("</td></tr>");
+            }
+            outputString.append("</tbody></table></div>");
+            printWriter.println(outputString);
+        } else if (action.equalsIgnoreCase("Show Full Details")) {
+
+        } else if (action.equalsIgnoreCase("update")) {
+            doPut(httpServletRequest, httpServletResponse);
+        } else if (action.equalsIgnoreCase("delete")) {
+            doDelete(httpServletRequest, httpServletResponse);
+        } else if (action.equalsIgnoreCase("Update Teacher")) {
+            doPut(httpServletRequest, httpServletResponse);
+        }
 
     }
 
 
     protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        httpServletResponse.setContentType("text/html");//setting the content type
-        PrintWriter printWriter = httpServletResponse.getWriter();//get the stream to write the data
+        httpServletResponse.setContentType("text/html");
+        PrintWriter printWriter = httpServletResponse.getWriter();
         TeacherServiceImpl teacherService = new TeacherServiceImpl();
         String action = httpServletRequest.getParameter("action");
 
@@ -55,29 +82,79 @@ public class teacherController extends HttpServlet {
             teacher.setTeacherMobile(httpServletRequest.getParameter("teacherMobile"));
             teacher.setTeacherName(httpServletRequest.getParameter("teacherName"));
             teacher.setTeacherSalary(Double.parseDouble(httpServletRequest.getParameter("teacherSalary")));
-
-           /* teacherService.insert(teacher);
-*/
-           printWriter.println("<script type=\"text/javascript\">");
-            printWriter.println("");
+            teacherService.insert(teacher);
+            printWriter.println("<script type=\"text/javascript\">");
+            printWriter.println("window.location = 'index.html'");
             printWriter.println("alert('Inserted Successfully!!!!!!')");
-            printWriter.println("</script>" +
-                    "" +
-                    "" +
-                    "<p>hiii</p>");
-
+            printWriter.println("</script>");
         }
     }
 
     protected void doPut(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        httpServletResponse.setContentType("text/html");//setting the content type
-        PrintWriter printWriter = httpServletResponse.getWriter();//get the stream to write the data
-
+        httpServletResponse.setContentType("text/html");
+        PrintWriter printWriter = httpServletResponse.getWriter();
+        TeacherServiceImpl teacherService = new TeacherServiceImpl();
+        String action = httpServletRequest.getParameter("action");
+        if (action.equalsIgnoreCase("Update")) {
+            String id = httpServletRequest.getParameter("id");
+            Teacher teacher = (Teacher) teacherService.find(id);
+            StringBuffer outputString = new StringBuffer();
+            outputString.append(TmsUtils.getCommonCssJavascriptString());
+            outputString.append(TmsUtils.getJqueryString());
+            outputString.append("<div data-include=\"header\"></div>");
+            outputString.append("<div class=\"heading\"><h1>Insert Teacher</h1></div>");
+            outputString.append("<div class=\"container\"><div class=\"form\"><form method=\"put\" action=\"teacherController\">");
+            outputString.append("<input type=\"hidden\" name=\"teacherId\" value=\"").append(teacher.getTeacherId()).append("\">");
+            outputString.append("<div class=\"clear\"></div><div class=\"form-text\"><label class=\"head\">Name</label><input type=\"text\" name=\"teacherName\" value=\"").append(teacher.getTeacherName()).append("\"></div>");
+            outputString.append("<div class=\"clear\"></div><div class=\"form-text\"><label class=\"head\">Address</label><input type=\"text\" name=\"teacherAddress\" value=\"").append(teacher.getTeacherAddress()).append("\"></div>");
+            outputString.append("<div class=\"clear\"></div><div class=\"form-text\"><label class=\"head\">Mobile</label><input type=\"text\" name=\"teacherMobile\" value=\"").append(teacher.getTeacherMobile()).append("\"></div>");
+            outputString.append("<div class=\"clear\"></div><div class=\"form-text\"><label class=\"head\">Email</label><input type=\"text\" name=\"teacherEmailId\" value=\"").append(teacher.getTeacherEmailId()).append("\"></div>");
+            outputString.append("<div class=\"clear\"></div><div class=\"form-text\"><label class=\"head\">Salary</label><input type=\"text\" name=\"teacherSalary\" value=\"").append(teacher.getTeacherSalary()).append("\"></div>");
+            outputString.append("<div class=\"clear\"></div><div class=\"form-options1\"><label class=\"head\">Designation</label><select name=\"teacherDesignation\" class=\"category1\"><option value=\"\">---Select Designation---</option><option value=\"PROFESSOR\" ");
+            if(teacher.getTeacherDesignation() == Designation.PROFESSOR)
+                outputString.append("Selected");
+            outputString.append(">Professor</option><option value=\"TEACHING_ASSISTANCE\" ");
+            if(teacher.getTeacherDesignation() == Designation.TEACHING_ASSISTANCE)
+                outputString.append("Selected");
+            outputString.append(">Teaching Assistance</option><option value=\"LAB_STAFF\" ");
+            if(teacher.getTeacherDesignation() == Designation.LAB_STAFF)
+                outputString.append("Selected");
+            outputString.append(">Lab Staff</option></select></div>");
+            outputString.append("<div class=\"clear\"></div><div class=\"butn\"><input type=\"submit\" name=\"action\" value=\"Update Teacher\"></div>");
+            outputString.append("<div class=\"clear\"></div><div class=\"butn\"><input type=\"reset\" name=\"action\" value=\"Reset\"></div>");
+            outputString.append("<div class=\"clear\"></div><div class=\"butn\"><input type=\"button\" name=\"action\" value=\"Back\" onclick=\"document.location = 'teacherController?action=showallteachers'\"></div>");
+            outputString.append("</form></div></div>");
+            printWriter.println(outputString);
+        }
+        else if(action.equalsIgnoreCase("Update Teacher")){
+            Teacher teacher = new Teacher();
+            teacher.setTeacherId(httpServletRequest.getParameter("teacherId"));
+            teacher.setTeacherAddress(httpServletRequest.getParameter("teacherAddress"));
+            teacher.setTeacherDesignation(Designation.valueOf(httpServletRequest.getParameter("teacherDesignation")));
+            teacher.setTeacherEmailId(httpServletRequest.getParameter("teacherEmailId"));
+            teacher.setTeacherMobile(httpServletRequest.getParameter("teacherMobile"));
+            teacher.setTeacherName(httpServletRequest.getParameter("teacherName"));
+            teacher.setTeacherSalary(Double.parseDouble(httpServletRequest.getParameter("teacherSalary")));
+            teacherService.update(teacher);
+            printWriter.println("<script type=\"text/javascript\">");
+            printWriter.println("window.location = 'teacherController?action=showallteachers'");
+            printWriter.println("alert('Updated Successfully!!!!!!')");
+            printWriter.println("</script>");
+        }
     }
 
     protected void doDelete(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        httpServletResponse.setContentType("text/html");//setting the content type
-        PrintWriter printWriter = httpServletResponse.getWriter();//get the stream to write the data
-
+        httpServletResponse.setContentType("text/html");
+        PrintWriter printWriter = httpServletResponse.getWriter();
+        TeacherServiceImpl teacherService = new TeacherServiceImpl();
+        String action = httpServletRequest.getParameter("action");
+        if (action.equalsIgnoreCase("Delete")) {
+            String id = httpServletRequest.getParameter("id");
+            teacherService.delete(id);
+            printWriter.println("<script type=\"text/javascript\">");
+            printWriter.println("window.location = 'teacherController?action=showallteachers'");
+            printWriter.println("alert('Deleted Successfully!!!!!!')");
+            printWriter.println("</script>");
+        }
     }
 }

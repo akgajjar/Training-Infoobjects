@@ -184,11 +184,20 @@ public class TmsUtils {
     public static String uuidGeneration() {
         return Generators.randomBasedGenerator().generate().toString();
     }
-
-
-    public static String getDataTablesJavascriptString() {
-        String jsLinking = "<script type=\"text/javascript\" src=\"%s\"></script>";
-        String cssLinking = "<link href=\"%s\" rel=\"stylesheet\" type=\"text/css\" media=\"all\" />";
+    public static String getJqueryString(){
+        return String.format("<script type=\"text/javascript\" src=\"%s\"></script>%n","js/jquery.min.js");
+    }
+    public static String getCommonCssJavascriptString(){
+        String jsLinking = "<script type=\"text/javascript\" src=\"%s\"></script>%n";
+        String cssLinking = "<link href=\"%s\" rel=\"stylesheet\" type=\"text/css\" media=\"all\" />%n";
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append(String.format(jsLinking,"js/style.js"));
+        stringBuffer.append(String.format(cssLinking,"css/style.css"));
+        return stringBuffer.toString();
+    }
+    public static String getDataTablesCssJavascriptString() {
+        String jsLinking = "<script type=\"text/javascript\" src=\"%s\"></script>%n";
+        String cssLinking = "<link href=\"%s\" rel=\"stylesheet\" type=\"text/css\" media=\"all\" />%n";
 
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(String.format(jsLinking,"js/datatable/jquery.dataTables.min.js"));
@@ -202,19 +211,20 @@ public class TmsUtils {
         stringBuffer.append(String.format(jsLinking,"js/datatable/buttons.html5.min.js"));
         stringBuffer.append(String.format(jsLinking,"js/datatable/buttons.print.min.js"));
         stringBuffer.append(String.format(jsLinking,"js/datatable/buttons.colVis.min.js"));
-        stringBuffer.append(String.format(cssLinking,"tablecss/css1.css\">"));
+
+        stringBuffer.append(String.format(cssLinking,"css/tablecss/css1.css"));
         stringBuffer.append(String.format(cssLinking,"css/bootstrap.css"));
-        stringBuffer.append(String.format(cssLinking,"datatable/dataTables.bootstrap.min.css"));
-        stringBuffer.append(String.format(cssLinking,"datatable/buttons.bootstrap.min.css"));
+        stringBuffer.append(String.format(cssLinking,"js/datatable/dataTables.bootstrap.min.css"));
+        stringBuffer.append(String.format(cssLinking,"js/datatable/buttons.bootstrap.min.css"));
+        stringBuffer.append(String.format(jsLinking,"https://kit.fontawesome.com/b61ede621e.js"));
 
-
-        stringBuffer.append("<script>");
-        stringBuffer.append("$(document).ready(function(){var table = $('#example').DataTable({buttons: [ 'copy', 'excel', 'pdf', 'print', 'colvis' ]});");
-        stringBuffer.append("    table.buttons().container().appendTo( '#example_wrapper .col-sm-6:eq(0)' );});</script>");
-        stringBuffer.append("<script type=\"text/javascript\">");
-        stringBuffer.append("var request=new XMLHttpRequest();");
-        stringBuffer.append("$(document).ready(function(){");
-        stringBuffer.append("$('#ab').DataTable();});</script>");
+        stringBuffer.append("<script>\n");
+        stringBuffer.append("$(document).ready(function(){var table = $('#example').DataTable({buttons: [ 'copy', 'excel', 'pdf', 'print', 'colvis' ]});\n");
+        stringBuffer.append("    table.buttons().container().appendTo( '#example_wrapper .col-sm-6:eq(0)' );});</script>\n");
+        stringBuffer.append("<script type=\"text/javascript\">\n");
+        stringBuffer.append("var request=new XMLHttpRequest();\n");
+        stringBuffer.append("$(document).ready(function(){\n");
+        stringBuffer.append("$('#ab').DataTable();});</script>\n");
 
         return stringBuffer.toString();
     }
