@@ -1,17 +1,17 @@
 package com.infoobjects.tms.dao;
 
 import com.infoobjects.tms.mapper.TmsMapper;
-import com.infoobjects.tms.utils.TmsUtils;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 public class TmsDAOImpl {
 
-    public void insert(Map dataMap, String tableName) {
+    public void insert(Map dataMap, String tableName) throws SQLException {
         StringBuilder placeholders = new StringBuilder();
         int i = 1;
         StringBuilder sql = new StringBuilder("INSERT INTO ").append(tableName).append(" (");
@@ -31,14 +31,13 @@ public class TmsDAOImpl {
                 preparedStatement.setObject(i++, value);
             }
             preparedStatement.executeUpdate();
-            System.out.print(TmsUtils.insertSuccessMsg);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception exception) {
+            throw exception;
         }
     }
 
 
-    public void delete(Map dataMap, String tableName) {
+    public void delete(Map dataMap, String tableName) throws SQLException {
         StringBuilder sql = new StringBuilder("DELETE FROM ").append(tableName);
         try {
             if (dataMap.size() > 0) {
@@ -59,14 +58,13 @@ public class TmsDAOImpl {
                 preparedStatement.setObject(i++, value);
             }
             preparedStatement.executeUpdate();
-            System.out.print(TmsUtils.deleteSuccessMsg);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception exception) {
+            throw exception;
         }
     }
 
 
-    public List<Map<String, Object>> find(Map dataMap, String tableName) {
+    public List<Map<String, Object>> find(Map dataMap, String tableName) throws SQLException {
         ResultSet resultSet = null;
         StringBuilder sqlQuery = new StringBuilder("SELECT * FROM ").append(tableName).append(" WHERE ");
         try {
@@ -85,14 +83,14 @@ public class TmsDAOImpl {
             }
             resultSet = preparedStatement.executeQuery();
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception exception) {
+            throw exception;
         }
         return TmsMapper.resultSetToMap(resultSet);
     }
 
 
-    public void update(Map dataMap, String tableName, String idName) {
+    public void update(Map dataMap, String tableName, String idName) throws SQLException {
         int i = 1;
         StringBuilder sqlQuery = new StringBuilder("UPDATE ").append(tableName).append(" SET ");
         try {
@@ -117,13 +115,12 @@ public class TmsDAOImpl {
             }
             preparedStatement.setObject(i++, idValue);
             preparedStatement.executeUpdate();
-            System.out.print(TmsUtils.updateSuccessMsg);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception exception) {
+            throw exception;
         }
     }
 
-    public List<Map<String, Object>> findAll(Map dataMap, String tableName) {
+    public List<Map<String, Object>> findAll(Map dataMap, String tableName) throws SQLException {
         ResultSet resultSet = null;
         StringBuilder sqlQuery = new StringBuilder("SELECT * FROM ").append(tableName);
         if (dataMap.size() > 0) {
@@ -147,10 +144,34 @@ public class TmsDAOImpl {
                 }
             }
             resultSet = preparedStatement.executeQuery();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception exception) {
+            throw exception;
         }
         return TmsMapper.resultSetToMap(resultSet);
     }
 
+    public List<Map<String, Object>> executeQueryWithResultSet(String sqlQuery, List values) throws SQLException {
+        ResultSet resultSet = null;
+        PreparedStatement preparedStatement = SingletonConnection.getInstance().prepareStatement(sqlQuery.toString());
+        if (values.size() > 0) {
+            int i = 1;
+            for (Object value : values) {
+                preparedStatement.setObject(i++, value);
+            }
+        }
+        resultSet = preparedStatement.executeQuery();
+        return TmsMapper.resultSetToMap(resultSet);
+    }
+
+    public void executeQueryWithOutResultSet(String sqlQuery, List values) throws SQLException {
+        ResultSet resultSet = null;
+        PreparedStatement preparedStatement = SingletonConnection.getInstance().prepareStatement(sqlQuery.toString());
+        if (values.size() > 0) {
+            int i = 1;
+            for (Object value : values) {
+                preparedStatement.setObject(i++, value);
+            }
+            preparedStatement.executeUpdate();
+        }
+    }
 }

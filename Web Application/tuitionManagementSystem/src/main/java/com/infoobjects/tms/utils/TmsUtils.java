@@ -184,39 +184,45 @@ public class TmsUtils {
     public static String uuidGeneration() {
         return Generators.randomBasedGenerator().generate().toString();
     }
+
+    public static String getCssString(String path){
+        return String.format("<link href=\"%s\" rel=\"stylesheet\" type=\"text/css\" media=\"all\" />%n",path);
+    }
+    public static String getJsString(String path){
+        return String.format("<script type=\"text/javascript\" src=\"%s\"></script>%n",path);
+    }
     public static String getJqueryString(){
-        return String.format("<script type=\"text/javascript\" src=\"%s\"></script>%n","js/jquery.min.js");
+        return getJsString("js/jquery.min.js");
     }
     public static String getCommonCssJavascriptString(){
-        String jsLinking = "<script type=\"text/javascript\" src=\"%s\"></script>%n";
-        String cssLinking = "<link href=\"%s\" rel=\"stylesheet\" type=\"text/css\" media=\"all\" />%n";
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(String.format(jsLinking,"js/style.js"));
-        stringBuffer.append(String.format(cssLinking,"css/style.css"));
+        stringBuffer.append(getJsString("js/style.js"));
+        stringBuffer.append(getCssString("css/style.css"));
         return stringBuffer.toString();
     }
+    public static String getShowAllDetailsCssString(){
+        return getCssString("css/showfulldetails.css");
+    }
     public static String getDataTablesCssJavascriptString() {
-        String jsLinking = "<script type=\"text/javascript\" src=\"%s\"></script>%n";
-        String cssLinking = "<link href=\"%s\" rel=\"stylesheet\" type=\"text/css\" media=\"all\" />%n";
 
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(String.format(jsLinking,"js/datatable/jquery.dataTables.min.js"));
-        stringBuffer.append(String.format(jsLinking,"js/tablejs/datatables.min.js"));
-        stringBuffer.append(String.format(jsLinking,"js/datatable/dataTables.bootstrap.min.js"));
-        stringBuffer.append(String.format(jsLinking,"js/datatable/dataTables.buttons.min.js"));
-        stringBuffer.append(String.format(jsLinking,"js/datatable/buttons.bootstrap.min.js"));
-        stringBuffer.append(String.format(jsLinking,"js/datatable/jszip.min.js"));
-        stringBuffer.append(String.format(jsLinking,"js/datatable/pdfmake.min.js"));
-        stringBuffer.append(String.format(jsLinking,"js/datatable/vfs_fonts.js"));
-        stringBuffer.append(String.format(jsLinking,"js/datatable/buttons.html5.min.js"));
-        stringBuffer.append(String.format(jsLinking,"js/datatable/buttons.print.min.js"));
-        stringBuffer.append(String.format(jsLinking,"js/datatable/buttons.colVis.min.js"));
+        stringBuffer.append(getJsString("js/datatable/jquery.dataTables.min.js"));
+        stringBuffer.append(getJsString("js/tablejs/datatables.min.js"));
+        stringBuffer.append(getJsString("js/datatable/dataTables.bootstrap.min.js"));
+        stringBuffer.append(getJsString("js/datatable/dataTables.buttons.min.js"));
+        stringBuffer.append(getJsString("js/datatable/buttons.bootstrap.min.js"));
+        stringBuffer.append(getJsString("js/datatable/jszip.min.js"));
+        stringBuffer.append(getJsString("js/datatable/pdfmake.min.js"));
+        stringBuffer.append(getJsString("js/datatable/vfs_fonts.js"));
+        stringBuffer.append(getJsString("js/datatable/buttons.html5.min.js"));
+        stringBuffer.append(getJsString("js/datatable/buttons.print.min.js"));
+        stringBuffer.append(getJsString("js/datatable/buttons.colVis.min.js"));
 
-        stringBuffer.append(String.format(cssLinking,"css/tablecss/css1.css"));
-        stringBuffer.append(String.format(cssLinking,"css/bootstrap.css"));
-        stringBuffer.append(String.format(cssLinking,"js/datatable/dataTables.bootstrap.min.css"));
-        stringBuffer.append(String.format(cssLinking,"js/datatable/buttons.bootstrap.min.css"));
-        stringBuffer.append(String.format(jsLinking,"https://kit.fontawesome.com/b61ede621e.js"));
+        stringBuffer.append(getCssString("css/tablecss/css1.css"));
+        stringBuffer.append(getCssString("css/bootstrap.css"));
+        stringBuffer.append(getCssString("js/datatable/dataTables.bootstrap.min.css"));
+        stringBuffer.append(getCssString("js/datatable/buttons.bootstrap.min.css"));
+        stringBuffer.append(getCssString("https://kit.fontawesome.com/b61ede621e.js"));
 
         stringBuffer.append("<script>\n");
         stringBuffer.append("$(document).ready(function(){var table = $('#example').DataTable({buttons: [ 'copy', 'excel', 'pdf', 'print', 'colvis' ]});\n");

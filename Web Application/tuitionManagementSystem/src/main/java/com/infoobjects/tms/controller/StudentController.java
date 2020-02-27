@@ -1,9 +1,10 @@
 package com.infoobjects.tms.controller;
 
 import com.infoobjects.tms.dto.Student;
-import com.infoobjects.tms.dto.interfaces.DTO;
+import com.infoobjects.tms.dto.Teacher;
 import com.infoobjects.tms.enums.Gender;
 import com.infoobjects.tms.service.StudentServiceImpl;
+import com.infoobjects.tms.service.TeacherStudentServiceImpl;
 import com.infoobjects.tms.utils.TmsUtils;
 
 import javax.servlet.ServletException;
@@ -20,6 +21,7 @@ public class StudentController extends HttpServlet {
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
         httpServletResponse.setContentType("text/html");
         StudentServiceImpl studentService = new StudentServiceImpl();
+        TeacherStudentServiceImpl teacherStudentService = new TeacherStudentServiceImpl();
         PrintWriter printWriter = httpServletResponse.getWriter();
         String action = httpServletRequest.getParameter("action");
 
@@ -37,9 +39,8 @@ public class StudentController extends HttpServlet {
             outputString.append("<th>Update</th>");
             outputString.append("<th>Delete</th></thead><tbody>");
 
-            List<DTO> students = studentService.findAll();
-            for (DTO student : students) {
-                Student studentReference = (Student) student;
+            List<Student> students = studentService.findAll();
+            for (Student studentReference : students) {
                 outputString.append("<tr><td>").append(studentReference.getStudentId());
                 outputString.append("</td><td>").append(studentReference.getStudentName());
                 outputString.append("</td><td>").append(studentReference.getStudentClass());
@@ -52,8 +53,58 @@ public class StudentController extends HttpServlet {
             outputString.append("</tbody></table>");
             printWriter.println(outputString);
         } else if (action.equalsIgnoreCase("Show Full Details")) {
-
+            String id = httpServletRequest.getParameter("id");
+            Student student = studentService.find(id);
+            StringBuffer outputString = new StringBuffer();
+            outputString.append(TmsUtils.getJqueryString());
+            outputString.append(TmsUtils.getCommonCssJavascriptString());
+            outputString.append(TmsUtils.getShowAllDetailsCssString());
+            outputString.append("<div data-include=\"header\"></div>");
+            outputString.append("<div class=\"heading\"><h1>Show Full Details</h1></div>");
+            outputString.append("<div class=\"container1\"><center><table align=\"center\">");
+            outputString.append("<tr><td colspan=\"2\"  class=\"head\">Student Personal Details</td></tr>");
+            outputString.append("<tr><td class=\"b\">Student Id : </td><td class=\"data\"> ").append(student.getStudentId()).append("</td></tr>");
+            outputString.append("<tr><td class=\"b\">Name : </td><td class=\"data\"> ").append(student.getStudentName()).append("</td></tr>");
+            outputString.append("<tr><td class=\"b\">Class : </td><td class=\"data\"> ").append(student.getStudentClass()).append("</td></tr>");
+            outputString.append("<tr><td class=\"b\">Address:</td> <td class=\"data\">").append(student.getStudentAddress()).append("</td></tr>");
+            outputString.append("<tr><td class=\"b\">Mobile :</td> <td class=\"data\"> ").append(student.getStudentMobile()).append("</td></tr>");
+            outputString.append("<tr><td class=\"b\">Email : </td><td class=\"data\">").append(student.getStudentEmailId()).append("</td></tr>");
+            outputString.append("<tr><td class=\"b\">Gender : </td><td class=\"data\"> ").append(student.getStudentGender()).append("</td></tr>");
+            outputString.append("<tr></tr>");
+            outputString.append("<tr><td colspan=\"2\"  class=\"head\">Student Parents & Reference Details</td></tr>");
+            outputString.append("<tr><td class=\"b\">Parents Name :</td> <td class=\"data\"> ").append(student.getStudentParentName()).append("</td></tr>");
+            outputString.append("<tr><td class=\"b\">Parents Mobile : </td><td class=\"data\"> ").append(student.getStudentParentMobile()).append("</td></tr>");
+            outputString.append("<tr><td class=\"b\">Parents Email :</td> <td class=\"data\"> ").append(student.getStudentParentEmailId()).append("</td></tr>");
+            outputString.append("<tr><td class=\"b\">Reference Name :</td> <td class=\"data\">").append(student.getStudentReferenceName()).append("</td></tr>");
+            outputString.append("</table>");
+            outputString.append("<form action=\"studentController\">");
+            outputString.append("<input type=\"hidden\" name=\"action\" value=\"showallstudents\">");
+            outputString.append("<div class=\"btn\"><input type=\"submit\" name=\"button\" id=\"btnform\" value=\"BACK\"/></div>");
+            outputString.append("</form>");
+            outputString.append("</center>");
+            outputString.append("</div>");
+            printWriter.println(outputString);
         } else if (action.equalsIgnoreCase("View Teacher Name")) {
+            String id = httpServletRequest.getParameter("id");
+            StringBuffer outputString = new StringBuffer();
+            List<Teacher> teachers = teacherStudentService.getTeacherName(id);
+            outputString.append(TmsUtils.getJqueryString());
+            outputString.append(TmsUtils.getCommonCssJavascriptString());
+            outputString.append(TmsUtils.getShowAllDetailsCssString());
+            outputString.append("<div data-include=\"header\"></div>");
+            outputString.append("<div class=\"heading\"><h1>Teacher's Name</h1></div>");
+            outputString.append("<div class=\"container1\"><center><table align=\"center\">");
+            outputString.append("<tr><td class=\"head\">Teacher Id</td><td class=\"head\">Name</td></tr>");
+            for (Teacher teacher : teachers) {
+                outputString.append("<tr><td class=\"data\" style=\"padding-left: 15em;\">").append(teacher.getTeacherId()).append("</td><td class=\"data\"> ").append(teacher.getTeacherName()).append("</td></tr>");
+            }
+            outputString.append("</table>");
+            outputString.append("<form action=\"studentController?action=showallstudents\">");
+            outputString.append("<div class=\"btn\"><input type=\"submit\" name=\"action\" id=\"btnform\" value=\"BACK\"/></div>");
+            outputString.append("</form>");
+            outputString.append("</center>");
+            outputString.append("</div>");
+            printWriter.println(outputString);
 
         } else if (action.equalsIgnoreCase("update")) {
             doPut(httpServletRequest, httpServletResponse);
@@ -103,7 +154,7 @@ public class StudentController extends HttpServlet {
 
         if (action.equalsIgnoreCase("Update")) {
             String id = httpServletRequest.getParameter("id");
-            Student student = (Student) studentService.find(id);
+            Student student = studentService.find(id);
             StringBuffer outputString = new StringBuffer();
             outputString.append(TmsUtils.getCommonCssJavascriptString());
             outputString.append(TmsUtils.getJqueryString());
@@ -158,10 +209,12 @@ public class StudentController extends HttpServlet {
         httpServletResponse.setContentType("text/html");
         PrintWriter printWriter = httpServletResponse.getWriter();
         StudentServiceImpl studentService = new StudentServiceImpl();
+        TeacherStudentServiceImpl teacherStudentService = new TeacherStudentServiceImpl();
         String action = httpServletRequest.getParameter("action");
         if (action.equalsIgnoreCase("Delete")) {
             String id = httpServletRequest.getParameter("id");
             studentService.delete(id);
+            teacherStudentService.delete(id);
             printWriter.println("<script type=\"text/javascript\">");
             printWriter.println("window.location = 'studentController?action=showallstudents'");
             printWriter.println("alert('Deleted Successfully!!!!!!');");

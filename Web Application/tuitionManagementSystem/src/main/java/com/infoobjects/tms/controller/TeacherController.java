@@ -1,9 +1,9 @@
 package com.infoobjects.tms.controller;
 
 import com.infoobjects.tms.dto.Teacher;
-import com.infoobjects.tms.dto.interfaces.DTO;
 import com.infoobjects.tms.enums.Designation;
 import com.infoobjects.tms.service.TeacherServiceImpl;
+import com.infoobjects.tms.service.TeacherStudentServiceImpl;
 import com.infoobjects.tms.utils.TmsUtils;
 
 import javax.servlet.ServletException;
@@ -38,9 +38,8 @@ public class TeacherController extends HttpServlet {
             outputString.append("<th>Update</th>");
             outputString.append("<th>Delete</th></thead><tbody>");
 
-            List<DTO> teachers = teacherService.findAll();
-            for (DTO teacher : teachers) {
-                Teacher teacherReference = (Teacher) teacher;
+            List<Teacher> teachers = teacherService.findAll();
+            for (Teacher teacherReference : teachers) {
                 outputString.append("<tr><td>").append(teacherReference.getTeacherId());
                 outputString.append("</td><td>").append(teacherReference.getTeacherName());
                 outputString.append("</td><td>").append(teacherReference.getTeacherDesignation());
@@ -52,6 +51,31 @@ public class TeacherController extends HttpServlet {
             outputString.append("</tbody></table></div>");
             printWriter.println(outputString);
         } else if (action.equalsIgnoreCase("Show Full Details")) {
+            String id = httpServletRequest.getParameter("id");
+            Teacher teacher = teacherService.find(id);
+            StringBuffer outputString = new StringBuffer();
+            outputString.append(TmsUtils.getJqueryString());
+            outputString.append(TmsUtils.getCommonCssJavascriptString());
+            outputString.append(TmsUtils.getShowAllDetailsCssString());
+            outputString.append("<div data-include=\"header\"></div>");
+            outputString.append("<div class=\"heading\"><h1>Show Full Details</h1></div>");
+            outputString.append("<div class=\"container1\"><center><table align=\"center\">");
+            outputString.append("<tr><td colspan=\"2\"  class=\"head\">Teacher Personal Details</td></tr>");
+            outputString.append("<tr><td class=\"b\">Teacher Id : </td><td class=\"data\"> ").append(teacher.getTeacherId()).append("</td></tr>");
+            outputString.append("<tr><td class=\"b\">Name : </td><td class=\"data\"> ").append(teacher.getTeacherName()).append("</td></tr>");
+            outputString.append("<tr><td class=\"b\">Address:</td> <td class=\"data\">").append(teacher.getTeacherAddress()).append("</td></tr>");
+            outputString.append("<tr><td class=\"b\">Mobile :</td> <td class=\"data\"> ").append(teacher.getTeacherMobile()).append("</td></tr>");
+            outputString.append("<tr><td class=\"b\">Email : </td><td class=\"data\">").append(teacher.getTeacherEmailId()).append("</td></tr>");
+            outputString.append("<tr><td class=\"b\">Designation : </td><td class=\"data\"> ").append(teacher.getTeacherDesignation()).append("</td></tr>");
+            outputString.append("<tr><td class=\"b\">salary : </td><td class=\"data\"> ").append(teacher.getTeacherSalary()).append("</td></tr>");
+            outputString.append("</table>");
+            outputString.append("<form action=\"teacherController\">");
+            outputString.append("<input type=\"hidden\" name=\"action\" value=\"showallteachers\">");
+            outputString.append("<div class=\"btn\"><input type=\"submit\" name=\"button\" id=\"btnform\" value=\"BACK\"/></div>");
+            outputString.append("</form>");
+            outputString.append("</center>");
+            outputString.append("</div>");
+            printWriter.println(outputString);
 
         } else if (action.equalsIgnoreCase("update")) {
             doPut(httpServletRequest, httpServletResponse);
@@ -97,7 +121,7 @@ public class TeacherController extends HttpServlet {
         String action = httpServletRequest.getParameter("action");
         if (action.equalsIgnoreCase("Update")) {
             String id = httpServletRequest.getParameter("id");
-            Teacher teacher = (Teacher) teacherService.find(id);
+            Teacher teacher = teacherService.find(id);
             StringBuffer outputString = new StringBuffer();
             outputString.append(TmsUtils.getCommonCssJavascriptString());
             outputString.append(TmsUtils.getJqueryString());
@@ -111,13 +135,13 @@ public class TeacherController extends HttpServlet {
             outputString.append("<div class=\"clear\"></div><div class=\"form-text\"><label class=\"head\">Email</label><input type=\"text\" name=\"teacherEmailId\" value=\"").append(teacher.getTeacherEmailId()).append("\"></div>");
             outputString.append("<div class=\"clear\"></div><div class=\"form-text\"><label class=\"head\">Salary</label><input type=\"text\" name=\"teacherSalary\" value=\"").append(teacher.getTeacherSalary()).append("\"></div>");
             outputString.append("<div class=\"clear\"></div><div class=\"form-options1\"><label class=\"head\">Designation</label><select name=\"teacherDesignation\" class=\"category1\"><option value=\"\">---Select Designation---</option><option value=\"PROFESSOR\" ");
-            if(teacher.getTeacherDesignation() == Designation.PROFESSOR)
+            if (teacher.getTeacherDesignation() == Designation.PROFESSOR)
                 outputString.append("Selected");
             outputString.append(">Professor</option><option value=\"TEACHING_ASSISTANCE\" ");
-            if(teacher.getTeacherDesignation() == Designation.TEACHING_ASSISTANCE)
+            if (teacher.getTeacherDesignation() == Designation.TEACHING_ASSISTANCE)
                 outputString.append("Selected");
             outputString.append(">Teaching Assistance</option><option value=\"LAB_STAFF\" ");
-            if(teacher.getTeacherDesignation() == Designation.LAB_STAFF)
+            if (teacher.getTeacherDesignation() == Designation.LAB_STAFF)
                 outputString.append("Selected");
             outputString.append(">Lab Staff</option></select></div>");
             outputString.append("<div class=\"clear\"></div><div class=\"butn\"><input type=\"submit\" name=\"action\" value=\"Update Teacher\"></div>");
@@ -125,8 +149,7 @@ public class TeacherController extends HttpServlet {
             outputString.append("<div class=\"clear\"></div><div class=\"butn\"><input type=\"button\" name=\"action\" value=\"Back\" onclick=\"document.location = 'teacherController?action=showallteachers'\"></div>");
             outputString.append("</form></div></div>");
             printWriter.println(outputString);
-        }
-        else if(action.equalsIgnoreCase("Update Teacher")){
+        } else if (action.equalsIgnoreCase("Update Teacher")) {
             Teacher teacher = new Teacher();
             teacher.setTeacherId(httpServletRequest.getParameter("teacherId"));
             teacher.setTeacherAddress(httpServletRequest.getParameter("teacherAddress"));
@@ -147,10 +170,12 @@ public class TeacherController extends HttpServlet {
         httpServletResponse.setContentType("text/html");
         PrintWriter printWriter = httpServletResponse.getWriter();
         TeacherServiceImpl teacherService = new TeacherServiceImpl();
+        TeacherStudentServiceImpl teacherStudentService = new TeacherStudentServiceImpl();
         String action = httpServletRequest.getParameter("action");
         if (action.equalsIgnoreCase("Delete")) {
             String id = httpServletRequest.getParameter("id");
             teacherService.delete(id);
+            teacherStudentService.delete(id);
             printWriter.println("<script type=\"text/javascript\">");
             printWriter.println("window.location = 'teacherController?action=showallteachers'");
             printWriter.println("alert('Deleted Successfully!!!!!!')");

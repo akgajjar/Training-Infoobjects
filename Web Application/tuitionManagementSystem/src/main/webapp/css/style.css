@@ -2,6 +2,7 @@
 /*basic reset*/
 * {margin: 0; padding: 0;}
 
+
   .clear {
   	clear:both;
   }
@@ -21,10 +22,22 @@
    .heading h1{
         font-weight:400;
    }
+   centerClass{
+         margin: auto;
+          width: 60%;
+          border: 3px solid #73AD21;
+          padding: 10px;
+   }
   .container{
-        width:35%;
+        width:45%;
 	    margin: 0 auto;
    }
+   .container1{
+           width:100%;
+	    margin: auto;
+
+   	    display: inline-block;
+      }
    .link-container{
         flex-basis: 300px;
         padding: 3em;
@@ -126,7 +139,7 @@
       text-transform: uppercase;
       letter-spacing: 2px;
       padding: 10px;
-      width: 100%;
+      width: 80%;
       margin: 10px auto 0px;
       box-sizing: border-box;
       border: 1px solid #fff;
@@ -148,7 +161,7 @@
         text-transform: uppercase;
         letter-spacing: 2px;
         padding: 10px;
-        width: 100%;
+        width: 80%;
         margin: 10px auto 0px;
         box-sizing: border-box;
         border: 1px solid #fff;
@@ -170,7 +183,7 @@
       text-transform: uppercase;
       letter-spacing: 2px;
       padding: 10px;
-      width: 100%;
+      width: 80%;
       margin: 10px auto 0px;
       box-sizing: border-box;
       border: 1px solid #fff;

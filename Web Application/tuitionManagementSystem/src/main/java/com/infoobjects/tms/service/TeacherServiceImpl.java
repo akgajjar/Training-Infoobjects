@@ -1,10 +1,7 @@
 package com.infoobjects.tms.service;
 
 import com.infoobjects.tms.dao.TmsDAOImpl;
-import com.infoobjects.tms.dto.Student;
 import com.infoobjects.tms.dto.Teacher;
-import com.infoobjects.tms.dto.TeacherStudent;
-import com.infoobjects.tms.dto.interfaces.DTO;
 import com.infoobjects.tms.mapper.TmsMapper;
 import com.infoobjects.tms.service.interfaces.TeacherServiceIncrement;
 
@@ -13,10 +10,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class TeacherServiceImpl implements TeacherServiceIncrement<String, DTO> {
+public class TeacherServiceImpl implements TeacherServiceIncrement<String, Teacher> {
 
     @Override
-    public void insert(DTO teacherDTO) {
+    public void insert(Teacher teacherDTO) {
         try {
             TmsDAOImpl genericDAO = new TmsDAOImpl();
             genericDAO.insert(TmsMapper.dtoToMap(teacherDTO), TmsMapper.getTableName(teacherDTO));
@@ -38,8 +35,8 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<String, DTO> 
     }
 
     @Override
-    public DTO find(String id) {
-        DTO teacher = null;
+    public Teacher find(String id) {
+        Teacher teacher = null;
         try {
             HashMap map = new HashMap();
             map.put("teacherId", id);
@@ -49,7 +46,7 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<String, DTO> 
                 return null;
             }
             Map<String, Object> mapResult = resultList.get(0);
-            teacher = TmsMapper.mapToDto(mapResult, new Teacher());
+            teacher = (Teacher) TmsMapper.mapToDto(mapResult, new Teacher());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -57,7 +54,7 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<String, DTO> 
     }
 
     @Override
-    public void update(DTO teacherDTO) {
+    public void update(Teacher teacherDTO) {
         try {
             TmsDAOImpl genericDAO = new TmsDAOImpl();
             genericDAO.update(TmsMapper.dtoToMap(teacherDTO), TmsMapper.getTableName(teacherDTO), "teacherId");
@@ -67,14 +64,14 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<String, DTO> 
     }
 
     @Override
-    public List<DTO> findAll() {
-        List<DTO> teachers = new ArrayList<>();
+    public List<Teacher> findAll() {
+        List<Teacher> teachers = new ArrayList<>();
         try {
             TmsDAOImpl genericDAO = new TmsDAOImpl();
             List<Map<String, Object>> resultList = genericDAO.findAll(new HashMap(), "Teacher");
             for (int loopCounter = 0; loopCounter < resultList.size(); loopCounter++) {
                 Map<String, Object> mapResult = resultList.get(loopCounter);
-                DTO teacher = TmsMapper.mapToDto(mapResult, new Teacher());
+                Teacher teacher = (Teacher) TmsMapper.mapToDto(mapResult, new Teacher());
                 teachers.add(teacher);
             }
         } catch (Exception e) {
@@ -83,47 +80,5 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<String, DTO> 
         return teachers;
     }
 
-
-    @Override
-    public void insertStudent(DTO teacherStudent) {
-        try {
-            TmsDAOImpl genericDAO = new TmsDAOImpl();
-            genericDAO.insert(TmsMapper.dtoToMap(teacherStudent), TmsMapper.getTableName(teacherStudent));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public List<Student> showAllStudent(String teacherId) {
-        List<Student> students = new ArrayList<>();
-        try {
-            TmsDAOImpl genericDAO = new TmsDAOImpl();
-            StudentServiceImpl studentService = new StudentServiceImpl();
-            Map conditions = new HashMap();
-            conditions.put("teacherId", teacherId);
-            List<Map<String, Object>> resultList = genericDAO.findAll(conditions, "TeacherStudent");
-
-            for (int loopCounter = 0; loopCounter < resultList.size(); loopCounter++) {
-                Map<String, Object> mapResult = resultList.get(loopCounter);
-                TeacherStudent teacherStudent = (TeacherStudent) TmsMapper.mapToDto(mapResult, new TeacherStudent());
-                Student student = (Student) studentService.find(teacherStudent.getStudentId());
-                students.add(student);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return students;
-    }
-
-    @Override
-    public void deleteAllStudents() throws Exception {
-        try {
-            TmsDAOImpl genericDAO = new TmsDAOImpl();
-            genericDAO.delete(new HashMap(), "TeacherStudent");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
 }
