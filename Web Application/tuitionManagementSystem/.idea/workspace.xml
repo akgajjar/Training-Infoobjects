@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67e84ce8-fcc6-4a90-9624-157594eebea4" name="Default Changelist" comment="">
+<<<<<<< Updated upstream
       <change afterPath="$PROJECT_DIR$/src/main/webapp/css/font-awasome.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/ShowAllData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/ShowAllData.java" afterDir="false" />
@@ -23,13 +24,18 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/teacherController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/utils/TmsUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/utils/TmsUtils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/view/StudentViewImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/view/StudentViewImpl.class" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/ShowAllData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/ShowAllData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/TeacherStudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/TeacherStudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/ShowAllData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/ShowAllData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/TeacherStudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/TeacherStudentController.class" afterDir="false" />
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.infoobjects.tms.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.infoobjects.tms.AppTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.infoobjects.tms.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.infoobjects.tms.AppTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/infoobjects/tms/testchanges.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/infoobjects/tms/testchanges.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tms.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms.war" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/controller/studentController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/controller/teacherController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/utils/TmsUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/utils/TmsUtils.class" afterDir="false" />
@@ -41,6 +47,10 @@
       <change beforePath="$PROJECT_DIR$/target/tms/insertTeacher.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/insertTeacher.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tms/js/datatable/dataTables.bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/js/datatable/dataTables.bootstrap.min.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../runwebproject.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../../runwebproject.sh" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/controller/ShowAllData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/controller/ShowAllData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/controller/TeacherStudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/controller/TeacherStudentController.class" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
