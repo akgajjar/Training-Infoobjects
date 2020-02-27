@@ -1,6 +1,7 @@
 package com.infoobjects.tms;
 
 import com.infoobjects.tms.dto.Student;
+import com.infoobjects.tms.dto.TeacherStudent;
 import com.infoobjects.tms.dto.interfaces.DTO;
 import com.infoobjects.tms.mapper.TmsMapper;
 import com.infoobjects.tms.dto.Teacher;
@@ -26,7 +27,7 @@ public class testchanges {
 
 
 
-        String studentId = "5ecf93d5-9bb1-45be-8f93-d59bb1b5be01";
+        /*String studentId = "5ecf93d5-9bb1-45be-8f93-d59bb1b5be01";
         List<Teacher> teachers = teacherStudentService.getTeacherName(studentId);
         List<Teacher> allTeachers = teacherService.findAll();
         System.out.println( teachers);
@@ -40,6 +41,12 @@ public class testchanges {
 
 
             System.out.println(  teacher);
-        }
+        }*/
+
+        TeacherStudent teacherStudent = new TeacherStudent();
+        teacherStudent.setTeacherId("5b97e0c9-7748-4a56-97e0-c977484a56d5");
+        teacherStudent.setStudentId("bd75c80b-7ae5-4ce0-b5c8-0b7ae56ce0cb");
+
+        teacherStudentService.delete(teacherStudent);
     }
 }

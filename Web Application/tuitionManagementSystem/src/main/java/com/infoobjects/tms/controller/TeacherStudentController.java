@@ -149,7 +149,7 @@ public class TeacherStudentController extends HttpServlet {
                 outputString.append("</td><td>").append(studentService.find(teacherStudent.getStudentId()).getStudentName());
                 outputString.append("</td><td>").append(teacherStudent.getTeacherId());
                 outputString.append("</td><td>").append(teacherService.find(teacherStudent.getTeacherId()).getTeacherName());
-                outputString.append("</td><td>").append("<form method=\"delete\" action=\"teacherStudentController\"><input type = \"hidden\" name=\"teacherId\" value =\"").append(teacherStudent.getTeacherId()).append("\"><input type = \"hidden\" name=\"teacherId\" value =\"").append(teacherStudent.getStudentId()).append("\"><input type=\"submit\" name=\"action\"  class=\"btn btn-success\" value=\"Delete\">").append("</form>");
+                outputString.append("</td><td>").append("<form method=\"delete\" action=\"teacherStudentController\"><input type = \"hidden\" name=\"teacherId\" value =\"").append(teacherStudent.getTeacherId()).append("\"><input type = \"hidden\" name=\"studentId\" value =\"").append(teacherStudent.getStudentId()).append("\"><input type=\"submit\" name=\"action\"  class=\"btn btn-success\" value=\"Delete\">").append("</form>");
                 outputString.append("</td></tr>");
             }
             outputString.append("</tbody></table>");
@@ -190,7 +190,7 @@ public class TeacherStudentController extends HttpServlet {
             teacherStudent.setTeacherId(httpServletRequest.getParameter("teacherId"));
             teacherStudentService.delete(teacherStudent);
             printWriter.println("<script type=\"text/javascript\">");
-            printWriter.println("window.location = 'index.html'");
+            printWriter.println("window.location = 'teacherStudentController?action=ShowAllTeacherStudent'");
             printWriter.println("alert('Deleted Successfully!!!!!!')");
             printWriter.println("</script>");
         }
