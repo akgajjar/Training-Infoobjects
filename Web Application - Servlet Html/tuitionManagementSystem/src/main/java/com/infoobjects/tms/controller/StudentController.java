@@ -18,6 +18,8 @@ import java.util.List;
 
 @WebServlet("/studentController")
 public class StudentController extends HttpServlet {
+
+
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
         httpServletResponse.setContentType("text/html");
         StudentServiceImpl studentService = new StudentServiceImpl();
@@ -27,9 +29,9 @@ public class StudentController extends HttpServlet {
 
         if (action.equalsIgnoreCase("showallstudents")) {
             StringBuffer outputString = new StringBuffer();
-            outputString.append(TmsUtils.getDataTablesCssJavascriptString());
-            outputString.append(TmsUtils.getCommonCssJavascriptString());
-            outputString.append("<div data-include=\"header\"></div><br/><br/><h1 align=\"center\";margin =\"1 em\";color: #141414;\"><b>Show All Students</b></h1><br/><br/><center><b><font color=\"blue\" size=\"5\">").append("").append("</font></b></center>");
+            outputString.append(TmsUtils.getDataTablesCssJavascriptString())
+                    .append(TmsUtils.getCommonCssJavascriptString())
+                    .append("<div data-include=\"header\"></div><br/><br/><h1 align=\"center\";margin =\"1 em\";color: #141414;\"><b>Show All Students</b></h1><br/><br/><center><b><font color=\"blue\" size=\"5\">").append("").append("</font></b></center>");
             outputString.append("<table cellpadding=\"10\"  id=\"example\" class=\"display\">");
             outputString.append("<thead><tr><th>Student Id</th>");
             outputString.append("<th>Student Name</th>");
@@ -95,12 +97,15 @@ public class StudentController extends HttpServlet {
             outputString.append("<div class=\"heading\"><h1>Teacher's Name</h1></div>");
             outputString.append("<div class=\"container1\"><center><table align=\"center\">");
             outputString.append("<tr><td class=\"head\">Teacher Id</td><td class=\"head\">Name</td></tr>");
-            for (Teacher teacher : teachers) {
-                outputString.append("<tr><td class=\"data\" style=\"padding-left: 15em;\">").append(teacher.getTeacherId()).append("</td><td class=\"data\"> ").append(teacher.getTeacherName()).append("</td></tr>");
+            if(teachers != null) {
+                for (Teacher teacher : teachers) {
+                    outputString.append("<tr><td class=\"data\" style=\"padding-left: 15em;\">").append(teacher.getTeacherId()).append("</td><td class=\"data\"> ").append(teacher.getTeacherName()).append("</td></tr>");
+                }
             }
             outputString.append("</table>");
-            outputString.append("<form action=\"studentController?action=showallstudents\">");
-            outputString.append("<div class=\"btn\"><input type=\"submit\" name=\"action\" id=\"btnform\" value=\"BACK\"/></div>");
+            outputString.append("<form action=\"studentController\">");
+            outputString.append("<input type=\"hidden\" name=\"action\" value=\"showallstudents\">");
+            outputString.append("<div class=\"btn\"><input type=\"submit\" name=\"button\" id=\"btnform\" value=\"BACK\"/></div>");
             outputString.append("</form>");
             outputString.append("</center>");
             outputString.append("</div>");
@@ -221,4 +226,5 @@ public class StudentController extends HttpServlet {
             printWriter.println("</script>");
         }
     }
+
 }

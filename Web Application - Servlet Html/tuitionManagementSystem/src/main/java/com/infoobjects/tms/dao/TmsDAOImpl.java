@@ -96,8 +96,9 @@ public class TmsDAOImpl {
         try {
             for (Iterator<String> iteratorMap = dataMap.keySet().iterator(); iteratorMap.hasNext(); ) {
                 String columnName = iteratorMap.next();
-                if (columnName.equalsIgnoreCase(idName))
+                if (columnName.equalsIgnoreCase(idName)) {
                     continue;
+                }
                 sqlQuery.append(TmsMapper.camelCaseToSnakeCase(columnName));
                 sqlQuery.append(" = ? ");
 

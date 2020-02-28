@@ -4,16 +4,13 @@
     <list default="true" id="67e84ce8-fcc6-4a90-9624-157594eebea4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/StudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/service/TeacherStudentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/service/TeacherStudentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/showalldata.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/showfulldetails.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/dao/TmsDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/dao/TmsDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/StudentController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.infoobjects.tms.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.infoobjects.tms.AppTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.infoobjects.tms.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.infoobjects.tms.AppTest.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tms.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../runwebproject.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../../runwebproject.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/controller/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/controller/StudentController.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +44,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.22668241" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.externalResources" />
