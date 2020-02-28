@@ -72,7 +72,6 @@ public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     @Override
@@ -95,11 +94,11 @@ public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement
     @Override
     public void delete(TeacherStudent teacherStudent) {
         try {
-            HashMap map = new HashMap();
-            map.put("teacherId", teacherStudent.getTeacherId());
-            map.put("studentId", teacherStudent.getStudentId());
+            HashMap conditions = new HashMap();
+            conditions.put("teacherId", teacherStudent.getTeacherId());
+            conditions.put("studentId", teacherStudent.getStudentId());
             TmsDAOImpl genericDAO = new TmsDAOImpl();
-            genericDAO.delete(map, "TeacherStudent");
+            genericDAO.delete(conditions , "TeacherStudent");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -153,7 +152,7 @@ public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement
     public void deleteAllStudents() throws Exception {
         try {
             TmsDAOImpl genericDAO = new TmsDAOImpl();
-            genericDAO.delete(new HashMap(), "TeacherStudent");
+            genericDAO.delete(new HashMap() , "TeacherStudent");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -162,10 +161,10 @@ public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement
     @Override
     public void deleteByStudentId(String studentId) {
         try {
-            HashMap map = new HashMap();
-            map.put("studentId", studentId);
+            HashMap conditions = new HashMap();
+            conditions.put("studentId", studentId);
             TmsDAOImpl genericDAO = new TmsDAOImpl();
-            genericDAO.delete(map, "TeacherStudent");
+            genericDAO.delete(conditions , "TeacherStudent");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -174,10 +173,10 @@ public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement
     @Override
     public void deleteByTeacherId(String teacherId) {
         try {
-            HashMap map = new HashMap();
-            map.put("teacherId", teacherId);
+            HashMap conditions = new HashMap();
+            conditions.put("teacherId", teacherId);
             TmsDAOImpl genericDAO = new TmsDAOImpl();
-            genericDAO.delete(map, "TeacherStudent");
+            genericDAO.delete(conditions , "TeacherStudent");
         } catch (Exception e) {
             e.printStackTrace();
         }

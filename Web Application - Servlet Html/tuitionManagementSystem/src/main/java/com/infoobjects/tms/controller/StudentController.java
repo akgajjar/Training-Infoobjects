@@ -53,8 +53,8 @@ public class StudentController extends HttpServlet {
             outputString.append("</tbody></table>");
             printWriter.println(outputString);
         } else if (action.equalsIgnoreCase("Show Full Details")) {
-            String id = httpServletRequest.getParameter("id");
-            Student student = studentService.find(id);
+            String studentId = httpServletRequest.getParameter("id");
+            Student student = studentService.find(studentId);
             StringBuffer outputString = new StringBuffer();
             outputString.append(TmsUtils.getJqueryString());
             outputString.append(TmsUtils.getCommonCssJavascriptString());
@@ -85,9 +85,9 @@ public class StudentController extends HttpServlet {
             outputString.append("</div>");
             printWriter.println(outputString);
         } else if (action.equalsIgnoreCase("View Teacher Name")) {
-            String id = httpServletRequest.getParameter("id");
+            String studentId = httpServletRequest.getParameter("id");
             StringBuffer outputString = new StringBuffer();
-            List<Teacher> teachers = teacherStudentService.getTeacherName(id);
+            List<Teacher> teachers = teacherStudentService.getTeacherName(studentId);
             outputString.append(TmsUtils.getJqueryString());
             outputString.append(TmsUtils.getCommonCssJavascriptString());
             outputString.append(TmsUtils.getShowAllDetailsCssString());
@@ -153,8 +153,8 @@ public class StudentController extends HttpServlet {
         String action = httpServletRequest.getParameter("action");
 
         if (action.equalsIgnoreCase("Update")) {
-            String id = httpServletRequest.getParameter("id");
-            Student student = studentService.find(id);
+            String studentId = httpServletRequest.getParameter("id");
+            Student student = studentService.find(studentId);
             StringBuffer outputString = new StringBuffer();
             outputString.append(TmsUtils.getCommonCssJavascriptString());
             outputString.append(TmsUtils.getJqueryString());
