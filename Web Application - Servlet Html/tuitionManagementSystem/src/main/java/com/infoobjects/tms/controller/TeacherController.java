@@ -26,55 +26,57 @@ public class TeacherController extends HttpServlet {
         String action = httpServletRequest.getParameter("action");
 
         if (action.equalsIgnoreCase("showallteachers")) {
-            StringBuffer outputString = new StringBuffer();
-            outputString.append(TmsUtils.getDataTablesCssJavascriptString());
-            outputString.append(TmsUtils.getCommonCssJavascriptString());
-            outputString.append("<div data-include=\"header\"></div><br/><br/><h1 align=\"center\";color: #141414;margin =\"1 em\";\"><b>Show All Teachers</b></h1><br/><br/><center><b><font color=\"blue\" size=\"5\">").append("").append("</font></b></center>");
-            outputString.append("<div style = \"margin: 5;\"><table cellpadding=\"10\"  id=\"example\" class=\"display\">");
-            outputString.append("<thead><tr><th>Teacher Id</th>");
-            outputString.append("<th>Teacher Name</th>");
-            outputString.append("<th>Designation</th>");
-            outputString.append("<th>View Full Details</th>");
-            outputString.append("<th>Update</th>");
-            outputString.append("<th>Delete</th></thead><tbody>");
+            StringBuilder outputString = new StringBuilder();
+            outputString.append(TmsUtils.getDataTablesCssJavascriptString())
+                    .append(TmsUtils.getCommonCssJavascriptString())
+                    .append("<div data-include=\"header\"></div><br/><br/><h1 align=\"center\";color: #141414;margin =\"1 em\";\"><b>Show All Teachers</b></h1><br/><br/><center><b><font color=\"blue\" size=\"5\">").append("</font></b></center>")
+                    .append("<div style = \"margin: 5;\"><table cellpadding=\"10\"  id=\"example\" class=\"display\">")
+                    .append("<thead><tr><th>Teacher Id</th>")
+                    .append("<th>Teacher Name</th>")
+                    .append("<th>Designation</th>")
+                    .append("<th>View Full Details</th>")
+                    .append("<th>Update</th>")
+                    .append("<th>Delete</th></thead><tbody>");
 
             List<Teacher> teachers = teacherService.findAll();
-            for (Teacher teacherReference : teachers) {
-                outputString.append("<tr><td>").append(teacherReference.getTeacherId());
-                outputString.append("</td><td>").append(teacherReference.getTeacherName());
-                outputString.append("</td><td>").append(teacherReference.getTeacherDesignation());
-                outputString.append("</td><td>").append("<form method=\"get\" action=\"teacherController\"><input type = \"hidden\" name=\"id\" value =\"").append(teacherReference.getTeacherId()).append("\"><input type=\"submit\" name=\"action\" class=\"btn btn-success\" value=\"Show Full Details\">").append("</form>");
-                outputString.append("</td><td>").append("<form method=\"put\" action=\"teacherController\"><input type = \"hidden\" name=\"id\" value =\"").append(teacherReference.getTeacherId()).append("\"><input type=\"submit\" name=\"action\" class=\"btn btn-success\" value=\"Update\">").append("</form>");
-                outputString.append("</td><td>").append("<form method=\"delete\" action=\"teacherController\"><input type = \"hidden\" name=\"id\" value =\"").append(teacherReference.getTeacherId()).append("\"><input type=\"submit\" name=\"action\" class=\"btn btn-success\" value=\"Delete\">").append("</form>");
-                outputString.append("</td></tr>");
+            if (teachers.size() > 0) {
+                for (Teacher teacherReference : teachers) {
+                    outputString.append("<tr><td>").append(teacherReference.getTeacherId())
+                            .append("</td><td>").append(teacherReference.getTeacherName())
+                            .append("</td><td>").append(teacherReference.getTeacherDesignation())
+                            .append("</td><td>").append("<form method=\"get\" action=\"teacherController\"><input type = \"hidden\" name=\"id\" value =\"").append(teacherReference.getTeacherId()).append("\"><input type=\"submit\" name=\"action\" class=\"btn btn-success\" value=\"Show Full Details\">").append("</form>")
+                            .append("</td><td>").append("<form method=\"put\" action=\"teacherController\"><input type = \"hidden\" name=\"id\" value =\"").append(teacherReference.getTeacherId()).append("\"><input type=\"submit\" name=\"action\" class=\"btn btn-success\" value=\"Update\">").append("</form>")
+                            .append("</td><td>").append("<form method=\"delete\" action=\"teacherController\"><input type = \"hidden\" name=\"id\" value =\"").append(teacherReference.getTeacherId()).append("\"><input type=\"submit\" name=\"action\" class=\"btn btn-success\" value=\"Delete\">").append("</form>")
+                            .append("</td></tr>");
+                }
             }
             outputString.append("</tbody></table></div>");
             printWriter.println(outputString);
         } else if (action.equalsIgnoreCase("Show Full Details")) {
             String id = httpServletRequest.getParameter("id");
             Teacher teacher = teacherService.find(id);
-            StringBuffer outputString = new StringBuffer();
-            outputString.append(TmsUtils.getJqueryString());
-            outputString.append(TmsUtils.getCommonCssJavascriptString());
-            outputString.append(TmsUtils.getShowAllDetailsCssString());
-            outputString.append("<div data-include=\"header\"></div>");
-            outputString.append("<div class=\"heading\"><h1>Show Full Details</h1></div>");
-            outputString.append("<div class=\"container1\"><center><table align=\"center\">");
-            outputString.append("<tr><td colspan=\"2\"  class=\"head\">Teacher Personal Details</td></tr>");
-            outputString.append("<tr><td class=\"b\">Teacher Id : </td><td class=\"data\"> ").append(teacher.getTeacherId()).append("</td></tr>");
-            outputString.append("<tr><td class=\"b\">Name : </td><td class=\"data\"> ").append(teacher.getTeacherName()).append("</td></tr>");
-            outputString.append("<tr><td class=\"b\">Address:</td> <td class=\"data\">").append(teacher.getTeacherAddress()).append("</td></tr>");
-            outputString.append("<tr><td class=\"b\">Mobile :</td> <td class=\"data\"> ").append(teacher.getTeacherMobile()).append("</td></tr>");
-            outputString.append("<tr><td class=\"b\">Email : </td><td class=\"data\">").append(teacher.getTeacherEmailId()).append("</td></tr>");
-            outputString.append("<tr><td class=\"b\">Designation : </td><td class=\"data\"> ").append(teacher.getTeacherDesignation()).append("</td></tr>");
-            outputString.append("<tr><td class=\"b\">salary : </td><td class=\"data\"> ").append(teacher.getTeacherSalary()).append("</td></tr>");
-            outputString.append("</table>");
-            outputString.append("<form action=\"teacherController\">");
-            outputString.append("<input type=\"hidden\" name=\"action\" value=\"showallteachers\">");
-            outputString.append("<div class=\"btn\"><input type=\"submit\" name=\"button\" id=\"btnform\" value=\"BACK\"/></div>");
-            outputString.append("</form>");
-            outputString.append("</center>");
-            outputString.append("</div>");
+            StringBuilder outputString = new StringBuilder();
+            outputString.append(TmsUtils.getJqueryString())
+                    .append(TmsUtils.getCommonCssJavascriptString())
+                    .append(TmsUtils.getShowAllDetailsCssString())
+                    .append("<div data-include=\"header\"></div>")
+                    .append("<div class=\"heading\"><h1>Show Full Details</h1></div>")
+                    .append("<div class=\"container1\"><center><table align=\"center\">")
+                    .append("<tr><td colspan=\"2\"  class=\"head\">Teacher Personal Details</td></tr>")
+                    .append("<tr><td class=\"b\">Teacher Id : </td><td class=\"data\"> ").append(teacher.getTeacherId()).append("</td></tr>")
+                    .append("<tr><td class=\"b\">Name : </td><td class=\"data\"> ").append(teacher.getTeacherName()).append("</td></tr>")
+                    .append("<tr><td class=\"b\">Address:</td> <td class=\"data\">").append(teacher.getTeacherAddress()).append("</td></tr>")
+                    .append("<tr><td class=\"b\">Mobile :</td> <td class=\"data\"> ").append(teacher.getTeacherMobile()).append("</td></tr>")
+                    .append("<tr><td class=\"b\">Email : </td><td class=\"data\">").append(teacher.getTeacherEmailId()).append("</td></tr>")
+                    .append("<tr><td class=\"b\">Designation : </td><td class=\"data\"> ").append(teacher.getTeacherDesignation()).append("</td></tr>")
+                    .append("<tr><td class=\"b\">salary : </td><td class=\"data\"> ").append(teacher.getTeacherSalary()).append("</td></tr>")
+                    .append("</table>")
+                    .append("<form action=\"teacherController\">")
+                    .append("<input type=\"hidden\" name=\"action\" value=\"showallteachers\">")
+                    .append("<div class=\"btn\"><input type=\"submit\" name=\"button\" id=\"btnform\" value=\"BACK\"/></div>")
+                    .append("</form>")
+                    .append("</center>")
+                    .append("</div>");
             printWriter.println(outputString);
 
         } else if (action.equalsIgnoreCase("update")) {
@@ -122,19 +124,19 @@ public class TeacherController extends HttpServlet {
         if (action.equalsIgnoreCase("Update")) {
             String id = httpServletRequest.getParameter("id");
             Teacher teacher = teacherService.find(id);
-            StringBuffer outputString = new StringBuffer();
-            outputString.append(TmsUtils.getCommonCssJavascriptString());
-            outputString.append(TmsUtils.getJqueryString());
-            outputString.append("<div data-include=\"header\"></div>");
-            outputString.append("<div class=\"heading\"><h1>Insert Teacher</h1></div>");
-            outputString.append("<div class=\"container\"><div class=\"form\"><form method=\"put\" action=\"teacherController\">");
-            outputString.append("<input type=\"hidden\" name=\"teacherId\" value=\"").append(teacher.getTeacherId()).append("\">");
-            outputString.append("<div class=\"clear\"></div><div class=\"form-text\"><label class=\"head\">Name</label><input type=\"text\" name=\"teacherName\" value=\"").append(teacher.getTeacherName()).append("\"></div>");
-            outputString.append("<div class=\"clear\"></div><div class=\"form-text\"><label class=\"head\">Address</label><input type=\"text\" name=\"teacherAddress\" value=\"").append(teacher.getTeacherAddress()).append("\"></div>");
-            outputString.append("<div class=\"clear\"></div><div class=\"form-text\"><label class=\"head\">Mobile</label><input type=\"text\" name=\"teacherMobile\" value=\"").append(teacher.getTeacherMobile()).append("\"></div>");
-            outputString.append("<div class=\"clear\"></div><div class=\"form-text\"><label class=\"head\">Email</label><input type=\"text\" name=\"teacherEmailId\" value=\"").append(teacher.getTeacherEmailId()).append("\"></div>");
-            outputString.append("<div class=\"clear\"></div><div class=\"form-text\"><label class=\"head\">Salary</label><input type=\"text\" name=\"teacherSalary\" value=\"").append(teacher.getTeacherSalary()).append("\"></div>");
-            outputString.append("<div class=\"clear\"></div><div class=\"form-options1\"><label class=\"head\">Designation</label><select name=\"teacherDesignation\" class=\"category1\"><option value=\"\">---Select Designation---</option><option value=\"PROFESSOR\" ");
+            StringBuilder outputString = new StringBuilder();
+            outputString.append(TmsUtils.getCommonCssJavascriptString())
+                    .append(TmsUtils.getJqueryString())
+                    .append("<div data-include=\"header\"></div>")
+                    .append("<div class=\"heading\"><h1>Insert Teacher</h1></div>")
+                    .append("<div class=\"container\"><div class=\"form\"><form method=\"put\" action=\"teacherController\">")
+                    .append("<input type=\"hidden\" name=\"teacherId\" value=\"").append(teacher.getTeacherId()).append("\">")
+                    .append("<div class=\"clear\"></div><div class=\"form-text\"><label class=\"head\">Name</label><input type=\"text\" name=\"teacherName\" value=\"").append(teacher.getTeacherName()).append("\"></div>")
+                    .append("<div class=\"clear\"></div><div class=\"form-text\"><label class=\"head\">Address</label><input type=\"text\" name=\"teacherAddress\" value=\"").append(teacher.getTeacherAddress()).append("\"></div>")
+                    .append("<div class=\"clear\"></div><div class=\"form-text\"><label class=\"head\">Mobile</label><input type=\"text\" name=\"teacherMobile\" value=\"").append(teacher.getTeacherMobile()).append("\"></div>")
+                    .append("<div class=\"clear\"></div><div class=\"form-text\"><label class=\"head\">Email</label><input type=\"text\" name=\"teacherEmailId\" value=\"").append(teacher.getTeacherEmailId()).append("\"></div>")
+                    .append("<div class=\"clear\"></div><div class=\"form-text\"><label class=\"head\">Salary</label><input type=\"text\" name=\"teacherSalary\" value=\"").append(teacher.getTeacherSalary()).append("\"></div>")
+                    .append("<div class=\"clear\"></div><div class=\"form-options1\"><label class=\"head\">Designation</label><select name=\"teacherDesignation\" class=\"category1\"><option value=\"\">---Select Designation---</option><option value=\"PROFESSOR\" ");
             if (teacher.getTeacherDesignation() == Designation.PROFESSOR)
                 outputString.append("Selected");
             outputString.append(">Professor</option><option value=\"TEACHING_ASSISTANCE\" ");
@@ -143,11 +145,11 @@ public class TeacherController extends HttpServlet {
             outputString.append(">Teaching Assistance</option><option value=\"LAB_STAFF\" ");
             if (teacher.getTeacherDesignation() == Designation.LAB_STAFF)
                 outputString.append("Selected");
-            outputString.append(">Lab Staff</option></select></div>");
-            outputString.append("<div class=\"clear\"></div><div class=\"butn\"><input type=\"submit\" name=\"action\" value=\"Update Teacher\"></div>");
-            outputString.append("<div class=\"clear\"></div><div class=\"butn\"><input type=\"reset\" name=\"action\" value=\"Reset\"></div>");
-            outputString.append("<div class=\"clear\"></div><div class=\"butn\"><input type=\"button\" name=\"action\" value=\"Back\" onclick=\"document.location = 'teacherController?action=showallteachers'\"></div>");
-            outputString.append("</form></div></div>");
+            outputString.append(">Lab Staff</option></select></div>")
+                    .append("<div class=\"clear\"></div><div class=\"butn\"><input type=\"submit\" name=\"action\" value=\"Update Teacher\"></div>")
+                    .append("<div class=\"clear\"></div><div class=\"butn\"><input type=\"reset\" name=\"action\" value=\"Reset\"></div>")
+                    .append("<div class=\"clear\"></div><div class=\"butn\"><input type=\"button\" name=\"action\" value=\"Back\" onclick=\"document.location = 'teacherController?action=showallteachers'\"></div>")
+                    .append("</form></div></div>");
             printWriter.println(outputString);
         } else if (action.equalsIgnoreCase("Update Teacher")) {
             Teacher teacher = new Teacher();
@@ -175,7 +177,7 @@ public class TeacherController extends HttpServlet {
         if (action.equalsIgnoreCase("Delete")) {
             String id = httpServletRequest.getParameter("id");
             teacherService.delete(id);
-            teacherStudentService.delete(id);
+            teacherStudentService.deleteByTeacherId(id);
             printWriter.println("<script type=\"text/javascript\">");
             printWriter.println("window.location = 'teacherController?action=showallteachers'");
             printWriter.println("alert('Deleted Successfully!!!!!!')");

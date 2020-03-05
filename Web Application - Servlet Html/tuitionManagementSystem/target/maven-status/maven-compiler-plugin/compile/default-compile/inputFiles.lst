@@ -11,7 +11,6 @@
 /home/info-harsh/workspace/Training Project/Web Application - Servlet Html/tuitionManagementSystem/src/main/java/com/infoobjects/tms/dto/interfaces/DTO.java
 /home/info-harsh/workspace/Training Project/Web Application - Servlet Html/tuitionManagementSystem/src/main/java/com/infoobjects/tms/mapper/TmsMapper.java
 /home/info-harsh/workspace/Training Project/Web Application - Servlet Html/tuitionManagementSystem/src/main/java/com/infoobjects/tms/enums/Designation.java
-/home/info-harsh/workspace/Training Project/Web Application - Servlet Html/tuitionManagementSystem/src/main/java/com/infoobjects/tms/controller/ShowAllData.java
 /home/info-harsh/workspace/Training Project/Web Application - Servlet Html/tuitionManagementSystem/src/main/java/com/infoobjects/tms/dao/TmsDAOImpl.java
 /home/info-harsh/workspace/Training Project/Web Application - Servlet Html/tuitionManagementSystem/src/main/java/com/infoobjects/tms/service/interfaces/TeacherServiceIncrement.java
 /home/info-harsh/workspace/Training Project/Web Application - Servlet Html/tuitionManagementSystem/src/main/java/com/infoobjects/tms/dto/Student.java

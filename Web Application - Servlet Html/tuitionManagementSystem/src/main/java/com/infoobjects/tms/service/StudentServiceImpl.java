@@ -5,6 +5,7 @@ import com.infoobjects.tms.dto.Student;
 import com.infoobjects.tms.mapper.TmsMapper;
 import com.infoobjects.tms.service.interfaces.StudentServiceIncrement;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,8 +18,12 @@ public class StudentServiceImpl implements StudentServiceIncrement<String, Stude
         try {
             TmsDAOImpl genericDAO = new TmsDAOImpl();
             genericDAO.insert(TmsMapper.dtoToMap(studentDTO), TmsMapper.getTableName(studentDTO));
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        } catch (ClassNotFoundException classNotFoundException) {
+            classNotFoundException.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
     }
 
@@ -29,8 +34,12 @@ public class StudentServiceImpl implements StudentServiceIncrement<String, Stude
             map.put("studentId", id);
             TmsDAOImpl genericDAO = new TmsDAOImpl();
             genericDAO.delete(map, "Student");
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        } catch (ClassNotFoundException classNotFoundException) {
+            classNotFoundException.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
     }
 
@@ -47,8 +56,12 @@ public class StudentServiceImpl implements StudentServiceIncrement<String, Stude
             }
             Map<String, Object> mapResult = resultList.get(0);
             student = (Student) TmsMapper.mapToDto(mapResult, new Student());
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        } catch (ClassNotFoundException classNotFoundException) {
+            classNotFoundException.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
         return student;
     }
@@ -58,8 +71,12 @@ public class StudentServiceImpl implements StudentServiceIncrement<String, Stude
         try {
             TmsDAOImpl genericDAO = new TmsDAOImpl();
             genericDAO.update(TmsMapper.dtoToMap(studentDTO), TmsMapper.getTableName(studentDTO), "studentId");
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        } catch (ClassNotFoundException classNotFoundException) {
+            classNotFoundException.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
     }
 
@@ -74,8 +91,12 @@ public class StudentServiceImpl implements StudentServiceIncrement<String, Stude
                 Student student = (Student) TmsMapper.mapToDto(mapResult, new Student());
                 students.add(student);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        } catch (ClassNotFoundException classNotFoundException) {
+            classNotFoundException.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
         return students;
     }

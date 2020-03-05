@@ -7,6 +7,7 @@ import org.apache.commons.text.CaseUtils;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.util.*;
 
 public class TmsMapper {
@@ -16,11 +17,11 @@ public class TmsMapper {
         Map dataMap = objectMapper.convertValue(instanceVariable, Map.class);
         Map returnMap = new HashMap();
         for (Iterator<String> iteratorMap = dataMap.keySet().iterator(); iteratorMap.hasNext(); ) {
-           String key = iteratorMap.next();
-           Object value = dataMap.get(key);
+            String key = iteratorMap.next();
+            Object value = dataMap.get(key);
 
 
-            returnMap.put(key,value);
+            returnMap.put(key, value);
         }
         return returnMap;
     }
@@ -36,9 +37,10 @@ public class TmsMapper {
 
     public static List<Map<String, Object>> resultSetToMap(ResultSet rs) {
         List<Map<String, Object>> rowList = new ArrayList<>();
-
+        ResultSetMetaData md = null;
         try {
-            ResultSetMetaData md = rs.getMetaData();
+            md = rs.getMetaData();
+
             int columns = md.getColumnCount();
 
             while (rs.next()) {
@@ -48,8 +50,8 @@ public class TmsMapper {
                 }
                 rowList.add(row);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
         }
         return rowList;
     }
@@ -58,8 +60,8 @@ public class TmsMapper {
         return value.replaceAll(TmsUtils.camelCaseRegex, TmsUtils.camelCaseReplacementRegex).toUpperCase();
     }
 
-    public static String snakeCaseToCamelCase(String value){
-        return CaseUtils.toCamelCase(value,false ,'_');
+    public static String snakeCaseToCamelCase(String value) {
+        return CaseUtils.toCamelCase(value, false, '_');
     }
 
 }

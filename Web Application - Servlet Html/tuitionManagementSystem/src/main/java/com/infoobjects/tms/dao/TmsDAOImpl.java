@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class TmsDAOImpl {
 
-    public void insert(Map dataMap, String tableName) throws SQLException {
+    public void insert(Map dataMap, String tableName) throws SQLException, ClassNotFoundException, Exception {
         StringBuilder placeholders = new StringBuilder();
         int i = 1;
         StringBuilder sql = new StringBuilder("INSERT INTO ").append(tableName).append(" (");
@@ -31,13 +31,17 @@ public class TmsDAOImpl {
                 preparedStatement.setObject(i++, value);
             }
             preparedStatement.executeUpdate();
+        } catch (SQLException exception) {
+            throw exception;
+        } catch (ClassNotFoundException classNotFoundException) {
+            throw classNotFoundException;
         } catch (Exception exception) {
             throw exception;
         }
     }
 
 
-    public void delete(Map dataMap, String tableName) throws SQLException {
+    public void delete(Map dataMap, String tableName) throws SQLException, ClassNotFoundException, Exception {
         StringBuilder sql = new StringBuilder("DELETE FROM ").append(tableName);
         try {
             if (dataMap.size() > 0) {
@@ -58,13 +62,17 @@ public class TmsDAOImpl {
                 preparedStatement.setObject(i++, value);
             }
             preparedStatement.executeUpdate();
+        } catch (SQLException exception) {
+            throw exception;
+        } catch (ClassNotFoundException classNotFoundException) {
+            throw classNotFoundException;
         } catch (Exception exception) {
             throw exception;
         }
     }
 
 
-    public List<Map<String, Object>> find(Map dataMap, String tableName) throws SQLException {
+    public List<Map<String, Object>> find(Map dataMap, String tableName) throws SQLException, ClassNotFoundException, Exception {
         ResultSet resultSet = null;
         StringBuilder sqlQuery = new StringBuilder("SELECT * FROM ").append(tableName).append(" WHERE ");
         try {
@@ -83,6 +91,10 @@ public class TmsDAOImpl {
             }
             resultSet = preparedStatement.executeQuery();
 
+        } catch (SQLException exception) {
+            throw exception;
+        } catch (ClassNotFoundException classNotFoundException) {
+            throw classNotFoundException;
         } catch (Exception exception) {
             throw exception;
         }
@@ -90,7 +102,7 @@ public class TmsDAOImpl {
     }
 
 
-    public void update(Map dataMap, String tableName, String idName) throws SQLException {
+    public void update(Map dataMap, String tableName, String idName) throws SQLException, ClassNotFoundException, Exception {
         int i = 1;
         StringBuilder sqlQuery = new StringBuilder("UPDATE ").append(tableName).append(" SET ");
         try {
@@ -116,12 +128,16 @@ public class TmsDAOImpl {
             }
             preparedStatement.setObject(i++, idValue);
             preparedStatement.executeUpdate();
+        } catch (SQLException exception) {
+            throw exception;
+        } catch (ClassNotFoundException classNotFoundException) {
+            throw classNotFoundException;
         } catch (Exception exception) {
             throw exception;
         }
     }
 
-    public List<Map<String, Object>> findAll(Map dataMap, String tableName) throws SQLException {
+    public List<Map<String, Object>> findAll(Map dataMap, String tableName) throws SQLException, ClassNotFoundException, Exception {
         ResultSet resultSet = null;
         StringBuilder sqlQuery = new StringBuilder("SELECT * FROM ").append(tableName);
         if (dataMap.size() > 0) {
@@ -145,34 +161,59 @@ public class TmsDAOImpl {
                 }
             }
             resultSet = preparedStatement.executeQuery();
+        } catch (SQLException exception) {
+            throw exception;
+        } catch (ClassNotFoundException classNotFoundException) {
+            throw classNotFoundException;
         } catch (Exception exception) {
             throw exception;
         }
         return TmsMapper.resultSetToMap(resultSet);
     }
 
-    public List<Map<String, Object>> executeQueryWithResultSet(String sqlQuery, List values) throws SQLException {
+    public List<Map<String, Object>> executeQueryWithResultSet(String sqlQuery, List values) throws SQLException, ClassNotFoundException, Exception {
         ResultSet resultSet = null;
-        PreparedStatement preparedStatement = SingletonConnection.getInstance().prepareStatement(sqlQuery.toString());
-        if (values.size() > 0) {
-            int i = 1;
-            for (Object value : values) {
-                preparedStatement.setObject(i++, value);
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = SingletonConnection.getInstance().prepareStatement(sqlQuery.toString());
+
+            if (values.size() > 0) {
+                int i = 1;
+                for (Object value : values) {
+                    preparedStatement.setObject(i++, value);
+                }
             }
+            resultSet = preparedStatement.executeQuery();
+
+        } catch (SQLException exception) {
+            throw exception;
+        } catch (ClassNotFoundException classNotFoundException) {
+            throw classNotFoundException;
+        } catch (Exception exception) {
+            throw exception;
         }
-        resultSet = preparedStatement.executeQuery();
         return TmsMapper.resultSetToMap(resultSet);
     }
 
-    public void executeQueryWithOutResultSet(String sqlQuery, List values) throws SQLException {
-        ResultSet resultSet = null;
-        PreparedStatement preparedStatement = SingletonConnection.getInstance().prepareStatement(sqlQuery.toString());
-        if (values.size() > 0) {
-            int i = 1;
-            for (Object value : values) {
-                preparedStatement.setObject(i++, value);
+    public void executeQueryWithOutResultSet(String sqlQuery, List values) throws SQLException, ClassNotFoundException, Exception {
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = SingletonConnection.getInstance().prepareStatement(sqlQuery.toString());
+
+            if (values.size() > 0) {
+                int i = 1;
+                for (Object value : values) {
+                    preparedStatement.setObject(i++, value);
+                }
+                preparedStatement.executeUpdate();
             }
-            preparedStatement.executeUpdate();
+        } catch (SQLException exception) {
+            throw exception;
+        } catch (ClassNotFoundException classNotFoundException) {
+            throw classNotFoundException;
+        } catch (Exception exception) {
+            throw exception;
         }
     }
+
 }

@@ -12,7 +12,6 @@ com/infoobjects/tms/enums/Designation.class
 com/infoobjects/tms/service/TeacherStudentServiceImpl.class
 com/infoobjects/tms/service/interfaces/Service.class
 com/infoobjects/tms/enums/OperationType.class
-com/infoobjects/tms/controller/ShowAllData.class
 com/infoobjects/tms/controller/StudentController.class
 com/infoobjects/tms/service/StudentServiceImpl.class
 com/infoobjects/tms/dao/TmsDAOImpl.class
