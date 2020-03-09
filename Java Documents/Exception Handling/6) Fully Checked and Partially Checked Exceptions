@@ -1,0 +1,7 @@
+* Fully Checked and Partially Checked Exceptions
+-> Parent must be checked but child need not be checked is called partially checked Exception.
+-> Parent and child both must be checked is called fully checked Exception.
+
+
+-> IO Exception , Interrupted Exception all are fully Checked.
+-> Exception class is partially checked because some of its class is checked and some are unchecked.

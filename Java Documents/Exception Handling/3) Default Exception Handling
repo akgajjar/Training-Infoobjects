@@ -1,52 +1,3 @@
-Exception - unwanted & unexpected event that disturbes normal flow of program
-
-Purpose of Exception Handling - if something goes wrong, Program will terminated if we will not handle exception. if something goes wrong , if we want gracefull termination then we have to use exception handling.
-
-Exception Handling - defines alternative way to continue normal flow of program if something goes wrong.
-
-------------------------------------------------------------------------
-
-*  Run time Stack Mechanism 
--> Every java Program is contains main thread.For Every thread Jvm is create one run time stack.for evry method call done by thread, one entry is done in stack which is called stack frame or activation record. after complete method execution entry will removed.after all method call completed,Empty stack is destroyed By Jvm.
-
-EX :- 
-   
-	class Test
-         {
-		Public static void main(String srgs[]){
-			dostuff();
-		}
-		public static void dostuff(){
-			domorestuff();	
-		}
-		public static void domorestuff(){
-			System.out.println("Hello");
-		}
-	}
-
-O/P : Hello
-
-	|		|
-	|		|
-	|		|
-	|		|
-	|		|
-	|		|
-	|		|	
-	|---------------|
-	|domorestuff()	|-> Activation record or Stack frame
-	|---------------|
-	|dostuff()	|
-	|---------------|
-	|main()		|
-	-----------------
-	Runtime Stack of  main Thread.
-
--> There is only one thread in this program.main method is called by main thread.
--> after domorestuff() execution completed , entery is removed, then do stuff is removed and after then main method entry is also removed.
--> This Meachanism is called runtime stack Mechanism.
-
-
 ------------------------------------------------------------------------------------
 
 * Default Exception Handling
@@ -91,6 +42,4 @@ EX :-
 
 
 ------------------------------------------------------------------------------
- 
-
 

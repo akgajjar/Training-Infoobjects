@@ -1,0 +1,44 @@
+* Methods to print exception information
+-> 
+Ex:
+
+Class Test
+{
+public static void main(String Srgs[])
+  {
+     try{
+   	  System.out.println(10/0);
+	}
+     catch(Exception e){
+	  //Print Exception Information using Below Different Method.
+      }
+  }
+}
+1) Print Stack Trace
+-> e.printstacktrace()
+-> O/P Format : 
+	  Name of Exception : Description 
+		Stack Trace
+ 
+	--> java.lang.arithmaticException : / by zero
+		at Test.main(Test.java:7)
+
+2) To String
+-> e.tostring();
+   System.out.println(e);
+   System.out.println(e.tostring());
+
+-> O/P Format : 
+ 	 Name of Exception : Description
+	
+	--> java.lang.arithmaticException : / by zero
+
+3) Get Messsage
+-> System.out.println(e.getMessage());
+-> O/P Format :  
+ 	 Description
+
+	--> / by zero
+
+
+

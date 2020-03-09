@@ -1,0 +1,76 @@
+* Customized Exception Handling By using try catch
+->  
+
+Ex: 
+
+class test{
+	public static void main(String srgs[])
+	{
+	System.out.println("stmt 1");//Assume Open DB Connection
+	System.out.println(10/0); // Assume Read Data From Database
+	System.out.println("stmt 3");// Assume Close database Connection
+	}
+}
+
+
+O/P : stmt 1
+	Runtime Exception : Arithmatic Exception
+	(Abnormal Termination)
+
+--> We Open Db Exception . in stmt 2 Sql Exception occurs so 3rd stmt is not excuted. and terminated abnoramlly and db connection will not be closed then we may lose something.
+
+
+with try - catch
+
+Ex : 
+
+class test{
+ public static void main(String srgs[])
+   {
+	System.out.println("stmt 1");
+	try{
+	    System.out.println(10/0); // Risky Code 
+	    }
+	catch(ArithmaticException e ){
+	    System.out.println(10/2);
+	}
+	System.out.println("stmt 3");
+   }
+}
+
+O/P :
+	stmt 1
+	5
+	stmt 3
+
+--> It is normal Termination. Because of catch block remaining part is Excuted normally.
+
+-> we have to take risky code in the try block . risky means the code which may have to occur exception.
+
+-> we have to put handling code in the catch code.
+
+
+
+class test{
+ public static void main(String srgs[])
+   {
+	System.out.println("stmt 1");
+	try{
+	    System.out.println(10/0); // Risky Code 
+	    }
+	catch(Exception e ){
+	    System.out.println(10/2);
+	}
+	catch(ArithmeticException e ){// Compile time Error
+	    System.out.println(10/2);
+	}
+	
+	System.out.println("stmt 3");
+   }
+}
+
+
+--> Test.java:13: error: exception arithmeticException has already bean caught
+		catch(ArithmeticException e)
+
+-> Arithmetic Exception can be caught with Exception as it is it's parent class so this error will show by jvm

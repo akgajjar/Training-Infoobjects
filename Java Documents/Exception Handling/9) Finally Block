@@ -1,0 +1,36 @@
+* Exception HandlingPurpose and speciality of finally block
+->
+
+  Open Connection
+  use Db Object
+  Close Connection // Resource Dellocation Code(Cleanup Code)
+
+ex:
+
+ try{
+
+   Open db Connection
+   Read Data
+   }
+  catch(Exception e)
+  {
+   e.printStackTrace();
+  }
+  finally{
+   close db code
+  }
+
+-> Finally Block are block of code which is always executed whather
+Exception is occured or not .It is used for code clean up like closing Db Connection etc. 
+
+try{
+
+	Risky Code
+   }
+  catch(Exception e){
+	Handling Code
+  }
+  finally{
+	Resource Deallocation(Clean up code)
+  }
+

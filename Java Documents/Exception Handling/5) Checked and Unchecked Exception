@@ -1,0 +1,40 @@
+* Checked and Unchecked Exception
+
+-> Exception which are checked by Compiler at the compile time for the smooth excution of program at runtime or Whether Program is handling the Exception or not are Called Checked Exception.It Should handle by Program.
+
+
+Ex: 
+
+import java.io.PrintWriter;
+
+class test{
+	public static void main(String srgs[])
+	{
+		PrintWriter pw = new PrintWriter("abc.txt");
+		pw.println("hello");
+	}
+}
+
+--> Unreported Exception Java.io.FileNotFoundException;
+	must be caught or declared to be thrown.
+
+-> Exception which are not checked by compiler at all whether Programmer is handling or not  are called UnChecked  Exception.
+
+Ex: 
+
+import java.io.PrintWriter;
+
+class test{
+	public static void main(String srgs[])
+	{
+		System.out.println(10/0);
+	}
+}
+
+-> Arithmatic Exception may occur from the code but compiler will not generate any error.
+
+-> Runtime Exception will occur.
+
+--> Exception in main Thread : Arithmatic Exception.
+
+-> Runtime Exception and its child classes and error and its child classes are unchecked Exceptions. all others are checked Exception.

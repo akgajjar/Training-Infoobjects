@@ -1,0 +1,32 @@
+ 
+* Exception Hierarchy
+
+
+ 													Throwable
+													   |
+													   |			
+	---------------------------------------------------------------------------------------------------------------------------------------------------------
+	|																		    	|
+	|																		 	| 	
+    Exception																		      Error
+	|																	|---------------|		
+  ---------------------------------------------------------------			               					  -  VmError
+  |			|  		|			|								                |	
+RuntimeException   IOException	IntrupttedException  RemoteException									- StackOverFlowError	
+  |			  |														- OutOfMemoryError		
+ - ArithmeticException    -------
+ - NullPointerException         |
+ - ClassCastException	         -EOFException
+ - IndexOutOfboundsException      -FileNotFoundException
+         |
+  	 -ArrayIndexOutOfBoundsException
+	 -StringIndexOutOfBoundsException
+ - IllegalArguementException
+	 |
+	 - NumberFormat Exception
+
+
+
+-> Most of time Exception are caused by program and recoverable.
+-> Errors are problems that aries beyond the control of user or program. Errors are typically ignored in your code because you rarely do anything about error ex: Stack overflow Error. It is Caused by System Resources.
+-> Errors are non recoverable. 
