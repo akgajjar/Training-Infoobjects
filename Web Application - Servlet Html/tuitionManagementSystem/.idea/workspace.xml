@@ -2,59 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67e84ce8-fcc6-4a90-9624-157594eebea4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jackson-annotations-2.10.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jackson-core-2.10.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jackson-databind-2.10.3.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../runwebproject.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../runwebproject.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stoptomcat.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../stoptomcat.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/ShowAllData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/StudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/TeacherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/TeacherController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/TeacherStudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/controller/TeacherStudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/dao/SingletonConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/dao/SingletonConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/dao/TmsDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/dao/TmsDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/mapper/TmsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/mapper/TmsMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/service/StudentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/service/StudentServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/service/TeacherServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/service/TeacherServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/service/TeacherStudentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/service/TeacherStudentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/service/interfaces/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/service/interfaces/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/utils/TmsUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/utils/TmsUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jackson-annotations-2.8.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jackson-core-2.8.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jackson-databind-2.8.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/ShowAllData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/StudentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/TeacherController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/TeacherController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/TeacherStudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/TeacherStudentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/dao/SingletonConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/dao/SingletonConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/dao/TmsDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/dao/TmsDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/mapper/TmsMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/mapper/TmsMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/service/StudentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/service/StudentServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/service/TeacherServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/service/TeacherServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/service/TeacherStudentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/service/TeacherStudentServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/service/interfaces/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/service/interfaces/Service.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/utils/TmsUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/utils/TmsUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.infoobjects.tms.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.infoobjects.tms.AppTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.infoobjects.tms.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.infoobjects.tms.AppTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tms.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/controller/ShowAllData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/controller/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/controller/StudentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/controller/TeacherController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/controller/TeacherController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/controller/TeacherStudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/controller/TeacherStudentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/dao/SingletonConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/dao/SingletonConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/dao/TmsDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/dao/TmsDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/mapper/TmsMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/mapper/TmsMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/service/StudentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/service/StudentServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/service/TeacherServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/service/TeacherServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/service/TeacherStudentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/service/TeacherStudentServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/service/interfaces/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/service/interfaces/Service.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/utils/TmsUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tms/WEB-INF/classes/com/infoobjects/tms/utils/TmsUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tuitionManagementSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/tuitionManagementSystem.iml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

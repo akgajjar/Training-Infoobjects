@@ -20,7 +20,7 @@ public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement
     public void insert(TeacherStudent teacherStudent) {
         try {
             TmsDAOImpl genericDAO = new TmsDAOImpl();
-            genericDAO.insert(TmsMapper.dtoToMap(teacherStudent), TmsMapper.getTableName(teacherStudent));
+            genericDAO.insert(TmsMapper.dtoToMap(teacherStudent), teacherStudent);
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         } catch (ClassNotFoundException classNotFoundException) {
@@ -51,7 +51,7 @@ public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement
             map.put("teacherId", teacherStudentDTO.getTeacherId());
             map.put("studentId", teacherStudentDTO.getStudentId());
             TmsDAOImpl genericDAO = new TmsDAOImpl();
-            List<Map<String, Object>> resultList = genericDAO.find(map, "TeacherStudent");
+            List<Map<String, Object>> resultList = genericDAO.find(map, new TeacherStudent());
             if (resultList.size() == 0) {
                 return null;
             }
@@ -92,7 +92,7 @@ public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement
         List<TeacherStudent> teacherstudents = new ArrayList<>();
         try {
             TmsDAOImpl genericDAO = new TmsDAOImpl();
-            List<Map<String, Object>> resultList = genericDAO.findAll(new HashMap(), "TeacherStudent");
+            List<Map<String, Object>> resultList = genericDAO.findAll(new HashMap(), new TeacherStudent());
             for (int loopCounter = 0; loopCounter < resultList.size(); loopCounter++) {
                 Map<String, Object> mapResult = resultList.get(loopCounter);
                 TeacherStudent teacherStudent = (TeacherStudent) TmsMapper.mapToDto(mapResult, new TeacherStudent());
@@ -115,7 +115,7 @@ public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement
             conditions.put("teacherId", teacherStudent.getTeacherId());
             conditions.put("studentId", teacherStudent.getStudentId());
             TmsDAOImpl genericDAO = new TmsDAOImpl();
-            genericDAO.delete(conditions, "TeacherStudent");
+            genericDAO.delete(conditions, new TeacherStudent());
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         } catch (ClassNotFoundException classNotFoundException) {
@@ -133,7 +133,7 @@ public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement
             StudentServiceImpl studentService = new StudentServiceImpl();
             Map conditions = new HashMap();
             conditions.put("teacherId", teacherId);
-            List<Map<String, Object>> resultList = genericDAO.findAll(conditions, "TeacherStudent");
+            List<Map<String, Object>> resultList = genericDAO.findAll(conditions, new TeacherStudent());
 
             for (int loopCounter = 0; loopCounter < resultList.size(); loopCounter++) {
                 Map<String, Object> mapResult = resultList.get(loopCounter);
@@ -159,7 +159,7 @@ public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement
             TeacherServiceImpl teacherService = new TeacherServiceImpl();
             Map conditions = new HashMap();
             conditions.put("studentId", studentId);
-            List<Map<String, Object>> resultList = genericDAO.findAll(conditions, "TeacherStudent");
+            List<Map<String, Object>> resultList = genericDAO.findAll(conditions, new TeacherStudent());
 
             for (int loopCounter = 0; loopCounter < resultList.size(); loopCounter++) {
                 Map<String, Object> mapResult = resultList.get(loopCounter);
@@ -181,7 +181,7 @@ public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement
     public void deleteAllStudents() throws Exception {
         try {
             TmsDAOImpl genericDAO = new TmsDAOImpl();
-            genericDAO.delete(new HashMap(), "TeacherStudent");
+            genericDAO.delete(new HashMap(), new TeacherStudent());
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         } catch (ClassNotFoundException classNotFoundException) {
@@ -197,7 +197,7 @@ public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement
             HashMap conditions = new HashMap();
             conditions.put("studentId", studentId);
             TmsDAOImpl genericDAO = new TmsDAOImpl();
-            genericDAO.delete(conditions, "TeacherStudent");
+            genericDAO.delete(conditions, new TeacherStudent());
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         } catch (ClassNotFoundException classNotFoundException) {
@@ -213,7 +213,7 @@ public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement
             HashMap conditions = new HashMap();
             conditions.put("teacherId", teacherId);
             TmsDAOImpl genericDAO = new TmsDAOImpl();
-            genericDAO.delete(conditions, "TeacherStudent");
+            genericDAO.delete(conditions, new TeacherStudent());
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         } catch (ClassNotFoundException classNotFoundException) {
