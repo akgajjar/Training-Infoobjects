@@ -21,7 +21,8 @@ ex:
   }
 
 -> Finally Block are block of code which is always executed whather
-Exception is occured or not .It is used for code clean up like closing Db Connection etc. 
+Exception is occured or not .
+-> It is used for code clean up like closing Db Connection etc. 
 
 try{
 

@@ -1,0 +1,25 @@
+* Difference between final , finally and finallize
+
+1) final
+
+> Access modifier.
+-> used with 
+	class -> we cant create extends that class with child class. 			Inheritance is not possible.
+ 	Method -> We cant override that Method.
+	Variable -> We cant change value of variable.
+	
+
+2) finally
+-> it is a block associated with try-catch.
+-> we have to write clean up code(Resource deallocation) inside finally block.
+-> It only close Resources that are open within try block only. 
+-> Speciality of finally block is it is always excuted whether Excepton is occurs or not.
+-> it meant for try block opened activities.
+
+3) Finalize
+-> it is a method.
+-> it is associated with garbage collector.
+-> if any object is not having any reference variable then it is always eligible for garbage collection.
+-> to perform clean up activity garbage collector called finalize method just before destroying an object.  
+-> It will close resources associated with object that are going to destroy. that type of clean up done in finalize.
+it is meant for object related clean up activites.

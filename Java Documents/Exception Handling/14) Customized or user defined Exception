@@ -1,0 +1,4 @@
+* Customized or user defined exception
+
+-> sometimes to meet our progamming requirements we have to create our own customized exception.
+-> Exception which are defined by Programmer is called user defined Exception.

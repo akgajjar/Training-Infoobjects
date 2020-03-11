@@ -1,0 +1,85 @@
+* Throw Keyword
+
+-> To create Exception object and handover it  to Jvm explicitly.
+-> throw new Exception("Message or Description"); -> Syntax for throw 
+-> you can not write any statement after throw statement directly.
+-> It is only used with Throwable types(Exception Classes). you can not throw any class's Reference object with throw.
+
+case 1 : 
+
+Ex:
+
+class Test{
+	static ArithmeticException e = new ArithmeticException("message");
+
+ 	public static void main(String args[]){
+		throw e;
+	}
+}
+
+--> O/P : Exception in thread main : java.lang.ArithmeticException
+
+Ex:
+
+class Test{
+	static ArithmeticException e;
+
+ 	public static void main(String args[]){
+		throw e;
+	}
+}
+
+--> O/P : Exception in thread main : java.lang.NullPointerException
+
+-> Default value of static is null thats why it throw nullpointerException.
+
+
+case 2 : 
+
+Ex:
+
+class Test{
+
+ 	public static void main(String args[]){
+		System.out.println(10/0);
+		System.out.println("hello");
+	}
+}
+
+--> O/P : Runtime Exception : Exception in thread main : java.lang.ArithmeticException
+
+Ex:
+
+class Test{
+ 	public static void main(String args[]){
+		throw new ArithmeticException("/ by zero");
+		System.out.println("Hello"); //  Compilation Error 
+	}
+}
+
+-> Compiler Error : Unreachable code 
+
+-> in this case compiler will know that exception will occurs so it will generate error but in 1st situation compiler will not know that exception will occurs.
+
+
+case 3:
+
+class Test{
+ 	public static void main(String args[]){
+		throw new Test();
+	}
+}
+
+O/P : Incompatable Types : test can not be Converted to throwable.
+
+--> Compile time error because test is not a throwable types.
+
+class Test extends RuntimeException{
+ 	public static void main(String args[]){
+		throw new Test();
+	}
+}
+
+O/P : Exception in Thread main : Test
+
+--> now thread is part of runtime Exception.

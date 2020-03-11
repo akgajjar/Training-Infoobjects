@@ -1,0 +1,182 @@
+* Throws keyword
+
+-> It must be using only with checked Exception or throwed Checked Exception using throw keyword.
+-> used to delegate responsibility of handling Exception to Caller of method.
+-> if it is required only to convince compiler and its usage does not prevent abnormal terminal of the program.
+->It is only be used with throwable types.
+
+ex:
+
+import java.io.*;
+
+class Test{
+
+	public static void main(String srgs[]){
+		
+		PrintWriter pw = new PrintWriter("abc.txt");
+		pw.println("Hello");
+	}
+}
+
+-> Compiler Error : Unhandled Exception java.io.FileNotFoundException; must be caught or declared to be thrown.
+
+--> There is chance of checked exception then we must have to handle it.
+
+
+* two ways of handle Checked Exception.
+1) using try catch finally
+->
+import java.io.*;
+
+class Test{
+
+	public static void main(String srgs[]){
+	    try{	
+		PrintWriter pw = new PrintWriter("abc.txt");
+		pw.println("Hello");
+		}
+	    catch(Exception e)
+		{
+		e.printStackTrace();
+		}
+	}
+}
+
+--> O/P : Exception in Thread main : FileNotFoundException;
+
+2) using throws
+->
+import java.io.*;
+
+class Test{
+
+	public static void main(String srgs[]) throws FileNotFoundException{
+		
+		PrintWriter pw = new PrintWriter("abc.txt");
+		pw.println("Hello");
+	}
+}
+
+--> O/P : Exception in Thread main : FileNotFoundException;
+
+-> it will compile successfully because thows delegate responsibilty of handling exception to caller.
+
+
+* throws with multiple methods
+-> 
+
+class Test
+         {
+		Public static void main(String srgs[]) throws IntrruptedException{
+			dostuff();
+		}
+		public static void dostuff() throws IntrruptedException{
+			domorestuff();	
+		}
+		public static void domorestuff() throws IntrruptedException{
+			Thread.sleep(1000);
+		}
+	}
+
+
+* important Cases for throws
+
+case 1 :
+
+class Test Throws Exception //Invalid
+{
+ 	Test() throws Exception {//valid
+	
+	}
+
+	public void m1() throws Exception{ // valid
+	}
+}
+--> Compile time Error
+-> Method and Constructor are called by someone then we can use throw with this two but we cant use throws with Exception
+
+case 2 :
+
+class test {
+
+	public static void main(String srgs[]) throws Test{
+	}
+}
+
+--> Compile Time Error: Incompatible type : test can not be Converted to Throwable
+
+
+case 3:
+
+class test {
+
+	public static void main(String srgs[]){
+	throw new Exception();
+	}
+}
+
+--> Compiler Error Unreported Exception must be caught or declared to be thrown.
+--> Exception is Checked Exception .
+
+class test {
+
+	public static void main(String srgs[]){
+	throw new Error();
+	}
+}
+--> Runtime Error : Exception in main thread : java.lang.Error
+-> It will compile fine because Error is unchecked Exception
+
+case 4 :
+
+1)
+try{
+	System.out.println("hello");
+  }
+  catch(ArithmeticException  e){ // unchecked Exception
+}
+
+--> Compile's fine.
+
+2)
+try{
+	System.out.println("hello");
+  }
+  catch(Exception  e){ // Partially checked Exception
+}
+
+--> Compile's fine.
+
+3)
+try{
+	System.out.println("hello");
+  }
+  catch(IOException  e){ // fully checked Exception
+}
+
+--> Compiler Error.
+
+4)
+try{
+	System.out.println("hello");
+  }
+  catch(InterruptedException  e){// fully checked Exception
+}
+
+--> Compiler Error
+
+5)
+try{
+	System.out.println("hello");
+  }
+  catch(Error  e){ // unchecked exception
+}
+
+--> Compile's fine.
+
+
+
+
+-> if there is no chance of Exception for fully checked Exception then you can not write Catch block for that Exception Ex:- in case 3 and 4.
+
+Error format : Exception xxx is never raised  in corresponding try block.

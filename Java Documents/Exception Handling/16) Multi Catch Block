@@ -1,0 +1,65 @@
+* Multicatch block
+
+-> v1.6
+
+try{
+ 
+ }
+catch(ArithmeticException e){
+	e.printStackTrace();
+}
+catch(NullPointerException e){
+	e.printStackTrace();
+}
+catch(ClassCastException e){
+	System.out.println(e.getmessage());
+}
+catch(IOException e){
+	System.out.println(e.getmessage());
+}
+
+-> Multiple catch block we have to write even if code are same because of exception are diffrent.
+-> readability decrease.complexity increase.
+
+-> v1.7
+
+try{
+}
+catch( ArithmeticException | NullPointerException e){
+	e.printStackTrace();
+}
+catch(ClassCastException | IOException e){
+	System.out.println(e.getmessage());
+}
+
+
+
+Ex: 
+ 
+class test{
+
+	public static void main(String args[]){
+ 		try{
+			system.out.println(10/0);
+			String s = null;
+			System.out.println(s.length());
+
+		}
+		catch(ArithmeticException | NullPointerException e){
+			System.out.println(e);
+		} 
+	}
+}
+
+
+
+Ex:
+
+catch(ArithmeticException | Exception e){
+}
+
+O/P -> Alternatives in a multi-catch statement can not be related by subclasses.
+ 
+-> it will throw error because exception is already handle arithmetic exception.
+
+

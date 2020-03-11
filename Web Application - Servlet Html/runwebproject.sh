@@ -11,7 +11,7 @@ set -o xtrace
 set -o nounset
 
 
-PATH_FROM_COPY="/home/info-harsh/workspace/Training Project/Web Application - Servlet Html/tuitionManagementSystem"
+PATH_FROM_COPY="/home/info-harsh/workspace/Training/Web Application - Servlet Html/tuitionManagementSystem"
 TOMCAT_PATH="/home/info-harsh/workspace/jars/apache-tomcat-9.0.8"
 
 WAR_NAME="tms.war"

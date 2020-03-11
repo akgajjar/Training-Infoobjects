@@ -1,0 +1,19 @@
+* Exception Handlingfinally block vs System. exit (0)
+
+-> System.exit(0) will shutdown jvm so in this situation finally block wont be executed. this is only 1 situation when finally block wont be executed
+EX : 
+try{
+
+   System.out.println("try");
+   System.exit(0);
+   }
+  catch(Exception e)
+  {
+   System.out.println("catch");
+  }
+  finally{
+   System.out.println("finally");
+  }
+
+
+-> number we passed in system.exit is status code. 0 means normal termination and non-zero value means abnormal termination. Programatically it is always same . Program is terminated but it is used by jvm for logs.

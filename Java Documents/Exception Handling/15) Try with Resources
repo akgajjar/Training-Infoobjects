@@ -1,0 +1,68 @@
+* Try With Resources
+
+-> 
+
+Before v 1.6
+
+Ex :
+ BufferReader br = null;
+try{
+	br = new BufferReader(new FileReader("abc.txt"));
+	// Use Br for read data
+   }
+catch(IOException e){
+	//Handling code
+  }
+finally{
+	if(br!=null)
+		br.close();
+  }
+
+Problems : 1) Complesary we have close all resorces which are open in try block using finally block. so we are responsible to close the resources. so Complexity of program will increase.
+	   2) Length of code will increase. readability will decrese.
+
+
+-> in try with resources we dont have to close resources which are open in try block.
+
+
+Ex: 
+
+try(BufferReader br = new BufferReader(new FileReader("abc.txt"))){
+	// Use Br for read data
+   }
+catch(IOException e){
+	//Handling code
+  }
+
+-> once control reaches end or try block it will close automatically we are not required to close explicitly.
+
+
+-> Complexity is descrease. length of code decrease. readability will increase.
+
+
+* Important Conclusion 
+
+1) we can take any number of resources using try with resources separated with ",".
+	Ex: 
+	try(Filereader fr = new FileReader("input.txt"),
+	    PrintWriter pr = new PrintWriter("OP.txt")){
+	}
+
+2) we can only use auto closeable resources only in try with resources. Resources must implement java.io.AutoCloseable.
+->this interface introduce in 1.7.
+-> public void close() throws Exception
+
+3) which resources we use with try with resources is implicitly final. 
+
+4)in v1.6 we can not have try without catch or finally but in try with resources we can have.
+
+5)
+v1.7
+
+PrintWriter pt = new PrintWriter();
+
+try(pt){
+}
+
+-> we can not use this in version 1.7 but in v1.9 we can use already declared resources in try with resources.
+
