@@ -1,0 +1,6 @@
+* Final
+-> used with class,method,variable.
+-> if class declared as a final we can not extend it. we can not use it for inheritance. 
+-> if method declared as a final we can not override it.
+-> if variable declared as a final then we can not change it's value.
+-> it is not possible to make default value of final variable(Constant). we have to assign value to final variable at declaration time , Constructor or static block(instance block).if final variable is static then we must have to use static block to initilize it.

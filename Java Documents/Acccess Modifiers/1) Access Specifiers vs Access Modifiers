@@ -1,0 +1,15 @@
+* Access Specifiers vs Access Modifiers
+-> In old languages like c++ public private Protected , default are considered as access specifiers. except this remaining(like static) are considered as access modifiers.
+
+-> but in java there is no terminology like specifiers. all are by default considered as modifiers only
+
+	public 		synchronized
+	private		abstract
+	protected	native
+	default		Strictfp
+	final		transient
+	static		volatile
+
+--> only allowed modifiers for outer class public, default, final, abstract, Strictfp only
+
+--> with local variable only final is possible.

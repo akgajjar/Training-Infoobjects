@@ -1,0 +1,75 @@
+
+* Life cycle of Thread
+
+-> Diagram --> Thread Life Cycle --> see Thread lifecycle.png
+
+1) New Thread: When a new thread is created, it is in the new state. The thread has not yet started to run when thread is in this state. When a thread lies in the new state, it’s code is yet to be run and hasn’t started to execute.
+
+
+2) Runnable State: A thread that is ready to run is moved to runnable state. In this state, a thread might actually be running or it might be ready run at any instant of time. It is the responsibility of the thread scheduler to give the thread, time to run.
+
+-> A multi-threaded program allocates a fixed amount of time to each individual thread. Each and every thread runs for a short while and then pauses and relinquishes the CPU to another thread, so that other threads can get a chance to run. When this happens, all such threads that are ready to run, waiting for the CPU and the currently running thread lies in runnable state.
+
+3) Blocked/Waiting state:When a thread is temporarily inactive, then it’s in one of the following states:
+   * Blocked
+   * Waiting
+
+-> For example, when a thread is waiting for I/O to complete, it lies in the blocked state. It’s the responsibility of the thread scheduler to reactivate and schedule a blocked/waiting thread. A thread in this state cannot continue its execution any further until it is moved to runnable state. Any thread in these states does not consume any CPU cycle.
+
+-> A thread is in the blocked state when it tries to access a protected section of code that is currently locked by some other thread. When the protected section is unlocked, the schedule picks one of the thread which is blocked for that section and moves it to the runnable state. Whereas, a thread is in the waiting state when it waits for another thread on a condition. When this condition is fulfilled, the scheduler is notified and the waiting thread is moved to runnable state.
+
+-> If a currently running thread is moved to blocked/waiting state, another thread in the runnable state is scheduled by the thread scheduler to run. It is the responsibility of thread scheduler to determine which thread to run.
+
+4) Timed Waiting: A thread lies in timed waiting state when it calls a method with a time out parameter. A thread lies in this state until the timeout is completed or until a notification is received. For example, when a thread calls sleep or a conditional wait, it is moved to a timed waiting state.
+
+5) Terminated State: A thread terminates because of either of the following reasons:
+   * Because it exists normally. This happens when the code of thread has entirely executed by the program.
+   * Because there occurred some unusual erroneous event, like segmentation fault or an unhandled exception.
+
+-> A thread that lies in a terminated state does no longer consumes any cycles of CPU.		
+
+
+* Implementing Thread States in Java
+
+-> In Java, to get the current state of the thread, use Thread.getState() method to get the current state of the thread. Java provides java.lang.Thread.State class that defines the ENUM constants for the state of a thread, as summary of which is given below:
+
+1) Constant type: New
+->
+	Declaration: public static final Thread.State NEW
+	Description: Thread state for a thread which has not yet started.
+
+2) Constant type: Runnable
+->
+	Declaration: public static final Thread.State RUNNABLE
+	Description: Thread state for a runnable thread. A thread in the runnable state is executing in the Java virtual machine but it may be waiting for other resources from the operating system such as processor.
+
+3) Constant type: Blocked
+->
+	Declaration: public static final Thread.State BLOCKED
+	Description: Thread state for a thread blocked waiting for a monitor lock. A thread in the blocked state is waiting for a monitor lock to enter a synchronized block/method or reenter a synchronized block/method after calling Object.wait().
+
+4) Constant type: Waiting
+->
+	Declaration: public static final Thread.State WAITING
+	Description: Thread state for a waiting thread. Thread state for a waiting thread. A thread is in the waiting state due to calling one of the following methods:
+
+	* Object.wait with no timeout
+	* Thread.join with no timeout
+	* LockSupport.park
+
+-> A thread in the waiting state is waiting for another thread to perform a particular action.
+
+5) Constant type: Timed Waiting
+->
+	Declaration: public static final Thread.State TIMED_WAITING
+	Description: Thread state for a waiting thread with a specified waiting time. A thread is in the timed waiting state due to calling one of the following methods with a specified positive waiting time:
+
+	* Thread.sleep
+	* Object.wait with timeout
+	* Thread.join with timeout
+	* LockSupport.parkNanos
+	* LockSupport.parkUntil
+
+6) Constant type: Terminated
+->
+	Declaration: public static final Thread.State TERMINATED

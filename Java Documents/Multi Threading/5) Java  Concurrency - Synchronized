@@ -1,0 +1,94 @@
+
+
+Ex 
+
+class counter {
+	
+	int count;
+	public void increment(){
+		count++;
+	}
+}
+
+public class syncdemo{
+
+	public static void main(String srgs[]){
+		
+		Counter c = new Counter();
+
+		Thread t1 = new Thread(new Runnable(){
+		
+		public void run(){
+		
+			for(int i =1 ;i < 1000; i++){
+				c.increment();
+			}
+		}		
+		});
+
+		t1.start();
+		
+		t1.join();
+
+		System.out.println("Count" + c.count);
+	}
+}
+
+O/P : Count 1000
+
+
+class counter {
+	
+	int count;
+	public void increment(){
+		count++;
+	}
+}
+
+public class syncdemo{
+
+	public static void main(String srgs[]){
+		
+		Counter c = new Counter();
+
+		Thread t1 = new Thread(new Runnable(){
+		
+		public void run(){
+		
+			for(int i =1 ;i < 1000; i++){
+				c.increment();
+			}
+		}		
+		});
+
+		Thread t2 = new Thread(new Runnable(){
+		
+		public void run(){
+		
+			for(int i =1 ;i < 1000; i++){
+				c.increment();
+			}
+		}		
+		});
+
+		t1.start();
+		t2.start();
+		
+		
+		t1.join();
+		t2.join();
+
+		System.out.println("Count" + c.count);
+	}
+}
+
+O/P : Count 620
+
+
+--> in some way in between both thread same time called increment method so instead of excuting 2 times it will execute only 1 times.
+
+
+
+
+-> synchronized is used to make ur code to be used by  1 thread only at a time.
+

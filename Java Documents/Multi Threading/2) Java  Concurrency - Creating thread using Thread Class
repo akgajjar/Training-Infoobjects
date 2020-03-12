@@ -1,0 +1,65 @@
+
+-> two ways to implemente multithreading 
+  1) Thread class.
+  2) Runnable interface.
+
+
+package com.infotech.workers;
+
+import java.lang.Runnable;
+
+public class Mythread extends Thread{
+
+	public void run(){
+		
+		for(int i = 0 ; i < 10 ; i++) {
+			System.out.println( Thread.currentThread().getName()+"\ti="+i);
+
+			try{
+				Thread.sleep(1000);
+			}
+			catch(IntrruptedException e){
+				e.printStackTrace();
+			}
+		}
+	}
+}
+
+
+
+package com.infotech.client;
+
+public class Test{
+
+	public static void main(String srgs[]){
+
+		Thread t1 = new MyThread();
+		Thread t2 = new MyThread();
+		// t1.setName("T1"); -> set name of thread otherwise Jvm will give Default name to the thread.
+
+		t1.start();
+		t2.start();
+
+	}
+}
+
+
+
+O/P :
+
+Thread-0	i = 1
+Thread-1	i = 1
+Thread-1	i = 2
+Thread-0	i = 2
+Thread-0	i = 3
+Thread-1	i = 3
+Thread-0	i = 4
+Thread-1	i = 4
+Thread-0	i = 5
+Thread-0	i = 6
+Thread-1	i = 5
+Thread-0	i = 7
+Thread-0	i = 8
+Thread-1	i = 6
+
+

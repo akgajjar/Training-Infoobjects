@@ -1,0 +1,86 @@
+
+* Java Concurrency - Overview 
+
+-> java is multi-threaded programming language which means we can develop multi-threaded program using java.
+-> A multi-threaded Program contains two or more parts that can run concurrently.
+each part can handle different task.
+-> making Optimal use of Available resources specially when your computer has multiple CPUs.
+-> Multi-threading enables you to write in a way where multiple activities can proceed concurrently in the same program.
+-> multithreading is devide task into multiple tasks and run that tasks concurrently for optimal use of CPUs.
+-> Thread is light-weight sub-process. it is seperate part of excecution.it is a unit of process .
+
+Ex:
+
+-> Background jobs like running application servers like oracle application server, web server like tomcat.
+-> typing ms word while listening music.
+-> games uses multi threading extensively.
+-> Servlets are multithreaded.
+
+
+Advantages :
+
+-> Enhanced Performance by decreased development time.
+-> Simplified and streamlined program coding.
+-> Improvised GUI resposiveness.
+-> Simultaneous and parallelized occurrence of tasks.
+-> Decreased cost of maintenance.
+-> Better use of CPU resources.
+
+Disadvantages :
+
+-> Complex debugging and testing processes.
+-> Overhead Switching context.
+-> Increased Potential for deadlock ocurrence.
+-> Increased Difficulty level in writing Program.
+-> Unpredictable results.
+
+
+
+
+* terminology of thread
+
+1) you can not restart the thread twice or start again the same thread or dead Thread.
+
+package com.infotech.workers;
+
+import java.lang.Runnable;
+
+public class Mythread extends Thread{
+
+	public void run(){
+		
+		for(int i = 0 ; i < 10 ; i++) {
+			System.out.println( Thread.currentThread().getName()+"\ti="+i);
+
+			try{
+				Thread.sleep(1000);
+			}
+			catch(IntrruptedException e){
+				e.printStackTrace();
+			}
+		}
+	}
+}
+
+
+
+package com.infotech.client;
+
+public class Test{
+
+	public static void main(String srgs[]){
+
+		MyThread t1 = new MyThread();
+
+		t1.start();
+		t1.start();
+
+	}
+}
+
+
+
+-> It will throw -> Exception in thread main java.lang.UllegalThreadStateException
+	at java.lang.THread.start(Thread.java:705)
+	at com.infotech.client.Test.main(Test.java:14)
+

@@ -1,0 +1,97 @@
+* Access Modifers
+
+-> 4 Permission Modifiers 
+   1) Public  - Most Accesible Modifier  : Classes , Methods , Variables , Contructors , Enums , interfaces.
+   2) Private - Most restrictive Modifier  : methods , Contructors , variables.
+   3) Default - Default Modifier : Classes , Methods , Variables , Contructors , Enums , interfaces.
+   4) Protected : Methods , Constructor, Variables
+-> There are 12 Access modifiers in java.
+
+1) Public
+-> Package Level Modifiers
+-> Public Modifiers means we can use that resources whithin every package.
+-> used  with enum,variable,method,constructor,classes,interfaces.
+-> Global visibility
+
+Ex : 
+	Module 1 
+
+	public class A {
+	
+		int a = 10;
+	}
+
+	module 2
+	
+	public class B{
+		A s = new A();
+	}
+
+
+2) Private 
+-> Private can be used with methods,variables,constructor, innner class.
+-> private modifier means only used within class only.
+
+Ex:
+	public class A {
+	
+		private int a = 10;
+	}
+	class B {
+		public void run(){
+			A ar = new A();
+			System.out.println(ar.a);
+		}
+	}
+
+-> it will throw compile time error because we can not access private members outside of package.
+
+3) Default
+-> Package Level Modifiers
+-> Default modifier for java is default.
+-> Class A has default modifiers as we havent written anything. 
+-> Default modifiers means access only within package only.
+-> it is permission modifiers.
+-> used with class, methods, variables, constructors, enums, interfaces.
+
+Ex:	
+	package p1;
+	public class A {
+	
+		int a = 10;
+	}
+	package p2;
+	class B {
+		public void run(){
+			A ar = new A();
+			System.out.println(ar.a);
+		}
+	}
+
+-> It will generate error because we can not use dafault members outside of package.
+
+4) Protected 
+-> only with Methods,Constructor,Variables.
+-> it's resource can used within same package or other package's child classes only. you can not use protected member out side of package if it is not a direct child class of that class not indirect subclasses means if there is class a in package 1 with protected member and in package 2 their is two classes B and C . B extends A and C Extends B. protected Member is used in B only not in C even if C extends A indirectly.
+
+package p1;
+public class A{
+	protected static int num = 100;
+}
+class x {
+	public void run(){System.out.print(A.num);
+}
+
+class c extends A {
+	public void run(){System.out.print(A.num);
+}
+
+package p2;
+class x {
+	public void run(){System.out.print(A.num);
+}
+class c extends A {
+	public void run(){System.out.print(A.num);
+}
+
+-> in package 2 , class x throw error because it is trying to access outside's package protected member without extending that class.
