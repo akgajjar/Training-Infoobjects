@@ -1,0 +1,47 @@
+* Native
+-> The native keyword is applied to a method to indicate that the method is implemented in native code using JNI (Java Native Interface). native is a modifier applicable only for methods and we can’t apply it anywhere else. The methods which are implemented in C, C++ are called as native methods or foreign methods.
+
+-> The main objectives of native keyword are:
+
+	-> To improve performance of the system.
+	-> To achieve machine level/memory level communication.
+	-> To use already existing legacy non-java code.
+
+Ex: 
+
+Class Native 
+{ 
+    Static 
+    { 
+        System.LoadLibrary(“Native library path”); 
+    } 
+    Public native void m(); 
+} 
+Class Test 
+{ 
+    Public static void main(String[] args) 
+    { 
+        Native n = new Native(); 
+        n.m(); 
+    } 
+} 
+
+
+* Important points about native keyword:
+
+-> For native methods implementation is already available in old languages like C, C++ and we are not responsible to provide implementation. Hence native method declaration should end with ; (semi-colon).
+-> We can’t declare native method as abstract.
+-> We can’t declare native method as strictfp because there is no guarantee that old languages (C, C++) follow IEEE 754 standard. Hence native strictfp combination is illegal combination for methods.
+-> The main advantage of native keyword is improvement in performance but the main disadvantage of native keyword is that it breaks platform independent nature of java.
+
+* Declaring Native Methods: 
+
+-> In this section we explain how to declare a native method in Java and how to generate the corresponding C/C++ function prototype.
+
+	private native String getLine(String prompt);
+
+-> From the Native Language Side:
+
+	javah -jni Prompt
+	JNIEXPORT jstring JNICALL Java_Prompt_getLine(JNIEnv *, jobject, jstring);
+

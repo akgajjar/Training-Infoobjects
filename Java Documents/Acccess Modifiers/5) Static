@@ -1,0 +1,317 @@
+* static
+
+-> used with variable, Methods , Static blocks, Static nested classes.
+-> memory allocated during class loading times.
+-> Access static members using class names.
+-> Access instance members by using objects but we can use static members using class name.
+-> static is a non-access modifier in Java which is applicable for the following:
+   1. blocks
+   2. variables
+   3. methods
+   4. nested classes
+->To create a static member(block,variable,method,nested class), precede its declaration with the keyword static. When a member is declared static, it can be accessed before any objects of its class are created, and without reference to any object.
+
+Ex: 
+
+class Test{
+	
+	static String a = "Static Variable";// memory allocated at class loading
+
+	static void m1(){
+		System.out.println("Static Method");
+	}
+	
+	{
+		System.out.println("Static block");
+	}
+	
+	static class Inner{
+		
+		String b = "Static Inner Class";
+	}
+}
+public class client{
+
+	public static void main(String srgs[]){
+		
+		System.out.println("a = "+ Test.a); // access Static Variable
+		
+		Test.m1(); // access Static Methods
+	
+		Test.Inner a = new Test.Inner(); // access static class
+		System.out.println("b = "+a.b);
+
+	}
+}
+
+
+
+
+1) Static Block 
+
+-> Unlike C++, Java supports a special block, called static block (also called static clause) which can be used for static initializations of a class. This code inside static block is executed only once: the first time you make an object of that class or the first time you access a static member of that class (even if you never make an object of that class).
+-> we can have multiple static blocks.
+
+Ex : 
+
+// filename: Main.java 
+class Test { 
+    static int i; 
+    int j; 
+      
+    // start of static block  
+    static { 
+        i = 10; 
+        System.out.println("static block called "); 
+    } 
+    // end of static block  
+} 
+  
+class Main { 
+    public static void main(String args[]) { 
+  
+        // Although we don't have an object of Test, static block is  
+        // called because i is being accessed in following statement. 
+        System.out.println(Test.i);  
+    } 
+} 
+
+Output:
+	static block called
+	10
+
+
+-> Also, static blocks are executed before constructors. 
+
+Ex :
+
+// filename: Main.java 
+class Test { 
+    static int i; 
+    int j; 
+    static { 
+        i = 10; 
+        System.out.println("static block called "); 
+    } 
+    Test(){ 
+        System.out.println("Constructor called"); 
+    } 
+} 
+  
+class Main { 
+    public static void main(String args[]) { 
+  
+       // Although we have two objects, static block is executed only once. 
+       Test t1 = new Test(); 
+       Test t2 = new Test(); 
+    } 
+} 
+
+Output:
+	static block called
+	Constructor called
+	Constructor called
+
+
+2) Static variables
+
+-> The static variable can be used to refer to the common property of all objects (which is not unique for each object).
+-> When a variable is declared as static, then a single copy of variable is created and shared among all objects at class level. 
+-> Static variables are, essentially, global variables. 
+-> All instances of the class share the same static variable.
+-> The static variable gets memory only once in the class area at the time of class loading.
+-> It makes your program memory efficient (i.e., it saves memory).
+-> you can initilize it only once at class loading.
+
+* Important points for static variables :-
+
+   -> We can create static variables at class-level only.it means we can not have local variable static.
+   -> static block and static variables are executed in order they are present
+      in a program.
+
+
+-> Below is the java program to demonstrate that static block and static variables are executed in order they are present in a program.
+
+Ex:
+
+// java program to demonstrate execution 
+// of static blocks and variables 
+class Test 
+{ 
+    // static variable 
+    static int a = m1(); 
+      
+    // static block 
+    static { 
+        System.out.println("Inside static block"); 
+    } 
+      
+    // static method 
+    static int m1() { 
+        System.out.println("from m1"); 
+        return 20; 
+    } 
+      
+    // static method(main !!) 
+    public static void main(String[] args) 
+    { 
+       System.out.println("Value of a : "+a); 
+       System.out.println("from main"); 
+    } 
+  
+  
+} 
+
+Output:
+
+	from m1
+	Inside static block
+	Value of a : 20
+	from main
+
+
+3) Static methods
+
+-> When a method is declared with static keyword, it is known as static method. The most common example of a static method is main( ) method.As discussed above, Any static member can be accessed before any objects of its class are created, and without reference to any object.Methods declared as static have several restrictions:
+	-> They can only directly call other static methods.
+	-> They can only directly access static data.
+	-> They cannot refer to this or super in any way.
+
+
+// java program to demonstrate restriction on static methods 
+class Test 
+{ 
+    // static variable 
+    static int a = 10; 
+      
+    // instance variable 
+    int b = 20; 
+      
+    // static method 
+    static void m1() 
+    { 
+        a = 20; 
+        System.out.println("from m1"); 
+          
+         // Cannot make a static reference to the non-static field b 
+         b = 10; // compilation error 
+                  
+         // Cannot make a static reference to the  
+                 // non-static method m2() from the type Test 
+         m2();  // compilation error 
+           
+         //  Cannot use super in a static context 
+         System.out.println(super.a); // compiler error  
+    } 
+      
+    // instance method 
+    void m2() 
+    {     
+        System.out.println("from m2"); 
+    } 
+      
+      
+      
+    public static void main(String[] args) 
+    { 
+        // main method  
+    } 
+}
+
+
+4) static Inner class
+-> Java allows a class to be defined within another class. These are called Nested Classes. The class in which the nested class is defined is known as the Outer Class. Unlike top level classes, Inner classes can be Static. Non-static nested classes are also known as Inner classes.
+
+-> An instance of an inner class cannot be created without an instance of the outer class. Therefore, an inner class instance can access all of the members of its outer class, without using a reference to the outer class instance. For this reason inner classes can help make programs simple and concise.
+
+
+
+* What are the differences between static and non-static nested classes?
+->The following are major differences between static nested classes and inner classes.
+
+	-> A static nested class may be instantiated without instantiating its outer class.
+	-> Inner classes can access both static and non-static members of the outer class. A static class can access only the static members of the outer class.
+
+
+Ex : 
+
+// Java program to demonstrate how to 
+// implement static and non-static 
+// classes in a Java program. 
+class OuterClass { 
+    private static String msg = "GeeksForGeeks"; 
+  
+    // Static nested class 
+    public static class NestedStaticClass { 
+  
+        // Only static members of Outer class 
+        // is directly accessible in nested 
+        // static class 
+        public void printMessage() 
+        { 
+  
+            // Try making 'message' a non-static 
+            // variable, there will be compiler error 
+            System.out.println( 
+                "Message from nested static class: "
+                + msg); 
+        } 
+    } 
+  
+    // Non-static nested class - 
+    // also called Inner class 
+    public class InnerClass { 
+  
+        // Both static and non-static members 
+        // of Outer class are accessible in 
+        // this Inner class 
+        public void display() 
+        { 
+            System.out.println( 
+                "Message from non-static nested class: "
+                + msg); 
+        } 
+    } 
+} 
+class Main { 
+    // How to create instance of static 
+    // and non static nested class? 
+    public static void main(String args[]) 
+    { 
+  
+        // Create instance of nested Static class 
+        OuterClass.NestedStaticClass printer 
+            = new OuterClass.NestedStaticClass(); 
+  
+        // Call non static method of nested 
+        // static class 
+        printer.printMessage(); 
+  
+        // In order to create instance of 
+        // Inner class we need an Outer class 
+        // instance. Let us create Outer class 
+        // instance for creating 
+        // non-static nested class 
+        OuterClass outer = new OuterClass(); 
+        OuterClass.InnerClass inner 
+            = outer.new InnerClass(); 
+  
+        // Calling non-static method of Inner class 
+        inner.display(); 
+  
+        // We can also combine above steps in one 
+        // step to create instance of Inner class 
+        OuterClass.InnerClass innerObject 
+            = new OuterClass().new InnerClass(); 
+  
+        // Similarly we can now call Inner class method 
+        innerObject.display(); 
+    } 
+} 
+
+
+Output:
+
+	Message from nested static class: GeeksForGeeks
+	Message from non-static nested class: GeeksForGeeks
+	Message from non-static nested class: GeeksForGeeks
