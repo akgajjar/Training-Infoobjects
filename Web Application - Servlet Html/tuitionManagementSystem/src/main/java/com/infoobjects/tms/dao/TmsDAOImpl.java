@@ -26,7 +26,7 @@ public class TmsDAOImpl {
                 }
             }
             sql.append(") VALUES (").append(placeholders).append(")");
-            PreparedStatement preparedStatement = SingletonConnection.getInstance().prepareStatement(sql.toString());
+            PreparedStatement preparedStatement = SingletonConnection.getInstance().getConnection().prepareStatement(sql.toString());
 
             for (Object value : dataMap.values()) {
                 preparedStatement.setObject(i++, value);
@@ -57,7 +57,7 @@ public class TmsDAOImpl {
             }
             sql.append(";");
             PreparedStatement preparedStatement;
-            preparedStatement = SingletonConnection.getInstance().prepareStatement(sql.toString());
+            preparedStatement = SingletonConnection.getInstance().getConnection().prepareStatement(sql.toString());
             int i = 1;
             for (Object value : dataMap.values()) {
                 preparedStatement.setObject(i++, value);
@@ -85,7 +85,7 @@ public class TmsDAOImpl {
                 }
             }
             sqlQuery.append(";");
-            PreparedStatement preparedStatement = SingletonConnection.getInstance().prepareStatement(sqlQuery.toString());
+            PreparedStatement preparedStatement = SingletonConnection.getInstance().getConnection().prepareStatement(sqlQuery.toString());
             int counterValue = 1;
             for (Object value : dataMap.values()) {
                 preparedStatement.setObject(counterValue++, value);
@@ -121,7 +121,7 @@ public class TmsDAOImpl {
             }
             sqlQuery.append(" WHERE ").append(camelCaseToSnakeCase(idName)).append(" = ? ");
             PreparedStatement preparedStatement = null;
-            preparedStatement = SingletonConnection.getInstance().prepareStatement(sqlQuery.toString());
+            preparedStatement = SingletonConnection.getInstance().getConnection().prepareStatement(sqlQuery.toString());
             Object idValue = dataMap.get(idName);
             dataMap.remove(idName);
             for (Object value : dataMap.values()) {
@@ -154,7 +154,7 @@ public class TmsDAOImpl {
             }
         }
         try {
-            PreparedStatement preparedStatement = SingletonConnection.getInstance().prepareStatement(sqlQuery.toString());
+            PreparedStatement preparedStatement = SingletonConnection.getInstance().getConnection().prepareStatement(sqlQuery.toString());
             if (dataMap.size() > 0) {
                 int i = 1;
                 for (Object value : dataMap.values()) {
@@ -176,7 +176,7 @@ public class TmsDAOImpl {
         ResultSet resultSet = null;
         PreparedStatement preparedStatement = null;
         try {
-            preparedStatement = SingletonConnection.getInstance().prepareStatement(sqlQuery.toString());
+            preparedStatement = SingletonConnection.getInstance().getConnection().prepareStatement(sqlQuery.toString());
 
             if (values.size() > 0) {
                 int i = 1;
@@ -199,7 +199,7 @@ public class TmsDAOImpl {
     public void executeQueryWithOutResultSet(String sqlQuery, List values) throws SQLException, ClassNotFoundException, Exception {
         PreparedStatement preparedStatement = null;
         try {
-            preparedStatement = SingletonConnection.getInstance().prepareStatement(sqlQuery.toString());
+            preparedStatement = SingletonConnection.getInstance().getConnection().prepareStatement(sqlQuery.toString());
 
             if (values.size() > 0) {
                 int i = 1;

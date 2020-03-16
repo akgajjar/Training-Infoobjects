@@ -1,0 +1,16 @@
+
+
+Genrics Links :
+
+Need for genrics 
+
+1) Strong Type checking in generic algorithms.
+2) type safety :  ensure that specific type of objects only used with that object.
+3) remove explicit casting.
+
+
+https://howtodoinjava.com/java/generics/complete-java-generics-tutorial/
+
+
+genrics Tutorial in java - java9s
+https://www.youtube.com/playlist?list=PLkiVxfkxAYd2TAn--1BH1ERvYbHxh11Qs
