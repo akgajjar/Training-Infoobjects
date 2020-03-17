@@ -2,25 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67e84ce8-fcc6-4a90-9624-157594eebea4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Java Documents/Design pattern/builder pattern" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Java Documents/Garbage collection" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Java Documents/Generics/Generics" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/src/main/java/com/infoobjects/tms/dao/SingletonConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/src/main/java/com/infoobjects/tms/dao/SingletonConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/src/main/java/com/infoobjects/tms/dao/TmsDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core Java Application/tuitionManagementSystem/src/main/java/com/infoobjects/tms/dao/TmsDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Java Documents/Generics and Collections/2) Collection and generics - introduction" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/dao/SingletonConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/dao/SingletonConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/dao/TmsDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/infoobjects/tms/dao/TmsDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/StudentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/TeacherController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/TeacherController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/TeacherStudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/controller/TeacherStudentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/dao/SingletonConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/dao/SingletonConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/dao/TmsDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/dao/TmsDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/mapper/TmsMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/mapper/TmsMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/service/StudentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/service/StudentServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/service/TeacherServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/service/TeacherServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/service/TeacherStudentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/service/TeacherStudentServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/utils/TmsUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/utils/TmsUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/infoobjects/tms/testchanges.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/infoobjects/tms/testchanges.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/service/interfaces/test1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/service/interfaces/test2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/service/interfaces/test3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/service/t.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/service/test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/infoobjects/tms/service/test4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/infoobjects/tms/testchanges.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/infoobjects/tms/testchanges.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -92,7 +83,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.test">
+  <component name="RunManager" selected="Application.testchanges">
     <configuration name="TmsStart" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.infoobjects.tms.start.TmsStart" />
       <module name="tuitionManagementSystem" />
@@ -134,8 +125,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.test" />
         <item itemvalue="Application.testchanges" />
+        <item itemvalue="Application.test" />
         <item itemvalue="Application.TmsStart" />
       </list>
     </recent_temporary>

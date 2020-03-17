@@ -1,0 +1,33 @@
+			Spring Mvc
+			
+			
+* Why to use spring mvc
+
+-> easy to work with .
+-> flexible .
+-> seperation of concern.
+
+
+-> in servlet we have many controllers and we have to manage all controller and we have to define which request which controller will be called.so when controller increase manage to it will become more and more difficult.
+
+-> in spring mvc, we have front controller(Dispatcher Servlet) all request come to dispatcher servlet and it will call specific servlet according to request .
+
+					      Dispatcher Servlet
+Client	--request-->  WEb.xml -- request -->  Front Controller -- > Controllers
+						    |	        @Controller Login
+						    |	        @Controller Logout
+				       telusko-servlet.xml  	@Controller add
+                   					        @Controller Multiplication
+
+
+-> controller will return model(data) and view name to front controller.front controller will send that model and call view and attach it with data and send both to the client.
+
+-> Evrything is done by front controller. we doesnt not know howmany controller at the back end side.
+
+-> Front Controller will call view and send to client then why do we need that controller knows which view to call.
+
+-> suppose we need to change our view technology then we have to change only configuration file then evrything works fine.
+
+-> Controllers doesnt know which view technology we are using and view doesnt know which controller we are using. this will saperate ur code.
+   
+
