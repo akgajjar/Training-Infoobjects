@@ -1,0 +1,22 @@
+			 Introduction Spring Framework
+
+* Dependancy Injection(Dependancy Inversion)
+
+-> The Way you decouple conventional dependancy relationship between of objects.
+
+ex:  drawing application ->code that draw diffrent objects
+
+--> dependancy of a class is not hard coded it it injected by some entity outide of the class that is Dependency injection.
+
+jbrains : 
+https://www.youtube.com/watch?v=GB8k2-Egfv0&list=PLC97BDEFDCDD169D7&index=2&t=0s 
+
+
+
+gontuseries : 
+https://www.youtube.com/playlist?list=PLBgMUB7xGcO31B2gBmy1igpZn6LK78-CJ
+
+
+https://www.tutorialspoint.com/spring/index.htm
+
+
