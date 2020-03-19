@@ -4,8 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.infoobjects.tms.dto.interfaces.DTO;
 import com.infoobjects.tms.utils.TmsUtils;
 import org.apache.commons.text.CaseUtils;
-import sun.awt.X11.XKeyEvent;
-import sun.awt.X11.XKeyboardFocusManagerPeer;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -38,14 +36,14 @@ public class TmsMapper {
     }
 
     public static List<Map<String, Object>> resultSetToMap(ResultSet rs) {
-        List<Map<String, Object>> rowList = new ArrayList<>();
+        List<Map<String, Object>> rowList = new ArrayList<Map<String, Object>>();
 
         try {
             ResultSetMetaData md = rs.getMetaData();
             int columns = md.getColumnCount();
 
             while (rs.next()) {
-                Map<String, Object> row = new HashMap<>(columns);
+                Map<String, Object> row = new HashMap<String, Object>(columns);
                 for (int i = 1; i <= columns; ++i) {
                     row.put(snakeCaseToCamelCase(md.getColumnName(i)), rs.getObject(i));
                 }

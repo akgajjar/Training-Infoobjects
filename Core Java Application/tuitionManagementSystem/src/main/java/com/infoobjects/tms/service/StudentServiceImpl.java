@@ -13,7 +13,6 @@ import java.util.Map;
 
 public class StudentServiceImpl implements Service<String, DTO> {
 
-    @Override
     public void insert(DTO studentDTO) {
         try {
             TmsDAOImpl genericDAO = new TmsDAOImpl();
@@ -23,7 +22,6 @@ public class StudentServiceImpl implements Service<String, DTO> {
         }
     }
 
-    @Override
     public void delete(String id) {
         try {
             HashMap map = new HashMap();
@@ -35,7 +33,6 @@ public class StudentServiceImpl implements Service<String, DTO> {
         }
     }
 
-    @Override
     public DTO find(String id) {
         DTO student = null;
         try {
