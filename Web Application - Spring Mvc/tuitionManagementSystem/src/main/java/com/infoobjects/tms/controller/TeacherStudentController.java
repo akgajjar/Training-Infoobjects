@@ -18,8 +18,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/teacherStudentController")
-public class TeacherStudentController extends HttpServlet {
+/*@WebServlet("/teacherStudentController")
+*/public class TeacherStudentController extends HttpServlet {
 
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
         httpServletResponse.setContentType("text/html");

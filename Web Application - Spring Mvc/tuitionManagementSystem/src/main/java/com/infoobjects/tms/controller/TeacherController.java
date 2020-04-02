@@ -17,8 +17,8 @@ import java.util.List;
 
 import static com.infoobjects.tms.utils.TmsUtils.uuidGeneration;
 
-@WebServlet("/teacherController")
-public class TeacherController extends HttpServlet {
+/*@WebServlet("/teacherController")
+*/public class TeacherController extends HttpServlet {
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
         httpServletResponse.setContentType("text/html");
         TeacherServiceImpl teacherService = new TeacherServiceImpl();

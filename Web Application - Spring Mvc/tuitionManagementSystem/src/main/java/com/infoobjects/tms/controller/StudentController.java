@@ -16,8 +16,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet("/studentController")
-public class StudentController extends HttpServlet {
+/*@WebServlet("/studentController")
+*/public class StudentController extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
