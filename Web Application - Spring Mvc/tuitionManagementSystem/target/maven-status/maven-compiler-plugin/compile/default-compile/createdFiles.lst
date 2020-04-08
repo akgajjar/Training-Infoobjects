@@ -16,6 +16,5 @@ com\infoobjects\tms\mapper\TmsMapper.class
 com\infoobjects\tms\service\TeacherServiceImpl.class
 com\infoobjects\tms\dto\Student.class
 com\infoobjects\tms\service\interfaces\TeacherServiceIncrement.class
-com\infoobjects\tms\controller\TeacherStudentController.class
 com\infoobjects\tms\dto\interfaces\DTO.class
 com\infoobjects\tms\controller\StudentController.class

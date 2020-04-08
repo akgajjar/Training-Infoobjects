@@ -1,0 +1,5 @@
+-> three type 
+
+1) byType
+2) byName
+3) Constructor

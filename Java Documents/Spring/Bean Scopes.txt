@@ -1,0 +1,10 @@
+* Two basic Scope 
+-> 1) Singleton -> only once per spring container.
+   2) Prototype -> New bean created with every request or reference.
+
+
+* Web Aware Context bean scope
+->
+1) Request - New bean per servlet request
+2) session - new bean per session.
+3) Global session - new bean per global HTTP session(portlet session).

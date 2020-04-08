@@ -1,105 +1,53 @@
 package com.infoobjects.tms.service;
 
 import com.infoobjects.tms.dao.TmsDAOImpl;
+import com.infoobjects.tms.dto.Student;
 import com.infoobjects.tms.dto.Teacher;
-import com.infoobjects.tms.mapper.TmsMapper;
 import com.infoobjects.tms.service.interfaces.TeacherServiceIncrement;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-public class TeacherServiceImpl implements TeacherServiceIncrement<String, Teacher> {
+import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
-    @Override
-    public void insert(Teacher teacherDTO) {
-        try {
-            TmsDAOImpl genericDAO = new TmsDAOImpl();
-            genericDAO.insert(TmsMapper.dtoToMap(teacherDTO), teacherDTO);
-        } catch (SQLException sqlException) {
-            sqlException.printStackTrace();
-        } catch (ClassNotFoundException classNotFoundException) {
-            classNotFoundException.printStackTrace();
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        }
-    }
+@Service
+public class TeacherServiceImpl implements TeacherServiceIncrement<Teacher> {
 
-    @Override
-    public void delete(String id) {
-        try {
-            HashMap map = new HashMap();
-            map.put("teacherId", id);
-            TmsDAOImpl genericDAO = new TmsDAOImpl();
-            genericDAO.delete(map, new Teacher());
-        } catch (SQLException sqlException) {
-            sqlException.printStackTrace();
-        } catch (ClassNotFoundException classNotFoundException) {
-            classNotFoundException.printStackTrace();
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        }
-    }
+	@Autowired
+	private TmsDAOImpl<Teacher> genericDAO;
 
-    @Override
-    public Teacher find(String id) {
-        Teacher teacher = null;
-        try {
-            HashMap map = new HashMap();
-            map.put("teacherId", id);
-            TmsDAOImpl genericDAO = new TmsDAOImpl();
-            List<Map<String, Object>> resultList = genericDAO.find(map, new Teacher());
-            if (resultList.size() == 0) {
-                return null;
-            }
-            Map<String, Object> mapResult = resultList.get(0);
-            teacher = (Teacher) TmsMapper.mapToDto(mapResult, new Teacher());
-        } catch (SQLException sqlException) {
-            sqlException.printStackTrace();
-        } catch (ClassNotFoundException classNotFoundException) {
-            classNotFoundException.printStackTrace();
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        }
-        return teacher;
-    }
+	public void setGenericDAO(TmsDAOImpl<Teacher> genericDAO) {
+		this.genericDAO = genericDAO;
+	}
 
-    @Override
-    public void update(Teacher teacherDTO) {
-        try {
-            TmsDAOImpl genericDAO = new TmsDAOImpl();
-            genericDAO.update(TmsMapper.dtoToMap(teacherDTO), teacherDTO, "teacherId");
-        } catch (SQLException sqlException) {
-            sqlException.printStackTrace();
-        } catch (ClassNotFoundException classNotFoundException) {
-            classNotFoundException.printStackTrace();
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        }
-    }
+	@Override
+	public void insert(Teacher teacherDTO) {
+		genericDAO.insert(teacherDTO);
+	}
 
-    @Override
-    public List<Teacher> findAll() {
-        List<Teacher> teachers = new ArrayList<>();
-        try {
-            TmsDAOImpl genericDAO = new TmsDAOImpl();
-            List<Map<String, Object>> resultList = genericDAO.findAll(new HashMap(), new Teacher());
-            for (int loopCounter = 0; loopCounter < resultList.size(); loopCounter++) {
-                Map<String, Object> mapResult = resultList.get(loopCounter);
-                Teacher teacher = (Teacher) TmsMapper.mapToDto(mapResult, new Teacher());
-                teachers.add(teacher);
-            }
-        } catch (SQLException sqlException) {
-            sqlException.printStackTrace();
-        } catch (ClassNotFoundException classNotFoundException) {
-            classNotFoundException.printStackTrace();
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        }
-        return teachers;
-    }
+	@Override
+	public void delete(String id) {
+		genericDAO.delete(id, Teacher.class);
+	}
 
+	@Override
+	public Teacher find(String id) {
+		return genericDAO.find(id, Teacher.class);
+	}
 
+	@Override
+	public void update(Teacher teacherDTO) {
+		genericDAO.update(teacherDTO);
+	}
+
+	@Override
+	public List<Teacher> findAll() {
+		return genericDAO.findAll(Teacher.class);
+	}
+	
+	
 }

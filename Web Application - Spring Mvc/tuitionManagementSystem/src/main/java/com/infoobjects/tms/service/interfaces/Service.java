@@ -7,7 +7,7 @@ public interface Service<String, T> {
 
     void insert(T dto);
 
-    void delete(String id) throws SQLException;
+    void delete(String id);
 
     T find(String id);
 

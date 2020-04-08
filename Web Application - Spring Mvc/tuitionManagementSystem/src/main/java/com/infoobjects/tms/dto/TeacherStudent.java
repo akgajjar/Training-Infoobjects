@@ -8,7 +8,8 @@ public class TeacherStudent implements DTO {
     private String teacherId;
     private String studentId;
 
-    @Override
+    
+	@Override
     public String toString() {
         System.out.println("TeacherStudent : \n");
         return genericToString(this);

@@ -156,7 +156,7 @@ public class TeacherStudentController extends HttpServlet {
             StringBuilder outputString = new StringBuilder();
             outputString.append(TmsUtils.getDataTablesCssJavascriptString())
                     .append(TmsUtils.getCommonCssJavascriptString())
-                    .append("<div data-include=\"header\"></div><br/><br/><h1 align=\"center\";margin =\"1 em\";color: #141414;\"><b>Show All Students</b></h1><br/><br/><center><b><font color=\"blue\" size=\"5\">").append("").append("</font></b></center>")
+                    .append("<div data-include=\"header\"></div><br/><br/><h1 align=\"center\";margin =\"1 em\";color: #141414;\"><b>Show All Teacher Students</b></h1><br/><br/><center><b><font color=\"blue\" size=\"5\">").append("").append("</font></b></center>")
                     .append("<table cellpadding=\"10\"  id=\"example\" class=\"display\">")
                     .append("<thead><tr><th>Student Id</th>")
                     .append("<th>Student Name</th>")

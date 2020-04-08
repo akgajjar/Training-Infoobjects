@@ -1,0 +1,12 @@
+* Illegal reflective access by com.thoughtworks.xstream.core.util.Fields
+
+-> https://issues.apache.org/jira/browse/AMQ-7139
+
+
+
+
+
+
+
+
+

@@ -1,5 +1,11 @@
 package com.infoobjects.tms.service.interfaces;
 
-public interface StudentServiceIncrement<String, DTO> extends Service<String, DTO> {
+import java.util.List;
 
+import com.infoobjects.tms.dto.Student;
+import com.infoobjects.tms.dto.Teacher;
+
+public interface StudentServiceIncrement<DTO> extends Service<String, DTO> {
+
+	 
 }

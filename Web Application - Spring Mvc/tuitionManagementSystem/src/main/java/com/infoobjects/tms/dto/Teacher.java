@@ -5,16 +5,55 @@ import com.infoobjects.tms.enums.Designation;
 
 import static com.infoobjects.tms.utils.TmsUtils.genericToString;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Teacher", schema = "tms" )
 public class Teacher implements DTO {
 
+
+	@Id
+	@Column(name = "TEACHER_ID", length = 255, nullable = false, unique = true)
     private String teacherId;
+	
+	@Column(name = "TEACHER_NAME", length = 255, nullable = false, unique = false)
     private String teacherName;
+	
+	@Column(name = "TEACHER_ADDRESS", length = 255, nullable = false, unique = false)
     private String teacherAddress;
+	
+	@Column(name = "TEACHER_MOBILE", length = 15, nullable = false, unique = false)
     private String teacherMobile;
+	
+	@Column(name = "TEACHER_EMAIL_ID", length = 255, nullable = false, unique = false)
     private String teacherEmailId;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "TEACHER_DESIGNATION", length = 50, nullable = false, unique = false)
     private Designation teacherDesignation;
+	
+	@Column(name = "TEACHER_SALARY", length = 15, nullable = false, unique = false)
     private Double teacherSalary;
 
+	@ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinTable(name = "TeacherStudent", joinColumns = { 
+			@JoinColumn(name = "TEACHER_ID", nullable = false, updatable = true) }, 
+			inverseJoinColumns = { @JoinColumn(name = "STUDENT_ID", 
+					nullable = false, updatable = false) })
+	private List<Student> students;
+	
     @Override
     public String toString() {
         System.out.println("Teacher : \n");
@@ -76,5 +115,12 @@ public class Teacher implements DTO {
     public void setTeacherSalary(Double teacherSalary) {
         this.teacherSalary = teacherSalary;
     }
+	public List<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(List<Student> students) {
+		this.students = students;
+	}
 
 }
