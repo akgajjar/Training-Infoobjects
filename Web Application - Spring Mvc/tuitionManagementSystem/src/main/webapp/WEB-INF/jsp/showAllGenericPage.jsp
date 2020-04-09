@@ -1,12 +1,12 @@
-<%@page import="com.infoobjects.tms.utils.TmsUtils"%>
-<%@page import="com.infoobjects.tms.entity.Teacher"%>
+<%@page import="com.infoobjects.tms.dto.SubmitButton"%>
+<%@page import="com.infoobjects.tms.dto.Data"%>
+<%@page import="com.infoobjects.tms.dto.DisplayAllData"%>
 <%@page import="com.infoobjects.tms.entity.Student"%>
 <%@page import="java.util.List"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
+<html>
+<head>
 <script type="text/javascript"
 	src="/tms/resources/js/datatable/jquery.dataTables.min.js"></script>
 <script type="text/javascript"
@@ -55,57 +55,69 @@
 		$('#ab').DataTable();
 	});
 </script>
-<link href="/tms/resources/css/style.css" rel="stylesheet"
-	type="text/css" media="all" />
-<jsp:include page="header.jsp" />
-<h1 align="center" style=""1 em" ;color:#141414;">
-	<b>Show All Students</b>
-</h1>
-<br />
-<br />
-<center>
+<link href="resources/css/style.css" rel="stylesheet" type="text/css"
+	media="all" />
+</head>
+<body>
 	<%
-		List<Teacher> teachers = (List<Teacher>) request.getAttribute("teachers");
-	%>
-	<b><font color="blue" size="5"></font></b>
-</center>
-<table cellpadding="10" id="example" class="display">
-	<thead>
-		<tr>
-			<th>Teacher Id</th>
-			<th>Teacher Name</th>
-			<th>Designation</th>
-			<th>View Full Details</th>
-			<th>Update</th>
-			<th>Delete</th>
-	</thead>
-	<tbody>
-		<%
-			for (Teacher teacher : teachers) {
+			
+			DisplayAllData displayAllData = (DisplayAllData)request.getAttribute("displayAllData");
 		%>
-		<tr>
-			<td><%=teacher.getTeacherId()%></td>
-			<td><%=teacher.getTeacherName()%></td>
-			<td><%=teacher.getTeacherDesignation()%></td>
-			<td><form method="get"
-					action="/tms<%=TmsUtils.viewTeacherFullDetailsMapping%><%=teacher.getTeacherId()%>">
-					<input type="submit" name="action" class="btn btn-success"
-						value="View Full Details">
-				</form></td>
-			<td><form method="get"
-					action="/tms<%=TmsUtils.updateTeacherFormMapping%><%=teacher.getTeacherId()%>">
-					<input type="submit" name="action" class="btn btn-success"
-						value="Update">
-				</form></td>
-			<td><form method="post"
-					action="/tms<%=TmsUtils.deleteTeacherMapping%><%=teacher.getTeacherId()%>">
-					<input type="submit" name="action" class="btn btn-success"
-						value="Delete">
-				</form></td>
-		</tr>
-		<%
+	<jsp:include page="header.jsp" />
+	<h1 align="center" style="margin: 1 em; color: #141414;">
+		<b><%=displayAllData.getDisplayAllDataHeading() %></b>
+	</h1>
+	<br />
+	<br />
+	<center>
+		<b><font color="blue" size="5"></font></b>
+	</center>
+	<table cellpadding="10" id="example" class="display">
+		<thead>
+			<tr>
+				<%
+					for(String dataHeader : displayAllData.getDataHeaders()){
+						%>
+				<th><%=dataHeader %></th>
+				<%
+					}
+					for(String buttonHeader : displayAllData.getButtonsHeaders()){
+						%>
+				<th><%=buttonHeader %></th>
+				<%
+					}
+				%>
+			</tr>
+		</thead>
+		<tbody>
+			<%
+				for (Data data : displayAllData.getDataToDisplay()) {
+			%>
+			<tr>
+				<%
+					for(String dataHeader : displayAllData.getDataHeaders()){
+						%>
+				<td>
+					<%= data.getData().get(dataHeader)%>
+				</td>
+				<%
+					}
+					for(String buttonHeader : displayAllData.getButtonsHeaders()){
+						%>
+				<td><form
+						method="<%=data.getSubmitButtons().get(buttonHeader).getFormMethod()%>"
+						action="/tms<%=data.getSubmitButtons().get(buttonHeader).getFormAction()%>">
+						<input type="submit" name="action" class="btn btn-success"
+							value="<%=data.getSubmitButtons().get(buttonHeader).getButtonValue()%>">
+					</form></td>
+				<%
+					}
+				%>
+			</tr>
+			<%
 			}
 		%>
-
-	</tbody>
-</table>
+		</tbody>
+	</table>
+</body>
+</html>

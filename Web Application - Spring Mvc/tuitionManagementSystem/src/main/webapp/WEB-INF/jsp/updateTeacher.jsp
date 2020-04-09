@@ -1,5 +1,6 @@
+<%@page import="com.infoobjects.tms.utils.TmsUtils"%>
 <%@page import="com.infoobjects.tms.enums.Designation"%>
-<%@page import="com.infoobjects.tms.dto.Teacher"%>
+<%@page import="com.infoobjects.tms.entity.Teacher"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -20,65 +21,65 @@
 %>
 <div class="container">
     <div class="form">
-    <form:form method="post" action="/tms/updateTeacher">
+    <form method="post" action="/tms<%=TmsUtils.updateTeacherMapping %>">
 
-			<form:input path="teacherId" type="hidden" value = "<%=teacher.getTeacherId() %>"/>
+			<input name="teacherId" type="hidden" value = "<%=teacher.getTeacherId() %>"/>
 			
             <div class="clear"></div>
             <div class="form-text">
-            <form:label path="teacherName" cssClass="head">Name</form:label>
-					<form:input path="teacherName" type="text"
+            <label  class="head">Name</label>
+					<input name="teacherName" type="text"
 						placeholder="Enter Teacher Name" value = "<%=teacher.getTeacherName() %>"/>
             </div>
 
             <div class="clear"></div>
             <div class="form-text">
-            <form:label path="teacherAddress" cssClass="head">Address</form:label>
-					<form:input path="teacherAddress" type="text"
+            <label  class="head">Address</label>
+					<input name="teacherAddress" type="text"
 						placeholder="Enter Teacher Address" value = "<%=teacher.getTeacherAddress() %>"/>
             </div>
 
             <div class="clear"></div>
             <div class="form-text">
-            <form:label path="teacherMobile" cssClass="head">Mobile</form:label>
-					<form:input path="teacherMobile" type="text"
+            <label  class="head">Mobile</label>
+					<input name="teacherMobile" type="text"
 						placeholder="Enter Teacher Mobile no" value = "<%=teacher.getTeacherMobile() %>"/>
             </div>
 
             <div class="clear"></div>
             <div class="form-text">
-            <form:label path="teacherEmailId" cssClass="head">Email Id</form:label>
-					<form:input path="teacherEmailId" type="text"
+            <label  class="head">Email Id</label>
+					<input name="teacherEmailId" type="text"
 						placeholder="Enter Teacher Email Id"  value = "<%=teacher.getTeacherEmailId() %>"/>
             </div>
 
             <div class="clear"></div>
             <div class="form-text">
-            <form:label path="teacherSalary" cssClass="head">Salary</form:label>
-					<form:input path="teacherSalary" type="text"
+            <label  class="head">Salary</label>
+					<input name="teacherSalary" type="text"
 						placeholder="Enter Teacher Salary" value = "<%=teacher.getTeacherSalary() %>"/>
             </div>
 
             <div class="clear"></div>
             <div class="form-options1">
-            <form:label path="teacherDesignation" cssClass="head">Designation</form:label>
-					<form:select path="teacherDesignation" cssClass="category1" >
+            <label  class="head">Designation</label>
+					<select name="teacherDesignation" class="category1" >
 						<%if(teacher.getTeacherDesignation() == Designation.PROFESSOR){ %>
-							<form:option selected = "true" value="PROFESSOR" >Professor</form:option>
+							<option selected  value="PROFESSOR" >Professor</option>
 						<%}else{ %>
-							<form:option value="PROFESSOR">Professor</form:option>
+							<option value="PROFESSOR">Professor</option>
 						<%} %>
 						<%if(teacher.getTeacherDesignation() == Designation.TEACHING_ASSISTANCE){ %>
-							<form:option selected = "true" value="TEACHING_ASSISTANCE" >Teaching Assistance</form:option>
+							<option selected  value="TEACHING_ASSISTANCE" >Teaching Assistance</option>
 						<%}else{ %>
-							<form:option value="TEACHING_ASSISTANCE">Teaching Assistance</form:option>
+							<option value="TEACHING_ASSISTANCE">Teaching Assistance</option>
 						<%} %>
 						<%if(teacher.getTeacherDesignation() == Designation.LAB_STAFF){ %>
-							<form:option selected = "true" value="LAB_STAFF" >Lab Staff</form:option>
+							<option  value="LAB_STAFF" >Lab Staff</option>
 						<%}else{ %>
-							<form:option value="LAB_STAFF">Lab Staff</form:option>
+							<option value="LAB_STAFF">Lab Staff</option>
 						<%} %>
-					</form:select>
+					</select>
             </div>
 
             <div class="clear"></div>
@@ -92,10 +93,10 @@
 
             <div class="clear"></div>
             <div class="butn">
-                <input type="button" name="action" value="Back" onclick="document.location = '/tms/home'">
+                <input type="button" name="action" value="Back" onclick="document.location = '/tms<%=TmsUtils.homeMapping%>'">
             </div>
 
-        </form:form>
+        </form>
     </div>
 </div>
 </body>

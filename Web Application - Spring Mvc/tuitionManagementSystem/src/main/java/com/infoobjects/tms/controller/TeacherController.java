@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.infoobjects.tms.dto.Student;
-import com.infoobjects.tms.dto.Teacher;
+import com.infoobjects.tms.entity.Student;
+import com.infoobjects.tms.entity.Teacher;
 import com.infoobjects.tms.service.interfaces.TeacherServiceIncrement;
 
 import static com.infoobjects.tms.utils.TmsUtils.*;
@@ -26,14 +26,14 @@ public class TeacherController {
 		this.teacherService = teacherService;
 	}
 
-	@RequestMapping(value = "/insertTeacher", method = RequestMethod.GET)
+	@RequestMapping(value = insertTeacherMapping, method = RequestMethod.GET)
 	public ModelAndView insertTeacher(ModelAndView modelAndView){
 		modelAndView.setViewName("insertTeacher");
 		modelAndView.addObject("command", new Teacher());
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/insertTeacher", method = RequestMethod.POST)
+	@RequestMapping(value = insertTeacherMapping, method = RequestMethod.POST)
 	public ModelAndView insertTeacher(@ModelAttribute Teacher teacher, ModelAndView modelAndView){
 		teacher.setTeacherId(uuidGeneration());
 		while (teacherService.find(teacher.getTeacherId()) != null) {
@@ -45,14 +45,14 @@ public class TeacherController {
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/showAllTeachers", method = RequestMethod.GET)
+	@RequestMapping(value = showAllTeachersMapping, method = RequestMethod.GET)
 	public ModelAndView showAllTeachers(ModelAndView modelAndView){
-		modelAndView.setViewName("showAllTeachers");
-		modelAndView.addObject("teachers", teacherService.findAll());
+		modelAndView.setViewName("showAllGenericPage");
+		modelAndView.addObject("displayAllData", teacherToDisplayAllData(teacherService.findAll()));
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/updateTeacherForm/{teacherId}", method = RequestMethod.POST)
+	@RequestMapping(value = updateTeacherFormMapping + "{teacherId}", method = RequestMethod.GET)
 	public ModelAndView updateTeacherForm(@PathVariable("teacherId") String teacherId, ModelAndView modelAndView) {
 		modelAndView.addObject("teacher", teacherService.find(teacherId));
 		modelAndView.setViewName("updateTeacher");
@@ -60,7 +60,7 @@ public class TeacherController {
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/updateTeacher", method = RequestMethod.POST)
+	@RequestMapping(value = updateTeacherMapping, method = RequestMethod.POST)
 	public ModelAndView updateteacher(@ModelAttribute Teacher teacher, ModelAndView modelAndView){
 		teacherService.update(teacher);
 		modelAndView.setViewName("showAllTeachers");
@@ -68,7 +68,7 @@ public class TeacherController {
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/teacher/delete/{teacherId}", method = RequestMethod.POST)
+	@RequestMapping(value = deleteTeacherMapping + "{teacherId}", method = RequestMethod.POST)
 	public ModelAndView delete(@PathVariable("teacherId") String teacherId, ModelAndView modelAndView) {
 		teacherService.delete(teacherId);
 		modelAndView.setViewName("showAllTeachers");
@@ -76,7 +76,7 @@ public class TeacherController {
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/teacher/viewFullDetails/{teacherId}", method = RequestMethod.GET)
+	@RequestMapping(value = viewTeacherFullDetailsMapping + "{teacherId}", method = RequestMethod.GET)
 	public ModelAndView showFullDetails(@PathVariable("teacherId") String teacherId, ModelAndView modelAndView) {
 		modelAndView.addObject("teacher", teacherService.find(teacherId));
 		modelAndView.setViewName("showTeacherFullDetails");

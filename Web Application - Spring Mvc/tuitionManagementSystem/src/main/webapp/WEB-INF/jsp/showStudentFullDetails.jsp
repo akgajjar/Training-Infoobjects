@@ -1,4 +1,5 @@
-<%@page import="com.infoobjects.tms.dto.Student"%>
+<%@page import="com.infoobjects.tms.utils.TmsUtils"%>
+<%@page import="com.infoobjects.tms.entity.Student"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -75,7 +76,7 @@
 				<td class="data"><%=student.getStudentReferenceName()%></td>
 			</tr>
 		</table>
-		<form action="/tms/showAllStudents">
+		<form action="/tms<%=TmsUtils.showAllStudentsMapping%>">
 			<div class="btn">
 				<input type="submit" name="button" id="btnform"  value="BACK" />
 			</div>

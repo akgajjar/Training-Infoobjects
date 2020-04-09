@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.infoobjects.tms.dto.Student;
-import com.infoobjects.tms.dto.Teacher;
 import com.infoobjects.tms.dto.TeacherStudent;
+import com.infoobjects.tms.entity.Student;
+import com.infoobjects.tms.entity.Teacher;
 import com.infoobjects.tms.service.interfaces.TeacherStudentServiceIncrement;
 
 public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement<TeacherStudent> {
@@ -70,7 +70,7 @@ public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement
 	public List<Student> getStudentsForMapping(){
 		List<Teacher> allTeachers = teacherService.findAll();
 		List<Student> allStudents = studentService.findAll();
-        List<Student> students = new ArrayList<Student>();
+        List<Student> responseStudents = new ArrayList<Student>();
         if (allStudents.size() > 0) {
             for (Student student : allStudents) {
                 Hibernate.initialize(student.getTeachers());
@@ -78,10 +78,10 @@ public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement
                 if (teachers.size() == allTeachers.size()) {
                     continue;
                 }
-                students.add(student);
+                responseStudents.add(student);
             }
         }
-        return students;
+        return responseStudents;
 	}
 
 	@Transactional
@@ -114,19 +114,21 @@ public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement
 	@Override
 	@Transactional
 	public List<TeacherStudent> findAll() {
-		List<Student> students = studentService.findAll();
-		List<TeacherStudent> teacherStudents = new ArrayList<TeacherStudent>();
-		for(Student student : students) {
+		List<Student> allStudents = studentService.findAll();
+		List<TeacherStudent> allTeacherStudents = new ArrayList<TeacherStudent>();
+		for(Student student : allStudents) {
 			Hibernate.initialize(student.getTeachers());
 			for(Teacher teacher : student.getTeachers()) {
 				TeacherStudent teacherStudent = new TeacherStudent();
 				teacherStudent.setStudentId(student.getStudentId());
 				teacherStudent.setTeacherId(teacher.getTeacherId());
+				teacherStudent.setStudentName(student.getStudentName());
+				teacherStudent.setTeacherName(teacher.getTeacherName());
 				
-				teacherStudents.add(teacherStudent);
+				allTeacherStudents.add(teacherStudent);
 			}
 		}
-		return teacherStudents;
+		return allTeacherStudents;
 	}
 
 	@Override

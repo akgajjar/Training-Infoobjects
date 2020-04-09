@@ -1,11 +1,12 @@
+<%@page import="com.infoobjects.tms.utils.TmsUtils"%>
 <%@page import="com.infoobjects.tms.service.StudentServiceImpl"%>
 <%@page import="com.infoobjects.tms.service.TeacherServiceImpl"%>
 <%@page import="com.infoobjects.tms.service.TeacherStudentServiceImpl"%>
 <%@page
 	import="org.springframework.web.context.support.WebApplicationContextUtils"%>
 <%@page import="com.infoobjects.tms.dto.TeacherStudent"%>
-<%@page import="com.infoobjects.tms.dto.Teacher"%>
-<%@page import="com.infoobjects.tms.dto.Student"%>
+<%@page import="com.infoobjects.tms.entity.Teacher"%>
+<%@page import="com.infoobjects.tms.entity.Student"%>
 <%@page import="java.util.List"%>
 <%@page import="org.springframework.context.ApplicationContext"%>
 <%@page
@@ -73,10 +74,7 @@
 <br />
 <center>
 	<% 
-	ApplicationContext applicationContext =  WebApplicationContextUtils.getWebApplicationContext(getServletContext());
 	List<TeacherStudent> teacherStudents = (List<TeacherStudent>)request.getAttribute("teacherStudents");
-	TeacherServiceImpl teacherService = (TeacherServiceImpl)applicationContext.getBean("teacherServiceImpl");
-	StudentServiceImpl studentService = (StudentServiceImpl)applicationContext.getBean("studentServiceImpl");
 %>
 	<b><font color="blue" size="5"></font></b>
 </center>
@@ -96,11 +94,11 @@
 				%>
 		<tr>
 			<td><%=teacherStudent.getStudentId()%></td>
-			<td><%= studentService.find(teacherStudent.getStudentId()).getStudentName()%></td>
+			<td><%= teacherStudent.getStudentName()%></td>
 			<td><%=teacherStudent.getTeacherId() %></td>
-			<td><%=teacherService.find(teacherStudent.getTeacherId()).getTeacherName() %></td>
+			<td><%=teacherStudent.getTeacherName() %></td>
 			<td><form method="post"
-					action="/tms/teacherStudent/delete/<%=teacherStudent.getStudentId() %>/<%=teacherStudent.getTeacherId() %>">
+					action="/tms<%=TmsUtils.deleteTeacherStudentMapping %><%=teacherStudent.getStudentId() %>/<%=teacherStudent.getTeacherId() %>">
 					<input type="submit" name="action" class="btn btn-success"
 						value="Delete">
 				</form></td>

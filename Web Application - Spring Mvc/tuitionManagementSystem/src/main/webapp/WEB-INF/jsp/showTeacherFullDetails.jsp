@@ -1,4 +1,5 @@
-<%@page import="com.infoobjects.tms.dto.Teacher"%>
+<%@page import="com.infoobjects.tms.utils.TmsUtils"%>
+<%@page import="com.infoobjects.tms.entity.Teacher"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -52,7 +53,7 @@
 				<td class="data"><%=teacher.getTeacherSalary()%></td>
 			</tr>
 		</table>
-		<form action="/tms/showAllTeachers">
+		<form action="/tms<%=TmsUtils.showAllTeachersMapping%>">
 			<div class="btn">
 				<input type="submit" name="button" id="btnform"  value="BACK" />
 			</div>

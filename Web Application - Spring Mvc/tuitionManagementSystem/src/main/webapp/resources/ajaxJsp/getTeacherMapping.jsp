@@ -1,6 +1,6 @@
 <%@page import="com.infoobjects.tms.service.TeacherStudentServiceImpl"%>
 <%@page import="com.infoobjects.tms.service.StudentServiceImpl"%>
-<%@page import="com.infoobjects.tms.dto.Teacher"%>
+<%@page import="com.infoobjects.tms.entity.Teacher"%>
 <%@page import="java.util.List"%>
 <%@page import="com.infoobjects.tms.service.TeacherServiceImpl"%>
 <%@page import="org.springframework.context.ApplicationContext"%>

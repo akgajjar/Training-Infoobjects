@@ -1,8 +1,8 @@
 package com.infoobjects.tms.service;
 
 import com.infoobjects.tms.dao.TmsDAOImpl;
-import com.infoobjects.tms.dto.Student;
-import com.infoobjects.tms.dto.Teacher;
+import com.infoobjects.tms.entity.Student;
+import com.infoobjects.tms.entity.Teacher;
 import com.infoobjects.tms.service.interfaces.StudentServiceIncrement;
 
 import java.util.ArrayList;

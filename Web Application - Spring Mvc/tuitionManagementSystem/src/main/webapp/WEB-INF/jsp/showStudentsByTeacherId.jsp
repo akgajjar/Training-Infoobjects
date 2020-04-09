@@ -1,5 +1,6 @@
-<%@page import="com.infoobjects.tms.dto.Student"%>
-<%@page import="com.infoobjects.tms.dto.Teacher"%>
+<%@page import="com.infoobjects.tms.utils.TmsUtils"%>
+<%@page import="com.infoobjects.tms.entity.Student"%>
+<%@page import="com.infoobjects.tms.entity.Teacher"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -37,7 +38,7 @@
 			<%}%>
 
 		</table>
-		<form action="/tms/home">
+		<form action="/tms<%=TmsUtils.homeMapping%>">
 			<div class="btn">
 				<input type="submit" name="button" id="btnform" value="BACK" />
 			</div>

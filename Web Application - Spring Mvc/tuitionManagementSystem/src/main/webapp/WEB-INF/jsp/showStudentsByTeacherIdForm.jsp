@@ -1,4 +1,5 @@
-<%@page import="com.infoobjects.tms.dto.Teacher"%>
+<%@page import="com.infoobjects.tms.utils.TmsUtils"%>
+<%@page import="com.infoobjects.tms.entity.Teacher"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -23,7 +24,7 @@
 
 	<div class="container">
 		<div class="form">
-			<form:form method="get" action="/tms/getStudentsByTeacherId">
+			<form method="get" action="/tms<%=TmsUtils.getStudentByTeacherIdMapping %>">
 
 					<div class="clear"></div>
 				<div class="form-options1">
@@ -50,9 +51,9 @@
 
         <div class="clear"></div>
         <div class="butn">
-            <input type="button" name="action" value="Back" onclick="document.location = '/tms/home'">
+            <input type="button" name="action" value="Back" onclick="document.location = '/tms<%=TmsUtils.homeMapping%>'">
         </div>
-			</form:form>
+			</form>
 		</div>
 	</div>
 </body>

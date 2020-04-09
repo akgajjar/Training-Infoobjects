@@ -1,4 +1,4 @@
-package com.infoobjects.tms.dto;
+package com.infoobjects.tms.entity;
 
 import com.infoobjects.tms.dto.interfaces.DTO;
 import com.infoobjects.tms.enums.Gender;
