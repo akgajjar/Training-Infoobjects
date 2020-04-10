@@ -4,7 +4,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="/tms/resources/js/jquery.min.js"></script>
+<script src="/tms/resources/js/form-validation/jquery.min.js"></script>
+<link rel="stylesheet" href="/tms/resources/css/jquery-ui.css"/>
+<script src="/tms/resources/js/form-validation/jquery.validate.min.js"></script>
+
 <link href="/tms/resources/css/style.css" rel='stylesheet'
 	type='text/css' media="all" />
 </head>
