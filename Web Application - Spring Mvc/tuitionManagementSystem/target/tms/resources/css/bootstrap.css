@@ -244,6 +244,7 @@ th {
   }
   .navbar {
     display: none;
+    width : 100%;
   }
   .btn > .caret,
   .dropup > .btn > .caret {

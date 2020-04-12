@@ -2,11 +2,13 @@ package com.infoobjects.tms.service.interfaces;
 
 import java.util.List;
 
-import com.infoobjects.tms.dto.TeacherStudent;
-import com.infoobjects.tms.dto.interfaces.DTO;
 import com.infoobjects.tms.entity.Student;
 import com.infoobjects.tms.entity.Teacher;
 
+/**
+ * @author Aniket
+ * @description Service Interface - Specific Service methods related to TeacherStudent Mapping
+ */
 public interface TeacherStudentServiceIncrement<DTO> extends Service<String, DTO> {
 
 	

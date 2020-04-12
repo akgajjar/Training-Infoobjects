@@ -19,61 +19,77 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-
+/**
+ * @author Aniket
+ * @description DTO Class - used to hold database record  of Student and TeacherStudent Mapping Related to Specific Student
+ * @description Entity Class - Mapped with data base table Student and Teacher Student
+ * @description used to perform database operation related to Student and TeacherStudent Mapping Related to Specific Student
+ */
 @Entity
 @Table(name = "Student", schema = "tms")
-public class Student implements DTO  {
+public class Student implements DTO {
 
-
-	@Id
-	@Column(name = "STUDENT_ID", length = 255, nullable = false, unique = true)
+    /**
+     *  Database Field and it's Mapping Information for Student Table
+     */
+    @Id
+    @Column(name = "STUDENT_ID", length = 255, nullable = false, unique = true)
     private String studentId;
-	
-	@Column(name = "STUDENT_NAME", length = 255, nullable = false, unique = false)
+
+    @Column(name = "STUDENT_NAME", length = 255, nullable = false, unique = false)
     private String studentName;
-	
-	@Column(name = "STUDENT_ADDRESS", length = 255, nullable = false, unique = false)
+
+    @Column(name = "STUDENT_ADDRESS", length = 255, nullable = false, unique = false)
     private String studentAddress;
-	
-	@Column(name = "STUDENT_EMAIL_ID", length = 255, nullable = false, unique = false)
+
+    @Column(name = "STUDENT_EMAIL_ID", length = 255, nullable = false, unique = false)
     private String studentEmailId;
 
-	@Enumerated(EnumType.STRING)
-	@Column(name = "STUDENT_GENDER", length = 10, nullable = false, unique = false)
+    @Enumerated(EnumType.STRING)
+    @Column(name = "STUDENT_GENDER", length = 10, nullable = false, unique = false)
     private Gender studentGender;
-	
-	@Column(name = "STUDENT_MOBILE", length = 15, nullable = false, unique = false)
+
+    @Column(name = "STUDENT_MOBILE", length = 15, nullable = false, unique = false)
     private String studentMobile;
-	
-	@Column(name = "STUDENT_PARENT_NAME", length = 255, nullable = false, unique = false)
+
+    @Column(name = "STUDENT_PARENT_NAME", length = 255, nullable = false, unique = false)
     private String studentParentName;
-	
-	@Column(name = "STUDENT_PARENT_MOBILE", length = 15, nullable = false, unique = false)
+
+    @Column(name = "STUDENT_PARENT_MOBILE", length = 15, nullable = false, unique = false)
     private String studentParentMobile;
-	
-	@Column(name = "STUDENT_PARENT_EMAIL_ID", length = 255, nullable = false, unique = false)
+
+    @Column(name = "STUDENT_PARENT_EMAIL_ID", length = 255, nullable = false, unique = false)
     private String studentParentEmailId;
-	
-	@Column(name = "STUDENT_REFERENCE_NAME", length = 255, nullable = false, unique = false)
+
+    @Column(name = "STUDENT_REFERENCE_NAME", length = 255, nullable = false, unique = false)
     private String studentReferenceName;
-	
-	@Column(name = "STUDENT_CLASS", length = 5, nullable = false, unique = false)
+
+    @Column(name = "STUDENT_CLASS", length = 5, nullable = false, unique = false)
     private int studentClass;
 
-	 @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-	@JoinTable(name = "TeacherStudent", joinColumns = { 
-			@JoinColumn(name = "STUDENT_ID", nullable = false, updatable = true) }, 
-			inverseJoinColumns = { @JoinColumn(name = "TEACHER_ID", 
-					nullable = false, updatable = false) })
-	private List<Teacher> teachers;
-	
-	
+    /**
+     *  TeacherStudent Table Mapping Information
+     */
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "TeacherStudent", joinColumns = {
+            @JoinColumn(name = "STUDENT_ID", nullable = false, updatable = true)},
+            inverseJoinColumns = {@JoinColumn(name = "TEACHER_ID",
+                    nullable = false, updatable = false)})
+    private List<Teacher> teachers;
+
+    /**
+     *  toString method to display Student data and TeacherStudent Mapping data related to that Student into Console
+     * @return String
+     */
     @Override
     public String toString() {
         System.out.println("Student : \n");
         return genericToString(this);
     }
 
+    /**
+     *  getters and setters
+     */
     public String getStudentId() {
         return studentId;
     }
@@ -162,11 +178,12 @@ public class Student implements DTO  {
         this.studentClass = studentClass;
     }
 
-	public List<Teacher> getTeachers() {
-		return teachers;
-	}
-	public void setTeachers(List<Teacher> teachers) {
-		this.teachers = teachers;
-	}
+    public List<Teacher> getTeachers() {
+        return teachers;
+    }
+
+    public void setTeachers(List<Teacher> teachers) {
+        this.teachers = teachers;
+    }
 
 }

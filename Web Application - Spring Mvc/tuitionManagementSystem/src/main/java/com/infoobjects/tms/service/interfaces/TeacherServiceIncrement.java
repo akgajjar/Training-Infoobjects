@@ -1,10 +1,9 @@
 package com.infoobjects.tms.service.interfaces;
 
-import java.util.List;
-
-import com.infoobjects.tms.entity.Student;
-import com.infoobjects.tms.entity.Teacher;
-
+/**
+ * @author Aniket
+ * @description Service Interface - Specific Service methods related to Teacher
+ */
 public interface TeacherServiceIncrement< DTO> extends Service<String, DTO> {
 
 }

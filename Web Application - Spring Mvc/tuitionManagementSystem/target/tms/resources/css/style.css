@@ -35,7 +35,8 @@
    .container1{
            width:100%;
 	    margin: auto;
-
+		align-content : center;
+		margin-left : 5%;
    	    display: inline-block;
       }
    .link-container{
@@ -132,7 +133,7 @@
       margin: 0px auto 2px;
       color:#000000;
   }
-  .butn input[type="submit"] {
+  .butn input[type="submit"],.butn button[type="submit"]  {
       font-size: 15px;
       font-weight: 500;
       text-align: center;
@@ -150,7 +151,8 @@
   	  background:#09a50e;
 
   }
-  .butn input[type="submit"]:hover{
+  
+  .butn input[type="submit"]:hover,.butn button[type="submit"]:hover{
   	  background-color: #07e20e;
 
   }
@@ -176,7 +178,7 @@
     	  background-color: #07e20e;
 
     }
-  .butn input[type="reset"] {
+  .butn input[type="reset"],.butn input[type="reset"] {
       font-size: 15px;
       font-weight: 500;
       text-align: center;
@@ -193,7 +195,7 @@
   	  color: #fff;
   	  background:#b81a25;
   }
-  .butn input[type="reset"]:hover{
+  .butn input[type="reset"]:hover,.butn button[type="reset"]:hover{
   	  background-color: #fb2d2d;
   }
   .form-options1 {
@@ -215,7 +217,7 @@
       box-sizing: border-box;
       border: none;
       outline: none;
-      width:100%;
+      width:60%;
       background-color: white;
   }
   .form-options2 .category2 {

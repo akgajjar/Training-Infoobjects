@@ -4,18 +4,29 @@ import com.infoobjects.tms.dto.interfaces.DTO;
 
 import static com.infoobjects.tms.utils.TmsUtils.genericToString;
 
+/**
+ * @author Aniket
+ * @description DTO Class - used to hold database record  of TeacherStudent Mapping
+ */
 public class TeacherStudent implements DTO {
     private String teacherId;
     private String studentId;
     private String teacherName;
     private String studentName;
-    
-	@Override
+
+    /**
+     *  toString method to display TeacherStudent Mapping data
+     * @return String
+     */
+    @Override
     public String toString() {
         System.out.println("TeacherStudent : \n");
         return genericToString(this);
     }
 
+    /**
+     *  getters and setters
+     */
     public String getTeacherId() {
         return teacherId;
     }
@@ -32,20 +43,20 @@ public class TeacherStudent implements DTO {
         this.studentId = studentId;
     }
 
-	public String getTeacherName() {
-		return teacherName;
-	}
+    public String getTeacherName() {
+        return teacherName;
+    }
 
-	public void setTeacherName(String teacherName) {
-		this.teacherName = teacherName;
-	}
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
+    }
 
-	public String getStudentName() {
-		return studentName;
-	}
+    public String getStudentName() {
+        return studentName;
+    }
 
-	public void setStudentName(String studentName) {
-		this.studentName = studentName;
-	}
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
 
 }

@@ -1,8 +1,11 @@
 package com.infoobjects.tms.service.interfaces;
 
-import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * @author Aniket
+ * @description Service Interface - Common Service methods
+ */
 public interface Service<String, T> {
 
     void insert(T dto);
