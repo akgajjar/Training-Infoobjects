@@ -52,4 +52,14 @@ public class SubmitButton {
         this.buttonValue = buttonValue;
     }
 
+    /**
+     *  toString method to display SubmitButton's data
+     * @return String
+     */
+	@Override
+	public String toString() {
+		return "SubmitButton [formAction=" + formAction + ", formMethod=" + formMethod + ", buttonValue=" + buttonValue
+				+ "]";
+	}
+
 }

@@ -8,6 +8,7 @@ import com.infoobjects.tms.dto.TeacherStudent;
 import com.infoobjects.tms.dto.interfaces.DTO;
 import com.infoobjects.tms.entity.Student;
 import com.infoobjects.tms.entity.Teacher;
+import com.infoobjects.tms.service.TeacherStudentServiceImpl;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -15,12 +16,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * @author Aniket
  * @description Utility Class used contains of Utility methods and constants common between all classes
  */
 public class TmsUtils {
 
+	/**
+	 * Logger for Logging Events
+	 */
+	private static final Logger logger = LoggerFactory.getLogger(TmsUtils.class);
+
+	
 	// Form Method Constants
     private final static String getMethod = "get";
     private final static String postMethod = "post";
@@ -72,29 +82,6 @@ public class TmsUtils {
     public final static String getStudentByTeacherIdFormMapping = "/getStudentsByTeacherIdForm";
     public final static String getStudentByTeacherIdMapping = "/getStudentsByTeacherId";
     public final static String deleteTeacherStudentMapping = "/teacherStudent/delete/";
-
-	/**
-	 * Generic ToString Method Which Dynamically Prints all variable's value of Dto class
-	 * @param reference DTO reference
-	 * @return String
-	 */
-	public static String genericToString(DTO reference) {
-        StringBuilder returnValue = new StringBuilder();
-        Class classReference = reference.getClass();
-        Field[] fields = classReference.getDeclaredFields();
-        for (Field field : fields) {
-            try {
-                field.setAccessible(true);
-                returnValue.append(field.getName());
-                returnValue.append(" : ");
-                returnValue.append(field.get(reference));
-                returnValue.append("\n");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return returnValue.toString();
-    }
 
 	/**
 	 * used to generate random uuid String
@@ -164,6 +151,8 @@ public class TmsUtils {
     	displayAllData.setDataToDisplay(dataToDisplay);
     	displayAllData.setDisplayAllDataHeading(showAllStudentsHeading);
     	
+    	logger.info("SuccessFully Converted from List of Students to DisplayAllData");
+    	
     	return displayAllData;
     }
 
@@ -212,6 +201,9 @@ public class TmsUtils {
     	displayAllData.setButtonsHeaders(buttonsHeaders);
     	displayAllData.setDataToDisplay(dataToDisplay);
     	displayAllData.setDisplayAllDataHeading(showAllTeachersHeading);
+    	
+    	logger.info("SuccessFully Converted from List of Teachers to DisplayAllData");
+    	
     	return displayAllData;
     }
 
@@ -259,6 +251,8 @@ public class TmsUtils {
     	displayAllData.setButtonsHeaders(buttonsHeaders);
     	displayAllData.setDataToDisplay(dataToDisplay);
     	displayAllData.setDisplayAllDataHeading(showAllTeacherStudentsHeading);
+    	
+    	logger.info("SuccessFully Converted from List of TeacherStudents to DisplayAllData");
     	
     	return displayAllData;
     }

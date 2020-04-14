@@ -23,7 +23,10 @@
 
 	<!--Configuration Specify that all Configuration are Annotation based-->
 	<mvc:annotation-driven />
-
+	
+	<!-- Enable Annotation Driven  Transaction Management -->
+	<tx:annotation-driven/>
+	
 	<!-- Specifying the Resource location to load JS, CSS, Images etc -->
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 
@@ -62,6 +65,7 @@
 	<!-- Hibernate Template -->
 	<bean id="template" class="org.springframework.orm.hibernate4.HibernateTemplate">
 		<property name="sessionFactory" ref="sessionFactory"/>
+		<property name="checkWriteOperations" value="false"></property>
    </bean>
      
 	<!--DAO Beans  -->

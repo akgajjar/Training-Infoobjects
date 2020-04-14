@@ -7,6 +7,7 @@ import com.infoobjects.tms.service.interfaces.TeacherServiceIncrement;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,7 +18,7 @@ import org.springframework.stereotype.Service;
 public class TeacherServiceImpl implements TeacherServiceIncrement<Teacher> {
 
 	/**
-	 *  Generic DAO Reference to Perform Database Operation on Teacher
+	 * Generic DAO Reference to Perform Database Operation on Teacher
 	 */
 	@Autowired
 	private TmsDAOImpl<Teacher> genericDAO;
@@ -31,49 +32,87 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<Teacher> {
 
 	/**
 	 * used to insert Student record into Database
+	 * 
 	 * @param teacherDTO Teacher's Data
 	 */
 	@Override
 	public void insert(Teacher teacherDTO) {
-		genericDAO.insert(teacherDTO);
+		try {
+			genericDAO.insert(teacherDTO);
+		} catch (DataAccessException dataAccessException) {
+			dataAccessException.printStackTrace();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+		}
 	}
 
 	/**
 	 * used to delete Teacher Record from Database for Specific Teacher Id
+	 * 
 	 * @param id Teacher's Id
 	 */
 	@Override
 	public void delete(String id) {
-		genericDAO.delete(id, Teacher.class);
+		try {
+			genericDAO.delete(id, Teacher.class);
+		} catch (DataAccessException dataAccessException) {
+			dataAccessException.printStackTrace();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+		}
 	}
 
 	/**
 	 * used to find Teacher record from Database of Specific Teacher Id
+	 * 
 	 * @param id Teacher's Id
 	 * @return Teacher
 	 */
 	@Override
 	public Teacher find(String id) {
-		return genericDAO.find(id, Teacher.class);
+		Teacher teacher = null;
+		try {
+			teacher = genericDAO.find(id, Teacher.class);
+		} catch (DataAccessException dataAccessException) {
+			dataAccessException.printStackTrace();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+		}
+		return teacher;
 	}
 
 	/**
 	 * used to update Teacher into Database for Specific Teacher Id
+	 * 
 	 * @param teacherDTO Teacher and TeacherStudent Data
 	 */
 	@Override
 	public void update(Teacher teacherDTO) {
-		genericDAO.update(teacherDTO);
+		try {
+			genericDAO.update(teacherDTO);
+		} catch (DataAccessException dataAccessException) {
+			dataAccessException.printStackTrace();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+		}
 	}
 
 	/**
 	 * used to find all Teacher Data with it's TeacherStudent Mapping Data
+	 * 
 	 * @return List<Teacher>
 	 */
 	@Override
 	public List<Teacher> findAll() {
-		return genericDAO.findAll(Teacher.class);
+		List<Teacher> teachers = null;
+		try {
+			teachers = genericDAO.findAll(Teacher.class);
+		} catch (DataAccessException dataAccessException) {
+			dataAccessException.printStackTrace();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+		}
+		return teachers;
 	}
-	
-	
+
 }

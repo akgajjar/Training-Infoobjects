@@ -66,4 +66,14 @@ public class DisplayAllData {
         this.displayAllDataHeading = displayAllDataHeading;
     }
 
+    /**
+     *  toString method to display DisplayAllData's data
+     * @return String
+     */
+	@Override
+	public String toString() {
+		return "DisplayAllData [dataHeaders=" + dataHeaders + ", buttonsHeaders=" + buttonsHeaders + ", dataToDisplay="
+				+ dataToDisplay + ", displayAllDataHeading=" + displayAllDataHeading + "]";
+	}
+
 }
