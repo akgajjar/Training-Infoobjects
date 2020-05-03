@@ -14,9 +14,6 @@
 	type="text/css" media="all" />
 </head>
 <body>
-	<%
-		Teacher teacher = (Teacher) request.getAttribute("teacher");
-	%>
 	<jsp:include page="header.jsp"></jsp:include>
 	<div class="heading">
 		<h1>Show Full Details</h1>
@@ -28,34 +25,34 @@
 			</tr>
 			<tr>
 				<td class="b">Teacher Id :</td>
-				<td class="data"><%=teacher.getTeacherId()%></td>
+				<td class="data">${teacher.teacherId}</td>
 			</tr>
 			<tr>
 				<td class="b">Name :</td>
-				<td class="data"><%=teacher.getTeacherName()%></td>
+				<td class="data">${teacher.teacherName}</td>
 			</tr>
 			<tr>
 				<td class="b">Class :</td>
-				<td class="data"><%=teacher.getTeacherDesignation()%></td>
+				<td class="data">${teacher.teacherDesignation}</td>
 			</tr>
 			<tr>
 				<td class="b">Address:</td>
-				<td class="data"><%=teacher.getTeacherAddress()%></td>
+				<td class="data">${teacher.teacherAddress}</td>
 			</tr>
 			<tr>
 				<td class="b">Mobile :</td>
-				<td class="data"><%=teacher.getTeacherMobile()%></td>
+				<td class="data">${teacher.teacherMobile}</td>
 			</tr>
 			<tr>
 				<td class="b">Email :</td>
-				<td class="data"><%=teacher.getTeacherEmailId()%></td>
+				<td class="data">${teacher.teacherEmailId}</td>
 			</tr>
 			<tr>
-				<td class="b">Gender :</td>
-				<td class="data"><%=teacher.getTeacherSalary()%></td>
+				<td class="b">Salary :</td>
+				<td class="data">${teacher.teacherSalary}</td>
 			</tr>
 		</table>
-		<form action="/tms<%=TmsUtils.showAllTeachersMapping%>">
+		<form action="/tms${TmsUtils.showAllTeachersMapping}">
 			<div class="btn">
 				<input type="submit" name="button" id="btnform" value="BACK" />
 			</div>

@@ -3,12 +3,15 @@ package com.infoobjects.tms.dto;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.infoobjects.tms.dto.interfaces.DTO;
+import com.infoobjects.tms.utils.TmsUtils;
+
 /**
  * @author Aniket
  * @description DTO Class - used to hold database record for generic show all
  *              page
  */
-public class Data {
+public class Data implements DTO {
 
 	private Map<String, String> data;
 	private Map<String, SubmitButton> submitButtons;
@@ -17,25 +20,24 @@ public class Data {
 	 * Constructors
 	 */
 	public Data() {
-		super();
 		this.data = new HashMap<String, String>();
 		this.submitButtons = new HashMap<String, SubmitButton>();
 
 	}
 
 	public Data(Map<String, String> dataToDisplay, Map<String, SubmitButton> submitButtons) {
-		super();
 		this.data = dataToDisplay;
 		this.submitButtons = submitButtons;
 	}
 
-    /**
-     *  toString method to display Data's data
-     * @return String
-     */
+	/**
+	 * toString method to display Data's data
+	 * 
+	 * @return String
+	 */
 	@Override
 	public String toString() {
-		return "Data [data=" + data + ", submitButtons=" + submitButtons + "]";
+		return TmsUtils.genericToString(this);
 	}
 
 	/**

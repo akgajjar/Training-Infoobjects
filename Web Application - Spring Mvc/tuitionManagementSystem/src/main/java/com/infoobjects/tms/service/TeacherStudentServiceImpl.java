@@ -144,14 +144,14 @@ public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement
 				logger.info("Students Successfully Initialized");
 			}
 		catch(HibernateException hibernateException) {
-			logger.info("Students is not Successfully Initialized, Error Occurred : " + hibernateException.getStackTrace().toString());
+			logger.info("Students is not Successfully Initialized, Error Occurred : %s", hibernateException.getStackTrace().toString());
 		}
 		catch(Exception exception) {
-			logger.info("Students is not Successfully Initialized, Error Occurred : " + exception.getStackTrace().toString());
+			logger.info("Students is not Successfully Initialized, Error Occurred : %s", exception.getStackTrace().toString());
 		}
 		teacher.getStudents().add(studentService.find(teacherStudent.getStudentId()));
 		teacherService.update(teacher);
-		logger.info("TeacherStudent Successfully Inserted");
+		logger.info("TeacherStudent Successfully Inserted, Data : %s ", teacherStudent);
 	}
 
 	/**
@@ -277,7 +277,7 @@ public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement
 		}
 		teacher.setStudents(students);
 		teacherService.update(teacher);
-		logger.info("Teacher Student Successfully deleted");
+		logger.info("Teacher Student Successfully deleted, teacherId : %s , studentId : %s", teacherId, studentId);
 	}
 
 }

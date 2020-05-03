@@ -20,6 +20,11 @@ import org.springframework.stereotype.Service;
 public class StudentServiceImpl implements StudentServiceIncrement<Student> {
 
 	/**
+	 * Logger for Logging Events
+	 */
+	private static final Logger logger = LoggerFactory.getLogger(TmsDAOImpl.class);
+
+	/**
 	 * Generic DAO Reference to Perform Database Operation on Student
 	 */
 	@Autowired
@@ -41,10 +46,11 @@ public class StudentServiceImpl implements StudentServiceIncrement<Student> {
 	public void insert(Student studentDTO) {
 		try {
 			genericDAO.insert(studentDTO);
+			logger.info("Student is Saved Sucessfully, Data : %s ", studentDTO);
 		} catch (DataAccessException dataAccessException) {
-			dataAccessException.printStackTrace();
+			logger.error("Student is not Saved Successfully, Data : %s %nError Occured : %s", studentDTO, dataAccessException.fillInStackTrace().toString());
 		} catch (Exception exception) {
-			exception.printStackTrace();
+			logger.error("Student is not Saved Successfully, Data : %s %nError Occured : %s", studentDTO, exception.fillInStackTrace().toString());
 		}
 	}
 
@@ -57,10 +63,11 @@ public class StudentServiceImpl implements StudentServiceIncrement<Student> {
 	public void delete(String id) {
 		try {
 			genericDAO.delete(id, Student.class);
+			logger.info("Student is Deleted Successfully, Id : %s ",  id);
 		} catch (DataAccessException dataAccessException) {
-			dataAccessException.printStackTrace();
+			logger.error("Student is not Deleted Successfully, Id : %s %nError Occured : %s", id, dataAccessException.fillInStackTrace().toString());
 		} catch (Exception exception) {
-			exception.printStackTrace();
+			logger.error("Student is not Deleted Successfully, Id : %s %nError Occured : %s", id, exception.fillInStackTrace().toString());
 		}
 	}
 
@@ -75,10 +82,11 @@ public class StudentServiceImpl implements StudentServiceIncrement<Student> {
 		Student student = null;
 		try {
 			student = genericDAO.find(id, Student.class);
+			logger.info("Student is Found Successfully, Id = %s %n", id);
 		} catch (DataAccessException dataAccessException) {
-			dataAccessException.printStackTrace();
+			logger.error("Student is not Found Successfully, id = %s %nError Occured : %s", id, dataAccessException.fillInStackTrace().toString());
 		} catch (Exception exception) {
-			exception.printStackTrace();
+			logger.error("Student is not Found Successfully, id = %s %nError Occured : %s", id, exception.fillInStackTrace().toString());
 		}
 		return student;
 	}
@@ -92,10 +100,11 @@ public class StudentServiceImpl implements StudentServiceIncrement<Student> {
 	public void update(Student studentDTO) {
 		try {
 			genericDAO.update(studentDTO);
+			logger.info("Student is Updated Successfully, Data : %s", studentDTO);
 		} catch (DataAccessException dataAccessException) {
-			dataAccessException.printStackTrace();
+			logger.error("Student is not Updated Successfully, Data : %s %nError Occured : %s", studentDTO, dataAccessException.fillInStackTrace().toString());
 		} catch (Exception exception) {
-			exception.printStackTrace();
+			logger.error("Student is not Updated Successfully, Data : %s %nError Occured : %s", studentDTO, exception.fillInStackTrace().toString());
 		}
 	}
 
@@ -109,10 +118,11 @@ public class StudentServiceImpl implements StudentServiceIncrement<Student> {
 		List<Student> students = null;
 		try {
 			students = genericDAO.findAll(Student.class);
+			logger.info("Students is Found Successfully");
 		} catch (DataAccessException dataAccessException) {
-			dataAccessException.printStackTrace();
+			logger.error("Students is not Found Successfully, Error Occured : %s", dataAccessException);
 		} catch (Exception exception) {
-			exception.printStackTrace();
+			logger.error("Students is not Found Successfully, Error Occured : %s", exception);
 		}
 		return students;
 	}

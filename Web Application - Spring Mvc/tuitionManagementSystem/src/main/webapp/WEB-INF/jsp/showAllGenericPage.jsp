@@ -5,6 +5,8 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <html>
 <head>
 <script type="text/javascript"
@@ -59,64 +61,43 @@
 	media="all" />
 </head>
 <body>
-	<%
-			
-			DisplayAllData displayAllData = (DisplayAllData)request.getAttribute("displayAllData");
-		%>
 	<jsp:include page="header.jsp" />
 	<h1 align="center" style="margin: 1 em; color: #141414;">
-		<b><%=displayAllData.getDisplayAllDataHeading() %></b>
+		<b>${displayAllData.displayAllDataHeading}</b>
 	</h1>
 	<br />
 	<br />
-	<center>
-		<b><font color="blue" size="5"></font></b>
-	</center>
+
 	<table cellpadding="10" id="example" class="display">
 		<thead>
 			<tr>
-				<%
-					for(String dataHeader : displayAllData.getDataHeaders()){
-						%>
-				<th><%=dataHeader %></th>
-				<%
-					}
-					for(String buttonHeader : displayAllData.getButtonsHeaders()){
-						%>
-				<th><%=buttonHeader %></th>
-				<%
-					}
-				%>
+				<c:forEach var="dataHeader" items="${displayAllData.dataHeaders}">
+					<th>${dataHeader}</th>
+				</c:forEach>
+				<c:forEach var="buttonHeader"
+					items="${displayAllData.buttonsHeaders}">
+					<th>${buttonHeader}</th>
+				</c:forEach>
 			</tr>
 		</thead>
 		<tbody>
-			<%
-				for (Data data : displayAllData.getDataToDisplay()) {
-			%>
-			<tr>
-				<%
-					for(String dataHeader : displayAllData.getDataHeaders()){
-						%>
-				<td>
-					<%= data.getData().get(dataHeader)%>
-				</td>
-				<%
-					}
-					for(String buttonHeader : displayAllData.getButtonsHeaders()){
-						%>
-				<td><form
-						method="<%=data.getSubmitButtons().get(buttonHeader).getFormMethod()%>"
-						action="/tms<%=data.getSubmitButtons().get(buttonHeader).getFormAction()%>">
-						<input type="submit" name="action" class="btn btn-success"
-							value="<%=data.getSubmitButtons().get(buttonHeader).getButtonValue()%>">
-					</form></td>
-				<%
-					}
-				%>
-			</tr>
-			<%
-			}
-		%>
+			<c:forEach var="records" items="${displayAllData.dataToDisplay}">
+				<tr>
+					<c:forEach var="dataHeader" items="${displayAllData.dataHeaders}">
+						<td>${records.data[dataHeader]}</td>
+					</c:forEach>
+
+					<c:forEach var="buttonHeader"
+						items="${displayAllData.buttonsHeaders}">
+						<td><form
+								method="${records.submitButtons[buttonHeader].formMethod}"
+								action="/tms${records.submitButtons[buttonHeader].formAction}">
+								<input type="submit" name="action" class="btn btn-success"
+									value="${records.submitButtons[buttonHeader].buttonValue}">
+							</form></td>
+					</c:forEach>
+				</tr>
+			</c:forEach>
 		</tbody>
 	</table>
 </body>

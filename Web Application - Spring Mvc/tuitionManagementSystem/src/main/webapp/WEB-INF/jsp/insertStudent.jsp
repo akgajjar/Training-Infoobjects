@@ -24,7 +24,7 @@
 
 	<div class="container">
 		<div class="form">
-			<form method="post" action="/tms<%=TmsUtils.insertStudentMapping %>" id="studentForm">
+			<form method="post" action="/tms${TmsUtils.insertStudentMapping}" id="studentForm">
 
 				<div class="clear"></div>
 				<div class="form-text">
@@ -106,7 +106,7 @@
 				<div class="clear"></div>
 				<div class="butn">
 					<input type="button" name="action" value="Back"
-						onclick="document.location = '/tms<%=TmsUtils.homeMapping%>'">
+						onclick="document.location = '/tms${TmsUtils.homeMapping}'">
 				</div>
 			</form>
 		</div>

@@ -2,6 +2,7 @@
 <%@page import="com.infoobjects.tms.entity.Student"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,9 +17,6 @@
 	type="text/css" media="all" />
 </head>
 <body>
-	<%
-		Student student = (Student) request.getAttribute("student");
-	%>
 	<jsp:include page="header.jsp"></jsp:include>
 	<div class="heading">
 		<h1>Show Full Details</h1>
@@ -30,31 +28,31 @@
 			</tr>
 			<tr>
 				<td class="b">Student Id :</td>
-				<td class="data"><%=student.getStudentId()%></td>
+				<td class="data">${student.studentId}</td>
 			</tr>
 			<tr>
 				<td class="b">Name :</td>
-				<td class="data"><%=student.getStudentName()%></td>
+				<td class="data">${student.studentName}</td>
 			</tr>
 			<tr>
 				<td class="b">Class :</td>
-				<td class="data"><%=student.getStudentClass()%></td>
+				<td class="data">${student.studentClass}</td>
 			</tr>
 			<tr>
 				<td class="b">Address:</td>
-				<td class="data"><%=student.getStudentAddress()%></td>
+				<td class="data">${student.studentAddress}</td>
 			</tr>
 			<tr>
 				<td class="b">Mobile :</td>
-				<td class="data"><%=student.getStudentMobile()%></td>
+				<td class="data">${student.studentMobile}</td>
 			</tr>
 			<tr>
 				<td class="b">Email :</td>
-				<td class="data"><%=student.getStudentEmailId()%></td>
+				<td class="data">${student.studentEmailId}</td>
 			</tr>
 			<tr>
 				<td class="b">Gender :</td>
-				<td class="data"><%=student.getStudentGender()%></td>
+				<td class="data">${student.studentGender}</td>
 			</tr>
 			<tr>
 			</tr>
@@ -65,22 +63,22 @@
 			</tr>
 			<tr>
 				<td class="b">Parents Name :</td>
-				<td class="data"><%=student.getStudentParentName()%></td>
+				<td class="data">${student.studentParentName}</td>
 			</tr>
 			<tr>
 				<td class="b">Parents Mobile :</td>
-				<td class="data"><%=student.getStudentParentMobile()%></td>
+				<td class="data">${student.studentParentMobile}</td>
 			</tr>
 			<tr>
 				<td class="b">Parents Email :</td>
-				<td class="data"><%=student.getStudentParentEmailId()%></td>
+				<td class="data">${student.studentParentEmailId}</td>
 			</tr>
 			<tr>
 				<td class="b">Reference Name :</td>
-				<td class="data"><%=student.getStudentReferenceName()%></td>
+				<td class="data">${student.studentReferenceName}</td>
 			</tr>
 		</table>
-		<form action="/tms<%=TmsUtils.showAllStudentsMapping%>">
+		<form action="/tms${TmsUtils.showAllStudentsMapping}">
 			<div class="btn">
 				<input type="submit" name="button" id="btnform" value="BACK" />
 			</div>

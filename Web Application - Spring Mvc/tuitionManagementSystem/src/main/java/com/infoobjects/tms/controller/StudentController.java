@@ -1,6 +1,7 @@
 package com.infoobjects.tms.controller;
 
 import static com.infoobjects.tms.utils.TmsUtils.*;
+import static com.infoobjects.tms.utils.StudentUtils.*;
 
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +45,7 @@ public class StudentController {
 	 */
 	@RequestMapping(value = startupMapping, method = RequestMethod.GET)
 	public ModelAndView startup(ModelAndView modelAndView)  {
-		modelAndView.setViewName("index");
+		modelAndView.setViewName(indexFile);
 		return modelAndView;
 	}
 
@@ -55,7 +56,7 @@ public class StudentController {
 	 */
 	@RequestMapping(value = homeMapping, method = RequestMethod.GET)
 	public ModelAndView home(ModelAndView modelAndView)  {
-		modelAndView.setViewName("index");
+		modelAndView.setViewName(indexFile);
 		return modelAndView;
 	}
 
@@ -66,7 +67,7 @@ public class StudentController {
 	 */
 	@RequestMapping(value = insertStudentMapping, method = RequestMethod.GET)
 	public ModelAndView insertStudentForm(ModelAndView modelAndView) {
-		modelAndView.setViewName("insertStudent");
+		modelAndView.setViewName(insertStudentFile);
 		modelAndView.addObject("command", new Student());
 		return modelAndView;
 	}
@@ -87,7 +88,7 @@ public class StudentController {
 		}
 		
 		studentService.insert(student);
-		modelAndView.setViewName("index");
+		modelAndView.setViewName(indexFile);
 		return modelAndView;
 	}
 
@@ -98,7 +99,7 @@ public class StudentController {
  	 */
 	@RequestMapping(value = showAllStudentsMapping, method = RequestMethod.GET)
 	public ModelAndView showAllStudents(ModelAndView modelAndView) {
-		modelAndView.setViewName("showAllGenericPage");
+		modelAndView.setViewName(showAllGenericPageFile);
 		modelAndView.addObject("displayAllData", studentToDisplayAllData(studentService.findAll()));
 		return modelAndView;
 	}
@@ -112,7 +113,7 @@ public class StudentController {
 	@RequestMapping(value = updateStudentFormMapping + "{studentId}", method = RequestMethod.GET)
 	public ModelAndView updateStudentForm(@PathVariable("studentId") String studentId, ModelAndView modelAndView) {
 		modelAndView.addObject("student", studentService.find(studentId));
-		modelAndView.setViewName("updateStudent");
+		modelAndView.setViewName(updateStudentFile);
 		modelAndView.addObject("command", new Student());
 		return modelAndView;
 	}
@@ -126,7 +127,7 @@ public class StudentController {
 	@RequestMapping(value = updateStudentMapping, method = RequestMethod.POST)
 	public ModelAndView updateStudent(@ModelAttribute Student student, ModelAndView modelAndView)  {
 		studentService.update(student);
-		modelAndView.setViewName("showAllGenericPage");
+		modelAndView.setViewName(showAllGenericPageFile);
 		modelAndView.addObject("displayAllData", studentToDisplayAllData(studentService.findAll()));
 		return modelAndView;
 	}
@@ -140,7 +141,7 @@ public class StudentController {
 	@RequestMapping(value = deleteStudentMapping + "{studentId}", method = RequestMethod.POST)
 	public ModelAndView delete(@PathVariable("studentId") String studentId, ModelAndView modelAndView) {
 		studentService.delete(studentId);
-		modelAndView.setViewName("showAllGenericPage");
+		modelAndView.setViewName(showAllGenericPageFile);
 		modelAndView.addObject("displayAllData", studentToDisplayAllData(studentService.findAll()));
 		return modelAndView;
 	}
@@ -154,7 +155,7 @@ public class StudentController {
 	@RequestMapping(value = viewStudentFullDetailsMapping + "{studentId}", method = RequestMethod.GET)
 	public ModelAndView showFullDetails(@PathVariable("studentId") String studentId, ModelAndView modelAndView) {
 		modelAndView.addObject("student", studentService.find(studentId));
-		modelAndView.setViewName("showStudentFullDetails");
+		modelAndView.setViewName(showStudentFullDetailsFile);
 		return modelAndView;
 	}
 
@@ -171,7 +172,7 @@ public class StudentController {
 		Student student = studentService.find(studentId);
 		Hibernate.initialize(student.getTeachers());
 		modelAndView.addObject("teachers", student.getTeachers());
-		modelAndView.setViewName("showTeacherName");
+		modelAndView.setViewName(showTeacherNameFile);
 		return modelAndView;
 	}
 	

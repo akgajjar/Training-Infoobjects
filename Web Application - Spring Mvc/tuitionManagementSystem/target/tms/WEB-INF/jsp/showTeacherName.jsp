@@ -3,6 +3,8 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,16 +12,13 @@
 	type="text/css" media="all" />
 
 <script src="/tms/resources/js/form-validation/jquery.min.js"></script>
-<link rel="stylesheet" href="/tms/resources/css/jquery-ui.css"/>
+<link rel="stylesheet" href="/tms/resources/css/jquery-ui.css" />
 <script src="/tms/resources/js/form-validation/jquery.validate.min.js"></script>
 
 <link href="/tms/resources/css/showfulldetails.css" rel="stylesheet"
 	type="text/css" media="all" />
 </head>
 <body>
-	<%
-	List<Teacher> teachers = (List<Teacher>) request.getAttribute("teachers");
-%>
 	<jsp:include page="header.jsp"></jsp:include>
 	<div class="heading">
 		<h1>Teacher's Name</h1>
@@ -30,18 +29,14 @@
 				<td class="head">Teacher Id</td>
 				<td class="head">Name</td>
 			</tr>
-			<%
-				for(Teacher teacher : teachers){
-					%>
-			<tr>
-				<td class="b"><%=teacher.getTeacherId() %></td>
-				<td class="data"><%=teacher.getTeacherName() %></td>
-			</tr>
-
-			<%}%>
-
+			<c:forEach var="teacher" items="${teachers}">
+				<tr>
+					<td class="b">${teacher.teacherId}</td>
+					<td class="data">${teacher.teacherName}</td>
+				</tr>
+			</c:forEach>
 		</table>
-		<form action="/tms<%=TmsUtils.showAllStudentsMapping%>">
+		<form action="/tms${TmsUtils.showAllStudentsMapping}">
 			<div class="btn">
 				<input type="submit" name="button" id="btnform" value="BACK" />
 			</div>

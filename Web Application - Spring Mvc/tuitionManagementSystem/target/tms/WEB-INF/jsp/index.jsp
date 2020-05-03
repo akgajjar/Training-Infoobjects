@@ -19,29 +19,29 @@
 	<div class="container">
 		<div class="link-container">
 			<h3>
-				<a href="/tms<%=TmsUtils.insertTeacherMapping%>">Insert Teacher</a>
+				<a href="/tms${TmsUtils.insertTeacherMapping}">Insert Teacher</a>
 			</h3>
 
 			<h3>
-				<a href="/tms<%=TmsUtils.insertStudentMapping%>">Insert Student</a>
+				<a href="/tms${TmsUtils.insertStudentMapping}">Insert Student</a>
 			</h3>
 			<h3>
-				<a href="/tms<%=TmsUtils.insertTeacherStudentMapping%>">Insert Mapping with Student</a>
+				<a href="/tms${TmsUtils.insertTeacherStudentMapping}">Insert Mapping with Student</a>
 			</h3>
 			<br>
 			<br>
 			<h3>
-				<a href="/tms<%=TmsUtils.showAllStudentsMapping%>">Show All Students</a>
+				<a href="/tms${TmsUtils.showAllStudentsMapping}">Show All Students</a>
 			</h3>
 			<h3>
-				<a href="/tms<%=TmsUtils.showAllTeachersMapping%>">Show All Teachers</a>
+				<a href="/tms${TmsUtils.showAllTeachersMapping}">Show All Teachers</a>
 			</h3>
 			<h3>
-				<a href="/tms<%=TmsUtils.getStudentByTeacherIdFormMapping%>">Show All Students for
+				<a href="/tms${TmsUtils.getStudentByTeacherIdFormMapping}">Show All Students for
 					Teacher Id</a>
 			</h3>
 			<h3>
-				<a href="/tms<%=TmsUtils.showAllTeacherStudentMapping%>">Show All TeacherStudent
+				<a href="/tms${TmsUtils.showAllTeacherStudentMapping}">Show All TeacherStudent
 					Mapping</a>
 			</h3>
 		</div>

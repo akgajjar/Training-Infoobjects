@@ -6,6 +6,8 @@ import com.infoobjects.tms.service.interfaces.TeacherServiceIncrement;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,11 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class TeacherServiceImpl implements TeacherServiceIncrement<Teacher> {
+
+	/**
+	 * Logger for Logging Events
+	 */
+	private static final Logger logger = LoggerFactory.getLogger(TmsDAOImpl.class);
 
 	/**
 	 * Generic DAO Reference to Perform Database Operation on Teacher
@@ -39,10 +46,11 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<Teacher> {
 	public void insert(Teacher teacherDTO) {
 		try {
 			genericDAO.insert(teacherDTO);
+			logger.info("Teacher is Saved Sucessfully, Data : %s ", teacherDTO);
 		} catch (DataAccessException dataAccessException) {
-			dataAccessException.printStackTrace();
+			logger.error("Teacher is not Saved Successfully, Data : %s %nError Occured : %s", teacherDTO, dataAccessException.fillInStackTrace().toString());
 		} catch (Exception exception) {
-			exception.printStackTrace();
+			logger.error("Teacher is not Saved Successfully, Data : %s %nError Occured : %s", teacherDTO, exception.fillInStackTrace().toString());
 		}
 	}
 
@@ -55,10 +63,11 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<Teacher> {
 	public void delete(String id) {
 		try {
 			genericDAO.delete(id, Teacher.class);
+			logger.info("Teacher is Deleted Successfully, Id : %s ", id);
 		} catch (DataAccessException dataAccessException) {
-			dataAccessException.printStackTrace();
+			logger.error("Teacher is not Deleted Successfully, Id : %s %nError Occured : %s", id, dataAccessException.fillInStackTrace().toString());
 		} catch (Exception exception) {
-			exception.printStackTrace();
+			logger.error("Teacher is not Deleted Successfully, Id : %s %nError Occured : %s", id, exception.fillInStackTrace().toString());
 		}
 	}
 
@@ -73,10 +82,11 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<Teacher> {
 		Teacher teacher = null;
 		try {
 			teacher = genericDAO.find(id, Teacher.class);
+			logger.info("Teacher is Found Successfully, Id = %s %n", id);
 		} catch (DataAccessException dataAccessException) {
-			dataAccessException.printStackTrace();
+			logger.error("Teacher is not Found Successfully, id = %s %nError Occured : %s", id, dataAccessException.fillInStackTrace().toString());
 		} catch (Exception exception) {
-			exception.printStackTrace();
+			logger.error("Teacher is not Found Successfully, id = %s %nError Occured : %s", id, exception.fillInStackTrace().toString());
 		}
 		return teacher;
 	}
@@ -90,10 +100,11 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<Teacher> {
 	public void update(Teacher teacherDTO) {
 		try {
 			genericDAO.update(teacherDTO);
+			logger.info("Teacher is Updated Successfully, Data : %s", teacherDTO);
 		} catch (DataAccessException dataAccessException) {
-			dataAccessException.printStackTrace();
+			logger.error("Teacher is not Updated Successfully, Data : %s %nError Occured : %s", teacherDTO, dataAccessException.fillInStackTrace().toString());
 		} catch (Exception exception) {
-			exception.printStackTrace();
+			logger.error("Teacher is not Updated Successfully, Data : %s %nError Occured : %s", teacherDTO, exception.fillInStackTrace().toString());
 		}
 	}
 
@@ -107,10 +118,11 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<Teacher> {
 		List<Teacher> teachers = null;
 		try {
 			teachers = genericDAO.findAll(Teacher.class);
+			logger.info("Teachers is Found Successfully");
 		} catch (DataAccessException dataAccessException) {
-			dataAccessException.printStackTrace();
+			logger.error("Teachers is not Found Successfully, Error Occured : %s", dataAccessException);
 		} catch (Exception exception) {
-			exception.printStackTrace();
+			logger.error("Teachers is not Found Successfully, Error Occured : %s", exception);
 		}
 		return teachers;
 	}

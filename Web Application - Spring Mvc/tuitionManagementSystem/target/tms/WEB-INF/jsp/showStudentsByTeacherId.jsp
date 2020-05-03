@@ -4,6 +4,8 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +13,7 @@
 	type="text/css" media="all" />
 
 <script src="/tms/resources/js/form-validation/jquery.min.js"></script>
-<link rel="stylesheet" href="/tms/resources/css/jquery-ui.css"/>
+<link rel="stylesheet" href="/tms/resources/css/jquery-ui.css" />
 <script src="/tms/resources/js/form-validation/jquery.validate.min.js"></script>
 
 
@@ -19,9 +21,6 @@
 	type="text/css" media="all" />
 </head>
 <body>
-	<%
-	List<Student> students = (List<Student>) request.getAttribute("students");
-%>
 	<jsp:include page="header.jsp"></jsp:include>
 	<div class="heading">
 		<h1>Show Students By Teacher Id</h1>
@@ -32,18 +31,14 @@
 				<td class="head">Student Id</td>
 				<td class="head">Name</td>
 			</tr>
-			<%
-				for(Student student : students){
-					%>
-			<tr>
-				<td class="b"><%=student.getStudentId() %></td>
-				<td class="data"><%=student.getStudentName() %></td>
-			</tr>
-
-			<%}%>
-
+			<c:forEach var="student" items="${students}">
+				<tr>
+					<td class="b">${student.studentId}</td>
+					<td class="data">${student.studentName}</td>
+				</tr>
+			</c:forEach>
 		</table>
-		<form action="/tms<%=TmsUtils.homeMapping%>">
+		<form action="/tms${TmsUtils.homeMapping}">
 			<div class="btn">
 				<input type="submit" name="button" id="btnform" value="BACK" />
 			</div>

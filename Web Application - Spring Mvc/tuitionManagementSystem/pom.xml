@@ -237,13 +237,6 @@
 		</dependency>
 
 		<!-- commons Dependency -->
-		<!-- <dependency>
-			<groupId>commons-logging</groupId>
-			<artifactId>commons-logging</artifactId>
-			<version>1.2</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/src/main/webapp/WEB-INF/lib/commons-logging-1.2.jar</systemPath>
-		</dependency> -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
@@ -283,8 +276,6 @@
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>${jstl-version}</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/src/main/webapp/WEB-INF/lib/jstl-1.2-sources.jar</systemPath>
 		</dependency>
 
 		<!-- JUnit -->

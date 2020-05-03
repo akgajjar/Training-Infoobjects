@@ -12,6 +12,7 @@ import com.infoobjects.tms.entity.Teacher;
 import com.infoobjects.tms.service.interfaces.TeacherServiceIncrement;
 
 import static com.infoobjects.tms.utils.TmsUtils.*;
+import static com.infoobjects.tms.utils.TeacherUtils.*;
 
 /**
  * @author Aniket
@@ -40,7 +41,7 @@ public class TeacherController {
      */
     @RequestMapping(value = insertTeacherMapping, method = RequestMethod.GET)
     public ModelAndView insertTeacher(ModelAndView modelAndView) {
-        modelAndView.setViewName("insertTeacher");
+        modelAndView.setViewName(insertTeacherFile);
         modelAndView.addObject("command", new Teacher());
         return modelAndView;
     }
@@ -72,7 +73,7 @@ public class TeacherController {
      */
     @RequestMapping(value = showAllTeachersMapping, method = RequestMethod.GET)
     public ModelAndView showAllTeachers(ModelAndView modelAndView) {
-        modelAndView.setViewName("showAllGenericPage");
+        modelAndView.setViewName(showAllGenericPageFile);
         modelAndView.addObject("displayAllData", teacherToDisplayAllData(teacherService.findAll()));
         return modelAndView;
     }
@@ -86,7 +87,7 @@ public class TeacherController {
     @RequestMapping(value = updateTeacherFormMapping + "{teacherId}", method = RequestMethod.GET)
     public ModelAndView updateTeacherForm(@PathVariable("teacherId") String teacherId, ModelAndView modelAndView) {
         modelAndView.addObject("teacher", teacherService.find(teacherId));
-        modelAndView.setViewName("updateTeacher");
+        modelAndView.setViewName(updateTeacherFile);
         modelAndView.addObject("command", new Teacher());
         return modelAndView;
     }
