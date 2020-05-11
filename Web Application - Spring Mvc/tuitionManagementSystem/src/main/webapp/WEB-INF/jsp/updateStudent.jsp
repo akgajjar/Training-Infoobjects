@@ -1,4 +1,4 @@
-<%@page import="com.infoobjects.tms.utils.TmsUtils"%>
+<%@page import="com.infoobjects.tms.utils.StudentUtils"%>
 <%@page import="com.infoobjects.tms.enums.Gender"%>
 <%@page import="com.infoobjects.tms.entity.Student"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -23,7 +23,7 @@
 	</div>
 	<div class="container">
 		<div class="form">
-			<form method="post" action="/tms${TmsUtils.updateStudentMapping}"
+			<form method="post" action="/tms${StudentUtils.updateStudentMapping}"
 				id="studentForm">
 
 				<input name="studentId" type="hidden" value="${student.studentId}" />
@@ -126,7 +126,7 @@
 				<div class="clear"></div>
 				<div class="butn">
 					<input type="button" name="action" value="Back"
-						onclick="document.location = '/tms${TmsUtils.homeMapping}'">
+						onclick="document.location = '/tms${StudentUtils.homeMapping}'">
 				</div>
 			</form>
 		</div>

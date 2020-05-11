@@ -12,7 +12,7 @@ public class SingletonConnection {
     private SingletonConnection() throws ClassNotFoundException, SQLException {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/TMS", "root", "Infoobjects@123");
+            this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tms?serverTimezone=UTC", "root", "");
         } catch (ClassNotFoundException classNotFoundException) {
                 throw  classNotFoundException;
         } catch (SQLException sqlException){
