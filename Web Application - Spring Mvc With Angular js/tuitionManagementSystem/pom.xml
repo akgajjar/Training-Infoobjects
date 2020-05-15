@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.7.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.infoobjects</groupId>
+	<artifactId>tms</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>tuitionManagementSystem</name>
+	<description>Tuition Manegement System with Spring Mvc and Angular js </description>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+<!--All Maven Dependencies -->
+	<dependencies>
+		<!-- Spring 4 dependencies -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/spring-core-4.1.5.RELEASE.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+			<exclusions>
+				<!-- Exclude Commons Logging in favor of SLF4j -->
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/spring-context-4.1.5.RELEASE.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/spring-web-4.1.5.RELEASE.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/spring-webmvc-4.1.5.RELEASE.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/spring-orm-4.1.5.RELEASE.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/spring-test-4.1.5.RELEASE.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/spring-beans-4.1.5.RELEASE.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/spring-tx-4.1.5.RELEASE.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/spring-jdbc-4.1.5.RELEASE.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>${spring.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/spring-expression-4.1.5.RELEASE.jar</systemPath>
+		</dependency>
+
+		<!--JPA Dependency -->
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>javax.persistence-api</artifactId>
+			<version>{jpa.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/javax.persistence-api-2.2.jar</systemPath>
+		</dependency>
+
+		<!-- JTA Dependency -->
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>javax.transaction-api</artifactId>
+			<version>{jta.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/javax.transaction-api-1.3.jar</systemPath>
+		</dependency>
+
+		<!-- Hibernate 4 dependencies -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/hibernate-core-4.3.8.Final.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-c3p0</artifactId>
+			<version>${hibernate.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/hibernate-c3p0-4.3.8.Final.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.common</groupId>
+			<artifactId>hibernate-commons-annotations</artifactId>
+			<version>{hibernate-commons-annotations.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/hibernate-commons-annotations-4.0.5.Final.jar</systemPath>
+		</dependency>
+
+		<!-- Jboss Logging -->
+		<dependency>
+			<groupId>org.jboss.logging</groupId>
+			<artifactId>jboss-logging</artifactId>
+			<version>3.3.0.Final</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/jboss-logging-3.3.0.Final.jar</systemPath>
+		</dependency>
+
+
+		<!--MYSQL Connector -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/mysql-connector-java-8.0.19.jar</systemPath>
+		</dependency>
+
+
+		<!-- Spring AOP + AspectJ -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/spring-aop-4.1.5.RELEASE.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>{aop.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/aspectjrt-1.6.11.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>{aop.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/aspectjweaver-1.6.11.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>aopalliance</groupId>
+			<artifactId>aopalliance</artifactId>
+			<version>{aopalliance.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/aopalliance-1.0.jar</systemPath>
+		</dependency>
+
+
+		<!-- Servlet and JSP -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${servlet-api-version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/javax.servlet-api-3.1.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>${jsp-version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/jsp-api-2.1.jar</systemPath>
+		</dependency>
+
+		<!-- Dom4j Dependency -->
+		<dependency>
+			<groupId>org.dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>{dom4j.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>pull-parser</artifactId>
+					<groupId>pull-parser</groupId>
+				</exclusion>
+			</exclusions>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/dom4j-2.0.0.jar</systemPath>
+		</dependency>
+
+		<!-- commons Dependency -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.9</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/commons-lang3-3.9.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-text</artifactId>
+			<version>1.4</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/commons-text-1.4.jar</systemPath>
+		</dependency>
+
+		<!-- Antlr Dependency -->
+		<dependency>
+			<groupId>antlr</groupId>
+			<artifactId>antlr</artifactId>
+			<version>2.7.7</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/antlr-2.7.7.jar</systemPath>
+		</dependency>
+
+		<!-- JavaAssist Dependency -->
+		<dependency>
+			<groupId>javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.1</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/javassist-3.1.jar</systemPath>
+		</dependency>
+
+
+		<!-- JSTL dependency -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl-version}</version>
+		</dependency>
+
+		<!-- JUnit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit-version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/junit-3.8.1.jar</systemPath>
+		</dependency>
+
+		<!-- Jackson Dependency -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>{jackson.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/jackson-core-2.10.3.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>{jackson.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/jackson-annotations-2.10.3.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>{jackson.version}</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/jackson-databind-2.10.3.jar</systemPath>
+		</dependency>
+
+		<!-- Protobuf Dependency -->
+		<dependency>
+			<groupId>com.google.protobuf</groupId>
+			<artifactId>protobuf-java</artifactId>
+			<version>3.6.1</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/protobuf-java-3.6.1.jar</systemPath>
+		</dependency>
+
+		<!-- Uuid generator dependency -->
+		<dependency>
+			<groupId>com.fasterxml.uuid</groupId>
+			<artifactId>java-uuid-generator</artifactId>
+			<version>3.1.3</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/java-uuid-generator-3.1.3.jar</systemPath>
+		</dependency>
+		
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${org.slf4j-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${org.slf4j-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${org.slf4j-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.15</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.mail</groupId>
+					<artifactId>mail</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.jms</groupId>
+					<artifactId>jms</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+			</exclusions>
+			<scope>runtime</scope>
+		</dependency>
+	</dependencies>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

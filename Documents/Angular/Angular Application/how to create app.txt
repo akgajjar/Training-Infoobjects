@@ -1,0 +1,29 @@
+ng new bookapi
+ng serve --open
+
+
+
+//get all books
+http://localhost:8080/bookapi/api/books  - get
+
+// save a book
+http://localhost:8080/bookapi/api/save - post
+
+//delete a book
+http://localhost:8080/bookapi/api/book/{id} - delete
+
+
+//update a book
+http://localhost:8080/bookapi/api/book/{id} - put
+
+
+//get book by id
+http://localhost:8080/bookapi/api/book/{id} - get
+
+
+
+
+change port
+
+1. For Permanent: Goto nodel_modules/angular-cli/commands/server. js Search for var defaultPort = process. env. PORT || 4200; and change 4200 to anything else you want.
+2. To Run Now: ng serve --port 4500 (You an change 4500 to any number you want to use as your port)

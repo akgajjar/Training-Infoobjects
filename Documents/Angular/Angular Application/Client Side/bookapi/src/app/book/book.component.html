@@ -1,0 +1,34 @@
+<h1>
+    Welcome to book API
+</h1>
+
+
+<div>
+
+    <form>
+          Enter a Title : <input type="text" [(ngModel)]="book.title" name="title"/><br/>
+          Enter a Author : <input type="text" [(ngModel)]="book.author" name="author"><br/>
+          <button (click) = "addBook()">addBook</button>
+
+    </form>
+
+</div>
+
+<div>
+
+  <table Border = "1">
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Actions</th>
+      </tr>
+      <tr *ngFor = "let book of books">
+          <td>{{book.id}}</td>
+          <td>{{book.title}}</td>
+          <td>{{book.author}}</td>
+          <td>Edit | Delete</td>
+      </tr>
+  </table>
+
+</div>

@@ -1,0 +1,9 @@
+com\demo\bookapi\config\WebConfig.class
+com\demo\bookapi\daoimpl\dao\BookDao.class
+com\demo\bookapi\controller\BookController.class
+com\demo\bookapi\serviceimpl\BookServiceImpl.class
+com\demo\bookapi\daoimpl\BookDaoImpl.class
+com\demo\bookapi\config\AppConfig.class
+com\demo\bookapi\config\MyWebAppInitilizer.class
+com\demo\bookapi\model\Book.class
+com\demo\bookapi\serviceimpl\service\BookService.class
