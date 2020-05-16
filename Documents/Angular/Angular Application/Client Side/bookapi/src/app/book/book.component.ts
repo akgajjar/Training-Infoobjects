@@ -24,18 +24,50 @@ export class BookComponent implements OnInit{
 
   getBooks() : void{
     this._bookService.getAllBooks()
-    .subscribe((bookData) => {this.books = bookData, console.log(bookData)}, (error) => {
+    .subscribe((bookData) => {this.books = bookData, console.log(bookData);}, (error) => {
       console.log(error);
     })
   }
 
   addBook(): void{
-    console.log('called');
     this._bookService.addBook(this.book)
-      .subscribe((response) => {console.log(response)}, (error) => {
-        console.log(error);
+      .subscribe((response) => {
+                  console.log(response);
+                  this.reset();
+                  this.getBooks();
+                }
+      ,(error) => {
+                  console.log(error);
       });
+
 
   }
 
+  private reset(){
+    this.book.id = null;
+    this.book.title = null;
+    this.book.author = null;
+  }
+
+  deleteBook(bookId : string){
+    this._bookService.deleteBook(bookId)
+        .subscribe((response) => {
+          console.log(response);
+          this.getBooks();
+        }
+        ,(error) => {
+          console.log(error);
+        });
+  }
+
+  getBookById(bookId : string){
+    this._bookService.getBookById(bookId).subscribe((bookData) => {
+        console.log(bookData);
+        this.book = bookData;
+        this.getBooks();
+      }
+    ,(error) => {
+      console.log(error);
+    });
+  }
 }

@@ -15,7 +15,7 @@ export class BookService{
 
   getAllBooks() : Observable<Book[]>{
      return this._httpService.get<Book[]>("http://localhost:8080/bookapi/api/books")
-       .pipe(map(response  => response),  catchError((error: HttpResponse<any>) => {
+       .pipe(map(response  => response),  catchError((error: HttpResponse<Book[]>) => {
         console.log(error);
         return Observable.throw(error);
       }));
@@ -25,8 +25,25 @@ export class BookService{
     let body =JSON.stringify(book);
     let headers =new HttpHeaders({'Content-Type' : 'application/json'});
     let options = {headers : headers};
-    console.log(headers);
-    return this._httpService.post("http://localhost:8080/bookapi/api/save", body, options);
+    console.log(body);
+    if(book.id){
+        return this._httpService.put("http://localhost:8080/bookapi/api/book/" + book.id, body, options);
+    }
+    else {
+      return this._httpService.post("http://localhost:8080/bookapi/api/save", body, options);
+    }
 
+  }
+
+  deleteBook(bookId : string){
+    return this._httpService.delete("http://localhost:8080/bookapi/api/book/" + bookId);
+  }
+
+  getBookById(bookId : string) : Observable<Book>{
+    return this._httpService.get<Book>("http://localhost:8080/bookapi/api/book/" + bookId)
+       .pipe(map(response  => response),  catchError((error: HttpResponse<Book>) => {
+        console.log(error);
+        return Observable.throw(error);
+      }));
   }
 }

@@ -32,16 +32,14 @@ public class BookController {
 	@GetMapping("/api/books")
 	public ResponseEntity<List<Book>> list(){
 		List<Book> books = bookService.get();
-		System.out.println("done");
 		return ResponseEntity.ok().body(books); 
 	}
 	
 	
 	//save a book
 	@PostMapping(value = "/api/save", consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> save(@RequestBody Book book){
+	public ResponseEntity<HttpResponse> save(@RequestBody Book book){
 			long id = bookService.save(book);
-			System.out.println("Called");
 			HttpResponse response = new HttpResponse();
 			response.setResponseMessage("Book Created with id "+ id);
 			return ResponseEntity.ok().body(response);
@@ -55,17 +53,21 @@ public class BookController {
 	}
 	
 	//update a record
-	@PutMapping("/api/book/{id}")
-	public ResponseEntity<?> update(@PathVariable long id, @RequestParam Book book){
+	@PutMapping(value = "/api/book/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<HttpResponse> update(@PathVariable long id, @RequestBody Book book){
 		book.setId(id);
 		bookService.update(book);
-		return ResponseEntity.ok("SucessFully Updated");
+		HttpResponse response = new HttpResponse();
+		response.setResponseMessage("Book Updated with id "+ id);
+		return ResponseEntity.ok().body(response);
 	}
 	
 	//delete a record
 	@DeleteMapping("/api/book/{id}")
-	public ResponseEntity<?> delete(@PathVariable long id){
+	public ResponseEntity<HttpResponse> delete(@PathVariable long id){
 		bookService.delete(id);
-		return ResponseEntity.ok("SucessFully Deleted");
+		HttpResponse response = new HttpResponse();
+		response.setResponseMessage("Book Deleted with id "+ id);
+		return ResponseEntity.ok().body(response);
 	}
 }

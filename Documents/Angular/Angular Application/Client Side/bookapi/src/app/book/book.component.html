@@ -6,9 +6,10 @@
 <div>
 
     <form>
+          <input type = "hidden" name = "book.id"/>
           Enter a Title : <input type="text" [(ngModel)]="book.title" name="title"/><br/>
           Enter a Author : <input type="text" [(ngModel)]="book.author" name="author"><br/>
-          <button (click) = "addBook()">addBook</button>
+          <button (click) = "addBook()">Add Book</button>
 
     </form>
 
@@ -27,7 +28,7 @@
           <td>{{book.id}}</td>
           <td>{{book.title}}</td>
           <td>{{book.author}}</td>
-          <td>Edit | Delete</td>
+          <td><button (click) = "getBookById(book.id)">Update</button> | <button (click) = "deleteBook(book.id)">Delete</button></td>
       </tr>
   </table>
 
