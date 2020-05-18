@@ -12,6 +12,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import static org.hibernate.cfg.Environment.*;
 
@@ -26,7 +27,6 @@ public class AppConfig {
 
 	@Autowired
 	private Environment env;
-	
 	
 	@Bean
 	public LocalSessionFactoryBean getSessionFactory() {
@@ -65,5 +65,12 @@ public class AppConfig {
 		hibernateTransactionManager.setSessionFactory(getSessionFactory().getObject());
 		return hibernateTransactionManager;
 	}
-		
+
+	@Bean
+	public HibernateTemplate getHibernateTemplate() {
+		HibernateTemplate template = new HibernateTemplate();
+		template.setSessionFactory(getSessionFactory().getObject());
+		return template;
+	}
+	
 }
