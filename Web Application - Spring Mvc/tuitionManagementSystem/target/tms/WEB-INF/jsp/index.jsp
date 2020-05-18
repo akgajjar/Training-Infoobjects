@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@page import=" com.infoobjects.tms.utils.TmsUtils"%>
+	pageEncoding="ISO-8859-1" %>
+<%@page import="com.infoobjects.tms.utils.TeacherStudentUtils"%>
+<%@page import="com.infoobjects.tms.utils.TeacherUtils"%>
+<%@page import="com.infoobjects.tms.utils.StudentUtils"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,29 +21,29 @@
 	<div class="container">
 		<div class="link-container">
 			<h3>
-				<a href="/tms${TmsUtils.insertTeacherMapping}">Insert Teacher</a>
+				<a href="/tms${TeacherUtils.insertTeacherMapping}">Insert Teacher</a>
 			</h3>
 
 			<h3>
-				<a href="/tms${TmsUtils.insertStudentMapping}">Insert Student</a>
+				<a href="/tms${StudentUtils.insertStudentMapping}">Insert Student</a>
 			</h3>
 			<h3>
-				<a href="/tms${TmsUtils.insertTeacherStudentMapping}">Insert Mapping with Student</a>
+				<a href="/tms${TeacherStudentUtils.insertTeacherStudentMapping}">Insert Mapping with Student</a>
 			</h3>
 			<br>
 			<br>
 			<h3>
-				<a href="/tms${TmsUtils.showAllStudentsMapping}">Show All Students</a>
+				<a href="/tms${StudentUtils.showAllStudentsMapping}">Show All Students</a>
 			</h3>
 			<h3>
-				<a href="/tms${TmsUtils.showAllTeachersMapping}">Show All Teachers</a>
+				<a href="/tms${TeacherUtils.showAllTeachersMapping}">Show All Teachers</a>
 			</h3>
 			<h3>
-				<a href="/tms${TmsUtils.getStudentByTeacherIdFormMapping}">Show All Students for
+				<a href="/tms${TeacherStudentUtils.getStudentByTeacherIdFormMapping}">Show All Students for
 					Teacher Id</a>
 			</h3>
 			<h3>
-				<a href="/tms${TmsUtils.showAllTeacherStudentMapping}">Show All TeacherStudent
+				<a href="/tms${TeacherStudentUtils.showAllTeacherStudentMapping}">Show All TeacherStudent
 					Mapping</a>
 			</h3>
 		</div>

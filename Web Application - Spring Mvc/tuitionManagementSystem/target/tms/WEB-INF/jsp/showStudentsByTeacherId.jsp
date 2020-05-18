@@ -1,4 +1,4 @@
-<%@page import="com.infoobjects.tms.utils.TmsUtils"%>
+<%@page import="com.infoobjects.tms.utils.StudentUtils"%>
 <%@page import="com.infoobjects.tms.entity.Student"%>
 <%@page import="com.infoobjects.tms.entity.Teacher"%>
 <%@page import="java.util.List"%>
@@ -38,7 +38,7 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<form action="/tms${TmsUtils.homeMapping}">
+		<form action="/tms${StudentUtils.homeMapping}">
 			<div class="btn">
 				<input type="submit" name="button" id="btnform" value="BACK" />
 			</div>
