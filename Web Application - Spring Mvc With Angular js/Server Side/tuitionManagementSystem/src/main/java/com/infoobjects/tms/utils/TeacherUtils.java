@@ -25,10 +25,12 @@ public class TeacherUtils {
     private static final Logger logger = LoggerFactory.getLogger(TeacherUtils.class);
 
     // Teacher Mapping Constants
-    public final static String insertTeacherMapping = "/insertTeacher";
-    public final static String updateTeacherMapping = "/updateTeacher";
-    public final static String deleteTeacherMapping = "/teacher/delete/";
-    public final static String showAllTeachersMapping = "/showAllTeachers";
+    public final static String insertTeacherMapping = "/teacher";
+    public final static String updateTeacherMapping = "/teacher/";
+    public final static String deleteTeacherMapping = "/teacher/";
+    public final static String getTeacherByTeacherIdMapping = "/teacher/";
+    public final static String getAllTeachersMapping = "/teacher";
+    
     public final static String viewTeacherFullDetailsMapping = "/teacher/viewFullDetails/";
     public final static String updateTeacherFormMapping = "/teacher/updateTeacherForm/";
 

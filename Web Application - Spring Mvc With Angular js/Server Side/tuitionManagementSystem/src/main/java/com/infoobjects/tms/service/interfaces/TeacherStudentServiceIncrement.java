@@ -22,4 +22,6 @@ public interface TeacherStudentServiceIncrement<DTO> extends Service<DTO> {
 	
 	void delete(String teacherId, String studentId);
 	
+	List<Teacher> getTeachersByStudentId(String studentId);
+	
 }

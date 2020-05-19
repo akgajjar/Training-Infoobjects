@@ -1,8 +1,5 @@
 package com.infoobjects.tms.service.interfaces;
 
-import java.util.List;
-
-import com.infoobjects.tms.entity.Teacher;
 
 /**
  * @author Aniket
@@ -10,6 +7,4 @@ import com.infoobjects.tms.entity.Teacher;
  */
 public interface StudentServiceIncrement<DTO> extends Service<DTO> {
 
-	List<Teacher> getTeacherName(String studentId);
-	 
 }

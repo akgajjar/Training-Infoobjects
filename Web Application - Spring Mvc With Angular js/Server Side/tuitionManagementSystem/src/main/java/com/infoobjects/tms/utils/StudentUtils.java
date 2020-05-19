@@ -29,10 +29,13 @@ public class StudentUtils {
     public final static String homeMapping = "/home";
 
     // Student Mapping Constants
-    public final static String insertStudentMapping = "/insertStudent";
-    public final static String updateStudentMapping = "/updateStudent";
-    public final static String deleteStudentMapping = "/student/delete/";
-    public final static String showAllStudentsMapping = "/showAllStudents";
+    public final static String insertStudentMapping = "/student";
+    public final static String updateStudentMapping = "/student/";
+    public final static String deleteStudentMapping = "/student/";
+    public final static String getStudentByStudentIdMapping = "/student/";
+    public final static String getAllStudentsMapping = "/student";
+    
+    
     public final static String viewStudentFullDetailsMapping = "/student/viewFullDetails/";
     public final static String updateStudentFormMapping = "/student/updateStudentForm/";
     public final static String viewTeacherNameMapping = "/student/viewTeacherName/";

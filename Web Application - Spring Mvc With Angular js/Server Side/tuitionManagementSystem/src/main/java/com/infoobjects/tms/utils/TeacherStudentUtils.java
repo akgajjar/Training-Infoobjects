@@ -25,12 +25,14 @@ public class TeacherStudentUtils {
     private static final Logger logger = LoggerFactory.getLogger(TeacherStudentUtils.class);
 
     // Teacher Student Mapping Constants
-    public final static String insertTeacherStudentMapping = "/insertTeacherStudent";
-    public final static String showAllTeacherStudentMapping = "/showAllTeacherStudents";
-    public final static String getStudentByTeacherIdFormMapping = "/getStudentsByTeacherIdForm";
-    public final static String getStudentByTeacherIdMapping = "/getStudentsByTeacherId";
-    public final static String deleteTeacherStudentMapping = "/teacherStudent/delete/";
+    public final static String insertTeacherStudentMapping = "/teacherStudent";
+    public final static String getAllTeacherStudentMapping = "/teacherStudent";
+    public final static String getStudentsByTeacherIdMapping = "/teacherStudent/students/";
+    public final static String getTeachersByStudentIdMapping = "/teacherStudent/teachers/";
+    public final static String deleteTeacherStudentMapping = "/teacherStudent/";
 
+    public final static String getStudentByTeacherIdFormMapping = "/getStudentsByTeacherIdForm";
+    
     // Jsp File Name Constants for TeacherStudent
     public final static String insertTeacherStudentMappingFile = "insertTeacherStudentMapping";
     public final static String showStudentsByTeacherIdFile = "showStudentsByTeacherId";

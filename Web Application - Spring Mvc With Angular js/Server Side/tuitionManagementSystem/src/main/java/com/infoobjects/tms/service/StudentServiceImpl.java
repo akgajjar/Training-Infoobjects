@@ -123,12 +123,4 @@ public class StudentServiceImpl implements StudentServiceIncrement<Student> {
 		return students;
 	}
 
-	@Override
-	@Transactional
-	public List<Teacher> getTeacherName(String studentId) {
-		Student student = find(studentId);
-		Hibernate.initialize(student.getTeachers());
-		return student.getTeachers();
-	}
-
 }

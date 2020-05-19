@@ -275,4 +275,14 @@ public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement
 		logger.info("Teacher Student Successfully deleted, teacherId : %s , studentId : %s", teacherId, studentId);
 	}
 
+	@Override
+	@Transactional
+	public List<Teacher> getTeachersByStudentId(String studentId) {
+		Student student = studentService.find(studentId);
+		Hibernate.initialize(student.getTeachers());
+		logger.info("Teachers are Successfully Initialized");
+		logger.info("Teachers for StudentId %s is Successfully Found", studentId);
+		return student.getTeachers();
+	}
+
 }

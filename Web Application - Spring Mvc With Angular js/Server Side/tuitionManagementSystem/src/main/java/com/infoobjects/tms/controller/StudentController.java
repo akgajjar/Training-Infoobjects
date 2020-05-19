@@ -7,13 +7,22 @@ import static com.infoobjects.tms.utils.StudentUtils.*;
 import static com.infoobjects.tms.utils.ConfigurationAndGenericConstants.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.infoobjects.tms.dto.DisplayAllData;
+import com.infoobjects.tms.entity.HttpResponse;
 import com.infoobjects.tms.entity.Student;
 import com.infoobjects.tms.service.interfaces.StudentServiceIncrement;
 
@@ -32,138 +41,67 @@ public class StudentController {
 	private StudentServiceIncrement<Student> studentService;
 
 	/**
-	 *  This Api is callled  when Application Runs first Time
-	 * @param modelAndView Store view name and Attributes value
-	 * @return ModelAndView
-	 */
-	@RequestMapping(value = startupMapping, method = RequestMethod.GET)
-	public ModelAndView startup(ModelAndView modelAndView){
-		modelAndView.setViewName(indexFile);
-		return modelAndView;
-	}
-
-	/**
-	 *  Api used to redirect to Home Page
-	 * @param modelAndView Store view name and Attributes value
-	 * @return ModelAndView
-	 */
-	@RequestMapping(value = homeMapping, method = RequestMethod.GET)
-	public ModelAndView home(ModelAndView modelAndView){
-		modelAndView.setViewName(indexFile);
-		return modelAndView;
-	}
-
-	/**
-	 *  Api used to get Insert Student Form
-	 * @param modelAndView Store view name and Attributes value
-	 * @return ModelAndView
-	 */
-	@RequestMapping(value = insertStudentMapping, method = RequestMethod.GET)
-	public ModelAndView insertStudentForm(ModelAndView modelAndView) {
-		modelAndView.setViewName(insertStudentFile);
-		modelAndView.addObject("command", new Student());
-		return modelAndView;
-	}
-
-	/**
 	 *  Api used to insert Student data into Database
 	 * @param student Student Data
-	 * @param modelAndView Store view name and Attributes value
-	 * @return ModelAndView
+	 * @return ResponseEntity<HttpResponse>
 	 */
-	@RequestMapping(value = insertStudentMapping, method = RequestMethod.POST)
-	public ModelAndView insertStudent(@ModelAttribute Student student, ModelAndView modelAndView) {
-
+	@PostMapping(value = insertStudentMapping, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<HttpResponse> insertStudent(@RequestBody Student student) {
 		// Generate UUID(Unique Random String) for Student Id
 		student.setStudentId(uuidGeneration());
 		while (studentService.find(student.getStudentId()) != null) {
 			student.setStudentId(uuidGeneration());
 		}
-		
 		studentService.insert(student);
-		modelAndView.setViewName(indexFile);
-		return modelAndView;
+		HttpResponse response = new HttpResponse();
+		response.setResponseMessage("Student Inserted with id "+ student.getStudentId());
+		return ResponseEntity.ok().body(response);
 	}
 
 	/**
 	 * Api used to get all Student's Data and redirect to Show all generic page
-	 * @param modelAndView Store view name and Attributes value
-	 * @return ModelAndView
+	 * @return ResponseEntity<DisplayAllData>
  	 */
-	@RequestMapping(value = showAllStudentsMapping, method = RequestMethod.GET)
-	public ModelAndView showAllStudents(ModelAndView modelAndView) {
-		modelAndView.setViewName(showAllGenericPageFile);
-		modelAndView.addObject("displayAllData", studentToDisplayAllData(studentService.findAll()));
-		return modelAndView;
-	}
-
-	/**
-	 *  Api used to redirect Update Student form with Student Data of Specific Student Id
-	 * @param studentId Student's Id
-	 * @param modelAndView Store view name and Attributes value
-	 * @return ModelAndView
-	 */
-	@RequestMapping(value =  updateStudentFormMapping + "{studentId}", method = RequestMethod.GET)
-	public ModelAndView updateStudentForm(@PathVariable("studentId") String studentId, ModelAndView modelAndView) {
-		modelAndView.addObject("student", studentService.find(studentId));
-		modelAndView.setViewName(updateStudentFile);
-		modelAndView.addObject("command", new Student());
-		return modelAndView;
+	@GetMapping(value = getAllStudentsMapping)
+	public ResponseEntity<DisplayAllData> getAllStudents() {
+		return ResponseEntity.ok().body(studentToDisplayAllData(studentService.findAll()));
 	}
 
 	/**
 	 *  Api used to Update Student into Database
 	 * @param student Student Data
-	 * @param modelAndView Store view name and Attributes value
-	 * @return ModelAndView
+	 * @param studentId Student's Id
+	 * @return ResponseEntity<HttpResponse>
 	 */
-	@RequestMapping(value = updateStudentMapping, method = RequestMethod.POST)
-	public ModelAndView updateStudent(@ModelAttribute Student student, ModelAndView modelAndView) {
+	@PutMapping(value = updateStudentMapping + "{studentId}", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<HttpResponse> updateStudent(@PathVariable("studentId") String studentId, @RequestBody Student student) {
 		studentService.update(student);
-		modelAndView.setViewName(showAllGenericPageFile);
-		modelAndView.addObject("displayAllData", studentToDisplayAllData(studentService.findAll()));
-		return modelAndView;
+		HttpResponse response = new HttpResponse();
+		response.setResponseMessage("Student Updated with id "+ student.getStudentId());
+		return ResponseEntity.ok().body(response);
 	}
 
 	/**
 	 *  Api used to Delete Student for specific Student Id
 	 * @param studentId Student's Id
-	 * @param modelAndView Store view name and Attributes value
-	 * @return ModelAndView
+	 * @return ResponseEntity<HttpResponse>
 	 */
-	@RequestMapping(value = deleteStudentMapping + "{studentId}", method = RequestMethod.POST)
-	public ModelAndView delete(@PathVariable("studentId") String studentId, ModelAndView modelAndView){
+	@DeleteMapping(value = deleteStudentMapping + "{studentId}")
+	public ResponseEntity<HttpResponse> delete(@PathVariable("studentId") String studentId){
 		studentService.delete(studentId);
-		modelAndView.setViewName(showAllGenericPageFile);
-		modelAndView.addObject("displayAllData", studentToDisplayAllData(studentService.findAll()));
-		return modelAndView;
+		HttpResponse response = new HttpResponse();
+		response.setResponseMessage("Student Deleted with id "+ studentId);
+		return ResponseEntity.ok().body(response);
 	}
-
+	
 	/**
-	 *  Api used to Show full details for Specific Student Id
+	 * Api used to get Student By Student Id
 	 * @param studentId Student's Id
-	 * @param modelAndView Store view name and Attributes value
-	 * @return ModelAndView
-	 */
-	@RequestMapping(value = viewStudentFullDetailsMapping + "{studentId}", method = RequestMethod.GET)
-	public ModelAndView showFullDetails(@PathVariable("studentId") String studentId, ModelAndView modelAndView){
-		modelAndView.addObject("student", studentService.find(studentId));
-		modelAndView.setViewName(showStudentFullDetailsFile);
-		return modelAndView;
-	}
-
-
-	/**
-	 *  Api used to view all Teacher's Name for Specific Teacher Id
-	 * @param studentId Student's Id
-	 * @param modelAndView Store view name and Attributes value
-	 * @return ModelAndView
-	 */
-	@RequestMapping(value = viewTeacherNameMapping + "{studentId}", method = RequestMethod.GET)
-	public ModelAndView viewTeacherName(@PathVariable("studentId") String studentId, ModelAndView modelAndView) {
-		modelAndView.addObject("teachers", studentService.getTeacherName(studentId));
-		modelAndView.setViewName(showTeacherNameFile);
-		return modelAndView;
+	 * @return ResponseEntity<Student>
+ 	 */
+	@GetMapping(value = getStudentByStudentIdMapping + "{studentId}")
+	public ResponseEntity<Student> getStudentByStudentId(@PathVariable("studentId") String studentId) {
+		return ResponseEntity.ok().body(studentService.find(studentId));
 	}
 	
 }
