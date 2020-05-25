@@ -139,14 +139,14 @@ public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement
 				logger.info("Students Successfully Initialized");
 			}
 		catch(HibernateException hibernateException) {
-			logger.info("Students is not Successfully Initialized, Error Occurred : %s", hibernateException.getStackTrace().toString());
+			logger.info(String.format("Students is not Successfully Initialized, Error Occurred : %s", hibernateException.getStackTrace().toString()));
 		}
 		catch(Exception exception) {
-			logger.info("Students is not Successfully Initialized, Error Occurred : %s", exception.getStackTrace().toString());
+			logger.info(String.format("Students is not Successfully Initialized, Error Occurred : %s", exception.getStackTrace().toString()));
 		}
 		teacher.getStudents().add(studentService.find(teacherStudent.getStudentId()));
 		teacherService.update(teacher);
-		logger.info("TeacherStudent Successfully Inserted, Data : %s ", teacherStudent);
+		logger.info(String.format("TeacherStudent Successfully Inserted, Data : %s ", teacherStudent));
 	}
 
 	/**
@@ -227,7 +227,7 @@ public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement
 		Teacher teacher = teacherService.find(teacherId);
 		Hibernate.initialize(teacher.getStudents());
 		logger.info("Students are Successfully Initialized");
-		logger.info("Students for TeacherId %s is Successfully Found", teacherId);
+		logger.info(String.format("Students for TeacherId %s is Successfully Found", teacherId));
 		return teacher.getStudents();
 	}
 
@@ -272,7 +272,7 @@ public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement
 		}
 		teacher.setStudents(students);
 		teacherService.update(teacher);
-		logger.info("Teacher Student Successfully deleted, teacherId : %s , studentId : %s", teacherId, studentId);
+		logger.info(String.format("Teacher Student Successfully deleted, teacherId : %s , studentId : %s", teacherId, studentId));
 	}
 
 	@Override
@@ -281,7 +281,7 @@ public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement
 		Student student = studentService.find(studentId);
 		Hibernate.initialize(student.getTeachers());
 		logger.info("Teachers are Successfully Initialized");
-		logger.info("Teachers for StudentId %s is Successfully Found", studentId);
+		logger.info(String.format("Teachers for StudentId %s is Successfully Found", studentId));
 		return student.getTeachers();
 	}
 

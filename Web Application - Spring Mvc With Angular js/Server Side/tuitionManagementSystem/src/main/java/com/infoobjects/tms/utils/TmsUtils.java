@@ -54,7 +54,7 @@ public class TmsUtils {
                 returnValue.append(field.get(reference));
                 returnValue.append(", ");
             } catch (Exception exception) {
-                logger.error("%s can not be converted into string ", reference.getClass().getName());
+                logger.error(String.format("%s can not be converted into string ", reference.getClass().getName()));
                 exception.printStackTrace();
             }
         }

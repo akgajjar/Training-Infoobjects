@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head><i appLoadScript [script] = "'../../assets/js/jquery.min.js'"></i></head>
+<body style = "min-height: 100vh; height : auto ;">
+  <app-header></app-header>
+	<div class="heading">
+		<h1>Tuition Management System</h1>
+	</div>
+	<div class="container">
+		<div class="link-container">
+			<h3>
+				<a routerLink = "/teacher/insert">Insert Teacher</a>
+			</h3>
+
+			<h3>
+				<a routerLink= "/student/insert">Insert Student</a>
+			</h3>
+			<h3>
+				<a routerLink = "/teacherStudent/insert">Insert Mapping with Student</a>
+			</h3>
+			<br>
+			<br>
+			<h3>
+				<a routerLink = "/student/showAll">Show All Students</a>
+			</h3>
+			<h3>
+				<a routerLink = "/teacher/showAll">Show All Teachers</a>
+			</h3>
+			<h3>
+				<a routerLink = "/teacherStudent/showStudentsByTeacherIdForm">Show All Students for	Teacher Id</a>
+			</h3>
+			<h3>
+				<a routerLink = "/teacherStudent/showAll">Show All TeacherStudent	Mapping</a>
+			</h3>
+		</div>
+	</div>
+</body>
+</html>

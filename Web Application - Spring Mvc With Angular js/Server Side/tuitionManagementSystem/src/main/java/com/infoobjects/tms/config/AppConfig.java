@@ -7,22 +7,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScans;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.hibernate5.HibernateTemplate;
-import org.springframework.orm.hibernate5.HibernateTransactionManager;
-import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.orm.hibernate4.HibernateTemplate;
+import org.springframework.orm.hibernate4.HibernateTransactionManager;
+import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-
+import static org.hibernate.cfg.AvailableSettings.DRIVER;
+import static org.hibernate.cfg.AvailableSettings.PASS;
+import static org.hibernate.cfg.AvailableSettings.URL;
+import static org.hibernate.cfg.AvailableSettings.USER;
 import static org.hibernate.cfg.Environment.*;
 import static com.infoobjects.tms.utils.ConfigurationAndGenericConstants.*;
 
-@Configuration
+@org.springframework.context.annotation.Configuration
 @PropertySource(value = propertySourcePath)
 @EnableTransactionManagement
 @ComponentScans(value = { @ComponentScan(basePackages = servicePackageName), 
@@ -44,7 +46,7 @@ public class AppConfig {
 
 	private Properties getHibernateProperties() {
 		Properties properties = new Properties();
-
+				
 		// setting hibernate Properties
 		properties.put(SHOW_SQL, env.getProperty(SHOW_SQL));
 		properties.put(DIALECT, env.getProperty(DIALECT));
@@ -57,11 +59,26 @@ public class AppConfig {
 		properties.put(C3P0_ACQUIRE_INCREMENT, env.getProperty(C3P0_ACQUIRE_INCREMENT));
 		properties.put(C3P0_TIMEOUT, env.getProperty(C3P0_TIMEOUT));
 		properties.put(C3P0_MAX_STATEMENTS, env.getProperty(C3P0_MAX_STATEMENTS));
+		
 		return properties;
 	}
 
 	@Bean
 	public SessionFactory getSessionFactory() {
+		/*
+		 * SessionFactory sessionFactory = null ; try { Configuration configuration =
+		 * new Configuration(); configuration.setProperties(getHibernateProperties());
+		 * configuration.addAnnotatedClass(Student.class);
+		 * configuration.addAnnotatedClass(Teacher.class); ServiceRegistry
+		 * serviceRegistry = new StandardServiceRegistryBuilder()
+		 * .applySettings(configuration.getProperties()).build();
+		 * 
+		 * sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+		 * 
+		 * } catch(Exception e) {e.printStackTrace();}
+		 * 
+		 * return sessionFactory;
+		 */
 		LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
 
 		factoryBean.setHibernateProperties(getHibernateProperties());

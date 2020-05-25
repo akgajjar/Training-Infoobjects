@@ -1,4 +1,4 @@
-<%@page import="com.infoobjects.tms.utils.TmsUtils"%>
+<%@page import="com.infoobjects.tms.utils.TeacherUtils"%>
 <%@page import="com.infoobjects.tms.entity.Teacher"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -32,7 +32,7 @@
 				<td class="data">${teacher.teacherName}</td>
 			</tr>
 			<tr>
-				<td class="b">Class :</td>
+				<td class="b">Designation :</td>
 				<td class="data">${teacher.teacherDesignation}</td>
 			</tr>
 			<tr>
@@ -52,7 +52,7 @@
 				<td class="data">${teacher.teacherSalary}</td>
 			</tr>
 		</table>
-		<form action="/tms${TmsUtils.showAllTeachersMapping}">
+		<form action="/tms${TeacherUtils.showAllTeachersMapping}">
 			<div class="btn">
 				<input type="submit" name="button" id="btnform" value="BACK" />
 			</div>

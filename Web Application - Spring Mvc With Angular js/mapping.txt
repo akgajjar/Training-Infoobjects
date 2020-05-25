@@ -1,0 +1,50 @@
+Student : 
+
+-> insert
+http://localhost:8080/tms/student - post
+
+-> delete
+http://localhost:8080/tms/student/{studentId} - delete
+
+-> Update
+http://localhost:8080/tms/student/{studentId} - put
+
+-> get all student
+http://localhost:8080/tms/student - get
+
+-> get Student by id
+http://localhost:8080/tms/student/{studentId} - get
+
+Teacher : 
+
+-> insert
+http://localhost:8080/tms/teacher - post
+
+-> delete
+http://localhost:8080/tms/teacher/{teacherId} - delete
+
+-> Update
+http://localhost:8080/tms/teacher/{teacherId} - put
+
+-> get all teacher
+http://localhost:8080/tms/teacher - get
+
+-> get Teachers by id
+http://localhost:8080/tms/teacher/{teacherId} - get
+
+TeacherStudent : 
+
+-> insert
+http://localhost:8080/tms/teacherStudent - post
+
+-> delete
+http://localhost:8080/tms//teacherStudent/{studentId}/{teacherId} - delete
+
+-> get all teacherstudent
+http://localhost:8080/tms/teacherStudent - get
+
+-> get Students by TeacherId
+http://localhost:8080/tms/teacherStudent/students/{teacherId} - get
+
+-> get Teachers by StudentId
+http://localhost:8080/tms//teacherStudent/teachers/{studentId} - get

@@ -40,11 +40,11 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<Teacher> {
 	public void insert(Teacher teacherDTO) {
 		try {
 			genericDAO.insert(teacherDTO);
-			logger.info("Teacher is Saved Sucessfully, Data : %s ", teacherDTO);
+			logger.info(String.format("Teacher is Saved Sucessfully, Data : %s ", teacherDTO));
 		} catch (DataAccessException dataAccessException) {
-			logger.error("Teacher is not Saved Successfully, Data : %s %nError Occured : %s", teacherDTO, dataAccessException.fillInStackTrace().toString());
+			logger.error(String.format("Teacher is not Saved Successfully, Data : %s %nError Occured : %s", teacherDTO, dataAccessException.fillInStackTrace().toString()));
 		} catch (Exception exception) {
-			logger.error("Teacher is not Saved Successfully, Data : %s %nError Occured : %s", teacherDTO, exception.fillInStackTrace().toString());
+			logger.error(String.format("Teacher is not Saved Successfully, Data : %s %nError Occured : %s", teacherDTO, exception.fillInStackTrace().toString()));
 		}
 	}
 
@@ -57,11 +57,11 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<Teacher> {
 	public void delete(String id) {
 		try {
 			genericDAO.delete(id, Teacher.class);
-			logger.info("Teacher is Deleted Successfully, Id : %s ", id);
+			logger.info(String.format("Teacher is Deleted Successfully, Id : %s ", id));
 		} catch (DataAccessException dataAccessException) {
-			logger.error("Teacher is not Deleted Successfully, Id : %s %nError Occured : %s", id, dataAccessException.fillInStackTrace().toString());
+			logger.error(String.format("Teacher is not Deleted Successfully, Id : %s %nError Occured : %s", id, dataAccessException.fillInStackTrace().toString()));
 		} catch (Exception exception) {
-			logger.error("Teacher is not Deleted Successfully, Id : %s %nError Occured : %s", id, exception.fillInStackTrace().toString());
+			logger.error(String.format("Teacher is not Deleted Successfully, Id : %s %nError Occured : %s", id, exception.fillInStackTrace().toString()));
 		}
 	}
 
@@ -76,11 +76,11 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<Teacher> {
 		Teacher teacher = null;
 		try {
 			teacher = genericDAO.find(id, Teacher.class);
-			logger.info("Teacher is Found Successfully, Id = %s %n", id);
+			logger.info(String.format("Teacher is Found Successfully, Id = %s %n", id));
 		} catch (DataAccessException dataAccessException) {
-			logger.error("Teacher is not Found Successfully, id = %s %nError Occured : %s", id, dataAccessException.fillInStackTrace().toString());
+			logger.error(String.format("Teacher is not Found Successfully, id = %s %nError Occured : %s", id, dataAccessException.fillInStackTrace().toString()));
 		} catch (Exception exception) {
-			logger.error("Teacher is not Found Successfully, id = %s %nError Occured : %s", id, exception.fillInStackTrace().toString());
+			logger.error(String.format("Teacher is not Found Successfully, id = %s %nError Occured : %s", id, exception.fillInStackTrace().toString()));
 		}
 		return teacher;
 	}
@@ -94,11 +94,11 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<Teacher> {
 	public void update(Teacher teacherDTO) {
 		try {
 			genericDAO.update(teacherDTO);
-			logger.info("Teacher is Updated Successfully, Data : %s", teacherDTO);
+			logger.info(String.format("Teacher is Updated Successfully, Data : %s", teacherDTO));
 		} catch (DataAccessException dataAccessException) {
-			logger.error("Teacher is not Updated Successfully, Data : %s %nError Occured : %s", teacherDTO, dataAccessException.fillInStackTrace().toString());
+			logger.error(String.format("Teacher is not Updated Successfully, Data : %s %nError Occured : %s", teacherDTO, dataAccessException.fillInStackTrace().toString()));
 		} catch (Exception exception) {
-			logger.error("Teacher is not Updated Successfully, Data : %s %nError Occured : %s", teacherDTO, exception.fillInStackTrace().toString());
+			logger.error(String.format("Teacher is not Updated Successfully, Data : %s %nError Occured : %s", teacherDTO, exception.fillInStackTrace().toString()));
 		}
 	}
 
@@ -114,9 +114,9 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<Teacher> {
 			teachers = genericDAO.findAll(Teacher.class);
 			logger.info("Teachers is Found Successfully");
 		} catch (DataAccessException dataAccessException) {
-			logger.error("Teachers is not Found Successfully, Error Occured : %s", dataAccessException);
+			logger.error(String.format("Teachers is not Found Successfully, Error Occured : %s", dataAccessException));
 		} catch (Exception exception) {
-			logger.error("Teachers is not Found Successfully, Error Occured : %s", exception);
+			logger.error(String.format("Teachers is not Found Successfully, Error Occured : %s", exception));
 		}
 		return teachers;
 	}

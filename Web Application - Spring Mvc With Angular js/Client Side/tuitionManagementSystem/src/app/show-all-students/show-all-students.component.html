@@ -1,0 +1,51 @@
+<html>
+<head>
+
+  <i appLoadScript [script]="'../../assets/js/datatable/jquery.dataTables.min.js'"></i>
+  <i appLoadScript [script]="'../../assets/js/tablejs/datatables.min.js'"></i>
+  <i appLoadScript [script]="'../../assets/js/datatable/dataTables.bootstrap.min.js'"></i>
+  <i appLoadScript [script]="'../../assets/js/datatable/dataTables.buttons.min.js'"></i>
+  <i appLoadScript [script]="'../../assets/js/datatable/buttons.bootstrap.min.js'"></i>
+  <i appLoadScript [script]="'../../assets/js/datatable/jszip.min.js'"></i>
+  <i appLoadScript [script]="'../../assets/js/datatable/pdfmake.min.js'"></i>
+  <i appLoadScript [script]="'../../assets/js/datatable/vfs_fonts.js'"></i>
+  <i appLoadScript [script]="'../../assets/js/datatable/buttons.html5.min.js'"></i>
+  <i appLoadScript [script]="'../../assets/js/datatable/buttons.print.min.js'"></i>
+  <i appLoadScript [script]="'../../assets/js/datatable/buttons.colVis.min.js'"></i>
+  <i appLoadScript [script]="'../../assets/js/datatable/my.datatable.js'"></i>
+</head>
+<body style = "min-height: 100vh; height : auto ;">
+  <app-header></app-header>
+	<h1 align = "center" style = "margin: 1 em; color: #141414;">
+		<b>Show All Students</b>
+	</h1>
+	<br />
+	<br />
+
+	<table cellpadding="10" id = "example" class = "display">
+		<thead>
+			<tr>
+          <th>Student Id</th>
+          <th>Student Name</th>
+          <th>Student Class</th>
+          <th>View Full Details</th>
+          <th>View Teacher Name</th>
+          <th>Update</th>
+          <th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+				<tr>
+            <td>12345</td>
+            <td>Aniket</td>
+            <td>12</td>
+            <input type= "button" class = "btn btn-success" value  = "View Full Details" routerLink = "/student/showFullDetails">
+            <input type= "button" class = "btn btn-success" value  = "View Teacher Name" routerLink = "/student/showTeacherName">
+            <input type= "button" class = "btn btn-success" value  = "Update" routerLink = "/student/update">
+            <input type= "button" class = "btn btn-success" value  = "Delete">
+				</tr>
+		</tbody>
+	</table>
+</body>
+
+</html>

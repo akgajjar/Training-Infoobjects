@@ -32,7 +32,7 @@
 				<td class="data">${teacher.teacherName}</td>
 			</tr>
 			<tr>
-				<td class="b">Class :</td>
+				<td class="b">Designation :</td>
 				<td class="data">${teacher.teacherDesignation}</td>
 			</tr>
 			<tr>

@@ -1,0 +1,53 @@
+<html>
+
+<head><i appLoadScript [script]="'../../assets/js/jquery.min.js'"></i></head>
+
+<body style = "min-height: 100vh; height : auto ;">
+  <app-header></app-header>
+  <div class="heading">
+    <h1>Insert Teacher Student Mapping</h1>
+  </div>
+  <div class="container">
+    <div class="form">
+      <form method="post" action="#" id="teacherStudentForm">
+
+        <div class="clear"></div>
+        <div class="form-options1">
+          <label class="head">Student</label>
+          <select name="studentId" class="category1" id="studentId">
+            <!--onchange="getTeacherMapping();"-->
+            <option value="">---Select Student---</option>
+            <option value="${student.studentId }">Aniket(123)</option>
+            ]
+          </select>
+        </div>
+
+        <div class="clear"></div>
+        <div class="form-options1">
+          <label class="head">Teacher</label>
+          <div id="teacher">
+            <select name="teacherId" class="category1" id="teacherId">
+              <option value="">---Select Teacher---</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="clear"></div>
+        <div class="butn">
+          <input type="submit" name="action" value="Insert Teacher Student Mapping">
+        </div>
+        <div class="clear"></div>
+        <div class="butn">
+          <input type="reset" name="action" value="Reset">
+        </div>
+
+        <div class="clear"></div>
+        <div class="butn">
+          <input type="button" name="action" value="Back" routerLink = "/index">
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

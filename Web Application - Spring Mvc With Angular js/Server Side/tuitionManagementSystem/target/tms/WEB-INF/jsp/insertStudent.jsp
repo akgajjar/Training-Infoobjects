@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@page import=" com.infoobjects.tms.utils.TmsUtils"%>
+<%@page import=" com.infoobjects.tms.utils.StudentUtils"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
@@ -24,7 +24,7 @@
 
 	<div class="container">
 		<div class="form">
-			<form method="post" action="/tms${TmsUtils.insertStudentMapping}" id="studentForm">
+			<form method="post" action="/tms${StudentUtils.insertStudentMapping}" id="studentForm">
 
 				<div class="clear"></div>
 				<div class="form-text">
@@ -106,7 +106,7 @@
 				<div class="clear"></div>
 				<div class="butn">
 					<input type="button" name="action" value="Back"
-						onclick="document.location = '/tms${TmsUtils.homeMapping}'">
+						onclick="document.location = '/tms${StudentUtils.homeMapping}'">
 				</div>
 			</form>
 		</div>
