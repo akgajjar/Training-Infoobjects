@@ -9,43 +9,43 @@
   </div>
   <div class="container">
     <div class="form">
-      <form method="post" action="#" id="teacherForm">
+      <form>
 
         <div class="clear"></div>
         <div class="form-text">
-          <label class="head">Name</label> <input name="teacherName" id="teacherName" type="text"
+          <label class="head">Name</label>
+          <input type="text" [(ngModel)]="teacher.teacherName" name="teacherName"
             placeholder="Enter Teacher Name" />
         </div>
 
         <div class="clear"></div>
         <div class="form-text">
-          <label class="head">Address</label> <input name="teacherAddress" id="teacherAddress" type="text"
+          <label class="head">Address</label> <input [(ngModel)]="teacher.teacherAddress" name="teacherAddress" type="text"
             placeholder="Enter Teacher Address" />
         </div>
 
         <div class="clear"></div>
         <div class="form-text">
-          <label class="head">Mobile</label> <input name="teacherMobile" id="teacherMobile" type="text"
+          <label class="head">Mobile</label> <input [(ngModel)]="teacher.teacherMobile" type="text" name="teacherMobile"
             placeholder="Enter Teacher Mobile no" />
         </div>
 
         <div class="clear"></div>
         <div class="form-text">
-          <label class="head">Email Id</label> <input name="teacherEmailId" id="teacherEmailId" type="text"
+          <label class="head">Email Id</label> <input [(ngModel)]="teacher.teacherEmailId" type="text" name="teacherEmailId"
             placeholder="Enter Teacher Email Id" />
         </div>
 
         <div class="clear"></div>
         <div class="form-text">
-          <label class="head">Salary</label> <input name="teacherSalary" id="teacherSalary" type="text"
+          <label class="head">Salary</label> <input [(ngModel)]="teacher.teacherSalary" type="text" name="teacherSalary"
             placeholder="Enter Teacher Salary" />
         </div>
 
         <div class="clear"></div>
         <div class="form-options1">
-          <label class="head">Designation</label> <select class="category1" id="teacherDesignation"
-            name="teacherDesignation">
-            <option value="">---Select Designation---</option>
+          <label class="head">Designation</label> <select class="category1" [(ngModel)]="teacher.teacherDesignation" name="teacherDesignation">
+            <option value="" [selected]="true">---Select Designation---</option>
             <option value="PROFESSOR">Professor</option>
             <option value="TEACHING_ASSISTANCE">Teaching Assistance</option>
             <option value="LAB_STAFF">Lab Staff</option>
@@ -54,7 +54,7 @@
 
         <div class="clear"></div>
         <div class="butn">
-          <input type="submit" name="action" value="Insert Teacher">
+          <input type="button" name="action" value="Insert Teacher" (click)="insertTeacher();">
         </div>
         <div class="clear"></div>
         <div class="butn">

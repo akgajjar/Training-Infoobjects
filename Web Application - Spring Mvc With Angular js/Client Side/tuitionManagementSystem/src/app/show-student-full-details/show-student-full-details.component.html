@@ -12,31 +12,31 @@
         </tr>
         <tr>
           <td class="b">Student Id :</td>
-          <td class="data">12123435</td>
+          <td class="data">{{student.studentId}}</td>
         </tr>
         <tr>
           <td class="b">Name :</td>
-          <td class="data">Aniket</td>
+          <td class="data">{{student.studentName}}</td>
         </tr>
         <tr>
           <td class="b">Class :</td>
-          <td class="data">12</td>
+          <td class="data">{{student.studentClass}}</td>
         </tr>
         <tr>
           <td class="b">Address:</td>
-          <td class="data">Ahemdabad</td>
+          <td class="data">{{student.studentAddress}}</td>
         </tr>
         <tr>
           <td class="b">Mobile :</td>
-          <td class="data">9106447228</td>
+          <td class="data">{{student.studentMobile}}</td>
         </tr>
         <tr>
           <td class="b">Email :</td>
-          <td class="data">Aniket@gmail.com</td>
+          <td class="data">{{student.studentEmailId}}</td>
         </tr>
         <tr>
           <td class="b">Gender :</td>
-          <td class="data">Male</td>
+          <td class="data">{{student.studentGender}}</td>
         </tr>
         <tr>
         </tr>
@@ -47,23 +47,23 @@
         </tr>
         <tr>
           <td class="b">Parents Name :</td>
-          <td class="data">Kalpnaben</td>
+          <td class="data">{{student.studentParentName}}</td>
         </tr>
         <tr>
           <td class="b">Parents Mobile :</td>
-          <td class="data">9662300408</td>
+          <td class="data">{{student.studentParentMobile}}</td>
         </tr>
         <tr>
           <td class="b">Parents Email :</td>
-          <td class="data">kk@gmail.com</td>
+          <td class="data">{{student.studentParentEmailId}}</td>
         </tr>
         <tr>
           <td class="b">Reference Name :</td>
-          <td class="data">YEsha</td>
+          <td class="data">{{student.studentReferenceName}}</td>
         </tr>
       </table>
         <div class="btn">
-          <input type="button" name="button" id="btnform" value="BACK" routerLink = "/student/showAll"/>
+          <input type="button" name="button" id="btnform" value="BACK" (click)="showAllStudents()"/>
         </div>
 
     </div>

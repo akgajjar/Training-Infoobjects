@@ -40,11 +40,11 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<Teacher> {
 	public void insert(Teacher teacherDTO) {
 		try {
 			genericDAO.insert(teacherDTO);
-			logger.info(String.format("Teacher is Saved Sucessfully, Data : %s ", teacherDTO));
+			logger.info(String.format("Teacher is Saved Sucessfully, teacherId : %s ", teacherDTO.getTeacherId()));
 		} catch (DataAccessException dataAccessException) {
-			logger.error(String.format("Teacher is not Saved Successfully, Data : %s %nError Occured : %s", teacherDTO, dataAccessException.fillInStackTrace().toString()));
+			logger.error(String.format("Teacher is not Saved Successfully, teacherId : %s %nError Occured : %s", teacherDTO.getTeacherId(), dataAccessException.fillInStackTrace().toString()));
 		} catch (Exception exception) {
-			logger.error(String.format("Teacher is not Saved Successfully, Data : %s %nError Occured : %s", teacherDTO, exception.fillInStackTrace().toString()));
+			logger.error(String.format("Teacher is not Saved Successfully, teacherId : %s %nError Occured : %s", teacherDTO.getTeacherId(), exception.fillInStackTrace().toString()));
 		}
 	}
 
@@ -54,14 +54,14 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<Teacher> {
 	 * @param id Teacher's Id
 	 */
 	@Override
-	public void delete(String id) {
+	public void delete(String teacherId) {
 		try {
-			genericDAO.delete(id, Teacher.class);
-			logger.info(String.format("Teacher is Deleted Successfully, Id : %s ", id));
+			genericDAO.delete(teacherId, Teacher.class);
+			logger.info(String.format("Teacher is Deleted Successfully, teacherId : %s ", teacherId));
 		} catch (DataAccessException dataAccessException) {
-			logger.error(String.format("Teacher is not Deleted Successfully, Id : %s %nError Occured : %s", id, dataAccessException.fillInStackTrace().toString()));
+			logger.error(String.format("Teacher is not Deleted Successfully, teacherId : %s %nError Occured : %s", teacherId, dataAccessException.fillInStackTrace().toString()));
 		} catch (Exception exception) {
-			logger.error(String.format("Teacher is not Deleted Successfully, Id : %s %nError Occured : %s", id, exception.fillInStackTrace().toString()));
+			logger.error(String.format("Teacher is not Deleted Successfully, teacherId : %s %nError Occured : %s", teacherId, exception.fillInStackTrace().toString()));
 		}
 	}
 
@@ -72,15 +72,15 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<Teacher> {
 	 * @return Teacher
 	 */
 	@Override
-	public Teacher find(String id) {
+	public Teacher find(String teacherId) {
 		Teacher teacher = null;
 		try {
-			teacher = genericDAO.find(id, Teacher.class);
-			logger.info(String.format("Teacher is Found Successfully, Id = %s %n", id));
+			teacher = genericDAO.find(teacherId, Teacher.class);
+			logger.info(String.format("Teacher is Found Successfully, teacherId = %s %n", teacherId));
 		} catch (DataAccessException dataAccessException) {
-			logger.error(String.format("Teacher is not Found Successfully, id = %s %nError Occured : %s", id, dataAccessException.fillInStackTrace().toString()));
+			logger.error(String.format("Teacher is not Found Successfully, teacherId = %s %nError Occured : %s", teacherId, dataAccessException.fillInStackTrace().toString()));
 		} catch (Exception exception) {
-			logger.error(String.format("Teacher is not Found Successfully, id = %s %nError Occured : %s", id, exception.fillInStackTrace().toString()));
+			logger.error(String.format("Teacher is not Found Successfully, teacherId = %s %nError Occured : %s", teacherId, exception.fillInStackTrace().toString()));
 		}
 		return teacher;
 	}
@@ -94,11 +94,11 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<Teacher> {
 	public void update(Teacher teacherDTO) {
 		try {
 			genericDAO.update(teacherDTO);
-			logger.info(String.format("Teacher is Updated Successfully, Data : %s", teacherDTO));
+			logger.info(String.format("Teacher is Updated Successfully, teacherId : %s", teacherDTO.getTeacherId()));
 		} catch (DataAccessException dataAccessException) {
-			logger.error(String.format("Teacher is not Updated Successfully, Data : %s %nError Occured : %s", teacherDTO, dataAccessException.fillInStackTrace().toString()));
+			logger.error(String.format("Teacher is not Updated Successfully, teacherId : %s %nError Occured : %s", teacherDTO.getTeacherId(), dataAccessException.fillInStackTrace().toString()));
 		} catch (Exception exception) {
-			logger.error(String.format("Teacher is not Updated Successfully, Data : %s %nError Occured : %s", teacherDTO, exception.fillInStackTrace().toString()));
+			logger.error(String.format("Teacher is not Updated Successfully, teacherId : %s %nError Occured : %s", teacherDTO.getTeacherId(), exception.fillInStackTrace().toString()));
 		}
 	}
 

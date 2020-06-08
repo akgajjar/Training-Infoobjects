@@ -24,6 +24,9 @@ import com.infoobjects.tms.entity.Teacher;
 import com.infoobjects.tms.service.interfaces.TeacherServiceIncrement;
 
 import static com.infoobjects.tms.utils.TmsUtils.*;
+
+import java.util.List;
+
 import static com.infoobjects.tms.utils.ConfigurationAndGenericConstants.*;
 import static com.infoobjects.tms.utils.StudentUtils.getStudentByStudentIdMapping;
 import static com.infoobjects.tms.utils.StudentUtils.studentToDisplayAllData;
@@ -49,7 +52,7 @@ public class TeacherController {
      * @return ResponseEntity<HttpResponse>
      */
     @PostMapping(value = insertTeacherMapping, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<HttpResponse> insertTeacher(@ModelAttribute Teacher teacher) {
+    public ResponseEntity<HttpResponse> insertTeacher(@RequestBody Teacher teacher) {
     	
         // Generate UUID(Unique Random String) for Student Id
         teacher.setTeacherId(uuidGeneration());
@@ -67,8 +70,8 @@ public class TeacherController {
      * @return ResponseEntity<DisplayAllData>
      */
     @GetMapping(value = getAllTeachersMapping)
-    public ResponseEntity<DisplayAllData> showAllTeachers(ModelAndView modelAndView) {
-    	return ResponseEntity.ok().body(teacherToDisplayAllData(teacherService.findAll()));
+    public ResponseEntity<List<Teacher>> getAllTeachers() {
+    	return ResponseEntity.ok().body(teacherService.findAll());
     }
 
     /**

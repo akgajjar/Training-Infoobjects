@@ -39,11 +39,11 @@ public class StudentServiceImpl implements StudentServiceIncrement<Student> {
 	public void insert(Student studentDTO) {
 		try {
 			genericDAO.insert(studentDTO);
-			logger.info(String.format("Student is Saved Sucessfully, Data : %s ", studentDTO));
+			logger.info(String.format("Student is Saved Sucessfully, studentId : %s ", studentDTO.getStudentId()));
 		} catch (DataAccessException dataAccessException) {
-			logger.error(String.format("Student is not Saved Successfully, Data : %s %nError Occured : %s", studentDTO, dataAccessException.fillInStackTrace().toString()));
+			logger.error(String.format("Student is not Saved Successfully, studentId : %s %nError Occured : %s", studentDTO.getStudentId(), dataAccessException.fillInStackTrace().toString()));
 		} catch (Exception exception) {
-			logger.error(String.format("Student is not Saved Successfully, Data : %s %nError Occured : %s", studentDTO, exception.fillInStackTrace().toString()));
+			logger.error(String.format("Student is not Saved Successfully, studentId : %s %nError Occured : %s", studentDTO.getStudentId(), exception.fillInStackTrace().toString()));
 		}
 	}
 
@@ -53,14 +53,14 @@ public class StudentServiceImpl implements StudentServiceIncrement<Student> {
 	 * @param id Student's Id
 	 */
 	@Override
-	public void delete(String id) {
+	public void delete(String studentId) {
 		try {
-			genericDAO.delete(id, Student.class);
-			logger.info(String.format("Student is Deleted Successfully, Id : %s ",  id));
+			genericDAO.delete(studentId, Student.class);
+			logger.info(String.format("Student is Deleted Successfully, Id : %s ",  studentId));
 		} catch (DataAccessException dataAccessException) {
-			logger.error(String.format("Student is not Deleted Successfully, Id : %s %nError Occured : %s", id, dataAccessException.fillInStackTrace().toString()));
+			logger.error(String.format("Student is not Deleted Successfully, studentId : %s %nError Occured : %s", studentId, dataAccessException.fillInStackTrace().toString()));
 		} catch (Exception exception) {
-			logger.error(String.format("Student is not Deleted Successfully, Id : %s %nError Occured : %s", id, exception.fillInStackTrace().toString()));
+			logger.error(String.format("Student is not Deleted Successfully, studentId : %s %nError Occured : %s", studentId, exception.fillInStackTrace().toString()));
 		}
 	}
 
@@ -71,15 +71,15 @@ public class StudentServiceImpl implements StudentServiceIncrement<Student> {
 	 * @return Student
 	 */
 	@Override
-	public Student find(String id) {
+	public Student find(String studentId) {
 		Student student = null;
 		try {
-			student = genericDAO.find(id, Student.class);
-			logger.info(String.format("Student is Found Successfully, Id = %s %n", id));
+			student = genericDAO.find(studentId, Student.class);
+			logger.info(String.format("Student is Found Successfully, Id = %s %n", studentId));
 		} catch (DataAccessException dataAccessException) {
-			logger.error(String.format("Student is not Found Successfully, id = %s %nError Occured : %s", id, dataAccessException.fillInStackTrace().toString()));
+			logger.error(String.format("Student is not Found Successfully, studentId = %s %nError Occured : %s", studentId, dataAccessException.fillInStackTrace().toString()));
 		} catch (Exception exception) {
-			logger.error(String.format("Student is not Found Successfully, id = %s %nError Occured : %s", id, exception.fillInStackTrace().toString()));
+			logger.error(String.format("Student is not Found Successfully, studentId = %s %nError Occured : %s", studentId, exception.fillInStackTrace().toString()));
 		}
 		return student;
 	}
@@ -93,11 +93,11 @@ public class StudentServiceImpl implements StudentServiceIncrement<Student> {
 	public void update(Student studentDTO) {
 		try {
 			genericDAO.update(studentDTO);
-			logger.info(String.format("Student is Updated Successfully, Data : %s", studentDTO));
+			logger.info(String.format("Student is Updated Successfully, studentId : ", studentDTO.getStudentId()));
 		} catch (DataAccessException dataAccessException) {
-			logger.error(String.format("Student is not Updated Successfully, Data : %s %nError Occured : %s", studentDTO, dataAccessException.fillInStackTrace().toString()));
+			logger.error(String.format("Student is not Updated Successfully, studentId : %s %nError Occured : %s", studentDTO.getStudentId(), dataAccessException.fillInStackTrace().toString()));
 		} catch (Exception exception) {
-			logger.error(String.format("Student is not Updated Successfully, Data : %s %nError Occured : %s", studentDTO, exception.fillInStackTrace().toString()));
+			logger.error(String.format("Student is not Updated Successfully, studentId : %s %nError Occured : %s", studentDTO.getStudentId(), exception.fillInStackTrace().toString()));
 		}
 	}
 

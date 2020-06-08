@@ -57,6 +57,24 @@ public class TeacherStudentController {
 	}
 
 	/**
+	 *  Api used to get Students for Mapping
+	 * @return ResponseEntity<List<Student>>
+	 */
+	@GetMapping(value = getDataForMapping)
+	public ResponseEntity<List<Student>> getStudentsForMapping()  {
+		return ResponseEntity.ok().body(teacherStudentService.getStudentsForMapping());
+	}
+
+	/**
+	 *  Api used to get Teachers for Mapping
+	 * @return ResponseEntity<List<Student>>
+	 */
+	@GetMapping(value = getDataForMapping + "/{studentId}")
+	public ResponseEntity<List<Teacher>> getTeachersForMapping(@PathVariable("studentId") String studentId)  {
+		return ResponseEntity.ok().body(teacherStudentService.getTeachersForMapping(studentId));
+	}
+
+	/**
 	 *  Api used to get Students for Specific Teacher Id
 	 * @param teacherId Teacher's Id
 	 * @return ResponseEntity<List<Student>>
@@ -81,8 +99,8 @@ public class TeacherStudentController {
 	 * @return modelAndView
 	 */
 	@GetMapping(value = getAllTeacherStudentMapping)
-	public ResponseEntity<DisplayAllData> getAllTeacherStudents()  {
-		return ResponseEntity.ok().body(teacherStudentToDisplayAllData(teacherStudentService.findAll()));
+	public ResponseEntity<List<TeacherStudent>> getAllTeacherStudents()  {
+		return ResponseEntity.ok().body(teacherStudentService.findAll());
 	}
 
 	/**

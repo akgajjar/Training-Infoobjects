@@ -34,6 +34,12 @@ http://localhost:8080/tms/teacher/{teacherId} - get
 
 TeacherStudent : 
 
+->get Students for mapping
+http://localhost:8080/tms/teacherStudent/mapping - get
+
+-> get Teachers for mapping 
+http://localhost:8080/tms/teacherStudent/mapping/studentId} - get
+
 -> insert
 http://localhost:8080/tms/teacherStudent - post
 
@@ -48,3 +54,11 @@ http://localhost:8080/tms/teacherStudent/students/{teacherId} - get
 
 -> get Teachers by StudentId
 http://localhost:8080/tms//teacherStudent/teachers/{studentId} - get
+
+
+
+
+
+
+
+

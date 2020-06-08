@@ -9,16 +9,14 @@
   </div>
   <div class="container">
     <div class="form">
-      <form method="post" action="#" id="teacherStudentForm">
+      <form>
 
         <div class="clear"></div>
         <div class="form-options1">
           <label class="head">Student</label>
-          <select name="studentId" class="category1" id="studentId">
-            <!--onchange="getTeacherMapping();"-->
-            <option value="">---Select Student---</option>
-            <option value="${student.studentId }">Aniket(123)</option>
-            ]
+          <select class="category1" [(ngModel)]="teacherStudent.studentId" name="studentId" (change)="getTeachersForMapping();">
+            <option value="" [selected]="true">---Select Student---</option>
+            <option *ngFor="let student of students" [value]="student.studentId">{{student.studentName}}({{student.studentId}})</option>
           </select>
         </div>
 
@@ -26,24 +24,25 @@
         <div class="form-options1">
           <label class="head">Teacher</label>
           <div id="teacher">
-            <select name="teacherId" class="category1" id="teacherId">
-              <option value="">---Select Teacher---</option>
+            <select class="category1" [(ngModel)]="teacherStudent.teacherId" name="teacherId">
+              <option value="" [selected]="true">---Select Teacher---</option>
+              <option *ngFor="let teacher of teachers" [value]="teacher.teacherId">{{teacher.teacherName}}({{teacher.teacherId}})</option>
             </select>
           </div>
         </div>
 
         <div class="clear"></div>
         <div class="butn">
-          <input type="submit" name="action" value="Insert Teacher Student Mapping">
+          <input type="button" (click)="insertTeacherStudent();" value="Insert Teacher Student Mapping">
         </div>
         <div class="clear"></div>
         <div class="butn">
-          <input type="reset" name="action" value="Reset">
+          <input type="reset" value="Reset">
         </div>
 
         <div class="clear"></div>
         <div class="butn">
-          <input type="button" name="action" value="Back" routerLink = "/index">
+          <input type="button" value="Back" routerLink = "/index">
         </div>
       </form>
     </div>

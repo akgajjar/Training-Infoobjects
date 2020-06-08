@@ -1,5 +1,6 @@
 package com.infoobjects.tms.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.infoobjects.tms.dto.interfaces.DTO;
 import com.infoobjects.tms.enums.Gender;
 import com.infoobjects.tms.utils.TmsUtils;
@@ -29,6 +30,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "Student", schema = "tms")
+@JsonIgnoreProperties(value= {"teachers"})
 public class Student implements DTO {
 
 	/**

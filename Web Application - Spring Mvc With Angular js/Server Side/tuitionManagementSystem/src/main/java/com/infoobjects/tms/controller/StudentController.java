@@ -2,6 +2,7 @@ package com.infoobjects.tms.controller;
 
 import static com.infoobjects.tms.utils.TmsUtils.*;
 
+import java.util.List;
 
 import static com.infoobjects.tms.utils.StudentUtils.*;
 import static com.infoobjects.tms.utils.ConfigurationAndGenericConstants.*;
@@ -65,8 +66,8 @@ public class StudentController {
 	 * @return ResponseEntity<DisplayAllData>
  	 */
 	@GetMapping(value = getAllStudentsMapping)
-	public ResponseEntity<DisplayAllData> getAllStudents() {
-		return ResponseEntity.ok().body(studentToDisplayAllData(studentService.findAll()));
+	public ResponseEntity<List<Student>> getAllStudents() {
+		return ResponseEntity.ok().body(studentService.findAll());
 	}
 
 	/**

@@ -9,6 +9,8 @@ import { map, catchError } from 'rxjs/operators';
 })
 export class StudentService {
 
+  students :Student[];
+
   constructor(private _httpService : HttpClient) { }
 
   getStudents() : Observable<Student[]>{

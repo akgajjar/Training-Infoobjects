@@ -1,4 +1,4 @@
-export class teacher{
+export class TeacherStudent{
   teacherId : string;
   teacherName : string;
   studentId : string;
