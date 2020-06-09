@@ -53,7 +53,7 @@ http://localhost:8080/tms/teacherStudent - get
 http://localhost:8080/tms/teacherStudent/students/{teacherId} - get
 
 -> get Teachers by StudentId
-http://localhost:8080/tms//teacherStudent/teachers/{studentId} - get
+http://localhost:8080/tms/teacherStudent/teachers/{studentId} - get
 
 
 

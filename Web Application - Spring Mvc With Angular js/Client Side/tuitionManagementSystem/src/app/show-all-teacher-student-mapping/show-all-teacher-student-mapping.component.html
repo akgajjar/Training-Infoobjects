@@ -1,6 +1,6 @@
 <html>
 <head>
-
+  <i appLoadScript [script]="'../../assets/js/jquery.min.js'"></i>
   <i appLoadScript [script]="'../../assets/js/datatable/jquery.dataTables.min.js'"></i>
   <i appLoadScript [script]="'../../assets/js/tablejs/datatables.min.js'"></i>
   <i appLoadScript [script]="'../../assets/js/datatable/dataTables.bootstrap.min.js'"></i>
@@ -13,6 +13,7 @@
   <i appLoadScript [script]="'../../assets/js/datatable/buttons.print.min.js'"></i>
   <i appLoadScript [script]="'../../assets/js/datatable/buttons.colVis.min.js'"></i>
   <i appLoadScript [script]="'../../assets/js/datatable/my.datatable.js'"></i>
+  <i appLoadScript [script]="'../../assets/js/datatable/kitAwasome.js'"></i>
 </head>
 <body style = "min-height: 100vh; height : auto ;">
   <app-header></app-header>
@@ -33,12 +34,12 @@
 			</tr>
 		</thead>
 		<tbody>
-				<tr>
-            <td>12345</td>
-            <td>Aniket</td>
-            <td>12345</td>
-            <td>Aniket</td>
-            <input type= "button" class = "btn btn-success" value  = "Delete">
+				<tr *ngFor="let teacherStudent of teacherStudents">
+            <td>{{teacherStudent.studentId}}</td>
+            <td>{{teacherStudent.studentName}}</td>
+            <td>{{teacherStudent.teacherId}}</td>
+            <td>{{teacherStudent.teacherName}}</td>
+            <td><input type= "button" class = "btn btn-success" value  = "Delete" (click)="deleteTeacherStudent()"></td>
 				</tr>
 		</tbody>
 	</table>

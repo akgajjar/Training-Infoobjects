@@ -11,14 +11,13 @@
           <td class="head">Teacher Id</td>
           <td class="head">Name</td>
         </tr>
-         <tr>
-            <td class="b">12345</td>
-            <td class="data">Aniket Gajjar</td>
+         <tr *ngFor = "let teacher of teachers">
+            <td class="b">{{teacher.teacherId}}</td>
+            <td class="data">{{teacher.teacherName}}</td>
           </tr>
-
       </table>
-        <div class="btn">
-          <input type="button" name="button" id="btnform" value="BACK" routerLink = "/student/showAll">
+        <div class="butn">
+          <input type="button" name="button" id="btnform" value="BACK" style="width : 10% ;" (click) = "showAllStudents()">
         </div>
     </div>
   </body>

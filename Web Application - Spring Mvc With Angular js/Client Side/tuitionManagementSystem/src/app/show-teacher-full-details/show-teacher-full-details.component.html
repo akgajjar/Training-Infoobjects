@@ -12,35 +12,35 @@
         </tr>
         <tr>
           <td class="b">Teacher Id :</td>
-          <td class="data">12345</td>
+          <td class="data">{{teacher.teacherId}}</td>
         </tr>
         <tr>
           <td class="b">Name :</td>
-          <td class="data">Kalpnaben</td>
+          <td class="data">{{teacher.teacherName}}</td>
         </tr>
         <tr>
           <td class="b">Designation :</td>
-          <td class="data">Lab Staff</td>
+          <td class="data">{{teacher.teacherDesignation}}</td>
         </tr>
         <tr>
           <td class="b">Address:</td>
-          <td class="data">Ahemdabad</td>
+          <td class="data">{{teacher.teacherDesignation}}</td>
         </tr>
         <tr>
           <td class="b">Mobile :</td>
-          <td class="data">9662300408</td>
+          <td class="data">{{teacher.teacherMobile}}</td>
         </tr>
         <tr>
           <td class="b">Email :</td>
-          <td class="data">Kalpanaben@gmail.com</td>
+          <td class="data">{{teacher.teacherEmailId}}</td>
         </tr>
         <tr>
           <td class="b">Salary :</td>
-          <td class="data">2500</td>
+          <td class="data">{{teacher.teacherSalary}}</td>
         </tr>
       </table>
-        <div class="btn">
-          <input type="button" name="button" id="btnform" value="BACK" routerLink = "/teacher/showAll">
+        <div class="butn">
+          <input type="button" name="button" id="btnform" style="width : 10% ;" value="BACK" (click)="showAllTeachers()">
         </div>
     </div>
   </body>

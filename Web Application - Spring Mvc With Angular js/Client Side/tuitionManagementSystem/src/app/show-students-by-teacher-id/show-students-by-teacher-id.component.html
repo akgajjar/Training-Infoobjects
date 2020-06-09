@@ -11,16 +11,14 @@
           <td class="head">Student Id</td>
           <td class="head">Name</td>
         </tr>
-          <tr>
-            <td class="b">123243</td>
-            <td class="data">Aniket Gajjar</td>
+          <tr *ngFor="let student of students">
+            <td class="b">{{student.studentId}}</td>
+            <td class="data">{{student.studentName}}</td>
           </tr>
        </table>
-      <form action="#">
-        <div class="btn">
-          <input type="submit" name="button" id="btnform" value="BACK"  routerLink = "/index"/>
+        <div class="butn">
+          <input type="submit" name="button" id="btnform" value="BACK" (click)="showAllTeachers()">
         </div>
-      </form>
     </div>
   </body>
 

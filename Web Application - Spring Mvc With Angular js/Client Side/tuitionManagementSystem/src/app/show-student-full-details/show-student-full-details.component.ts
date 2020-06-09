@@ -12,14 +12,29 @@ import { Router } from '@angular/router';
 })
 export class ShowStudentFullDetailsComponent implements OnInit {
 
-  @Input('selectedStudent')student : Student;
+  selectedStudent : Student;
 
   constructor(
     private _studentService: StudentService,
     private _router: Router
-  ) {}
+  ) {
+    this.selectedStudent = new Student();
+    this.getStudentById();
+ }
 
   ngOnInit(): void {
+  }
+
+  getStudentById () {
+    this._studentService.getStudentById(this._studentService.studentId).subscribe(
+      (studentData) => {
+        (this.selectedStudent = studentData), console.log(studentData);
+        this._studentService.studentId = '';
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   showAllStudents(){

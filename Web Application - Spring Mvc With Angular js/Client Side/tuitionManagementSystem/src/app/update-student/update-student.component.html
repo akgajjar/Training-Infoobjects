@@ -12,37 +12,37 @@
 
           <div class="clear"></div>
           <div class="form-text">
-            <label class="head">Name</label> <input name="studentName"
-              type="text" id = "studentName" placeholder="Enter Student Name" />
+            <label class="head">Name</label> <input name="studentName" [(ngModel)]="student.studentName"
+              type="text" placeholder="Enter Student Name" />
           </div>
 
           <div class="clear"></div>
           <div class="form-text">
-            <label class="head">Class</label> <input name="studentClass"
-              type="text" id = "studentClass" placeholder="Enter Student Class" />
+            <label class="head">Class</label> <input name="studentClass" [(ngModel)]="student.studentClass"
+              type="text" placeholder="Enter Student Class" />
           </div>
 
           <div class="clear"></div>
           <div class="form-text">
-            <label class="head">Address</label> <input name="studentAddress"
-              type="text" id = "studentAddress" placeholder="Enter Student Address" />
+            <label class="head">Address</label> <input name="studentAddress" [(ngModel)]="student.studentAddress"
+              type="text" placeholder="Enter Student Address" />
           </div>
 
           <div class="clear"></div>
           <div class="form-text">
-            <label class="head">Mobile</label> <input name="studentMobile"
+            <label class="head">Mobile</label> <input name="studentMobile" [(ngModel)]="student.studentMobile"
               type="text" id = "studentMobile" placeholder="Enter Student Mobile" />
           </div>
 
           <div class="clear"></div>
           <div class="form-text">
-            <label class="head">Email</label> <input name="studentEmailId"
+            <label class="head">Email</label> <input name="studentEmailId" [(ngModel)]="student.studentEmailId"
               type="text" id = "studentEmailId" placeholder="Enter Student Email Id" />
           </div>
 
           <div class="clear"></div>
           <div class="form-options1">
-            <label class="head">Gender</label> <select name="studentGender" id = "studentGender"
+            <label class="head">Gender</label> <select name="studentGender" id = "studentGender" [(ngModel)]="student.studentGender"
               class="category1">
               <option value="">---Select Gender---</option>
               <option value="MALE">Male</option>
@@ -53,34 +53,34 @@
           <div class="clear"></div>
           <div class="form-text">
             <label class="head">Parent Name</label> <input
-              name="studentParentName" type="text" id = "studentParentName"
+              name="studentParentName" type="text" [(ngModel)]="student.studentParentName"
               placeholder="Enter Student's Parent Name" />
           </div>
 
           <div class="clear"></div>
           <div class="form-text">
             <label class="head">Parent Mobile</label> <input
-              name="studentParentMobile" type="text" id = "studentParentMobile"
+              name="studentParentMobile" type="text" [(ngModel)]="student.studentParentMobile"
               placeholder="Enter tudent's Parent Mobile no" />
           </div>
 
           <div class="clear"></div>
           <div class="form-text">
             <label class="head">Parent Email</label> <input
-              name="studentParentEmailId" type="text" id = "studentParentEmailId"
+              name="studentParentEmailId" type="text" [(ngModel)]="student.studentParentEmailId"
               placeholder="Enter Student's Parent Email Id" />
           </div>
 
           <div class="clear"></div>
           <div class="form-text">
             <label class="head">Reference Name</label> <input
-              name="studentReferenceName" type="text" id = "studentReferenceName"
+              name="studentReferenceName" type="text" [(ngModel)]="student.studentReferenceName"
               placeholder="Enter Student's Reference Name" />
           </div>
 
           <div class="clear"></div>
           <div class="butn">
-            <input type="submit" name="action" value="Update Student">
+            <input type="submit" name="action" value="Update Student" (click) = "updateStudent()">
           </div>
           <div class="clear"></div>
           <div class="butn">
@@ -89,7 +89,7 @@
 
           <div class="clear"></div>
           <div class="butn">
-            <input type="button" name="action" value="Back" routerLink = "/student/showAll">
+            <input type="button" name="action" value="Back" (click) = "showAllStudents()">
           </div>
         </form>
       </div>

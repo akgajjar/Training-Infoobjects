@@ -1,3 +1,4 @@
+import { Teacher } from './../DTO/Teacher';
 import { Student } from '../DTO/Student';
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpResponse, HttpHeaders, HttpParams,HttpEvent,HttpErrorResponse} from "@angular/common/http";
@@ -9,7 +10,8 @@ import { map, catchError } from 'rxjs/operators';
 })
 export class StudentService {
 
-  students :Student[];
+  students : Student[];
+  studentId : string;
 
   constructor(private _httpService : HttpClient) { }
 
@@ -43,6 +45,14 @@ export class StudentService {
 
   getStudentById(studentId : string): Observable<Student>{
     return this._httpService.get<Student>("http://localhost:8080/tms/student/" + studentId)
+    .pipe(map(response  => response),  catchError((error: HttpResponse<Student>) => {
+     console.log(error);
+     return Observable.throw(error);
+   }));
+  }
+
+  getTeacherName(studentId : string){
+    return this._httpService.get<Teacher[]>("http://localhost:8080/tms/teacherStudent/teachers/" + studentId)
     .pipe(map(response  => response),  catchError((error: HttpResponse<Student>) => {
      console.log(error);
      return Observable.throw(error);

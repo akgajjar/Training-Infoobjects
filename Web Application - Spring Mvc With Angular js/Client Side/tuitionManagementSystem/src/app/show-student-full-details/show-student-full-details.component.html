@@ -12,31 +12,31 @@
         </tr>
         <tr>
           <td class="b">Student Id :</td>
-          <td class="data">{{student.studentId}}</td>
+          <td class="data">{{selectedStudent.studentId}}</td>
         </tr>
         <tr>
           <td class="b">Name :</td>
-          <td class="data">{{student.studentName}}</td>
+          <td class="data">{{selectedStudent.studentName}}</td>
         </tr>
         <tr>
           <td class="b">Class :</td>
-          <td class="data">{{student.studentClass}}</td>
+          <td class="data">{{selectedStudent.studentClass}}</td>
         </tr>
         <tr>
           <td class="b">Address:</td>
-          <td class="data">{{student.studentAddress}}</td>
+          <td class="data">{{selectedStudent.studentAddress}}</td>
         </tr>
         <tr>
           <td class="b">Mobile :</td>
-          <td class="data">{{student.studentMobile}}</td>
+          <td class="data">{{selectedStudent.studentMobile}}</td>
         </tr>
         <tr>
           <td class="b">Email :</td>
-          <td class="data">{{student.studentEmailId}}</td>
+          <td class="data">{{selectedStudent.studentEmailId}}</td>
         </tr>
         <tr>
           <td class="b">Gender :</td>
-          <td class="data">{{student.studentGender}}</td>
+          <td class="data">{{selectedStudent.studentGender}}</td>
         </tr>
         <tr>
         </tr>
@@ -47,25 +47,27 @@
         </tr>
         <tr>
           <td class="b">Parents Name :</td>
-          <td class="data">{{student.studentParentName}}</td>
+          <td class="data">{{selectedStudent.studentParentName}}</td>
         </tr>
         <tr>
           <td class="b">Parents Mobile :</td>
-          <td class="data">{{student.studentParentMobile}}</td>
+          <td class="data">{{selectedStudent.studentParentMobile}}</td>
         </tr>
         <tr>
           <td class="b">Parents Email :</td>
-          <td class="data">{{student.studentParentEmailId}}</td>
+          <td class="data">{{selectedStudent.studentParentEmailId}}</td>
         </tr>
         <tr>
           <td class="b">Reference Name :</td>
-          <td class="data">{{student.studentReferenceName}}</td>
+          <td class="data">{{selectedStudent.studentReferenceName}}</td>
         </tr>
       </table>
-        <div class="btn">
-          <input type="button" name="button" id="btnform" value="BACK" (click)="showAllStudents()"/>
+        <div class="butn">
+          <input type="button" name="button" id="btnform" style="width : 10% ;" value="BACK" (click)="showAllStudents()"/>
         </div>
-
     </div>
+    <br>
+        <br>
+        <br>
   </body>
 </html>

@@ -1,4 +1,8 @@
+import { TeacherStudentService } from './../service/teacher-student-service.service';
+import { Teacher } from './../DTO/Teacher';
+import { StudentService } from './../service/student-service.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-show-teacher-name',
@@ -9,9 +13,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowTeacherNameComponent implements OnInit {
 
-  constructor() { }
+  teachers : Teacher[];
+
+
+  constructor( private _studentService: StudentService,
+    private _teacherStudentService : TeacherStudentService,
+    private _router: Router) {
+      this.getTeachers(this._studentService.studentId);
+      this._studentService.studentId = '';
+    }
+
+    getTeachers(studentId){
+      this._teacherStudentService.getTeacherName(studentId).subscribe((teachers) => {
+        this.teachers = teachers;
+        console.log(teachers);
+      })
+    }
 
   ngOnInit(): void {
   }
 
+  showAllStudents(){
+    this._studentService.getStudents().subscribe(
+      (studentData) => {
+        (this._studentService.students = studentData), console.log(studentData);this._router.navigate(['/student/showAll']);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+    }
 }

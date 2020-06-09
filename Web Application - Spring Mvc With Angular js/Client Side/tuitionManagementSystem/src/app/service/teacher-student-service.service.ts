@@ -11,6 +11,8 @@ import { map, catchError } from 'rxjs/operators';
 })
 export class TeacherStudentService {
 
+  teacherStudents : TeacherStudent[];
+
   constructor(private _httpService : HttpClient) { }
 
   getStudentsForMapping() : Observable<Student[]>{
@@ -36,5 +38,18 @@ export class TeacherStudentService {
     console.log(body);
     return this._httpService.post("http://localhost:8080/tms/teacherStudent", body, options);
   }
+
+  getTeacherStudents() : Observable<TeacherStudent[]>{
+    return this._httpService.get<TeacherStudent[]>("http://localhost:8080/tms/teacherStudent")
+      .pipe(map(response  => response),  catchError((error: HttpResponse<TeacherStudent[]>) => {
+       console.log(error);
+       return Observable.throw(error);
+     }));
+  }
+
+  deleteTeacherStudent(studentId : string, teacherId : string){
+    return this._httpService.delete("http://localhost:8080/tms//teacherStudent/" + studentId + "/" + teacherId);
+  }
+
 
 }

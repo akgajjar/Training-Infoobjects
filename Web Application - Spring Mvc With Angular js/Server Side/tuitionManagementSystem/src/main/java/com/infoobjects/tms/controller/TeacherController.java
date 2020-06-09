@@ -107,8 +107,8 @@ public class TeacherController {
      * @param teacherId Teacher's Id
      * @return ResponseEntity<Teacher>
      */
-    @GetMapping(value = getStudentByStudentIdMapping + "{teacherId}")
-	public ResponseEntity<Teacher> getStudentByStudentId(@PathVariable("teacherId") String teacherId) {
+    @GetMapping(value = getTeacherByTeacherIdMapping + "{teacherId}")
+	public ResponseEntity<Teacher> getTeacherByTeacherId(@PathVariable("teacherId") String teacherId) {
 		return ResponseEntity.ok().body(teacherService.find(teacherId));
 	}
     

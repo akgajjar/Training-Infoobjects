@@ -1,4 +1,7 @@
+import { Teacher } from './../DTO/Teacher';
+import { TeacherService } from './../service/teacher-service.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-show-students-by-teacher-id-form',
@@ -8,9 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowStudentsByTeacherIdFormComponent implements OnInit {
 
-  constructor() { }
+  teachers : Teacher[];
+  teacherId : string;
+
+  constructor(private _router : Router,
+    private _teacherService : TeacherService) { }
 
   ngOnInit(): void {
+  }
+
+  showStudentsByTeacherId(){
+    this._teacherService.teacherId = this.teacherId;
+    this._router.navigate(['/teacherStudent/showStudentsByTeacherId']);
   }
 
 }

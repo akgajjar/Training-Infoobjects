@@ -11,19 +11,19 @@
 
     <div class="container">
       <div class="form">
-        <form method="get" action="#" id="showStudentsByTeacherIdForm">
+        <form>
 
           <div class="clear"></div>
           <div class="form-options1">
-            <label class="head">Teacher Id</label> <select name="teacherId" class="category1" id="teacherId">
+            <label class="head">Teacher Id</label> <select name="teacherId" class="category1" [(ngModel)]="teacherId">
               <option value="">---Select Teacher Id---</option>
-              <option value="${teacher.teacherId}">aniket(123345)</option>
+              <option *ngFor="let teacher of teachers" [value]="teacher.teacherId">{{teacher.teacherName}}({{teacher.teacherId}})</option>
             </select>
           </div>
 
           <div class="clear"></div>
           <div class="butn">
-            <input type="button" name="action" value="Show Students" routerLink = "/teacherStudent/showStudentsByTeacherId">
+            <input type="button" name="action" value="Show Students" (click)="showStudentsByTeacherId()" >
           </div>
           <div class="clear"></div>
           <div class="butn">

@@ -1,3 +1,4 @@
+import { TeacherStudentService } from './../service/teacher-student-service.service';
 import { Student } from './../DTO/Student';
 import { StudentService } from './../service/student-service.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
@@ -19,7 +20,7 @@ import { Router } from '@angular/router';
 export class ShowAllStudentsComponent implements OnInit {
   title: 'Tuition Management System';
   students: Student[];
-  selectedStudent : Student ;
+
   constructor(
     private _studentService: StudentService,
     private _router: Router
@@ -33,30 +34,48 @@ export class ShowAllStudentsComponent implements OnInit {
 
   viewFullDetails(studentId : string){
     console.log(studentId);
-    this._studentService.getStudentById(studentId).subscribe(
+    this._studentService.studentId = studentId;
+    this._router.navigate(['/student/showFullDetails']);
+  }
+
+  viewTeacherName(studentId : string){
+    console.log(studentId);
+    this._studentService.studentId = studentId;
+    this._router.navigate(['/student/showTeacherName']);
+  }
+
+  updateStudent(studentId : string){
+    console.log(studentId);
+    this._studentService.studentId = studentId;
+    this._router.navigate(['/student/update']);
+  }
+
+  showAllStudents(){
+    this._studentService.getStudents().subscribe(
       (studentData) => {
-        (this.selectedStudent = studentData), console.log(studentData);this._router.navigate(['/student/showFullDetails']);
+        (this._studentService.students = studentData), console.log(studentData);
+        this._router.navigateByUrl('/index').then(() => {
+            this._router.navigate(['/student/showAll']);
+        });
       },
       (error) => {
         console.log(error);
       }
     );
+    }
 
-    /* /student/showFullDetails */
-  }
-
-  viewTeacherName(studentId : string){
+  deleteStudent(studentId : string){
     console.log(studentId);
-    /* /student/showTeacherName */
-  }
 
-  update(studentId : string){
-    console.log(studentId);
-    /* /student/update */
-  }
-
-  delete(studentId : string){
-    console.log(studentId);
+    this._studentService.deleteStudent(studentId).subscribe(
+      (responseMessage) => {
+        console.log(responseMessage);
+        this.showAllStudents();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
 }
