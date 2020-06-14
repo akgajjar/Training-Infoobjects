@@ -2,15 +2,18 @@ package com.infoobjects.tms.service;
 
 import com.infoobjects.tms.dao.TmsDAOImpl;
 import com.infoobjects.tms.entity.Student;
+import com.infoobjects.tms.entity.Teacher;
 import com.infoobjects.tms.service.interfaces.StudentServiceIncrement;
 
 import java.util.List;
 
+import org.hibernate.Hibernate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author Aniket
@@ -29,13 +32,6 @@ public class StudentServiceImpl implements StudentServiceIncrement<Student> {
 	 */
 	@Autowired
 	private TmsDAOImpl<Student> genericDAO;
-
-	/**
-	 * setters
-	 */
-	public void setGenericDAO(TmsDAOImpl<Student> genericDAO) {
-		this.genericDAO = genericDAO;
-	}
 
 	/**
 	 * used to insert Student record into Database
@@ -125,6 +121,14 @@ public class StudentServiceImpl implements StudentServiceIncrement<Student> {
 			logger.error("Students is not Found Successfully, Error Occured : %s", exception);
 		}
 		return students;
+	}
+
+	@Override
+	@Transactional
+	public List<Teacher> getTeacherName(String studentId) {
+		Student student = find(studentId);
+		Hibernate.initialize(student.getTeachers());
+		return student.getTeachers();
 	}
 
 }

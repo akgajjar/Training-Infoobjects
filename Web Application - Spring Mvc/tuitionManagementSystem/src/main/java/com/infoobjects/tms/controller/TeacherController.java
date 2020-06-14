@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.infoobjects.tms.entity.Teacher;
 import com.infoobjects.tms.service.interfaces.TeacherServiceIncrement;
 
 import static com.infoobjects.tms.utils.TmsUtils.*;
+import static com.infoobjects.tms.utils.ConfigurationAndGenericConstants.*;
 import static com.infoobjects.tms.utils.TeacherUtils.*;
 
 /**
@@ -27,12 +29,6 @@ public class TeacherController {
     @Autowired
     private TeacherServiceIncrement<Teacher> teacherService;
 
-    /**
-     * setters
-     */
-    public void setTeacherService(TeacherServiceIncrement<Teacher> teacherService) {
-        this.teacherService = teacherService;
-    }
 
     /**
      *  Api used to get Insert Student form
@@ -54,7 +50,7 @@ public class TeacherController {
      */
     @RequestMapping(value = insertTeacherMapping, method = RequestMethod.POST)
     public ModelAndView insertTeacher(@ModelAttribute Teacher teacher, ModelAndView modelAndView) {
-
+    	
         // Generate UUID(Unique Random String) for Student Id
         teacher.setTeacherId(uuidGeneration());
         while (teacherService.find(teacher.getTeacherId()) != null) {
@@ -100,6 +96,7 @@ public class TeacherController {
      */
     @RequestMapping(value = updateTeacherMapping, method = RequestMethod.POST)
     public ModelAndView updateTeacher(@ModelAttribute Teacher teacher, ModelAndView modelAndView) {
+    	
         teacherService.update(teacher);
         modelAndView.setViewName("showAllGenericPage");
         modelAndView.addObject("displayAllData", teacherToDisplayAllData(teacherService.findAll()));
@@ -114,6 +111,7 @@ public class TeacherController {
      */
     @RequestMapping(value = deleteTeacherMapping + "{teacherId}", method = RequestMethod.POST)
     public ModelAndView delete(@PathVariable("teacherId") String teacherId, ModelAndView modelAndView) {
+    	
         teacherService.delete(teacherId);
         modelAndView.setViewName("showAllGenericPage");
         modelAndView.addObject("displayAllData", teacherToDisplayAllData(teacherService.findAll()));

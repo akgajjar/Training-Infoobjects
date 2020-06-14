@@ -7,23 +7,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.infoobjects.tms.dto.DisplayAllData;
+import com.infoobjects.tms.dto.HttpResponse;
 import com.infoobjects.tms.dto.TeacherStudent;
-import com.infoobjects.tms.entity.HttpResponse;
 import com.infoobjects.tms.entity.Student;
 import com.infoobjects.tms.entity.Teacher;
 import com.infoobjects.tms.service.interfaces.TeacherStudentServiceIncrement;
 
-import static com.infoobjects.tms.utils.StudentUtils.studentToDisplayAllData;
 import static com.infoobjects.tms.utils.TeacherStudentUtils.*;
 
 import java.util.List;
@@ -44,7 +37,7 @@ public class TeacherStudentController {
 
 
 	/**
-	 *  Api used to insert TeacherStudent Data into Database
+	 * Api used to insert TeacherStudent Data into Database
 	 * @param teacherStudent TeacherStudent Data
 	 * @return ResponseEntity<HttpResponse>
 	 */
@@ -57,7 +50,7 @@ public class TeacherStudentController {
 	}
 
 	/**
-	 *  Api used to get Students for Mapping
+	 * Api used to get Students for Mapping
 	 * @return ResponseEntity<List<Student>>
 	 */
 	@GetMapping(value = getDataForMapping)
@@ -66,7 +59,7 @@ public class TeacherStudentController {
 	}
 
 	/**
-	 *  Api used to get Teachers for Mapping
+	 * Api used to get Teachers for Mapping
 	 * @return ResponseEntity<List<Student>>
 	 */
 	@GetMapping(value = getDataForMapping + "/{studentId}")
@@ -75,7 +68,7 @@ public class TeacherStudentController {
 	}
 
 	/**
-	 *  Api used to get Students for Specific Teacher Id
+	 * Api used to get Students for Specific Teacher Id
 	 * @param teacherId Teacher's Id
 	 * @return ResponseEntity<List<Student>>
 	 */
@@ -85,7 +78,7 @@ public class TeacherStudentController {
 	}
 
 	/**
-	 *  Api used to get Teachers for Specific Student Id
+	 * Api used to get Teachers for Specific Student Id
 	 * @param studentId Student's Id
 	 * @return ResponseEntity<List<Teacher>>
 	 */
@@ -95,8 +88,8 @@ public class TeacherStudentController {
 	}
 	
 	/**
-	 *  Api used to get all TeacherStudent Mapping data
-	 * @return modelAndView
+	 * Api used to get all TeacherStudent Mapping data
+	 * @return ResponseEntity<List<TeacherStudent>>
 	 */
 	@GetMapping(value = getAllTeacherStudentMapping)
 	public ResponseEntity<List<TeacherStudent>> getAllTeacherStudents()  {
@@ -104,11 +97,11 @@ public class TeacherStudentController {
 	}
 
 	/**
-	 *  Api used to Delete TeacherStudent Mapping from Database
+	 * Api used to Delete TeacherStudent Mapping from Database
 	 * @param studentId Student's Id
 	 * @param teacherId Teacher's Id
 	 * @param modelAndView Store view name and Attributes value
-	 * @return modelAndView
+	 * @return ResponseEntity<HttpResponse>
 	 */
 	@DeleteMapping(value = deleteTeacherStudentMapping + "{studentId}/{teacherId}")
 	public ResponseEntity<HttpResponse> delete(@PathVariable("studentId") String studentId,@PathVariable("teacherId") String teacherId){

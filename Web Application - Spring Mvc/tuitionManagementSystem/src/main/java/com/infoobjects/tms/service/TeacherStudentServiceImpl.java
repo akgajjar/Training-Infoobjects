@@ -9,12 +9,15 @@ import org.hibernate.HibernateException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.infoobjects.tms.dto.TeacherStudent;
 import com.infoobjects.tms.entity.Student;
 import com.infoobjects.tms.entity.Teacher;
+import com.infoobjects.tms.service.interfaces.StudentServiceIncrement;
+import com.infoobjects.tms.service.interfaces.TeacherServiceIncrement;
 import com.infoobjects.tms.service.interfaces.TeacherStudentServiceIncrement;
 
 /**
@@ -22,6 +25,7 @@ import com.infoobjects.tms.service.interfaces.TeacherStudentServiceIncrement;
  * @description Service Class - used to Perform Data Transformation on
  *              TeacherStudent Data
  */
+@Service
 public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement<TeacherStudent> {
 
 	/**
@@ -34,25 +38,16 @@ public class TeacherStudentServiceImpl implements TeacherStudentServiceIncrement
 	 * TeacherStudent Mapping records
 	 */
 	@Autowired
-	private TeacherServiceImpl teacherService;
+	private TeacherServiceIncrement<Teacher> teacherService;
 
 	/**
 	 * StudentService Reference to Perform Database Operation on Student and it's
 	 * TeacherStudent Mapping records
 	 */
 	@Autowired
-	private StudentServiceImpl studentService;
+	private StudentServiceIncrement<Student> studentService;
 
-	/**
-	 * setters
-	 */
-	public void setTeacherService(TeacherServiceImpl teacherService) {
-		this.teacherService = teacherService;
-	}
 
-	public void setStudentService(StudentServiceImpl studentService) {
-		this.studentService = studentService;
-	}
 
 	/**
 	 * used to get all teacher's record which are not mapped with specific Student

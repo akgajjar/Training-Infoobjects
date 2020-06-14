@@ -6,7 +6,7 @@ import java.util.List;
  * @author Aniket
  * @description Service Interface - Common Service methods
  */
-public interface Service<String, T> {
+public interface Service<T> {
 
     void insert(T dto);
 

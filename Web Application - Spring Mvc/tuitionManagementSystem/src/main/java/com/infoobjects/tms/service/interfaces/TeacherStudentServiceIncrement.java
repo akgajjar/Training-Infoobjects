@@ -9,7 +9,7 @@ import com.infoobjects.tms.entity.Teacher;
  * @author Aniket
  * @description Service Interface - Specific Service methods related to TeacherStudent Mapping
  */
-public interface TeacherStudentServiceIncrement<DTO> extends Service<String, DTO> {
+public interface TeacherStudentServiceIncrement<DTO> extends Service<DTO> {
 
 	
 	List<Teacher> getTeachersForMapping(String studentId);

@@ -2,7 +2,7 @@
 
   <head><i appLoadScript [script]="'../../assets/js/jquery.min.js'"></i></head>
 
-  <body  style = "min-height: 100vh; height : auto ;">
+  <body style="min-height: 100vh; height : auto ;">
     <app-header></app-header>
     <div class="heading">
       <h1>Show Students By Teacher Id</h1>
@@ -11,19 +11,24 @@
 
     <div class="container">
       <div class="form">
-        <form>
+        <form #showStudentsByTeacherIdForm="ngForm">
 
           <div class="clear"></div>
           <div class="form-options1">
-            <label class="head">Teacher Id</label> <select name="teacherId" class="category1" [(ngModel)]="teacherId">
+            <label class="head">Teacher Id</label> <select name="teacherId" class="category1" [(ngModel)]="teacherId"
+              #teacherIdModel="ngModel" required>
               <option value="">---Select Teacher Id---</option>
-              <option *ngFor="let teacher of teachers" [value]="teacher.teacherId">{{teacher.teacherName}}({{teacher.teacherId}})</option>
+              <option *ngFor="let teacher of teachers" [value]="teacher.teacherId">
+                {{teacher.teacherName}}({{teacher.teacherId}})</option>
             </select>
+            <small class="error-display" [class.d-none]="teacherIdModel.valid || teacherIdModel.untouched">Please Select
+              a Teacher Id.</small>
           </div>
 
           <div class="clear"></div>
           <div class="butn">
-            <input type="button" name="action" value="Show Students" (click)="showStudentsByTeacherId()" >
+            <input type="button" name="action" value="Show Students"
+              (click)="showStudentsByTeacherId(showStudentsByTeacherIdForm.form.valid)">
           </div>
           <div class="clear"></div>
           <div class="butn">
@@ -32,7 +37,7 @@
 
           <div class="clear"></div>
           <div class="butn">
-            <input type="button" name="action" value="Back" routerlink = "/index">
+            <input type="button" name="action" value="Back" routerlink="/index">
           </div>
         </form>
       </div>

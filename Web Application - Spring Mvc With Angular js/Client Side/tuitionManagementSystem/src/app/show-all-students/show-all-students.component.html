@@ -25,7 +25,7 @@
     <br />
     <br />
 
-    <table cellpadding="10" id="example" class="display" >
+    <table cellpadding="10" id="example" class="display">
       <thead>
         <tr>
           <th>Student Id</th>
@@ -42,9 +42,11 @@
           <td>{{student.studentId}}</td>
           <td>{{student.studentName}}</td>
           <td>{{student.studentClass}}</td>
-          <td><input type="button" class="btn btn-success" value="View Full Details" (click)="viewFullDetails(student.studentId)">
+          <td><input type="button" class="btn btn-success" value="View Full Details"
+              (click)="viewFullDetails(student.studentId)">
           </td>
-          <td><input type="button" class="btn btn-success" value="View Teacher Name" (click)="viewTeacherName(student.studentId)">
+          <td><input type="button" class="btn btn-success" value="View Teacher Name"
+              (click)="viewTeacherName(student.studentId)">
           </td>
           <td><input type="button" class="btn btn-success" value="Update" (click)="updateStudent(student.studentId)">
           </td>

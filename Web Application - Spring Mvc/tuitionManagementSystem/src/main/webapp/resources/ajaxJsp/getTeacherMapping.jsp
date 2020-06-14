@@ -1,3 +1,5 @@
+<%@page import="com.infoobjects.tms.dto.TeacherStudent"%>
+<%@page import="com.infoobjects.tms.service.interfaces.TeacherStudentServiceIncrement"%>
 <%@page import="com.infoobjects.tms.service.TeacherStudentServiceImpl"%>
 <%@page import="com.infoobjects.tms.service.StudentServiceImpl"%>
 <%@page import="com.infoobjects.tms.entity.Teacher"%>
@@ -17,7 +19,7 @@
 	}
 	else{
 		ApplicationContext applicationContext =  WebApplicationContextUtils.getWebApplicationContext(getServletContext());
-		TeacherStudentServiceImpl teacherStudentService = (TeacherStudentServiceImpl)applicationContext.getBean("teacherStudentServiceImpl");
+		TeacherStudentServiceIncrement<TeacherStudent> teacherStudentService = (TeacherStudentServiceIncrement<TeacherStudent>)applicationContext.getBean("teacherStudentServiceImpl");
 		List<Teacher> teachers = teacherStudentService.getTeachersForMapping(studentId);
 		
 		out.println("select name=\"teacherId\" class=\"category1\" id=\"teacherId\"><option value=\"\">---Select Teacher---</option>");

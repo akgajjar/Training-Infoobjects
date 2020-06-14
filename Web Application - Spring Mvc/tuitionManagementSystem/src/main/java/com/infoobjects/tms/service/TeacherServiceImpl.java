@@ -30,12 +30,6 @@ public class TeacherServiceImpl implements TeacherServiceIncrement<Teacher> {
 	@Autowired
 	private TmsDAOImpl<Teacher> genericDAO;
 
-	/**
-	 * setters
-	 */
-	public void setGenericDAO(TmsDAOImpl<Teacher> genericDAO) {
-		this.genericDAO = genericDAO;
-	}
 
 	/**
 	 * used to insert Student record into Database

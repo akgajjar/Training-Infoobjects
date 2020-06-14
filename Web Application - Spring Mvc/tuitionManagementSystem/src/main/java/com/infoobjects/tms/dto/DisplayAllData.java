@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.infoobjects.tms.dto.interfaces.DTO;
-import com.infoobjects.tms.utils.TmsUtils;
 
 /**
  * @author Aniket
@@ -33,6 +32,17 @@ public class DisplayAllData implements DTO {
 		this.buttonsHeaders = buttonsHeaders;
 		this.dataToDisplay = dataToDisplay;
 		this.displayAllDataHeading = displayAllDataHeading;
+	}
+
+	/**
+	 * toString method to display DisplayAllData's data
+	 * 
+	 * @return String
+	 */
+	@Override
+	public String toString() {
+		return "DisplayAllData [dataHeaders=" + dataHeaders + ", buttonsHeaders=" + buttonsHeaders + ", dataToDisplay="
+				+ dataToDisplay + ", displayAllDataHeading=" + displayAllDataHeading + "]";
 	}
 
 	/**
@@ -68,16 +78,6 @@ public class DisplayAllData implements DTO {
 
 	public void setDisplayAllDataHeading(String displayAllDataHeading) {
 		this.displayAllDataHeading = displayAllDataHeading;
-	}
-
-	/**
-	 * toString method to display DisplayAllData's data
-	 * 
-	 * @return String
-	 */
-	@Override
-	public String toString() {
-		return TmsUtils.genericToString(this);
 	}
 
 }

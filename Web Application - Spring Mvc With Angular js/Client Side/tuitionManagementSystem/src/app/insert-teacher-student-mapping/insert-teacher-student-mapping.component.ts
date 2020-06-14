@@ -1,3 +1,4 @@
+import { Constants } from './../app-constants';
 import { TeacherStudent } from './../DTO/TeacherStudent';
 import { Student } from './../DTO/Student';
 import { Teacher } from './../DTO/Teacher';
@@ -15,6 +16,7 @@ import { Router } from '@angular/router';
   templateUrl: './insert-teacher-student-mapping.component.html',
   styleUrls: [
     './insert-teacher-student-mapping.component.css',
+    '../../assets/css/bootstrap.css',
     '../../assets/css/style.css',
   ],
 })
@@ -22,12 +24,16 @@ export class InsertTeacherStudentMappingComponent implements OnInit {
   title: 'Tuition Management System';
   teachers: Teacher[];
   students: Student[];
-  teacherStudent = new TeacherStudent();
+  teacherStudent: TeacherStudent;
 
   constructor(
     private _teacherStudentService: TeacherStudentService,
     private _router: Router
-  ) {}
+  ) {
+    this.teacherStudent = new TeacherStudent();
+    this.teacherStudent.studentId = '';
+    this.teacherStudent.teacherId = '';
+  }
 
   ngOnInit(): void {
     this.getStudentsForMapping();
@@ -45,35 +51,41 @@ export class InsertTeacherStudentMappingComponent implements OnInit {
   }
 
   getTeachersForMapping() {
-    if (!(this.teacherStudent.studentId == '')) {
-      this._teacherStudentService.getTeachersForMapping(this.teacherStudent.studentId).subscribe(
-        (teacherData) => {
-          (this.teachers = teacherData), console.log(teacherData);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+    if (!(this.teacherStudent.studentId.length == 0)) {
+      this._teacherStudentService
+        .getTeachersForMapping(this.teacherStudent.studentId)
+        .subscribe(
+          (teacherData) => {
+            (this.teachers = teacherData), console.log(teacherData);
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
     } else {
       this.reset();
     }
   }
 
-  insertTeacherStudent(){
-    this._teacherStudentService.insertTeacherStudent(this.teacherStudent)
-    .subscribe((response) => {
-                console.log(response);
-                this.reset();
-                this.students = [];
-                this._router.navigate(['/index']);
-              }
-    ,(error) => {
-                console.log(error);
-    });
+  insertTeacherStudent(formState: boolean) {
+    if (formState) {
+      this._teacherStudentService
+        .insertTeacherStudent(this.teacherStudent)
+        .subscribe(
+          (response) => {
+            console.log(response);
+            this.reset();
+            this.students = [];
+            this._router.navigate([Constants.indexMapping]);
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+    }
   }
 
   private reset() {
     this.teachers = [];
   }
-
 }

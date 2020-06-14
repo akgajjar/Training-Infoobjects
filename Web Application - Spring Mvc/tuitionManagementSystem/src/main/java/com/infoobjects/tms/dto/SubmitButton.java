@@ -1,7 +1,6 @@
 package com.infoobjects.tms.dto;
 
 import com.infoobjects.tms.dto.interfaces.DTO;
-import com.infoobjects.tms.utils.TmsUtils;
 
 /**
  * @author Aniket
@@ -24,6 +23,17 @@ public class SubmitButton implements DTO {
 		this.formAction = formAction;
 		this.formMethod = formMethod;
 		this.buttonValue = buttonValue;
+	}
+
+	/**
+	 * toString method to display SubmitButton's data
+	 * 
+	 * @return String
+	 */
+	@Override
+	public String toString() {
+		return "SubmitButton [formAction=" + formAction + ", formMethod=" + formMethod + ", buttonValue=" + buttonValue
+				+ "]";
 	}
 
 	/**
@@ -51,16 +61,6 @@ public class SubmitButton implements DTO {
 
 	public void setButtonValue(String buttonValue) {
 		this.buttonValue = buttonValue;
-	}
-
-	/**
-	 * toString method to display SubmitButton's data
-	 * 
-	 * @return String
-	 */
-	@Override
-	public String toString() {
-		return TmsUtils.genericToString(this);
 	}
 
 }

@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.infoobjects.tms.dto.interfaces.DTO;
-import com.infoobjects.tms.utils.TmsUtils;
 
 /**
  * @author Aniket
@@ -37,7 +36,7 @@ public class Data implements DTO {
 	 */
 	@Override
 	public String toString() {
-		return TmsUtils.genericToString(this);
+		return "Data [data=" + data + ", submitButtons=" + submitButtons + "]";
 	}
 
 	/**

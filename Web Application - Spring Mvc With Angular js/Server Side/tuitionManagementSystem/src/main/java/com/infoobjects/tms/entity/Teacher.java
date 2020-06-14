@@ -3,7 +3,6 @@ package com.infoobjects.tms.entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.infoobjects.tms.dto.interfaces.DTO;
 import com.infoobjects.tms.enums.Designation;
-import com.infoobjects.tms.utils.TmsUtils;
 
 import java.util.List;
 
@@ -76,7 +75,9 @@ public class Teacher implements DTO {
 	 */
 	@Override
 	public String toString() {
-		return TmsUtils.genericToString(this);
+		return "Teacher [teacherId=" + teacherId + ", teacherName=" + teacherName + ", teacherAddress=" + teacherAddress
+				+ ", teacherMobile=" + teacherMobile + ", teacherEmailId=" + teacherEmailId + ", teacherDesignation="
+				+ teacherDesignation + ", teacherSalary=" + teacherSalary + "]";
 	}
 
 	/**

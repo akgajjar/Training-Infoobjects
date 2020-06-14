@@ -1,6 +1,8 @@
 <html>
-  <head><i appLoadScript [script] = "'../../assets/js/jquery.min.js'"></i></head>
-  <body style = "min-height: 100vh; height : auto ;">
+
+  <head><i appLoadScript [script]="'../../assets/js/jquery.min.js'"></i></head>
+
+  <body style="min-height: 100vh; height : auto ;">
     <app-header></app-header>
     <div class="heading">
       <h1>Show Full Details</h1>
@@ -39,9 +41,10 @@
           <td class="data">{{teacher.teacherSalary}}</td>
         </tr>
       </table>
-        <div class="butn">
-          <input type="button" name="button" id="btnform" style="width : 10% ;" value="BACK" (click)="showAllTeachers()">
-        </div>
+      <div class="butn">
+        <input type="button" name="button" id="btnform" style="width : 10% ;" value="BACK" (click)="showAllTeachers()">
+      </div>
     </div>
   </body>
+
 </html>

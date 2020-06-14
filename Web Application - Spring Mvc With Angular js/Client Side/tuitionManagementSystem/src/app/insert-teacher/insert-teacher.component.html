@@ -1,73 +1,113 @@
 <html>
 
-<head><i appLoadScript [script]="'../../assets/js/jquery.min.js'"></i></head>
+  <head><i appLoadScript [script]="'../../assets/js/jquery.min.js'"></i></head>
 
-<body style = "min-height: 100vh; height : auto ;">
-  <app-header></app-header>
-  <div class="heading">
-    <h1>Insert Teacher</h1>
-  </div>
-  <div class="container">
-    <div class="form">
-      <form>
-
-        <div class="clear"></div>
-        <div class="form-text">
-          <label class="head">Name</label>
-          <input type="text" [(ngModel)]="teacher.teacherName" name="teacherName"
-            placeholder="Enter Teacher Name" />
-        </div>
-
-        <div class="clear"></div>
-        <div class="form-text">
-          <label class="head">Address</label> <input [(ngModel)]="teacher.teacherAddress" name="teacherAddress" type="text"
-            placeholder="Enter Teacher Address" />
-        </div>
-
-        <div class="clear"></div>
-        <div class="form-text">
-          <label class="head">Mobile</label> <input [(ngModel)]="teacher.teacherMobile" type="text" name="teacherMobile"
-            placeholder="Enter Teacher Mobile no" />
-        </div>
-
-        <div class="clear"></div>
-        <div class="form-text">
-          <label class="head">Email Id</label> <input [(ngModel)]="teacher.teacherEmailId" type="text" name="teacherEmailId"
-            placeholder="Enter Teacher Email Id" />
-        </div>
-
-        <div class="clear"></div>
-        <div class="form-text">
-          <label class="head">Salary</label> <input [(ngModel)]="teacher.teacherSalary" type="text" name="teacherSalary"
-            placeholder="Enter Teacher Salary" />
-        </div>
-
-        <div class="clear"></div>
-        <div class="form-options1">
-          <label class="head">Designation</label> <select class="category1" [(ngModel)]="teacher.teacherDesignation" name="teacherDesignation">
-            <option value="" [selected]="true">---Select Designation---</option>
-            <option value="PROFESSOR">Professor</option>
-            <option value="TEACHING_ASSISTANCE">Teaching Assistance</option>
-            <option value="LAB_STAFF">Lab Staff</option>
-          </select>
-        </div>
-
-        <div class="clear"></div>
-        <div class="butn">
-          <input type="button" name="action" value="Insert Teacher" (click)="insertTeacher();">
-        </div>
-        <div class="clear"></div>
-        <div class="butn">
-          <input type="reset" name="action" value="Reset">
-        </div>
-
-        <div class="clear"></div>
-        <div class="butn">
-          <input type="button" name="action" value="Back" routerLink="/index">
-        </div>
-      </form>
+  <body style="min-height: 100vh; height : auto ;">
+    <app-header></app-header>
+    <div class="heading">
+      <h1>Insert Teacher</h1>
     </div>
-  </div>
-</body>
+    <div class="container">
+      <div class="form">
+        <form #teacherForm="ngForm">
+
+          <div class="clear"></div>
+          <div class="form-text">
+            <label class="head">Name</label>
+            <input type="text" [(ngModel)]="teacher.teacherName" #teacherName="ngModel" required maxlength="255"
+              pattern="^[A-Za-z ]+$" name="teacherName" placeholder="Enter Teacher Name" />
+            <div *ngIf="teacherName.errors && (teacherName.invalid && teacherName.touched)">
+              <small class="error-display" *ngIf="teacherName.errors.required">Please Enter a Teacher's Name.</small>
+              <small class="error-display" *ngIf="teacherName.errors.pattern">Please Alpha Characters Only.</small>
+              <small class="error-display" *ngIf="teacherName.errors.maxlength">Maximum 255 characters
+                allowed!.</small>
+            </div>
+          </div>
+
+          <div class="clear"></div>
+          <div class="form-text">
+            <label class="head">Address</label> <input [(ngModel)]="teacher.teacherAddress" name="teacherAddress"
+              #teacherAddress="ngModel" required maxlength="255" type="text" placeholder="Enter Teacher Address" />
+            <div *ngIf="teacherAddress.errors && (teacherAddress.invalid && teacherAddress.touched)">
+              <small class="error-display" *ngIf="teacherAddress.errors.required">Please Enter a Teacher's
+                Address.</small>
+              <small class="error-display" *ngIf="teacherAddress.errors.maxlength">Maximum 255 characters
+                allowed!.</small>
+            </div>
+          </div>
+
+          <div class="clear"></div>
+          <div class="form-text">
+            <label class="head">Mobile</label> <input [(ngModel)]="teacher.teacherMobile" type="text"
+              #teacherMobile="ngModel" required pattern="^[9876]\d{9}$" name="teacherMobile"
+              placeholder="Enter Teacher Mobile no" />
+            <div *ngIf="teacherMobile.errors && (teacherMobile.invalid && teacherMobile.touched)">
+              <small class="error-display" *ngIf="teacherMobile.errors.required">Please Enter a Teacher's
+                Mobile.</small>
+              <small class="error-display" *ngIf="teacherMobile.errors.pattern">Enter a Valid 10 Digit Indian Mobile
+                No.</small>
+            </div>
+          </div>
+
+          <div class="clear"></div>
+          <div class="form-text">
+            <label class="head">Email Id</label> <input [(ngModel)]="teacher.teacherEmailId" type="text"
+              #teacherEmailId="ngModel" required pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,3}$"
+              maxlength="255" name="teacherEmailId" placeholder="Enter Teacher Email Id" />
+            <div *ngIf="teacherEmailId.errors && (teacherEmailId.invalid && teacherEmailId.touched)">
+              <small class="error-display" *ngIf="teacherEmailId.errors.required">Please Enter a Teacher's Email
+                Id.</small>
+              <small class="error-display" *ngIf="teacherEmailId.errors.pattern">Please enter a valid email
+                address.</small>
+              <small class="error-display" *ngIf="teacherEmailId.errors.maxlength">Maximum 255 characters
+                allowed!.</small>
+            </div>
+          </div>
+
+          <div class="clear"></div>
+          <div class="form-text">
+            <label class="head">Salary</label> <input [(ngModel)]="teacher.teacherSalary" type="text"
+              #teacherSalary="ngModel" required maxlength="15" pattern="^[0-9]{1,9}$" name="teacherSalary"
+              placeholder="Enter Teacher Salary" />
+            <div *ngIf="teacherSalary.errors && (teacherSalary.invalid && teacherSalary.touched)">
+              <small class="error-display" *ngIf="teacherSalary.errors.required">Please Enter a Teacher's
+                Salary.</small>
+              <small class="error-display" *ngIf="teacherSalary.errors.pattern">Only Digits are Allowed.</small>
+              <small class="error-display" *ngIf="teacherSalary.errors.maxlength">Maximum 15 characters
+                allowed!.</small>
+            </div>
+          </div>
+
+          <div class="clear"></div>
+          <div class="form-options1">
+            <label class="head">Designation</label> <select class="category1" [(ngModel)]="teacher.teacherDesignation"
+              #teacherDesignation="ngModel" required name="teacherDesignation">
+              <option value="">---Select Designation---</option>
+              <option value="PROFESSOR">Professor</option>
+              <option value="TEACHING_ASSISTANCE">Teaching Assistance</option>
+              <option value="LAB_STAFF">Lab Staff</option>
+            </select>
+            <small class="error-display"
+              [class.d-none]="teacherDesignation.valid || teacherDesignation.untouched">Please Select
+              a Student's Designation.</small>
+          </div>
+
+          <div class="clear"></div>
+          <div class="butn">
+            <input type="button" name="action" value="Insert Teacher" (click)="insertTeacher(teacherForm.form.valid);">
+          </div>
+          <div class="clear"></div>
+          <div class="butn">
+            <input type="reset" name="action" value="Reset">
+          </div>
+
+          <div class="clear"></div>
+          <div class="butn">
+            <input type="button" name="action" value="Back" routerLink="/index">
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
 
 </html>

@@ -1,6 +1,5 @@
 package com.infoobjects.tms.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -8,18 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.infoobjects.tms.dto.DisplayAllData;
-import com.infoobjects.tms.entity.HttpResponse;
-import com.infoobjects.tms.entity.Student;
+import com.infoobjects.tms.dto.HttpResponse;
 import com.infoobjects.tms.entity.Teacher;
 import com.infoobjects.tms.service.interfaces.TeacherServiceIncrement;
 
@@ -27,9 +20,6 @@ import static com.infoobjects.tms.utils.TmsUtils.*;
 
 import java.util.List;
 
-import static com.infoobjects.tms.utils.ConfigurationAndGenericConstants.*;
-import static com.infoobjects.tms.utils.StudentUtils.getStudentByStudentIdMapping;
-import static com.infoobjects.tms.utils.StudentUtils.studentToDisplayAllData;
 import static com.infoobjects.tms.utils.TeacherUtils.*;
 
 /**
@@ -47,7 +37,7 @@ public class TeacherController {
     private TeacherServiceIncrement<Teacher> teacherService;
 
     /**
-     *  Api used to get Insert Teacher data into database
+     * Api used to get Insert Teacher data into database
      * @param teacher Teacher's Data
      * @return ResponseEntity<HttpResponse>
      */
@@ -66,8 +56,8 @@ public class TeacherController {
     }
 
     /**
-     *  Api used to get all Teacher's Data and redirect to Show all generic page
-     * @return ResponseEntity<DisplayAllData>
+     * Api used to get all Teacher's Data and redirect to Show all generic page
+     * @return ResponseEntity<List<Teacher>>
      */
     @GetMapping(value = getAllTeachersMapping)
     public ResponseEntity<List<Teacher>> getAllTeachers() {
@@ -75,7 +65,7 @@ public class TeacherController {
     }
 
     /**
-     *  Api used to Update Teacher into Database
+     * Api used to Update Teacher into Database
      * @param teacher Teacher's Data
      * @param teacherId Teacher's Id
      * @return ResponseEntity<HttpResponse>
@@ -90,7 +80,7 @@ public class TeacherController {
     }
 
     /**
-     *  Api used to Delete Teacher for Specific Teacher Id
+     * Api used to Delete Teacher for Specific Teacher Id
      * @param teacherId Teacher's Id
      * @return ResponseEntity<HttpResponse>
      */

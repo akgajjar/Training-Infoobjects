@@ -3,7 +3,6 @@ package com.infoobjects.tms.entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.infoobjects.tms.dto.interfaces.DTO;
 import com.infoobjects.tms.enums.Gender;
-import com.infoobjects.tms.utils.TmsUtils;
 
 import java.util.List;
 
@@ -88,7 +87,11 @@ public class Student implements DTO {
 	 */
 	@Override
 	public String toString() {
-		return TmsUtils.genericToString(this);
+		return "Student [studentId=" + studentId + ", studentName=" + studentName + ", studentAddress=" + studentAddress
+				+ ", studentEmailId=" + studentEmailId + ", studentGender=" + studentGender + ", studentMobile="
+				+ studentMobile + ", studentParentName=" + studentParentName + ", studentParentMobile="
+				+ studentParentMobile + ", studentParentEmailId=" + studentParentEmailId + ", studentReferenceName="
+				+ studentReferenceName + ", studentClass=" + studentClass + "]";
 	}
 
 	/**

@@ -1,12 +1,13 @@
 package com.infoobjects.tms.controller;
 
 import static com.infoobjects.tms.utils.TmsUtils.*;
-import static com.infoobjects.tms.utils.StudentUtils.*;
 
-import org.hibernate.Hibernate;
+
+import static com.infoobjects.tms.utils.StudentUtils.*;
+import static com.infoobjects.tms.utils.ConfigurationAndGenericConstants.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.infoobjects.tms.entity.Student;
 import com.infoobjects.tms.service.interfaces.StudentServiceIncrement;
-import com.infoobjects.tms.utils.TmsUtils;
 
 
 /**
@@ -32,19 +32,12 @@ public class StudentController {
 	private StudentServiceIncrement<Student> studentService;
 
 	/**
-	 * setters
-	 */
-	public void setStudentService(StudentServiceIncrement<Student> studentService) {
-		this.studentService = studentService;
-	}
-
-	/**
 	 *  This Api is callled  when Application Runs first Time
 	 * @param modelAndView Store view name and Attributes value
 	 * @return ModelAndView
 	 */
 	@RequestMapping(value = startupMapping, method = RequestMethod.GET)
-	public ModelAndView startup(ModelAndView modelAndView)  {
+	public ModelAndView startup(ModelAndView modelAndView){
 		modelAndView.setViewName(indexFile);
 		return modelAndView;
 	}
@@ -55,7 +48,7 @@ public class StudentController {
 	 * @return ModelAndView
 	 */
 	@RequestMapping(value = homeMapping, method = RequestMethod.GET)
-	public ModelAndView home(ModelAndView modelAndView)  {
+	public ModelAndView home(ModelAndView modelAndView){
 		modelAndView.setViewName(indexFile);
 		return modelAndView;
 	}
@@ -82,9 +75,9 @@ public class StudentController {
 	public ModelAndView insertStudent(@ModelAttribute Student student, ModelAndView modelAndView) {
 
 		// Generate UUID(Unique Random String) for Student Id
-		student.setStudentId(TmsUtils.uuidGeneration());
+		student.setStudentId(uuidGeneration());
 		while (studentService.find(student.getStudentId()) != null) {
-			student.setStudentId(TmsUtils.uuidGeneration());
+			student.setStudentId(uuidGeneration());
 		}
 		
 		studentService.insert(student);
@@ -110,7 +103,7 @@ public class StudentController {
 	 * @param modelAndView Store view name and Attributes value
 	 * @return ModelAndView
 	 */
-	@RequestMapping(value = updateStudentFormMapping + "{studentId}", method = RequestMethod.GET)
+	@RequestMapping(value =  updateStudentFormMapping + "{studentId}", method = RequestMethod.GET)
 	public ModelAndView updateStudentForm(@PathVariable("studentId") String studentId, ModelAndView modelAndView) {
 		modelAndView.addObject("student", studentService.find(studentId));
 		modelAndView.setViewName(updateStudentFile);
@@ -125,7 +118,7 @@ public class StudentController {
 	 * @return ModelAndView
 	 */
 	@RequestMapping(value = updateStudentMapping, method = RequestMethod.POST)
-	public ModelAndView updateStudent(@ModelAttribute Student student, ModelAndView modelAndView)  {
+	public ModelAndView updateStudent(@ModelAttribute Student student, ModelAndView modelAndView) {
 		studentService.update(student);
 		modelAndView.setViewName(showAllGenericPageFile);
 		modelAndView.addObject("displayAllData", studentToDisplayAllData(studentService.findAll()));
@@ -139,7 +132,7 @@ public class StudentController {
 	 * @return ModelAndView
 	 */
 	@RequestMapping(value = deleteStudentMapping + "{studentId}", method = RequestMethod.POST)
-	public ModelAndView delete(@PathVariable("studentId") String studentId, ModelAndView modelAndView) {
+	public ModelAndView delete(@PathVariable("studentId") String studentId, ModelAndView modelAndView){
 		studentService.delete(studentId);
 		modelAndView.setViewName(showAllGenericPageFile);
 		modelAndView.addObject("displayAllData", studentToDisplayAllData(studentService.findAll()));
@@ -153,7 +146,7 @@ public class StudentController {
 	 * @return ModelAndView
 	 */
 	@RequestMapping(value = viewStudentFullDetailsMapping + "{studentId}", method = RequestMethod.GET)
-	public ModelAndView showFullDetails(@PathVariable("studentId") String studentId, ModelAndView modelAndView) {
+	public ModelAndView showFullDetails(@PathVariable("studentId") String studentId, ModelAndView modelAndView){
 		modelAndView.addObject("student", studentService.find(studentId));
 		modelAndView.setViewName(showStudentFullDetailsFile);
 		return modelAndView;
@@ -166,12 +159,9 @@ public class StudentController {
 	 * @param modelAndView Store view name and Attributes value
 	 * @return ModelAndView
 	 */
-	@Transactional
 	@RequestMapping(value = viewTeacherNameMapping + "{studentId}", method = RequestMethod.GET)
 	public ModelAndView viewTeacherName(@PathVariable("studentId") String studentId, ModelAndView modelAndView) {
-		Student student = studentService.find(studentId);
-		Hibernate.initialize(student.getTeachers());
-		modelAndView.addObject("teachers", student.getTeachers());
+		modelAndView.addObject("teachers", studentService.getTeacherName(studentId));
 		modelAndView.setViewName(showTeacherNameFile);
 		return modelAndView;
 	}

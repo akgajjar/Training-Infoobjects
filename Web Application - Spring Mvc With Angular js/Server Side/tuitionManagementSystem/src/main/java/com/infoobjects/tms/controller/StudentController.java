@@ -5,7 +5,6 @@ import static com.infoobjects.tms.utils.TmsUtils.*;
 import java.util.List;
 
 import static com.infoobjects.tms.utils.StudentUtils.*;
-import static com.infoobjects.tms.utils.ConfigurationAndGenericConstants.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -14,17 +13,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.infoobjects.tms.dto.DisplayAllData;
-import com.infoobjects.tms.entity.HttpResponse;
+import com.infoobjects.tms.dto.HttpResponse;
 import com.infoobjects.tms.entity.Student;
 import com.infoobjects.tms.service.interfaces.StudentServiceIncrement;
 
@@ -63,7 +57,7 @@ public class StudentController {
 
 	/**
 	 * Api used to get all Student's Data and redirect to Show all generic page
-	 * @return ResponseEntity<DisplayAllData>
+	 * @return ResponseEntity<List<Student>>
  	 */
 	@GetMapping(value = getAllStudentsMapping)
 	public ResponseEntity<List<Student>> getAllStudents() {
@@ -71,7 +65,7 @@ public class StudentController {
 	}
 
 	/**
-	 *  Api used to Update Student into Database
+	 * Api used to Update Student into Database
 	 * @param student Student Data
 	 * @param studentId Student's Id
 	 * @return ResponseEntity<HttpResponse>
@@ -85,7 +79,7 @@ public class StudentController {
 	}
 
 	/**
-	 *  Api used to Delete Student for specific Student Id
+	 * Api used to Delete Student for specific Student Id
 	 * @param studentId Student's Id
 	 * @return ResponseEntity<HttpResponse>
 	 */

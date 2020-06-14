@@ -1,52 +1,61 @@
 <html>
 
-<head><i appLoadScript [script]="'../../assets/js/jquery.min.js'"></i></head>
+  <head><i appLoadScript [script]="'../../assets/js/jquery.min.js'"></i></head>
 
-<body style = "min-height: 100vh; height : auto ;">
-  <app-header></app-header>
-  <div class="heading">
-    <h1>Insert Teacher Student Mapping</h1>
-  </div>
-  <div class="container">
-    <div class="form">
-      <form>
-
-        <div class="clear"></div>
-        <div class="form-options1">
-          <label class="head">Student</label>
-          <select class="category1" [(ngModel)]="teacherStudent.studentId" name="studentId" (change)="getTeachersForMapping();">
-            <option value="" [selected]="true">---Select Student---</option>
-            <option *ngFor="let student of students" [value]="student.studentId">{{student.studentName}}({{student.studentId}})</option>
-          </select>
-        </div>
-
-        <div class="clear"></div>
-        <div class="form-options1">
-          <label class="head">Teacher</label>
-          <div id="teacher">
-            <select class="category1" [(ngModel)]="teacherStudent.teacherId" name="teacherId">
-              <option value="" [selected]="true">---Select Teacher---</option>
-              <option *ngFor="let teacher of teachers" [value]="teacher.teacherId">{{teacher.teacherName}}({{teacher.teacherId}})</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="clear"></div>
-        <div class="butn">
-          <input type="button" (click)="insertTeacherStudent();" value="Insert Teacher Student Mapping">
-        </div>
-        <div class="clear"></div>
-        <div class="butn">
-          <input type="reset" value="Reset">
-        </div>
-
-        <div class="clear"></div>
-        <div class="butn">
-          <input type="button" value="Back" routerLink = "/index">
-        </div>
-      </form>
+  <body style="min-height: 100vh; height : auto ;">
+    <app-header></app-header>
+    <div class="heading">
+      <h1>Insert Teacher Student Mapping</h1>
     </div>
-  </div>
-</body>
+    <div class="container">
+      <div class="form">
+        <form #teacherStudentForm="ngForm">
+
+          <div class="clear"></div>
+          <div class="form-options1">
+            <label class="head">Student</label>
+            <select class="category1" [(ngModel)]="teacherStudent.studentId" name="studentId" #student="ngModel"
+              required (change)="getTeachersForMapping();">
+              <option value="">---Select Student---</option>
+              <option *ngFor="let student of students" [value]="student.studentId">
+                {{student.studentName}}({{student.studentId}})</option>
+            </select>
+            <small class="error-display" [class.d-none]="student.valid || student.untouched">Please Select
+              a Student.</small>
+          </div>
+
+          <div class="clear"></div>
+          <div class="form-options1">
+            <label class="head">Teacher</label>
+            <div id="teacher">
+              <select class="category1" [(ngModel)]="teacherStudent.teacherId" #teacher="ngModel" required
+                name="teacherId">
+                <option value="">---Select Teacher---</option>
+                <option *ngFor="let teacher of teachers" [value]="teacher.teacherId">
+                  {{teacher.teacherName}}({{teacher.teacherId}})</option>
+              </select>
+              <small class="error-display" [class.d-none]="teacher.valid || teacher.untouched">Please Select
+                a Teacher.</small>
+            </div>
+          </div>
+
+          <div class="clear"></div>
+          <div class="butn">
+            <input type="button" (click)="insertTeacherStudent(teacherStudentForm.form.valid);"
+              value="Insert Teacher Student Mapping">
+          </div>
+          <div class="clear"></div>
+          <div class="butn">
+            <input type="reset" value="Reset">
+          </div>
+
+          <div class="clear"></div>
+          <div class="butn">
+            <input type="button" value="Back" routerLink="/index">
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
 
 </html>

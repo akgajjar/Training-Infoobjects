@@ -1,6 +1,5 @@
 package com.infoobjects.tms.controller;
 
-import com.infoobjects.tms.service.interfaces.TeacherStudentServiceIncrement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -11,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.infoobjects.tms.dto.TeacherStudent;
-import com.infoobjects.tms.service.TeacherStudentServiceImpl;
-import static com.infoobjects.tms.utils.TmsUtils.*;
+import com.infoobjects.tms.service.interfaces.TeacherStudentServiceIncrement;
+
 import static com.infoobjects.tms.utils.TeacherStudentUtils.*;
 
 /**
@@ -27,13 +26,6 @@ public class TeacherStudentController {
 	 */
 	@Autowired
 	private TeacherStudentServiceIncrement<TeacherStudent> teacherStudentService;
-
-	/**
-	 * setters
-	 */
-	public void setTeacherStudentService(TeacherStudentServiceIncrement<TeacherStudent> teacherStudentService) {
-		this.teacherStudentService = teacherStudentService;
-	}
 
 	/**
 	 *  Api used to get Insert TeacherStudent Mapping form
@@ -55,7 +47,7 @@ public class TeacherStudentController {
 	 * @return modelAndView
 	 */
 	@RequestMapping(value = insertTeacherStudentMapping, method = RequestMethod.POST)
-	public ModelAndView insertTeacherStudent(@ModelAttribute TeacherStudent teacherStudent, ModelAndView modelAndView)  {
+	public ModelAndView insertTeacherStudent(@ModelAttribute TeacherStudent teacherStudent, ModelAndView modelAndView){
 		teacherStudentService.insert(teacherStudent);
 		modelAndView.setViewName("index");
 		return modelAndView;
@@ -67,7 +59,7 @@ public class TeacherStudentController {
 	 * @return modelAndView
 	 */
 	@RequestMapping(value = getStudentByTeacherIdFormMapping, method = RequestMethod.GET)
-	public ModelAndView getStudentsByTeacherIdForm( ModelAndView modelAndView)  {
+	public ModelAndView getStudentsByTeacherIdForm(ModelAndView modelAndView){
 		modelAndView.addObject("teachers",teacherStudentService.getAllTeachers());
 		modelAndView.setViewName("showStudentsByTeacherIdForm");
 		return modelAndView;
@@ -106,7 +98,7 @@ public class TeacherStudentController {
 	 * @return modelAndView
 	 */
 	@RequestMapping(value = deleteTeacherStudentMapping + "{studentId}/{teacherId}", method = RequestMethod.POST)
-	public ModelAndView delete(@PathVariable("studentId") String studentId,@PathVariable("teacherId") String teacherId, ModelAndView modelAndView) {
+	public ModelAndView delete(@PathVariable("studentId") String studentId,@PathVariable("teacherId") String teacherId, ModelAndView modelAndView){
 		teacherStudentService.delete(teacherId, studentId);
 		modelAndView.addObject("displayAllData", teacherStudentToDisplayAllData(teacherStudentService.findAll()));
 		modelAndView.setViewName("showAllGenericPage");

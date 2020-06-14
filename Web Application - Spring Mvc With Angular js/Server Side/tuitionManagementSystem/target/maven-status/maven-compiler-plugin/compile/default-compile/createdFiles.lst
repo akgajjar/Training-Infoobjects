@@ -1,6 +1,4 @@
-com\infoobjects\tms\dto\SubmitButton.class
 com\infoobjects\tms\dto\TeacherStudent.class
-com\infoobjects\tms\dto\Data.class
 com\infoobjects\tms\config\MyWebAppInitilizer.class
 com\infoobjects\tms\entity\Teacher.class
 com\infoobjects\tms\utils\TeacherStudentUtils.class
@@ -16,15 +14,13 @@ com\infoobjects\tms\enums\Designation.class
 com\infoobjects\tms\controller\TeacherController.class
 com\infoobjects\tms\entity\Student.class
 com\infoobjects\tms\utils\TmsUtils.class
-com\infoobjects\tms\dto\DisplayAllData.class
-com\infoobjects\tms\entity\HttpResponse.class
 com\infoobjects\tms\service\interfaces\TeacherStudentServiceIncrement.class
 com\infoobjects\tms\dao\TmsDAOImpl.class
 com\infoobjects\tms\utils\ConfigurationAndGenericConstants.class
-com\infoobjects\tms\utils\ShowAllDataConstants.class
 com\infoobjects\tms\service\TeacherServiceImpl.class
 com\infoobjects\tms\utils\StudentUtils.class
 com\infoobjects\tms\config\WebConfig.class
 com\infoobjects\tms\service\interfaces\TeacherServiceIncrement.class
 com\infoobjects\tms\controller\TeacherStudentController.class
 com\infoobjects\tms\dto\interfaces\DTO.class
+com\infoobjects\tms\dto\HttpResponse.class

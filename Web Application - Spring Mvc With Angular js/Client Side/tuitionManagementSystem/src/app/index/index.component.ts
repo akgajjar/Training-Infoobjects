@@ -1,3 +1,5 @@
+import { TmsUtils } from '../app-utils';
+import { Constants } from './../app-constants';
 import { TeacherStudentService } from './../service/teacher-student-service.service';
 import { TeacherService } from './../service/teacher-service.service';
 import { StudentService } from './../service/student-service.service';
@@ -7,20 +9,23 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.css',
-              '../../assets/css/style.css']
+  styleUrls: ['./index.component.css', '../../assets/css/style.css'],
 })
 export class IndexComponent implements OnInit {
+  constructor(
+    private _router: Router,
+    private _studentService: StudentService,
+    private _teacherService: TeacherService,
+    private _teacherStudentService: TeacherStudentService
+  ) {}
 
-  constructor(private _router : Router, private _studentService : StudentService, private _teacherService : TeacherService, private _teacherStudentService : TeacherStudentService) { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
-
-  showAllStudents(){
+  showAllStudents() {
     this._studentService.getStudents().subscribe(
       (studentData) => {
-        (this._studentService.students = studentData), console.log(studentData);this._router.navigate(['/student/showAll']);
+        (this._studentService.students = studentData), console.log(studentData);
+        this._router.navigate([Constants.showAllStudentsMapping]);
       },
       (error) => {
         console.log(error);
@@ -28,10 +33,11 @@ export class IndexComponent implements OnInit {
     );
   }
 
-  showAllTeachers(){
+  showAllTeachers() {
     this._teacherService.getTeachers().subscribe(
       (teacherData) => {
-        (this._teacherService.teachers = teacherData), console.log(teacherData);this._router.navigate(['/teacher/showAll']);
+        (this._teacherService.teachers = teacherData), console.log(teacherData);
+        this._router.navigate([Constants.showAllTeachersMapping]);
       },
       (error) => {
         console.log(error);
@@ -39,16 +45,16 @@ export class IndexComponent implements OnInit {
     );
   }
 
-  showAllTeacherStudents(){
+  showAllTeacherStudents() {
     this._teacherStudentService.getTeacherStudents().subscribe(
       (teacherStudentData) => {
-        (this._teacherStudentService.teacherStudents = teacherStudentData), console.log(teacherStudentData);
-        this._router.navigate(['/teacherStudent/showAll']);
+        (this._teacherStudentService.teacherStudents = teacherStudentData),
+          console.log(teacherStudentData);
+        this._router.navigate([Constants.showAllTeacherStudentsMapping]);
       },
       (error) => {
         console.log(error);
       }
     );
   }
-
 }

@@ -14,8 +14,6 @@ import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import static org.hibernate.cfg.AvailableSettings.DRIVER;
 import static org.hibernate.cfg.AvailableSettings.PASS;
@@ -24,6 +22,11 @@ import static org.hibernate.cfg.AvailableSettings.USER;
 import static org.hibernate.cfg.Environment.*;
 import static com.infoobjects.tms.utils.ConfigurationAndGenericConstants.*;
 
+/**
+ * 
+ * @author Aniket
+ * Appplication Configuration CLass. It Contains Application Level Configuration and beans Configuration. 
+ */
 @org.springframework.context.annotation.Configuration
 @PropertySource(value = propertySourcePath)
 @EnableTransactionManagement
@@ -31,54 +34,52 @@ import static com.infoobjects.tms.utils.ConfigurationAndGenericConstants.*;
 		@ComponentScan(basePackages = daoPackageName) })
 public class AppConfig {
 
+	// Environment Variable 
 	@Autowired
-	private Environment env;
+	private Environment environment;
 
+	/**
+	 * Used to get Data Source Object
+	 * @return DriverManagerDataSource
+	 */
 	private DriverManagerDataSource getDataSource() {
-
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName(env.getProperty(DRIVER));
-		dataSource.setUrl(env.getProperty(URL));
-		dataSource.setUsername(env.getProperty(USER));
-		dataSource.setPassword(env.getProperty(PASS));
+		dataSource.setDriverClassName(environment.getProperty(DRIVER));
+		dataSource.setUrl(environment.getProperty(URL));
+		dataSource.setUsername(environment.getProperty(USER));
+		dataSource.setPassword(environment.getProperty(PASS));
 		return dataSource;
 	}
 
+	/**
+	 * Used to get Hibernate Properties Configuration.
+	 * @return Properties
+	 */
 	private Properties getHibernateProperties() {
 		Properties properties = new Properties();
 				
 		// setting hibernate Properties
-		properties.put(SHOW_SQL, env.getProperty(SHOW_SQL));
-		properties.put(DIALECT, env.getProperty(DIALECT));
-		properties.put(FORMAT_SQL, env.getProperty(FORMAT_SQL));
-		properties.put(HBM2DDL_AUTO, env.getProperty(HBM2DDL_AUTO));
+		properties.put(SHOW_SQL, environment.getProperty(SHOW_SQL));
+		properties.put(DIALECT, environment.getProperty(DIALECT));
+		properties.put(FORMAT_SQL, environment.getProperty(FORMAT_SQL));
+		properties.put(HBM2DDL_AUTO, environment.getProperty(HBM2DDL_AUTO));
 
 		// Setting Pooling Properties
-		properties.put(C3P0_MIN_SIZE, env.getProperty(C3P0_MIN_SIZE));
-		properties.put(C3P0_MAX_SIZE, env.getProperty(C3P0_MAX_SIZE));
-		properties.put(C3P0_ACQUIRE_INCREMENT, env.getProperty(C3P0_ACQUIRE_INCREMENT));
-		properties.put(C3P0_TIMEOUT, env.getProperty(C3P0_TIMEOUT));
-		properties.put(C3P0_MAX_STATEMENTS, env.getProperty(C3P0_MAX_STATEMENTS));
+		properties.put(C3P0_MIN_SIZE, environment.getProperty(C3P0_MIN_SIZE));
+		properties.put(C3P0_MAX_SIZE, environment.getProperty(C3P0_MAX_SIZE));
+		properties.put(C3P0_ACQUIRE_INCREMENT, environment.getProperty(C3P0_ACQUIRE_INCREMENT));
+		properties.put(C3P0_TIMEOUT, environment.getProperty(C3P0_TIMEOUT));
+		properties.put(C3P0_MAX_STATEMENTS, environment.getProperty(C3P0_MAX_STATEMENTS));
 		
 		return properties;
 	}
 
+	/**
+	 * Used to get Session Factory Object
+	 * @return SessionFactory
+	 */
 	@Bean
 	public SessionFactory getSessionFactory() {
-		/*
-		 * SessionFactory sessionFactory = null ; try { Configuration configuration =
-		 * new Configuration(); configuration.setProperties(getHibernateProperties());
-		 * configuration.addAnnotatedClass(Student.class);
-		 * configuration.addAnnotatedClass(Teacher.class); ServiceRegistry
-		 * serviceRegistry = new StandardServiceRegistryBuilder()
-		 * .applySettings(configuration.getProperties()).build();
-		 * 
-		 * sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-		 * 
-		 * } catch(Exception e) {e.printStackTrace();}
-		 * 
-		 * return sessionFactory;
-		 */
 		LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
 
 		factoryBean.setHibernateProperties(getHibernateProperties());
@@ -94,6 +95,10 @@ public class AppConfig {
 		return factoryBean.getObject();
 	}
 
+	/**
+	 * Used to Get Transaction Manager Object 
+	 * @return HibernateTransactionManager
+	 */
 	@Bean
 	public HibernateTransactionManager getTransactionManager() {
 
@@ -102,19 +107,15 @@ public class AppConfig {
 		return hibernateTransactionManager;
 	}
 
+	/**
+	 * Used to get Hibernate Template Object
+	 * @return HibernateTemplate
+	 */
 	@Bean
 	public HibernateTemplate getHibernateTemplate() {
 		HibernateTemplate template = new HibernateTemplate();
 		template.setSessionFactory(getSessionFactory());
 		return template;
-	}
-
-	@Bean
-	public ViewResolver configureViewResolver() {
-		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-		viewResolver.setPrefix(viewResolverPrefix);
-		viewResolver.setSuffix(viewResolverSuffix);
-		return viewResolver;
 	}
 
 }

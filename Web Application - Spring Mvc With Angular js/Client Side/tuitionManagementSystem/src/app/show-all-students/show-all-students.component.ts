@@ -1,4 +1,4 @@
-import { TeacherStudentService } from './../service/teacher-student-service.service';
+import { Constants } from './../app-constants';
 import { Student } from './../DTO/Student';
 import { StudentService } from './../service/student-service.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
@@ -13,9 +13,9 @@ import { Router } from '@angular/router';
     '../../assets/css/bootstrap.css',
     '../../assets/js/datatable/dataTables.bootstrap.min.css',
     '../../assets/js/datatable/buttons.bootstrap.min.css',
-    '../../assets/css/style.css'
+    '../../assets/css/style.css',
   ],
-  encapsulation : ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class ShowAllStudentsComponent implements OnInit {
   title: 'Tuition Management System';
@@ -29,44 +29,38 @@ export class ShowAllStudentsComponent implements OnInit {
     this._studentService.students = [];
   }
 
-  ngOnInit(): void {
-   }
+  ngOnInit(): void {}
 
-  viewFullDetails(studentId : string){
-    console.log(studentId);
+  viewFullDetails(studentId: string) {
     this._studentService.studentId = studentId;
-    this._router.navigate(['/student/showFullDetails']);
+    this._router.navigate([Constants.showStudentFullDetailsMapping]);
   }
 
-  viewTeacherName(studentId : string){
-    console.log(studentId);
+  viewTeacherName(studentId: string) {
     this._studentService.studentId = studentId;
-    this._router.navigate(['/student/showTeacherName']);
+    this._router.navigate([Constants.showTeacherNameMapping]);
   }
 
-  updateStudent(studentId : string){
-    console.log(studentId);
+  updateStudent(studentId: string) {
     this._studentService.studentId = studentId;
-    this._router.navigate(['/student/update']);
+    this._router.navigate([Constants.updateStudentMapping]);
   }
 
-  showAllStudents(){
+  showAllStudents() {
     this._studentService.getStudents().subscribe(
       (studentData) => {
         (this._studentService.students = studentData), console.log(studentData);
-        this._router.navigateByUrl('/index').then(() => {
-            this._router.navigate(['/student/showAll']);
+        this._router.navigateByUrl(Constants.indexMapping).then(() => {
+          this._router.navigate([Constants.showAllStudentsMapping]);
         });
       },
       (error) => {
         console.log(error);
       }
     );
-    }
+  }
 
-  deleteStudent(studentId : string){
-    console.log(studentId);
-
+  deleteStudent(studentId: string) {
     this._studentService.deleteStudent(studentId).subscribe(
       (responseMessage) => {
         console.log(responseMessage);
@@ -77,5 +71,4 @@ export class ShowAllStudentsComponent implements OnInit {
       }
     );
   }
-
 }

@@ -1,8 +1,6 @@
 package com.infoobjects.tms.dto;
 
 import com.infoobjects.tms.dto.interfaces.DTO;
-import com.infoobjects.tms.utils.TmsUtils;
-
 
 /**
  * @author Aniket
@@ -22,7 +20,8 @@ public class TeacherStudent implements DTO {
 	 */
 	@Override
 	public String toString() {
-		return TmsUtils.genericToString(this);
+		return "TeacherStudent [teacherId=" + teacherId + ", studentId=" + studentId + ", teacherName=" + teacherName
+				+ ", studentName=" + studentName + "]";
 	}
 
 	/**

@@ -44,7 +44,7 @@ http://localhost:8080/tms/teacherStudent/mapping/studentId} - get
 http://localhost:8080/tms/teacherStudent - post
 
 -> delete
-http://localhost:8080/tms//teacherStudent/{studentId}/{teacherId} - delete
+http://localhost:8080/tms/teacherStudent/{studentId}/{teacherId} - delete
 
 -> get all teacherstudent
 http://localhost:8080/tms/teacherStudent - get
