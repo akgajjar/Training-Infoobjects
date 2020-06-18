@@ -41,8 +41,9 @@
           <td>{{teacherStudent.studentName}}</td>
           <td>{{teacherStudent.teacherId}}</td>
           <td>{{teacherStudent.teacherName}}</td>
-          <td><input type="button" class="btn btn-success" value="Delete"
-              (click)="deleteTeacherStudent(teacherStudent.studentId, teacherStudent.teacherId)"></td>
+          <td><button class="fontAwesomeBtn"><i class="fa fa-trash fa-2x" aria-hidden="true"
+                (click)="deleteTeacherStudent(teacherStudent.studentId, teacherStudent.teacherId)"></i>
+            </button></td>
         </tr>
       </tbody>
     </table>

@@ -8,7 +8,11 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css', '../../assets/css/bootstrap.css'],
+  styleUrls: [
+    './header.component.css',
+    '../../assets/css/bootstrap.css',
+    '../../../node_modules/font-awesome/css/font-awesome.css',
+  ],
 })
 export class HeaderComponent implements OnInit {
   constructor(

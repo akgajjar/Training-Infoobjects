@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
     '../../assets/js/datatable/dataTables.bootstrap.min.css',
     '../../assets/js/datatable/buttons.bootstrap.min.css',
     '../../assets/css/style.css',
+    '../../../node_modules/font-awesome/css/font-awesome.css',
   ],
   encapsulation: ViewEncapsulation.None,
 })

@@ -42,16 +42,18 @@
           <td>{{student.studentId}}</td>
           <td>{{student.studentName}}</td>
           <td>{{student.studentClass}}</td>
-          <td><input type="button" class="btn btn-success" value="View Full Details"
-              (click)="viewFullDetails(student.studentId)">
+          <td><button class="fontAwesomeBtn"><i class="fa fa-sign-in fa-2x" aria-hidden="true"
+                (click)="viewFullDetails(student.studentId)"></i></button>
           </td>
-          <td><input type="button" class="btn btn-success" value="View Teacher Name"
-              (click)="viewTeacherName(student.studentId)">
-          </td>
-          <td><input type="button" class="btn btn-success" value="Update" (click)="updateStudent(student.studentId)">
-          </td>
-          <td><input type="button" class="btn btn-success" value="Delete" (click)="deleteStudent(student.studentId)">
-          </td>
+          <td><button class="fontAwesomeBtn"><i class="fa fa-sign-in fa-2x" aria-hidden="true"
+                (click)="viewTeacherName(student.studentId)"></i>
+            </button></td>
+          <td><button class="fontAwesomeBtn"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"
+                (click)="updateStudent(student.studentId)"></i>
+            </button></td>
+          <td><button class="fontAwesomeBtn"><i class="fa fa-trash fa-2x" aria-hidden="true"
+                (click)="deleteStudent(student.studentId)"></i>
+            </button></td>
         </tr>
       </tbody>
     </table>
