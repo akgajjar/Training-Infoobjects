@@ -1,0 +1,80 @@
+/*show full details*/
+               .a
+                    {
+                    text-align:center;
+                    color:black;
+                    font-weight:bold;
+                    background:white;
+
+                    }
+                    table
+                    {
+
+                    width:80%;
+                    text-align:center;
+                    align:center;
+                    font-family: Arial, Helvetica, sans-serif;
+                    border-collapse:collapse;
+                    }
+                    .b
+                    {
+                    color:#2688C3;
+                     padding-left: 15em;
+                    }
+                    .data
+                    {
+                     padding-left: 10em;
+                    }
+                    tr
+                    {
+                    padding: 15px;
+                    border-top: 1px solid #d8592c;
+                    border-bottom: 1px solid #e0e0e0;
+                    height:30px;
+                    font-size:15px;
+                    height:40px;
+                    text-transform: capitalize;
+                    letter-spacing: 1px;
+                    }
+                    tr:nth-child(even){background-color: #f2f2f2;}
+                    tr:nth-child(odd){background-color: #ffffff;}
+                    tr:hover {background-color: #ddd;}
+                    .head
+                    {
+                    border-radius: 5px;
+                    color:white;
+                    background:#d8592c;
+                    text-transform: capitalize;
+                    letter-spacing: 1px;
+                    font-size:20px;
+                    text-align:center;
+                    }
+                    td
+                    {
+                    font-weight:bold;
+                    text-align:left;
+
+
+                    }
+                    .btn input[type="submit"] {
+                    font-size: 15px;
+                    font-weight: 500;
+                    text-align: center;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                    padding: 10px;
+                    /*width: 50%;*/
+                    margin: 10px auto 0px;
+                    box-sizing: border-box;
+                    border: 1px solid #fff;
+                    outline: none;
+                    cursor: pointer;
+                    display: block;
+                    color: #fff;
+                    background:#09a50e;
+                    }
+                    .btn input[type="submit"]:hover{
+                    background-color: #07e20e;
+
+                    }
+ /*show full details*/

@@ -1,0 +1,77 @@
+<html>
+
+  <head><i appLoadScript [script]="'../../assets/js/jquery.min.js'"></i></head>
+
+  <body style="min-height: 100vh; height : auto ;">
+    <app-header></app-header>
+    <div class="heading">
+      <h1>Show Full Details</h1>
+    </div>
+    <div class="container1">
+      <table>
+        <tr>
+          <td colspan="2" class="head">Student Personal Details</td>
+        </tr>
+        <tr>
+          <td class="b">Student Id :</td>
+          <td class="data">{{selectedStudent.studentId}}</td>
+        </tr>
+        <tr>
+          <td class="b">Name :</td>
+          <td class="data">{{selectedStudent.studentName}}</td>
+        </tr>
+        <tr>
+          <td class="b">Class :</td>
+          <td class="data">{{selectedStudent.studentClass}}</td>
+        </tr>
+        <tr>
+          <td class="b">Address:</td>
+          <td class="data">{{selectedStudent.studentAddress}}</td>
+        </tr>
+        <tr>
+          <td class="b">Mobile :</td>
+          <td class="data">{{selectedStudent.studentMobile}}</td>
+        </tr>
+        <tr>
+          <td class="b">Email :</td>
+          <td class="data">{{selectedStudent.studentEmailId}}</td>
+        </tr>
+        <tr>
+          <td class="b">Gender :</td>
+          <td class="data">{{selectedStudent.studentGender}}</td>
+        </tr>
+        <tr>
+        </tr>
+
+        <tr>
+          <td colspan="2" class="head">Student Parents & Reference
+            Details</td>
+        </tr>
+        <tr>
+          <td class="b">Parents Name :</td>
+          <td class="data">{{selectedStudent.studentParentName}}</td>
+        </tr>
+        <tr>
+          <td class="b">Parents Mobile :</td>
+          <td class="data">{{selectedStudent.studentParentMobile}}</td>
+        </tr>
+        <tr>
+          <td class="b">Parents Email :</td>
+          <td class="data">{{selectedStudent.studentParentEmailId}}</td>
+        </tr>
+        <tr>
+          <td class="b">Reference Name :</td>
+          <td class="data">{{selectedStudent.studentReferenceName}}</td>
+        </tr>
+      </table>
+      <div class="butn">
+        <input type="button" name="button" id="btnform" style="width : 10% ;" value="BACK"
+          (click)="showAllStudents()" />
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+  </body>
+
+</html>

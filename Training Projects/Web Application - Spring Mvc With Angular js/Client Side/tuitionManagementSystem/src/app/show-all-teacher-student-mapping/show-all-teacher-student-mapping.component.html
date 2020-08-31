@@ -1,0 +1,52 @@
+<html>
+
+  <head>
+    <i appLoadScript [script]="'../../assets/js/jquery.min.js'"></i>
+    <i appLoadScript [script]="'../../assets/js/datatable/jquery.dataTables.min.js'"></i>
+    <i appLoadScript [script]="'../../assets/js/tablejs/datatables.min.js'"></i>
+    <i appLoadScript [script]="'../../assets/js/datatable/dataTables.bootstrap.min.js'"></i>
+    <i appLoadScript [script]="'../../assets/js/datatable/dataTables.buttons.min.js'"></i>
+    <i appLoadScript [script]="'../../assets/js/datatable/buttons.bootstrap.min.js'"></i>
+    <i appLoadScript [script]="'../../assets/js/datatable/jszip.min.js'"></i>
+    <i appLoadScript [script]="'../../assets/js/datatable/pdfmake.min.js'"></i>
+    <i appLoadScript [script]="'../../assets/js/datatable/vfs_fonts.js'"></i>
+    <i appLoadScript [script]="'../../assets/js/datatable/buttons.html5.min.js'"></i>
+    <i appLoadScript [script]="'../../assets/js/datatable/buttons.print.min.js'"></i>
+    <i appLoadScript [script]="'../../assets/js/datatable/buttons.colVis.min.js'"></i>
+    <i appLoadScript [script]="'../../assets/js/datatable/my.datatable.js'"></i>
+    <i appLoadScript [script]="'../../assets/js/datatable/kitAwasome.js'"></i>
+  </head>
+
+  <body style="min-height: 100vh; height : auto ;">
+    <app-header></app-header>
+    <h1 align="center" style="margin: 1 em; color: #141414;">
+      <b>Show All Teacher Students</b>
+    </h1>
+    <br />
+    <br />
+
+    <table cellpadding="10" id="example" class="display">
+      <thead>
+        <tr>
+          <th>Student Id</th>
+          <th>Student Name</th>
+          <th>Teacher Id</th>
+          <th>Teacher Name</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let teacherStudent of teacherStudents">
+          <td>{{teacherStudent.studentId}}</td>
+          <td>{{teacherStudent.studentName}}</td>
+          <td>{{teacherStudent.teacherId}}</td>
+          <td>{{teacherStudent.teacherName}}</td>
+          <td><button class="fontAwesomeBtn"><i class="fa fa-trash fa-2x" aria-hidden="true"
+                (click)="deleteTeacherStudent(teacherStudent.studentId, teacherStudent.teacherId)"></i>
+            </button></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+
+</html>

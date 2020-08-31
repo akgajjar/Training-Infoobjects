@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="67e84ce8-fcc6-4a90-9624-157594eebea4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/dto/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/dto/Teacher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/css/font-awasome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/css/showfulldetails.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/css/tablecss/css1.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/header.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/images/bodyBk.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/images/tableimage/ui-bg_diagonals-thick_18_b81900_40x40.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/images/tableimage/ui-bg_diagonals-thick_20_666666_40x40.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/images/tableimage/ui-bg_flat_10_000000_40x100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/images/tableimage/ui-bg_glass_100_f6f6f6_1x400.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/images/tableimage/ui-bg_glass_100_fdf5ce_1x400.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/images/tableimage/ui-bg_glass_65_ffffff_1x400.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/images/tableimage/ui-bg_gloss-wave_35_f6a828_500x100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/images/tableimage/ui-bg_highlight-soft_100_eeeeee_1x100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/images/tableimage/ui-bg_highlight-soft_75_ffe45c_1x100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/images/tableimage/ui-icons_222222_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/images/tableimage/ui-icons_228ef1_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/images/tableimage/ui-icons_ef8c08_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/images/tableimage/ui-icons_ffd27a_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/images/tableimage/ui-icons_ffffff_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/insertStudent.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/insertTeacher.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/js/datatable/buttons.bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/js/datatable/buttons.bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/js/datatable/buttons.colVis.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/js/datatable/buttons.html5.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/js/datatable/buttons.print.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/js/datatable/dataTables.bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/js/datatable/dataTables.bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/js/datatable/dataTables.buttons.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/js/datatable/datatables.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/js/datatable/datatables.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/js/datatable/datatables.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/js/datatable/datatables.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/js/datatable/jquery.dataTables.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/js/datatable/jquery.dataTables.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/js/datatable/jszip.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/js/datatable/pdfmake.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/js/datatable/vfs_fonts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/js/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/js/style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/js/tablejs/datatables.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/js/tablejs/datatables.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/.idea/dictionaries/Aniket.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/.idea/libraries/Maven__org_springframework_spring_webmvc_4_1_8_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/.project" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/.settings/org.eclipse.wst.common.project.facet.core.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/.settings/org.eclipse.wst.common.project.facet.core.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/java/com/infoobjects/tms/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/test/java/com/infoobjects/tms/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/java/com/infoobjects/tms/testchanges.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/test/java/com/infoobjects/tms/testchanges.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/controller/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/controller/TeacherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/controller/TeacherController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/controller/TeacherStudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/controller/TeacherStudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/dao/SingletonConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/dao/SingletonConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/dao/TmsDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/dao/TmsDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/dto/Data.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/dto/DisplayAllData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/dto/SubmitButton.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/dto/TeacherStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/dto/TeacherStudent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/entity/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/entity/Teacher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/service/StudentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/service/StudentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/service/TeacherServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/service/TeacherServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/service/TeacherStudentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/service/TeacherStudentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/service/interfaces/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/service/interfaces/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/service/interfaces/StudentServiceIncrement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/service/interfaces/StudentServiceIncrement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/service/interfaces/TeacherServiceIncrement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/service/interfaces/TeacherServiceIncrement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/service/interfaces/TeacherStudentServiceIncrement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/service/interfaces/TeacherStudentServiceIncrement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/utils/TmsUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/java/com/infoobjects/tms/utils/TmsUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/WEB-INF/jsp/header.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/WEB-INF/jsp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/WEB-INF/jsp/insertStudent.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/WEB-INF/jsp/insertTeacher.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/WEB-INF/jsp/insertTeacherStudentMapping.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/WEB-INF/jsp/showAllGenericPage.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/WEB-INF/jsp/showStudentFullDetails.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/WEB-INF/jsp/showStudentsByTeacherId.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/WEB-INF/jsp/showStudentsByTeacherIdForm.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/WEB-INF/jsp/showTeacherFullDetails.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/WEB-INF/jsp/showTeacherName.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/WEB-INF/jsp/updateStudent.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/WEB-INF/jsp/updateTeacher.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/WEB-INF/spring-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/ajaxJsp/getTeacherMapping.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/css/font-awasome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/css/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/css/showfulldetails.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/css/tablecss/css1.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/images/bodyBk.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/images/tableimage/ui-bg_diagonals-thick_18_b81900_40x40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/images/tableimage/ui-bg_diagonals-thick_20_666666_40x40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/images/tableimage/ui-bg_flat_10_000000_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/images/tableimage/ui-bg_glass_100_f6f6f6_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/images/tableimage/ui-bg_glass_100_fdf5ce_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/images/tableimage/ui-bg_glass_65_ffffff_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/images/tableimage/ui-bg_gloss-wave_35_f6a828_500x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/images/tableimage/ui-bg_highlight-soft_100_eeeeee_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/images/tableimage/ui-bg_highlight-soft_75_ffe45c_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/images/tableimage/ui-icons_222222_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/images/tableimage/ui-icons_228ef1_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/images/tableimage/ui-icons_ef8c08_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/images/tableimage/ui-icons_ffd27a_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/images/tableimage/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/js/datatable/buttons.bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/js/datatable/buttons.bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/js/datatable/buttons.colVis.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/js/datatable/buttons.html5.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/js/datatable/buttons.print.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/js/datatable/dataTables.bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/js/datatable/dataTables.bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/js/datatable/dataTables.buttons.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/js/datatable/datatables.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/js/datatable/datatables.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/js/datatable/datatables.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/js/datatable/datatables.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/js/datatable/jquery.dataTables.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/js/datatable/jquery.dataTables.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/js/datatable/jszip.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/js/datatable/pdfmake.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/js/datatable/vfs_fonts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/js/form-validation/form-validation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/js/form-validation/jquery-ui.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/js/form-validation/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/js/form-validation/jquery.validate.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/js/style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/js/tablejs/datatables.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/src/main/webapp/resources/js/tablejs/datatables.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/controller/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/controller/StudentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/controller/TeacherController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/controller/TeacherController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/controller/TeacherStudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/controller/TeacherStudentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/dao/SingletonConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/dao/SingletonConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/dao/TmsDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/dao/TmsDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/dto/Data.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/dto/DisplayAllData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/dto/SubmitButton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/dto/TeacherStudent.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/dto/TeacherStudent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/dto/interfaces/DTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/dto/interfaces/DTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/entity/Student.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/entity/Teacher.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/enums/Designation.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/enums/Designation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/enums/Gender.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/enums/Gender.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/enums/OperationType.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/enums/OperationType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/mapper/TmsMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/mapper/TmsMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/service/StudentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/service/StudentServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/service/TeacherServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/service/TeacherServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/service/TeacherStudentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/service/TeacherStudentServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/service/interfaces/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/service/interfaces/Service.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/service/interfaces/StudentServiceIncrement.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/service/interfaces/StudentServiceIncrement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/service/interfaces/TeacherServiceIncrement.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/service/interfaces/TeacherServiceIncrement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/service/interfaces/TeacherStudentServiceIncrement.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/service/interfaces/TeacherStudentServiceIncrement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/utils/TmsUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/classes/com/infoobjects/tms/utils/TmsUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/m2e-wtp/web-resources/META-INF/maven/com.infoobjects/tms/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/m2e-wtp/web-resources/META-INF/maven/com.infoobjects/tms/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/m2e-wtp/web-resources/META-INF/maven/com.infoobjects/tms/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/m2e-wtp/web-resources/META-INF/maven/com.infoobjects/tms/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/surefire-reports/TEST-com.infoobjects.tms.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/surefire-reports/TEST-com.infoobjects.tms.AppTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/surefire-reports/com.infoobjects.tms.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/surefire-reports/com.infoobjects.tms.AppTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/test-classes/com/infoobjects/tms/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/test-classes/com/infoobjects/tms/AppTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/test-classes/com/infoobjects/tms/testchanges.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/test-classes/com/infoobjects/tms/testchanges.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/classes/com/infoobjects/tms/controller/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/classes/com/infoobjects/tms/controller/StudentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/classes/com/infoobjects/tms/controller/TeacherController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/classes/com/infoobjects/tms/controller/TeacherController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/classes/com/infoobjects/tms/dao/SingletonConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/classes/com/infoobjects/tms/dao/SingletonConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/classes/com/infoobjects/tms/dao/TmsDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/classes/com/infoobjects/tms/dao/TmsDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/jsp/header.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/jsp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/jsp/insertStudent.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/jsp/insertTeacher.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/antlr-2.7.7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/aopalliance-1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/c3p0-0.9.2.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/commons-logging-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/dom4j-1.6.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/hibernate-c3p0-4.3.8.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/hibernate-commons-annotations-4.0.5.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/hibernate-core-4.3.8.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/hibernate-jpa-2.1-api-1.0.0.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/jandex-1.1.0.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/javassist-3.18.1-GA.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/jboss-logging-3.1.3.GA.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/jboss-logging-annotations-1.2.0.Beta1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/jboss-transaction-api_1.2_spec-1.0.0.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/jstl-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/mchange-commons-java-0.2.3.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/spring-aop-4.1.5.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/spring-beans-4.1.5.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/spring-context-4.1.5.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/spring-core-4.1.5.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/spring-expression-4.1.5.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/spring-jdbc-4.1.5.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/spring-orm-4.1.5.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/spring-tx-4.1.5.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/spring-web-4.1.5.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/spring-webmvc-4.1.5.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/lib/xml-apis-1.0.b2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/spring-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/css/font-awasome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/css/showfulldetails.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/css/tablecss/css1.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/html/header.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/html/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/html/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/html/insertStudent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/html/insertTeacher.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/images/bodyBk.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/images/tableimage/ui-bg_diagonals-thick_18_b81900_40x40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/images/tableimage/ui-bg_diagonals-thick_20_666666_40x40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/images/tableimage/ui-bg_flat_10_000000_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/images/tableimage/ui-bg_glass_100_f6f6f6_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/images/tableimage/ui-bg_glass_100_fdf5ce_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/images/tableimage/ui-bg_glass_65_ffffff_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/images/tableimage/ui-bg_gloss-wave_35_f6a828_500x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/images/tableimage/ui-bg_highlight-soft_100_eeeeee_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/images/tableimage/ui-bg_highlight-soft_75_ffe45c_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/images/tableimage/ui-icons_222222_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/images/tableimage/ui-icons_228ef1_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/images/tableimage/ui-icons_ef8c08_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/images/tableimage/ui-icons_ffd27a_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/images/tableimage/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/js/datatable/buttons.bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/js/datatable/buttons.bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/js/datatable/buttons.colVis.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/js/datatable/buttons.html5.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/js/datatable/buttons.print.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/js/datatable/dataTables.bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/js/datatable/dataTables.bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/js/datatable/dataTables.buttons.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/js/datatable/datatables.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/js/datatable/datatables.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/js/datatable/datatables.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/js/datatable/datatables.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/js/datatable/jquery.dataTables.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/js/datatable/jquery.dataTables.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/js/datatable/jszip.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/js/datatable/pdfmake.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/js/datatable/vfs_fonts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/js/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/js/style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/js/tablejs/datatables.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/target/tms/resources/js/tablejs/datatables.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/tuitionManagementSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem/tuitionManagementSystem.iml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="tuitionManagementSystem" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1XhexYflx8ueBKVJdYAs30NEKpz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Web Application - Spring Mvc/tuitionManagementSystem" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.22668241" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.externalResources" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/js" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/lib" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.infoobjects.tms" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/images" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/css" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/js" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/css/datatables" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.testchanges">
+    <configuration name="TmsStart" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.infoobjects.tms.start.TmsStart" />
+      <module name="tuitionManagementSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.infoobjects.tms.start.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.infoobjects.tms.service.test" />
+      <module name="tuitionManagementSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.infoobjects.tms.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testchanges" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.infoobjects.tms.testchanges" />
+      <module name="tuitionManagementSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.infoobjects.tms.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.testchanges" />
+        <item itemvalue="Application.test" />
+        <item itemvalue="Application.TmsStart" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="67e84ce8-fcc6-4a90-9624-157594eebea4" name="Default Changelist" comment="" />
+      <created>1581503000496</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1581503000496</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1586634993747">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586634993747" />
+  </component>
+</project>

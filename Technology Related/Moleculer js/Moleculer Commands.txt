@@ -1,0 +1,17 @@
+npm run dev =>  run application 
+moleculer create service => create service
+
+* load /service/helper.service.js
+-> Load newly Created Service 
+
+* emit "hello.called" --payload "hello From terminal"
+-> Trigger Events 
+
+
+* call "greeter.hello"
+-> call service api from terminal
+
+dockerd => start docker deamon
+npm run dc:up => run application with docker
+npm run dc:down => stop application with docker
+./gnatsd --addr 127.0.0.1 --port 4222 => start Nats server

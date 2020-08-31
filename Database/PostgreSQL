@@ -1,0 +1,222 @@
+PostgreSQL 7.8
+------------------------------------------------------------------------------------------------
+createdb datbasename => create database
+dropdb databasename => drop database
+
+-------------------------------------------------------------------------------------------------
+
+CREATE TABLE weather (
+ city varchar(80),
+ temp_lo int, -- low temperature  => comments
+ temp_hi int, -- high temperature
+ prcp real, -- precipitation
+ date date
+); => create table
+
+CREATE TABLE products (
+product_no integer DEFAULT nextval('products_product_no_seq'),
+);
+
+CREATE TABLE people (
+...,
+height_cm numeric,
+height_in numeric GENERATED ALWAYS AS (height_cm / 2.54) STORED
+);
+
+CREATE TABLE products (
+product_no integer,
+name text,
+price numeric CONSTRAINT positive_price CHECK (price > 0)
+);
+
+-------------------------------------------------------------------------------------------------
+DROP TABLE tablename; => Drop table 
+
+
+------------------------------------------------------------------------------------------------
+Data Types : PostgreSQL supports the standard SQL types int, smallint, real, double precision, char(N), varchar(N), date, time, timestamp, and interval, as well as other types of general utility and a rich set of geometric types.
+
+INSERT INTO weather VALUES ('San Francisco', 46, 50, 0.25,
+ '1994-11-27'); => Insert into table 
+
+------------------------------------------------------------------------------------------------
+ 
+* Transactions 
+
+In PostgreSQL, a transaction is set up by surrounding the SQL commands of the transaction with BEGIN and COMMIT commands. So our banking transaction would actually look like:
+
+BEGIN;
+UPDATE accounts SET balance = balance - 100.00
+WHERE name = 'Alice';
+-- etc etc
+COMMIT;
+
+BEGIN;
+UPDATE accounts SET balance
+WHERE name = 'Alice';
+SAVEPOINT my_savepoint;
+UPDATE accounts SET balance
+WHERE name = 'Bob';
+-- oops ... forget that and
+ROLLBACK TO my_savepoint;
+UPDATE accounts SET balance
+WHERE
+
+------------------------------------------------------------------------------------------------
+
+* Window Funcions
+
+A window function performs a calculation across a set of table rows that are somehow related to the current row. This is comparable to the type of calculation that can be done with an aggregate function. However, window functions do not cause rows to become grouped into a single output row like non- window aggregate calls would. Instead, the rows retain their separate identities. Behind the scenes, the window function is able to access more than just the current row of the query result.
+
+Here is an example that shows how to compare each employee's salary with the average salary in his or her department:
+
+SELECT depname, empno, salary, avg(salary) OVER (PARTITION BY depname)
+FROM empsalary;
+
+depname | empno | salary | avg
+-----------+-------+--------+-----------------------
+develop | 11 | 5200 | 5020.0000000000000000
+develop | 7  | 4200 | 5020.0000000000000000
+develop | 9  | 4500 | 5020.0000000000000000
+develop | 8  | 6000 | 5020.0000000000000000
+develop | 10 | 5200 | 5020.0000000000000000
+personnel|5  | 3500 | 3700.0000000000000000
+personnel|2  | 3900 | 3700.0000000000000000
+sales   | 3  | 4800 | 4866.6666666666666667
+sales   | 1  | 5000 | 4866.6666666666666667
+sales   | 4  | 4800 | 4866.6666666666666667
+(10 rows)
+
+------------------------------------------------------------------------------------------------
+
+* Inhertance
+
+-> Inheritance is a concept from object-oriented databases. It opens up interesting new possibilities of database design.
+Let's create two tables: A table cities and a table capitals. Naturally, capitals are also cities, so you want some way to show the capitals implicitly when you list all cities. If you're really clever you might invent some scheme like this:
+
+
+CREATE TABLE capitals ( 
+name text,
+population real,
+elevation int, -- (in ft)
+state char(2)
+); 
+
+CREATE TABLE non_capitals(
+name text, 
+population real,
+elevation int  -- (in ft)
+); 
+
+CREATE VIEW cities AS
+SELECT name, population, elevation FROM capitals
+UNION
+SELECT name, population, elevation FROM non_capitals;
+
+-> This works OK as far as querying goes, but it gets ugly when you need to update several rows, for one thing.
+
+A better solution is this:
+CREATE TABLE cities (
+name text, 
+population real,
+elevation int -- (in ft)
+);
+
+CREATE TABLE capitals (
+state char(2)
+) INHERITS (cities);
+
+-> In this case, a row of capitals inherits all columns (name, population, and elevation) from its parent, cities. The type of the column name is text, a native PostgreSQL type for variable length character strings. The capitals table has an extra column, state, which shows their states. In PostgreSQL, a table can inherit from zero or more other tables.
+
+-> For example, the following query finds the names of all cities, including state capitals, that are located at an elevation over 500 feet:
+
+SELECT name, elevation FROM cities WHERE elevation > 500;
+
+which returns:
+
+name | elevation
+-----------+-----------
+Las Vegas | 2174
+Mariposa  | 1953
+Madison   | 845
+(3 rows)
+
+-> On the other hand, the following query finds all the cities that are not state capitals and are situated at an elevation over 500 feet:
+
+SELECT name, elevation FROM ONLY cities WHERE elevation > 500;
+
+name | elevation
+-----------+-----------
+Las Vegas | 2174
+Mariposa  | 1953
+(2 rows)
+
+->Here the ONLY before cities indicates that the query should be run over only the cities table, and not tables below cities in the inheritance hierarchy. Many of the commands that we have already discussed — SELECT, UPDATE, and DELETE — support this ONLY notation.
+
+Note : Although inheritance is frequently useful, it has not been integrated with unique constraints or foreign keys, which limits its usefulness.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+* With Quries 
+
+-> WITH provides a way to write auxiliary statements for use in a larger query. These statements, which are often referred to as Common Table Expressions or CTEs, can be thought of as defining temporary tables that exist just for one query. Each auxiliary statement in a WITH clause can be a SELECT, INSERT, UPDATE, or DELETE; and the WITH clause itself is attached to a primary statement that can also be a SELECT, INSERT, UPDATE, or DELETE.
+
+* SELECT in with
+
+The basic value of SELECT in WITH is to break down complicated queries into simpler parts. An example
+is:
+WITH regional_sales AS (
+	SELECT region, SUM(amount) AS total_sales
+	FROM orders
+	GROUP BY region
+), top_regions AS (
+	SELECT region
+	FROM regional_sales
+	WHERE total_sales > (SELECT SUM(total_sales)/10 FROM
+regional_sales)
+)
+SELECT region,
+	product,
+	SUM(quantity) AS product_units,
+	SUM(amount) AS product_sales
+FROM orders
+WHERE region IN (SELECT region FROM top_regions)
+GROUP BY region, product;
+
+-> which displays per-product sales totals in only the top sales regions. The WITH clause defines two auxiliary statements named regional_sales and top_regions, where the output of regional_sales is used in top_regions and the output of top_regions is used in the primary SELECT query. This example could have been written without WITH, but we'd have needed two levels of nested sub-SELECTs. It's a bit easier to follow this way.
+
+* Recursive in with 
+
+-> The optional RECURSIVE modifier changes WITH from a mere syntactic convenience into a feature that accomplishes things not otherwise possible in standard SQL. Using RECURSIVE, a WITH query can refer to its own output. 
+
+Recursive queries are typically used to deal with hierarchical or tree-structured data. A useful example is this query to find all the direct and indirect sub-parts of a product, given only a table that shows immediate inclusions:
+
+WITH RECURSIVE included_parts(sub_part, part, quantity) AS (
+		SELECT sub_part, part, quantity FROM parts WHERE part =
+	'our_product'
+	 UNION ALL
+		SELECT p.sub_part, p.part, p.quantity
+		FROM included_parts pr, parts p
+		WHERE p.part = pr.sub_part
+)
+SELECT sub_part, SUM(quantity) as total_quantity
+FROM included_parts
+GROUP BY sub_part
+
+You can use data-modifying statements (INSERT, UPDATE, or DELETE) in WITH. This allows you to perform several different operations in the same query. An example is:
+
+WITH moved_rows AS (
+	DELETE FROM products
+	WHERE
+		"date" >= '2010-10-01' AND
+		"date" < '2010-11-01'
+	RETURNING *
+)
+INSERT INTO products_log
+SELECT * FROM moved_rows;
+
+This query effectively moves rows from products to products_log. The DELETE in WITH deletes the specified rows from products, returning their contents by means of its RETURNING clause; and then the primary query reads that output and inserts it into products_log.
+
+
+
+
