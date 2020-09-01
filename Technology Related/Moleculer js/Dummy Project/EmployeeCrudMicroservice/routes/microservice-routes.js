@@ -12,14 +12,6 @@ module.exports = [
 			"PUT employees/bulkUpdate": "employees.bulkUpdate",
 			"GET employees/getByTechId": "employees.getByTechId",
 			"GET technologies/getByEmpId": "technologies.getByEmpId",
-			"GET employeeTechnologies": "employeeTechnologies.list",
-			"POST employeeTechnologies": "employeeTechnologies.create",
-			"PUT employeeTechnologies": "employeeTechnologies.update",
-			"DELETE employeeTechnologies": "employeeTechnologies.remove",
-			"GET employeeTechnologies/getEmpIds":
-				"employeeTechnologies.getEmpIds",
-			"GET employeeTechnologies/getTechIds":
-				"employeeTechnologies.getTechIds",
 		},
 
 		// Disable to call not-mapped actions
