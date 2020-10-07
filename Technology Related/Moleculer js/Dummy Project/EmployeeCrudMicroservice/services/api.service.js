@@ -136,13 +136,13 @@ module.exports = {
 	 * Service started lifecycle event handler
 	 */
 	started() {
-		client.start();
+	//	client.start();
 	},
 
 	/**
 	 * Service stopped lifecycle event handler
 	 */
 	stopped() {
-		client.stop();
+	//	client.stop();
 	},
 };

@@ -289,7 +289,7 @@ module.exports = {
 							.catch((err) => {
 								reject(
 									new MoleculerClientError(
-										"Error in Create Employee.",
+										"Error in Update Employee.",
 										err.code,
 										"employeeAPI",
 										err

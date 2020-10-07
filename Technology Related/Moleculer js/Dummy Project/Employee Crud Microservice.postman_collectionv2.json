@@ -1,0 +1,383 @@
+{
+	"info": {
+		"_postman_id": "69c10397-dd0e-4222-a84f-c9f823e6371f",
+		"name": "Employee Crud Microservice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n        \"Emp_Fname\" : \"Harsh\",\n        \"Emp_Mname\" : \"Vinodbhai\",\n        \"Emp_Lname\":\" Gajjar\",\n        \"Emp_Mobile_No\": \"9106447228\",    \n        \"Emp_Email_Id\": \"aniketgajjar966@gmail.com\",\n        \"Tech_Ids\" : [\"1\",\"2\"]\n         }"
+						},
+						"url": {
+							"raw": "http://localhost:8765/api/employees",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"api",
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Emp_Fname\" : \"Aniket\",\n    \"Emp_Mname\" : \"Vinodbhai\",\n    \"Emp_Lname\":\" Gajjar\",\n    \"Emp_Mobile_No\": \"9106447228\",    \n    \"Emp_Email_Id\": \"aniketgajjar966@gmail.com\",\n    \"Employee_Technologies\" : [{\n                \"Emp_Id\": 1,\n                \"Tech_Id\": 1\n            },\n            {\n                \"Emp_Id\": 1,\n                \"Tech_Id\": 2\n            }]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8765/api/employees/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"api",
+								"employees",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/api/employees/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"api",
+								"employees",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/api/employees/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"api",
+								"employees",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/api/employees",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"api",
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByTechId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/api/employees/getByTechId?Tech_Id=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"api",
+								"employees",
+								"getByTechId"
+							],
+							"query": [
+								{
+									"key": "Tech_Id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bulkCreate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Employees\": [\n        {\n        \"Emp_Fname\" : \"Aniket\",\n        \"Emp_Mname\" : \"Vinodbhai\",\n        \"Emp_Lname\":\" Gajjar\",\n        \"Emp_Mobile_No\": \"9106447228\",    \n        \"Emp_Email_Id\": \"aniketgajjar966@gmail.com\",\n        \"Tech_Ids\" : [\"1\",\"2\"]\n         },\n         {\n        \"Emp_Fname\" : \"Harsh\",\n        \"Emp_Mname\" : \"Vinodbhai\",\n        \"Emp_Lname\":\" Gajjar\",\n        \"Emp_Mobile_No\": \"9106447228\",    \n        \"Emp_Email_Id\": \"aniketgajjar966@gmail.com\",\n        \"Tech_Ids\" : [\"1\",\"2\"]\n         }\n    \n    ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8765/api/employees/bulkCreate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"api",
+								"employees",
+								"bulkCreate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bulkUpdate",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Employees\": [\n        {\n        \"Emp_Id\" : 171,\n        \"Emp_Fname\" : \"Aniket\",\n        \"Emp_Mname\" : \"Vinodbhai\",\n        \"Emp_Lname\":\" Gajjar\",\n        \"Emp_Mobile_No\": \"9106447228\",    \n        \"Emp_Email_Id\": \"aniketgajjar966@gmail.com\",\n        \"Employee_Technologies\" : [{\n                \"Emp_Id\": 171,\n                \"Tech_Id\": 1\n            },\n            {\n                \"Emp_Id\": 171,\n                \"Tech_Id\": 3\n            }]\n         },\n         {\n        \"Emp_Id\" : 170,\n        \"Emp_Fname\" : \"Harsh\",\n        \"Emp_Mname\" : \"Vinodbhai\",\n        \"Emp_Lname\":\" Gajjar\",\n        \"Emp_Mobile_No\": \"9106447228\",    \n        \"Emp_Email_Id\": \"aniketgajjar966@gmail.com\",\n        \"Employee_Technologies\" : [{\n                \"Emp_Id\": 170,\n                \"Tech_Id\": 1\n            },\n            {\n                \"Emp_Id\": 170,\n                \"Tech_Id\": 2\n            }]\n         }\n    \n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8765/api/employees/bulkUpdate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"api",
+								"employees",
+								"bulkUpdate"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Technology",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/api/technologies?Tech_Name=nodejs&Tech_Description=nodejs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"api",
+								"technologies"
+							],
+							"query": [
+								{
+									"key": "Tech_Name",
+									"value": "nodejs"
+								},
+								{
+									"key": "Tech_Description",
+									"value": "nodejs"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/api/technologies/5?Tech_Name=nodejs&Tech_Description=Javascript",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"api",
+								"technologies",
+								"5"
+							],
+							"query": [
+								{
+									"key": "Tech_Name",
+									"value": "nodejs"
+								},
+								{
+									"key": "Tech_Description",
+									"value": "Javascript"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/api/technologies/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"api",
+								"technologies",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/api/technologies/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"api",
+								"technologies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/api/technologies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"api",
+								"technologies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByEmpId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/api/technologies/getByEmpId?Emp_Id=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"api",
+								"technologies",
+								"getByEmpId"
+							],
+							"query": [
+								{
+									"key": "Emp_Id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

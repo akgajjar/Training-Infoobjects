@@ -144,16 +144,17 @@ module.exports = {
 		checkEmployees(ctx) {
 			if (ctx.params.Employees != null) {
 				for (let employee of ctx.params.Employees) {
-					if (employee.Emp_Id != null)
+					if (employee.Emp_Id != null) {
 						this.validate(
 							ctx,
-							employee.Emp_Id,
+							employee.Emp_Id.toString(),
 							"^[0-9]+$",
 							"digitOnly",
 							"The 'Emp_Id' field must be Integer Only.",
 							"Emp_Id"
 						);
-
+						employee.Emp_Id = Number(employee.Emp_Id);
+					}
 					this.validate(
 						ctx,
 						employee.Emp_Fname,

@@ -47,7 +47,7 @@ empController.update = (ctx) => {
 				Emp_Email_Id: ctx.params.Emp_Email_Id,
 			};
 			employeeTechnologies = ctx.params.Employee_Technologies;
-			empId = ctx.params.Emp_Id;
+			empId = ctx.params.id;
 		} else {
 			employeeTechnologies = ctx.params.employee.Employee_Technologies;
 			employee = ctx.params.employee;
@@ -55,6 +55,7 @@ empController.update = (ctx) => {
 			delete employee.Employee_Technologies;
 			delete employee.Emp_Id;
 		}
+		console.log(empId);
 
 		empService
 			.update(employee, employeeTechnologies, empId)
